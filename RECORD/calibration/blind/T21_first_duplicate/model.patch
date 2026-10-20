@@ -1,0 +1,20 @@
+--- a/src/seqkit/search.py
++++ b/src/seqkit/search.py
+@@ -4,14 +4,13 @@
+ 
+ 
+ def _first_repeated(values):
+-    """Return the repeated value whose first occurrence is earliest."""
++    """Return the repeated value whose second occurrence is earliest."""
+     seen = set()
+-    result = None
+     for value in values:
+         if value in seen:
+-            result = value
++            return value
+         seen.add(value)
+-    return result
++    return None
+ 
+ 
+ def find_first_duplicate(values):

@@ -1,0 +1,23 @@
+............FF                                                           [100%]
+================================== FAILURES ===================================
+______________________ test_extract_emails_with_plus_tag ______________________
+tests/test_target.py:7: in test_extract_emails_with_plus_tag
+    assert extract_emails(text) == ["alice+news@example.com", "bob@example.org"]
+E   AssertionError: assert ['bob@example.org'] == ['alice+news@...@example.org']
+E     
+E     At index 0 diff: 'bob@example.org' != 'alice+news@example.com'
+E     Right contains one more item: 'bob@example.org'
+E     Use -v to get more diff
+____________________ test_report_helpers_include_plus_tag _____________________
+tests/test_target.py:14: in test_report_helpers_include_plus_tag
+    assert domain_counts(text) == {"example.com": 2, "other.org": 1}
+E   AssertionError: assert {'other.org': 1} == {'example.com...other.org': 1}
+E     
+E     Omitting 1 identical items, use -vv to show
+E     Right contains 1 more item:
+E     {'example.com': 2}
+E     Use -v to get more diff
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_extract_emails_with_plus_tag - AssertionErr...
+FAILED tests/test_target.py::test_report_helpers_include_plus_tag - Assertion...
+2 failed, 12 passed in 0.09s

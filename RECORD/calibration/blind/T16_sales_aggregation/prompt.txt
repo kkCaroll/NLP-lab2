@@ -1,0 +1,43 @@
+你是一名代码修复智能体。当前工作目录是一个 Python 项目。
+
+项目说明：
+调用 aggregate_sales 或 total_revenue 处理包含退款的销售记录时，退款被加到了区域收入中。例如 north 区域销售额为 100 元、退款为 30 元，期望净收入为 70 元，实际得到 130 元。请修复该问题，并保持纯销售记录、金额格式化、筛选和指标计算的行为不变。
+
+初始测试失败信息：
+```text
+.............FFF                                                         [100%]
+================================== FAILURES ===================================
+______________________ test_refund_reduces_region_total _______________________
+tests/test_target.py:12: in test_refund_reduces_region_total
+    assert aggregate_sales(rows) == {"north": Decimal("70.00")}
+E   AssertionError: assert {'north': Decimal('130.00')} == {'north': Decimal('70.00')}
+E     
+E     Differing items:
+E     {'north': Decimal('130.00')} != {'north': Decimal('70.00')}
+E     Use -v to get more diff
+____________________ test_total_revenue_is_net_of_refunds _____________________
+tests/test_target.py:22: in test_total_revenue_is_net_of_refunds
+    assert total_revenue(rows) == Decimal("100.00")
+E   AssertionError: assert Decimal('200.00') == Decimal('100.00')
+E    +  where Decimal('200.00') = total_revenue([{'region': 'north', 'kind': 'sale', 'amount': '100.00'}, {'region': 'north', 'kind': 'refund', 'amount': '30.00'}, {'region': 'south', 'kind': 'sale', 'amount': '50.00'}, {'region': 'south', 'kind': 'refund', 'amount': '20.00'}])
+E    +  and   Decimal('100.00') = Decimal('100.00')
+_____________________ test_sales_report_uses_net_revenue ______________________
+tests/test_target.py:33: in test_sales_report_uses_net_revenue
+    assert report["by_region"] == {
+E   AssertionError: assert {'north': Dec...imal('70.00')} == {'north': Dec...imal('30.00')}
+E     
+E     Differing items:
+E     {'north': Decimal('130.00')} != {'north': Decimal('70.00')}
+E     {'south': Decimal('70.00')} != {'south': Decimal('30.00')}
+E     Use -v to get more diff
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_refund_reduces_region_total - AssertionErro...
+FAILED tests/test_target.py::test_total_revenue_is_net_of_refunds - Assertion...
+FAILED tests/test_target.py::test_sales_report_uses_net_revenue - AssertionEr...
+3 failed, 13 passed in 0.10s
+```
+
+请阅读项目代码和测试，定位并修复 bug，使全部测试通过。
+你可以用 Bash 运行 `python -m pytest` 检查修复结果。
+约束：不要修改 tests/ 目录下的任何文件，也不要修改测试配置文件。
+完成后用一句话总结你的修改。

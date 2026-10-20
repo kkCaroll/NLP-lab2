@@ -1,0 +1,43 @@
+{
+  "task_id": "T02",
+  "name": "parse_range",
+  "category": "边界条件",
+  "difficulty": "标准",
+  "source": {
+    "name": "Original",
+    "source_id": "T02_parse_range",
+    "url": "",
+    "commit": "",
+    "license": "Original task",
+    "modifications": "Authored for this experiment as a small inclusive range utility package with parsing, merging, formatting and validation modules."
+  },
+  "issue": "调用 parse_range 或 parse_many 解析闭区间时，区间的上界被丢弃。例如输入 1-5 期望得到 1 到 5 的全部整数，实际只返回到 4。请修复该问题，并保持单值解析、错误输入校验、区间合并、格式化和去重的行为不变。",
+  "target_tests": [
+    "tests/test_target.py::test_parse_range_includes_upper_bound",
+    "tests/test_target.py::test_parse_many_includes_each_upper_bound"
+  ],
+  "regression_tests": [
+    "tests/test_regression.py::test_parse_single_value",
+    "tests/test_regression.py::test_parse_range_rejects_reversed_bounds",
+    "tests/test_regression.py::test_parse_range_rejects_non_numeric_text",
+    "tests/test_regression.py::test_parse_range_rejects_non_string_input",
+    "tests/test_regression.py::test_parse_many_flattens_single_values",
+    "tests/test_regression.py::test_parse_many_rejects_non_list_input",
+    "tests/test_regression.py::test_merge_ranges_overlapping",
+    "tests/test_regression.py::test_merge_ranges_adjacent",
+    "tests/test_regression.py::test_format_ranges",
+    "tests/test_regression.py::test_summarize_ranges",
+    "tests/test_regression.py::test_unique_values_keep_first_seen_order",
+    "tests/test_regression.py::test_expand_ranges",
+    "tests/test_regression.py::test_validate_range_rejects_invalid_pairs"
+  ],
+  "target_failure_mode": "assertion",
+  "gold_lines": 1,
+  "allowed_files": [
+    "src/rangekit/parse.py"
+  ],
+  "test_command": "python -m pytest",
+  "expected_buggy": "2 failed, 13 passed",
+  "expected_gold": "15 passed",
+  "notes": "The inclusive parser uses half-open range semantics. Regression tests use single values or other modules so they pass in both states."
+}

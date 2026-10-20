@@ -1,0 +1,44 @@
+{
+  "task_id": "T16",
+  "name": "sales_aggregation",
+  "category": "数据处理",
+  "difficulty": "困难",
+  "source": {
+    "name": "BigCodeBench",
+    "source_id": "BigCodeBench/741",
+    "url": "https://github.com/bigcode-project/bigcodebench",
+    "commit": "v0.1.4",
+    "license": "Apache-2.0",
+    "modifications": "Reused the regional grouping and summation idea from BigCodeBench/741, expanded it into a multi-module sales reporting package with shared amount conversion, added refund records, filters, metrics and reports, and rewrote all tests."
+  },
+  "issue": "调用 aggregate_sales 或 total_revenue 处理包含退款的销售记录时，退款被加到了区域收入中。例如 north 区域销售额为 100 元、退款为 30 元，期望净收入为 70 元，实际得到 130 元。请修复该问题，并保持纯销售记录、金额格式化、筛选和指标计算的行为不变。",
+  "target_tests": [
+    "tests/test_target.py::test_refund_reduces_region_total",
+    "tests/test_target.py::test_total_revenue_is_net_of_refunds",
+    "tests/test_target.py::test_sales_report_uses_net_revenue"
+  ],
+  "regression_tests": [
+    "tests/test_regression.py::test_to_amount_rounds_to_cents",
+    "tests/test_regression.py::test_format_amount_and_sum",
+    "tests/test_regression.py::test_normalize_record_lowercases_and_rounds",
+    "tests/test_regression.py::test_sales_only_aggregation",
+    "tests/test_regression.py::test_multiple_regions_sales_only",
+    "tests/test_regression.py::test_empty_rows",
+    "tests/test_regression.py::test_invalid_kind_raises",
+    "tests/test_regression.py::test_top_region_sales_only",
+    "tests/test_regression.py::test_filters_and_sorting",
+    "tests/test_regression.py::test_metrics_sales_only",
+    "tests/test_regression.py::test_refund_rate",
+    "tests/test_regression.py::test_summary_lines_sales_only",
+    "tests/test_regression.py::test_normalize_records_rejects_non_list"
+  ],
+  "target_failure_mode": "assertion",
+  "gold_lines": 1,
+  "allowed_files": [
+    "src/saleskit/aggregate.py"
+  ],
+  "test_command": "python -m pytest",
+  "expected_buggy": "3 failed, 13 passed",
+  "expected_gold": "16 passed",
+  "notes": "The refund branch adds the amount instead of subtracting it. The shared to_amount and normalize_records helpers are unchanged, and regression tests use sales-only records so they pass in both states."
+}

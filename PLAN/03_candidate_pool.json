@@ -1,0 +1,1030 @@
+{
+  "generated_at": "2026-10-20",
+  "sources": {
+    "QuixBugs": {
+      "path": "tasks/_sources/QuixBugs",
+      "commit": "4257f44b0ff1181dedaedee6a447e133219fcebf",
+      "license": "MIT"
+    },
+    "BigCodeBench": {
+      "path": "tasks/_sources/bigcodebench/bigcodebench-v0.1.4.parquet",
+      "version": "v0.1.4",
+      "license": "Apache-2.0"
+    }
+  },
+  "counts": {
+    "total": 53,
+    "QuixBugs": 22,
+    "BigCodeBench": 31
+  },
+  "candidates": [
+    {
+      "candidate_id": "QB-find_first_in_sorted",
+      "source": "QuixBugs",
+      "source_id": "find_first_in_sorted",
+      "category": "边界条件/排序查找",
+      "difficulty_fit": "标准",
+      "loc": 35,
+      "test_cases": 7,
+      "has_embedded_test": true,
+      "has_buggy_version": true,
+      "has_fixed_version": true,
+      "notes": "二分查找重复元素，适合拆分目标与回归用例"
+    },
+    {
+      "candidate_id": "QB-find_in_sorted",
+      "source": "QuixBugs",
+      "source_id": "find_in_sorted",
+      "category": "边界条件/排序查找",
+      "difficulty_fit": "标准",
+      "loc": 31,
+      "test_cases": 7,
+      "has_embedded_test": true,
+      "has_buggy_version": true,
+      "has_fixed_version": true,
+      "notes": "二分查找边界，适合半开区间错误"
+    },
+    {
+      "candidate_id": "QB-gcd",
+      "source": "QuixBugs",
+      "source_id": "gcd",
+      "category": "函数逻辑",
+      "difficulty_fit": "标准",
+      "loc": 26,
+      "test_cases": 6,
+      "has_embedded_test": true,
+      "has_buggy_version": true,
+      "has_fixed_version": true,
+      "notes": "递归与取模，适合一行逻辑错误"
+    },
+    {
+      "candidate_id": "QB-next_palindrome",
+      "source": "QuixBugs",
+      "source_id": "next_palindrome",
+      "category": "函数逻辑",
+      "difficulty_fit": "标准",
+      "loc": 33,
+      "test_cases": 5,
+      "has_embedded_test": true,
+      "has_buggy_version": true,
+      "has_fixed_version": true,
+      "notes": "进位与回文边界，适合边界逻辑"
+    },
+    {
+      "candidate_id": "QB-possible_change",
+      "source": "QuixBugs",
+      "source_id": "possible_change",
+      "category": "函数逻辑/数据处理",
+      "difficulty_fit": "标准",
+      "loc": 33,
+      "test_cases": 10,
+      "has_embedded_test": true,
+      "has_buggy_version": true,
+      "has_fixed_version": true,
+      "notes": "动态规划零钱问题，测试用例较多"
+    },
+    {
+      "candidate_id": "QB-hanoi",
+      "source": "QuixBugs",
+      "source_id": "hanoi",
+      "category": "函数逻辑",
+      "difficulty_fit": "标准",
+      "loc": 35,
+      "test_cases": 8,
+      "has_embedded_test": true,
+      "has_buggy_version": true,
+      "has_fixed_version": true,
+      "notes": "递归移动序列，适合步骤与边界"
+    },
+    {
+      "candidate_id": "QB-quicksort",
+      "source": "QuixBugs",
+      "source_id": "quicksort",
+      "category": "排序查找",
+      "difficulty_fit": "标准",
+      "loc": 19,
+      "test_cases": 13,
+      "has_embedded_test": true,
+      "has_buggy_version": true,
+      "has_fixed_version": true,
+      "notes": "分区与递归，测试用例最多"
+    },
+    {
+      "candidate_id": "QB-kth",
+      "source": "QuixBugs",
+      "source_id": "kth",
+      "category": "排序查找",
+      "difficulty_fit": "标准",
+      "loc": 32,
+      "test_cases": 7,
+      "has_embedded_test": true,
+      "has_buggy_version": true,
+      "has_fixed_version": true,
+      "notes": "选择第 k 小，适合边界与重复值"
+    },
+    {
+      "candidate_id": "QB-mergesort",
+      "source": "QuixBugs",
+      "source_id": "mergesort",
+      "category": "排序查找",
+      "difficulty_fit": "标准",
+      "loc": 36,
+      "test_cases": 14,
+      "has_embedded_test": true,
+      "has_buggy_version": true,
+      "has_fixed_version": true,
+      "notes": "归并与稳定性，适合回归测试"
+    },
+    {
+      "candidate_id": "QB-bucketsort",
+      "source": "QuixBugs",
+      "source_id": "bucketsort",
+      "category": "排序查找",
+      "difficulty_fit": "标准",
+      "loc": 27,
+      "test_cases": 7,
+      "has_embedded_test": true,
+      "has_buggy_version": true,
+      "has_fixed_version": true,
+      "notes": "桶排序边界与空桶"
+    },
+    {
+      "candidate_id": "QB-to_base",
+      "source": "QuixBugs",
+      "source_id": "to_base",
+      "category": "类型转换",
+      "difficulty_fit": "标准",
+      "loc": 32,
+      "test_cases": 10,
+      "has_embedded_test": true,
+      "has_buggy_version": true,
+      "has_fixed_version": true,
+      "notes": "整数转任意进制，适合字符映射"
+    },
+    {
+      "candidate_id": "QB-sqrt",
+      "source": "QuixBugs",
+      "source_id": "sqrt",
+      "category": "类型转换",
+      "difficulty_fit": "标准",
+      "loc": 27,
+      "test_cases": 7,
+      "has_embedded_test": true,
+      "has_buggy_version": true,
+      "has_fixed_version": true,
+      "notes": "整数平方根与精度边界"
+    },
+    {
+      "candidate_id": "QB-rpn_eval",
+      "source": "QuixBugs",
+      "source_id": "rpn_eval",
+      "category": "数据处理",
+      "difficulty_fit": "标准",
+      "loc": 43,
+      "test_cases": 6,
+      "has_embedded_test": true,
+      "has_buggy_version": true,
+      "has_fixed_version": true,
+      "notes": "逆波兰表达式求值，适合栈与错误处理"
+    },
+    {
+      "candidate_id": "QB-shunting_yard",
+      "source": "QuixBugs",
+      "source_id": "shunting_yard",
+      "category": "数据处理",
+      "difficulty_fit": "标准",
+      "loc": 48,
+      "test_cases": 6,
+      "has_embedded_test": true,
+      "has_buggy_version": true,
+      "has_fixed_version": true,
+      "notes": "中缀转后缀，适合运算符优先级"
+    },
+    {
+      "candidate_id": "QB-flatten",
+      "source": "QuixBugs",
+      "source_id": "flatten",
+      "category": "数据处理",
+      "difficulty_fit": "标准",
+      "loc": 29,
+      "test_cases": 7,
+      "has_embedded_test": true,
+      "has_buggy_version": true,
+      "has_fixed_version": true,
+      "notes": "嵌套列表展平，适合递归与类型判断"
+    },
+    {
+      "candidate_id": "QB-wrap",
+      "source": "QuixBugs",
+      "source_id": "wrap",
+      "category": "数据处理",
+      "difficulty_fit": "标准",
+      "loc": 28,
+      "test_cases": 5,
+      "has_embedded_test": true,
+      "has_buggy_version": true,
+      "has_fixed_version": true,
+      "notes": "文本换行，适合边界与空白"
+    },
+    {
+      "candidate_id": "QB-max_sublist_sum",
+      "source": "QuixBugs",
+      "source_id": "max_sublist_sum",
+      "category": "函数逻辑",
+      "difficulty_fit": "标准",
+      "loc": 31,
+      "test_cases": 6,
+      "has_embedded_test": true,
+      "has_buggy_version": true,
+      "has_fixed_version": true,
+      "notes": "最大子数组和，适合负数与空输入"
+    },
+    {
+      "candidate_id": "QB-lis",
+      "source": "QuixBugs",
+      "source_id": "lis",
+      "category": "函数逻辑",
+      "difficulty_fit": "标准",
+      "loc": 37,
+      "test_cases": 12,
+      "has_embedded_test": true,
+      "has_buggy_version": true,
+      "has_fixed_version": true,
+      "notes": "最长递增子序列，适合边界与重复值"
+    },
+    {
+      "candidate_id": "QB-levenshtein",
+      "source": "QuixBugs",
+      "source_id": "levenshtein",
+      "category": "函数逻辑",
+      "difficulty_fit": "标准",
+      "loc": 32,
+      "test_cases": 7,
+      "has_embedded_test": true,
+      "has_buggy_version": true,
+      "has_fixed_version": true,
+      "notes": "编辑距离，适合动态规划边界"
+    },
+    {
+      "candidate_id": "QB-knapsack",
+      "source": "QuixBugs",
+      "source_id": "knapsack",
+      "category": "函数逻辑",
+      "difficulty_fit": "标准",
+      "loc": 37,
+      "test_cases": 10,
+      "has_embedded_test": true,
+      "has_buggy_version": true,
+      "has_fixed_version": true,
+      "notes": "背包问题，适合容量与物品边界"
+    },
+    {
+      "candidate_id": "QB-bitcount",
+      "source": "QuixBugs",
+      "source_id": "bitcount",
+      "category": "函数逻辑",
+      "difficulty_fit": "标准",
+      "loc": 26,
+      "test_cases": 9,
+      "has_embedded_test": true,
+      "has_buggy_version": true,
+      "has_fixed_version": true,
+      "notes": "位计数，适合负数与零边界"
+    },
+    {
+      "candidate_id": "QB-get_factors",
+      "source": "QuixBugs",
+      "source_id": "get_factors",
+      "category": "函数逻辑",
+      "difficulty_fit": "标准",
+      "loc": 35,
+      "test_cases": 11,
+      "has_embedded_test": true,
+      "has_buggy_version": true,
+      "has_fixed_version": true,
+      "notes": "因子分解，适合完全平方与素数"
+    },
+    {
+      "candidate_id": "BCB-25",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/25",
+      "category": "数据处理/API 参数误用",
+      "difficulty_fit": "标准",
+      "libs": [
+        "zlib",
+        "base64",
+        "json"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 3,
+      "test_loc": 40,
+      "asserts": 10,
+      "test_methods": 5,
+      "test_imports": [
+        "base64",
+        "json",
+        "unittest",
+        "zlib"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "JSON 序列化、zlib 压缩、base64 编码链"
+    },
+    {
+      "candidate_id": "BCB-178",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/178",
+      "category": "数据处理/正则",
+      "difficulty_fit": "标准",
+      "libs": [
+        "re",
+        "json"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 11,
+      "test_loc": 28,
+      "asserts": 5,
+      "test_methods": 5,
+      "test_imports": [
+        "json",
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "从 JSON 响应中提取 IP，正则与 JSON 组合"
+    },
+    {
+      "candidate_id": "BCB-202",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/202",
+      "category": "数据处理/正则",
+      "difficulty_fit": "标准",
+      "libs": [
+        "collections",
+        "re",
+        "json"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 18,
+      "test_loc": 25,
+      "asserts": 6,
+      "test_methods": 5,
+      "test_imports": [
+        "doctest",
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "从 JSON 字符串中提取 URL，适合数据清洗"
+    },
+    {
+      "candidate_id": "BCB-254",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/254",
+      "category": "类型转换",
+      "difficulty_fit": "标准",
+      "libs": [
+        "math",
+        "json"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 7,
+      "test_loc": 24,
+      "asserts": 5,
+      "test_methods": 5,
+      "test_imports": [
+        "decimal",
+        "doctest",
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "小数平方根与 JSON 编码，适合精度与类型"
+    },
+    {
+      "candidate_id": "BCB-270",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/270",
+      "category": "正则/数据处理",
+      "difficulty_fit": "标准",
+      "libs": [
+        "collections",
+        "re"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 4,
+      "test_loc": 24,
+      "asserts": 6,
+      "test_methods": 6,
+      "test_imports": [
+        "faker",
+        "unittest"
+      ],
+      "test_third_party": [
+        "faker"
+      ],
+      "risk_flags": [
+        "test_third_party"
+      ],
+      "notes": "词频统计，测试依赖 faker，需重写"
+    },
+    {
+      "candidate_id": "BCB-433",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/433",
+      "category": "API 参数误用",
+      "difficulty_fit": "标准",
+      "libs": [
+        "base64",
+        "hashlib",
+        "hmac",
+        "binascii"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 3,
+      "test_loc": 31,
+      "asserts": 8,
+      "test_methods": 8,
+      "test_imports": [
+        "binascii",
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "HMAC 签名校验，API 参数与编码组合"
+    },
+    {
+      "candidate_id": "BCB-464",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/464",
+      "category": "类型转换/API 参数误用",
+      "difficulty_fit": "标准",
+      "libs": [
+        "decimal",
+        "datetime",
+        "json"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 8,
+      "test_loc": 45,
+      "asserts": 10,
+      "test_methods": 7,
+      "test_imports": [
+        "datetime",
+        "decimal",
+        "pytz",
+        "unittest"
+      ],
+      "test_third_party": [
+        "pytz"
+      ],
+      "risk_flags": [
+        "test_third_party"
+      ],
+      "notes": "JSON 编码 Decimal 与 datetime，测试依赖 pytz，需重写"
+    },
+    {
+      "candidate_id": "BCB-466",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/466",
+      "category": "API 参数误用",
+      "difficulty_fit": "标准",
+      "libs": [
+        "enum",
+        "json"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 6,
+      "test_loc": 37,
+      "asserts": 8,
+      "test_methods": 7,
+      "test_imports": [
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "JSON 编码 Enum，适合自定义 encoder"
+    },
+    {
+      "candidate_id": "BCB-667",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/667",
+      "category": "排序查找",
+      "difficulty_fit": "标准",
+      "libs": [
+        "collections",
+        "heapq"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 4,
+      "test_loc": 12,
+      "asserts": 5,
+      "test_methods": 5,
+      "test_imports": [
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "heapq 取前 n 个高频字母"
+    },
+    {
+      "candidate_id": "BCB-682",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/682",
+      "category": "数据处理",
+      "difficulty_fit": "标准",
+      "libs": [
+        "math",
+        "collections"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 7,
+      "test_loc": 33,
+      "asserts": 5,
+      "test_methods": 5,
+      "test_imports": [
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "嵌套字典聚合与 Counter"
+    },
+    {
+      "candidate_id": "BCB-709",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/709",
+      "category": "正则/数据处理",
+      "difficulty_fit": "标准",
+      "libs": [
+        "html",
+        "base64",
+        "re",
+        "textwrap"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 14,
+      "test_loc": 12,
+      "asserts": 5,
+      "test_methods": 5,
+      "test_imports": [
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "base64、HTML 实体、空白归一化"
+    },
+    {
+      "candidate_id": "BCB-733",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/733",
+      "category": "正则/函数逻辑",
+      "difficulty_fit": "标准",
+      "libs": [
+        "string",
+        "re"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 23,
+      "test_loc": 26,
+      "asserts": 8,
+      "test_methods": 8,
+      "test_imports": [
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "停用词计数，正则分词"
+    },
+    {
+      "candidate_id": "BCB-741",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/741",
+      "category": "数据处理",
+      "difficulty_fit": "标准",
+      "libs": [
+        "operator",
+        "itertools"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 5,
+      "test_loc": 30,
+      "asserts": 5,
+      "test_methods": 5,
+      "test_imports": [
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "按首字符分组求和，groupby"
+    },
+    {
+      "candidate_id": "BCB-747",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/747",
+      "category": "正则/类型转换",
+      "difficulty_fit": "标准",
+      "libs": [
+        "math",
+        "re"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 4,
+      "test_loc": 22,
+      "asserts": 10,
+      "test_methods": 5,
+      "test_imports": [
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "提取数字并求平方根和"
+    },
+    {
+      "candidate_id": "BCB-761",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/761",
+      "category": "数据处理/正则",
+      "difficulty_fit": "标准",
+      "libs": [
+        "collections",
+        "re",
+        "json"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 15,
+      "test_loc": 29,
+      "asserts": 5,
+      "test_methods": 5,
+      "test_imports": [
+        "collections",
+        "json",
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "JSON 清洗、邮箱替换、值频次"
+    },
+    {
+      "candidate_id": "BCB-766",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/766",
+      "category": "正则",
+      "difficulty_fit": "标准",
+      "libs": [
+        "collections",
+        "re"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 18,
+      "test_loc": 39,
+      "asserts": 11,
+      "test_methods": 7,
+      "test_imports": [
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "多模式计数，适合正则边界"
+    },
+    {
+      "candidate_id": "BCB-769",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/769",
+      "category": "数据处理/排序查找",
+      "difficulty_fit": "标准",
+      "libs": [
+        "operator",
+        "collections",
+        "itertools"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 5,
+      "test_loc": 31,
+      "asserts": 5,
+      "test_methods": 5,
+      "test_imports": [
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "嵌套列表展平与众数"
+    },
+    {
+      "candidate_id": "BCB-775",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/775",
+      "category": "正则/数据处理",
+      "difficulty_fit": "标准",
+      "libs": [
+        "collections",
+        "string",
+        "re"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 16,
+      "test_loc": 22,
+      "asserts": 5,
+      "test_methods": 5,
+      "test_imports": [
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "按最后一个连字符切分并统计字母"
+    },
+    {
+      "candidate_id": "BCB-851",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/851",
+      "category": "正则/数据处理",
+      "difficulty_fit": "标准",
+      "libs": [
+        "re",
+        "textwrap"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 10,
+      "test_loc": 36,
+      "asserts": 5,
+      "test_methods": 5,
+      "test_imports": [
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "textwrap 与整词替换"
+    },
+    {
+      "candidate_id": "BCB-867",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/867",
+      "category": "正则",
+      "difficulty_fit": "标准",
+      "libs": [
+        "string",
+        "re"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 11,
+      "test_loc": 32,
+      "asserts": 6,
+      "test_methods": 6,
+      "test_imports": [
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "删除 ASCII 标点"
+    },
+    {
+      "candidate_id": "BCB-893",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/893",
+      "category": "API 参数误用/数据处理",
+      "difficulty_fit": "标准",
+      "libs": [
+        "datetime",
+        "re"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 20,
+      "test_loc": 37,
+      "asserts": 6,
+      "test_methods": 6,
+      "test_imports": [
+        "datetime",
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "日志时间解析与平均，datetime 组合"
+    },
+    {
+      "candidate_id": "BCB-911",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/911",
+      "category": "数据处理",
+      "difficulty_fit": "标准",
+      "libs": [
+        "operator",
+        "string",
+        "functools"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 10,
+      "test_loc": 29,
+      "asserts": 5,
+      "test_methods": 5,
+      "test_imports": [
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "字母映射与 reduce 乘积"
+    },
+    {
+      "candidate_id": "BCB-928",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/928",
+      "category": "数据处理/排序查找",
+      "difficulty_fit": "困难候选",
+      "libs": [
+        "collections",
+        "itertools",
+        "string"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 12,
+      "test_loc": 36,
+      "asserts": 22,
+      "test_methods": 5,
+      "test_imports": [
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "生成全部双字母组合并统计，规模较大"
+    },
+    {
+      "candidate_id": "BCB-931",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/931",
+      "category": "正则/数据处理",
+      "difficulty_fit": "标准",
+      "libs": [
+        "collections",
+        "re"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 9,
+      "test_loc": 32,
+      "asserts": 7,
+      "test_methods": 7,
+      "test_imports": [
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "清洗后统计相邻字母对"
+    },
+    {
+      "candidate_id": "BCB-932",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/932",
+      "category": "正则/排序查找",
+      "difficulty_fit": "标准",
+      "libs": [
+        "collections",
+        "re"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 12,
+      "test_loc": 21,
+      "asserts": 7,
+      "test_methods": 7,
+      "test_imports": [
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "最频繁双字母组合"
+    },
+    {
+      "candidate_id": "BCB-937",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/937",
+      "category": "正则/数据处理",
+      "difficulty_fit": "标准",
+      "libs": [
+        "collections",
+        "re"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 3,
+      "test_loc": 19,
+      "asserts": 7,
+      "test_methods": 7,
+      "test_imports": [
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "字母数字频次统计"
+    },
+    {
+      "candidate_id": "BCB-957",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/957",
+      "category": "正则/数据处理",
+      "difficulty_fit": "标准",
+      "libs": [
+        "string",
+        "re"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 4,
+      "test_loc": 39,
+      "asserts": 9,
+      "test_methods": 9,
+      "test_imports": [
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "词数、字符数、唯一字符数"
+    },
+    {
+      "candidate_id": "BCB-972",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/972",
+      "category": "API 参数误用",
+      "difficulty_fit": "困难候选",
+      "libs": [
+        "pathlib",
+        "os"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 19,
+      "test_loc": 34,
+      "asserts": 8,
+      "test_methods": 7,
+      "test_imports": [
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "路径分隔与非法字符校验，适合改造为路径拼接任务"
+    },
+    {
+      "candidate_id": "BCB-1090",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/1090",
+      "category": "数据处理/API 参数误用",
+      "difficulty_fit": "困难候选",
+      "libs": [
+        "ast",
+        "collections",
+        "json"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 15,
+      "test_loc": 64,
+      "asserts": 8,
+      "test_methods": 8,
+      "test_imports": [
+        "collections",
+        "io",
+        "json",
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "JSON 文件指针、ast 解析与键频次"
+    },
+    {
+      "candidate_id": "BCB-1098",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/1098",
+      "category": "正则/排序查找",
+      "difficulty_fit": "标准",
+      "libs": [
+        "collections",
+        "re"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 10,
+      "test_loc": 23,
+      "asserts": 5,
+      "test_methods": 5,
+      "test_imports": [
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "去除 URL 后取 top N 词"
+    },
+    {
+      "candidate_id": "BCB-1126",
+      "source": "BigCodeBench",
+      "source_id": "BigCodeBench/1126",
+      "category": "正则/API 参数误用",
+      "difficulty_fit": "标准",
+      "libs": [
+        "hashlib",
+        "re"
+      ],
+      "entry_point": "task_func",
+      "solution_loc": 4,
+      "test_loc": 49,
+      "asserts": 9,
+      "test_methods": 9,
+      "test_imports": [
+        "hashlib",
+        "unittest"
+      ],
+      "test_third_party": [],
+      "risk_flags": [],
+      "notes": "清洗后 SHA256，适合正则与 API 组合"
+    }
+  ]
+}

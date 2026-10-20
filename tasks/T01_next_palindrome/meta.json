@@ -1,0 +1,43 @@
+{
+  "task_id": "T01",
+  "name": "next_palindrome",
+  "category": "边界条件",
+  "difficulty": "标准",
+  "source": {
+    "name": "QuixBugs",
+    "source_id": "next_palindrome",
+    "url": "https://github.com/jkoppel/QuixBugs/blob/master/python_programs/next_palindrome.py",
+    "commit": "4257f44b0ff1181dedaedee6a447e133219fcebf",
+    "license": "MIT",
+    "modifications": "Wrapped the buggy function in a small package, added is_palindrome and next_palindrome_int, added digit validation, conversion, mirroring and reporting helpers, rewrote the target and regression tests, removed the original docstring example."
+  },
+  "issue": "调用 next_palindrome 处理全部由 9 组成的数字序列时，返回的序列比预期多一位。例如输入 [9, 9] 期望得到 [1, 0, 1]，实际得到 [1, 0, 0, 1]。请修复该问题，并保持其他回文序列的转换结果不变。",
+  "target_tests": [
+    "tests/test_target.py::test_next_palindrome_after_two_nines",
+    "tests/test_target.py::test_next_palindrome_after_three_nines",
+    "tests/test_target.py::test_next_palindrome_int_after_99",
+    "tests/test_target.py::test_next_palindrome_int_after_999"
+  ],
+  "regression_tests": [
+    "tests/test_regression.py::test_next_palindrome_examples",
+    "tests/test_regression.py::test_next_palindrome_regular_carry",
+    "tests/test_regression.py::test_next_palindrome_single_digit",
+    "tests/test_regression.py::test_is_palindrome",
+    "tests/test_regression.py::test_next_palindrome_int_regular",
+    "tests/test_regression.py::test_validate_digits_regular",
+    "tests/test_regression.py::test_validate_digits_rejects_invalid",
+    "tests/test_regression.py::test_to_digits_and_from_digits",
+    "tests/test_regression.py::test_mirror_prefix",
+    "tests/test_regression.py::test_describe_next_palindrome_regular",
+    "tests/test_regression.py::test_next_palindrome_length_regular"
+  ],
+  "target_failure_mode": "assertion",
+  "gold_lines": 1,
+  "allowed_files": [
+    "src/digitkit/palindrome.py"
+  ],
+  "test_command": "python -m pytest",
+  "expected_buggy": "4 failed, 11 passed",
+  "expected_gold": "15 passed",
+  "notes": "The bug only appears when every digit is 9 and the sequence length is at least 2. The gold patch is the reverse of the injected change and touches one line. The digits and report modules provide validation, conversion, mirroring and formatting helpers covered by regression tests."
+}

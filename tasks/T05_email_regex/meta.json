@@ -1,0 +1,42 @@
+{
+  "task_id": "T05",
+  "name": "email_regex",
+  "category": "正则",
+  "difficulty": "标准",
+  "source": {
+    "name": "BigCodeBench",
+    "source_id": "BigCodeBench/761",
+    "url": "https://github.com/bigcode-project/bigcodebench",
+    "commit": "v0.1.4",
+    "license": "Apache-2.0",
+    "modifications": "Adapted the email-address regular expression from BigCodeBench/761 into a small mailscan package, added normalization and reporting helpers, rewrote the target and regression tests, and removed the JSON processing context."
+  },
+  "issue": "调用 is_email 或 extract_emails 处理包含加号标签的邮箱地址时，地址无法被识别。例如 alice+news@example.com 被判定为无效，extract_emails 返回空列表。请修复该问题，并保持普通邮箱地址、域名统计和替换功能的行为不变。",
+  "target_tests": [
+    "tests/test_target.py::test_extract_emails_with_plus_tag",
+    "tests/test_target.py::test_report_helpers_include_plus_tag"
+  ],
+  "regression_tests": [
+    "tests/test_regression.py::test_extract_plain_addresses",
+    "tests/test_regression.py::test_is_email_accepts_regular_addresses",
+    "tests/test_regression.py::test_is_email_rejects_incomplete_addresses",
+    "tests/test_regression.py::test_replace_emails_leaves_other_text",
+    "tests/test_regression.py::test_domain_counts_regular",
+    "tests/test_regression.py::test_email_domains_lowercase",
+    "tests/test_regression.py::test_mask_emails_regular",
+    "tests/test_regression.py::test_email_summary_regular",
+    "tests/test_regression.py::test_normalize_address",
+    "tests/test_regression.py::test_unique_addresses",
+    "tests/test_regression.py::test_normalize_address_rejects_invalid_value",
+    "tests/test_regression.py::test_non_string_inputs"
+  ],
+  "target_failure_mode": "assertion",
+  "gold_lines": 1,
+  "allowed_files": [
+    "src/mailscan/patterns.py"
+  ],
+  "test_command": "python -m pytest",
+  "expected_buggy": "2 failed, 12 passed",
+  "expected_gold": "14 passed",
+  "notes": "The local-part character class omits the plus sign. Target tests use plus-tag addresses, while regression tests use ordinary addresses so they pass in both states."
+}

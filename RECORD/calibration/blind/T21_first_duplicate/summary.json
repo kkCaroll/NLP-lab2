@@ -1,0 +1,19 @@
+{
+  "task": "T21_first_duplicate",
+  "model": "deepseek/deepseek-v4-pro",
+  "exit_code": 0,
+  "timed_out": false,
+  "duration_s": 48.7,
+  "pytest_exit_code": 0,
+  "tests_failed": 0,
+  "tests_passed": 19,
+  "all_passed": true,
+  "test_tampered": false,
+  "tool_calls": 15,
+  "edits": 1,
+  "cost_usd": 0.011703,
+  "diff_lines": 7,
+  "files_changed": [
+    "src/seqkit/search.py"
+  ]
+}

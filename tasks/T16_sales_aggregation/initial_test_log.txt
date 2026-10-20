@@ -1,0 +1,30 @@
+.............FFF                                                         [100%]
+================================== FAILURES ===================================
+______________________ test_refund_reduces_region_total _______________________
+tests/test_target.py:12: in test_refund_reduces_region_total
+    assert aggregate_sales(rows) == {"north": Decimal("70.00")}
+E   AssertionError: assert {'north': Decimal('130.00')} == {'north': Decimal('70.00')}
+E     
+E     Differing items:
+E     {'north': Decimal('130.00')} != {'north': Decimal('70.00')}
+E     Use -v to get more diff
+____________________ test_total_revenue_is_net_of_refunds _____________________
+tests/test_target.py:22: in test_total_revenue_is_net_of_refunds
+    assert total_revenue(rows) == Decimal("100.00")
+E   AssertionError: assert Decimal('200.00') == Decimal('100.00')
+E    +  where Decimal('200.00') = total_revenue([{'region': 'north', 'kind': 'sale', 'amount': '100.00'}, {'region': 'north', 'kind': 'refund', 'amount': '30.00'}, {'region': 'south', 'kind': 'sale', 'amount': '50.00'}, {'region': 'south', 'kind': 'refund', 'amount': '20.00'}])
+E    +  and   Decimal('100.00') = Decimal('100.00')
+_____________________ test_sales_report_uses_net_revenue ______________________
+tests/test_target.py:33: in test_sales_report_uses_net_revenue
+    assert report["by_region"] == {
+E   AssertionError: assert {'north': Dec...imal('70.00')} == {'north': Dec...imal('30.00')}
+E     
+E     Differing items:
+E     {'north': Decimal('130.00')} != {'north': Decimal('70.00')}
+E     {'south': Decimal('70.00')} != {'south': Decimal('30.00')}
+E     Use -v to get more diff
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_refund_reduces_region_total - AssertionErro...
+FAILED tests/test_target.py::test_total_revenue_is_net_of_refunds - Assertion...
+FAILED tests/test_target.py::test_sales_report_uses_net_revenue - AssertionEr...
+3 failed, 13 passed in 0.10s

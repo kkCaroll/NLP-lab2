@@ -1,0 +1,21 @@
+................FFF                                                      [100%]
+================================== FAILURES ===================================
+______________ test_find_first_duplicate_prefers_earliest_value _______________
+tests/test_target.py:6: in test_find_first_duplicate_prefers_earliest_value
+    assert find_first_duplicate([3, 1, 3, 2, 1]) == 3
+E   assert 1 == 3
+E    +  where 1 = find_first_duplicate([3, 1, 3, 2, 1])
+______________ test_first_duplicate_index_prefers_earliest_value ______________
+tests/test_target.py:10: in test_first_duplicate_index_prefers_earliest_value
+    assert first_duplicate_index([3, 1, 3, 2, 1]) == 0
+E   assert 1 == 0
+E    +  where 1 = first_duplicate_index([3, 1, 3, 2, 1])
+__________________ test_duplicate_report_uses_earliest_value __________________
+tests/test_target.py:15: in test_duplicate_report_uses_earliest_value
+    assert report["first_duplicate"] == 5
+E   assert 4 == 5
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_find_first_duplicate_prefers_earliest_value
+FAILED tests/test_target.py::test_first_duplicate_index_prefers_earliest_value
+FAILED tests/test_target.py::test_duplicate_report_uses_earliest_value - asse...
+3 failed, 16 passed in 0.09s

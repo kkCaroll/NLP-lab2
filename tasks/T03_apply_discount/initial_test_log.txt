@@ -1,0 +1,18 @@
+................FF                                                       [100%]
+================================== FAILURES ===================================
+__________________ test_apply_discount_subtracts_percentage ___________________
+tests/test_target.py:7: in test_apply_discount_subtracts_percentage
+    assert apply_discount("100.00", 20) == Decimal("80.00")
+E   AssertionError: assert Decimal('99.80') == Decimal('80.00')
+E    +  where Decimal('99.80') = apply_discount('100.00', 20)
+E    +  and   Decimal('80.00') = Decimal('80.00')
+_________________ test_discounted_total_subtracts_percentage __________________
+tests/test_target.py:12: in test_discounted_total_subtracts_percentage
+    assert discounted_total(items, 20) == Decimal("80.00")
+E   AssertionError: assert Decimal('99.80') == Decimal('80.00')
+E    +  where Decimal('99.80') = discounted_total([{'price': '50.00', 'quantity': 2}], 20)
+E    +  and   Decimal('80.00') = Decimal('80.00')
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_apply_discount_subtracts_percentage - Asser...
+FAILED tests/test_target.py::test_discounted_total_subtracts_percentage - Ass...
+2 failed, 16 passed in 0.07s

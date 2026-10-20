@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-10-20",
+  "purpose": "Model metadata for the problem-20 code-repair feedback experiment",
+  "scaffold": {
+    "name": "OpenCode",
+    "version": "1.18.25",
+    "agent": "build",
+    "command_template": "XDG_CONFIG_HOME=<isolated-config> opencode run --model <model_id> --agent build --format json --pure --auto \"<prompt>\"",
+    "permissions": {
+      "read": "allow",
+      "edit": "allow",
+      "glob": "allow",
+      "grep": "allow",
+      "list": "allow",
+      "bash": {
+        "*": "deny",
+        "python -m pytest*": "allow"
+      },
+      "webfetch": "deny",
+      "websearch": "deny",
+      "external_directory": "deny",
+      "task": "deny",
+      "skill": "deny",
+      "lsp": "deny",
+      "doom_loop": "deny"
+    },
+    "agent_steps": 12,
+    "external_hard_limits": {
+      "tool_calls": 15,
+      "edits": 8,
+      "seconds": 300,
+      "usd_safety_cap": 0.5
+    },
+    "temperature": "provider default (not forced)",
+    "test_execution": "enabled via python -m pytest; tests restored and hash-checked after each run"
+  },
+  "models": [
+    {
+      "role": "evaluated_model_a",
+      "report_name": "DeepSeek-V4.1-Flash",
+      "opencode_id": "deepseek/deepseek-flash",
+      "api_model_id": "deepseek-flash",
+      "served_version": "DeepSeek-V4.1-Flash-1017",
+      "vendor": "DeepSeek",
+      "release_date": "2026-09-10",
+      "knowledge_cutoff": "2025-05",
+      "open_weights": true,
+      "context_window": 1048576,
+      "max_output_tokens_api": 393216,
+      "max_output_tokens_docs": 393216,
+      "input_modalities": ["text", "image"],
+      "output_modalities": ["text"],
+      "supports_tool_calls": true,
+      "supports_reasoning": true,
+      "reasoning_effort_levels": ["low", "high", "max"],
+      "default_reasoning_effort": "high",
+      "thinking_default_on": true,
+      "supports_temperature": true,
+      "supports_json_output": true,
+      "supports_anthropic_api": true,
+      "access": {
+        "provider": "DeepSeek official API",
+        "protocol": "OpenAI-compatible",
+        "base_url": "https://api.deepseek.com/v1",
+        "anthropic_base_url": "https://api.deepseek.com/anthropic",
+        "auth_env": "ANTHROPIC_AUTH_TOKEN",
+        "notes": "Key read from environment; never committed. Anthropic-compatible endpoint exists but the experiment uses the OpenAI-compatible endpoint for both consistency and tool-call stability."
+      },
+      "pricing": {
+        "currency": "CNY",
+        "unit": "per_1m_tokens",
+        "source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing",
+        "peak_hours": "Mon-Fri 09:00-12:00 and 14:00-18:00 Asia/Shanghai, excluding statutory holidays",
+        "off_peak_multiplier": 0.5,
+        "cache_hit_input": {"off_peak": 0.02, "peak": 0.04},
+        "cache_miss_input": {"off_peak": 1.0, "peak": 2.0},
+        "output": {"off_peak": 4.0, "peak": 8.0}
+      },
+      "concurrency_limit": 2500,
+      "experiment_cost": {
+        "billing": "metered",
+        "estimated_total_cny": "10-30",
+        "note": "Estimate covers 24 tasks x conditions, 6-task rerun and the 8-task no-test ablation; confirm against the API bill."
+      },
+      "risks": [
+        "Vendor may roll the served version without changing the model name; pin the observed version and date in the report.",
+        "Thinking mode is on by default and adds output tokens.",
+        "Setting temperature=0 in OpenCode was observed to hang this model; do not force temperature."
+      ],
+      "evidence": [
+        "GET https://api.deepseek.com/models (2026-10-20)",
+        "https://api-docs.deepseek.com/zh-cn/quick_start/pricing (2026-10-20)",
+        "models.dev api.json (2026-10-20)",
+        "local OpenCode smoke tests (2026-10-20)"
+      ]
+    },
+    {
+      "role": "evaluated_model_b",
+      "report_name": "GLM-5.3-Flash",
+      "opencode_id": "opencode/glm-5.3-flash-free",
+      "canonical_model_id": "zhipuai/glm-5.3-flash",
+      "served_version": "GLM-5.3-Flash (OpenCode Zen free tier)",
+      "vendor": "Zhipu AI",
+      "release_date": "2026-08-26",
+      "open_weights": true,
+      "context_window": 1000000,
+      "max_output_tokens": 131072,
+      "input_modalities": ["text", "image", "video", "pdf"],
+      "output_modalities": ["text"],
+      "supports_tool_calls": true,
+      "supports_reasoning": true,
+      "reasoning_effort_levels": ["low", "high", "max"],
+      "default_reasoning_effort": "high",
+      "supports_temperature": true,
+      "supports_structured_output": true,
+      "access": {
+        "provider": "OpenCode Zen",
+        "tier": "free",
+        "base_url": "https://opencode.ai/zen/v1",
+        "auth": "OpenCode Zen session; no separate API key",
+        "notes": "Free-tier availability, rate limits and the exact served weights are controlled by OpenCode and are not publicly specified."
+      },
+      "pricing": {
+        "currency": "USD",
+        "unit": "per_1m_tokens",
+        "experiment_billing": 0.0,
+        "catalog_reference": {
+          "source": "models.dev entry opencode-go/glm-5.3-flash (different access path; not the experiment's billing)",
+          "input": 0.15,
+          "output": 0.5,
+          "cache_read": 0.03
+        },
+        "note": "The experiment uses the free tier, so actual marginal cost is $0. Do not report the catalog price as actual spend."
+      },
+      "experiment_cost": {
+        "billing": "free tier",
+        "estimated_total_usd": 0.0
+      },
+      "risks": [
+        "Free tier may rate-limit or queue during peak hours; record 429/5xx rates and latency in the pilot.",
+        "The free endpoint's weights/quantization may not be identical to the paid GLM-5.3-Flash; describe it as 'GLM-5.3-Flash via OpenCode Zen free tier'.",
+        "Model ID or free-tier availability may change; freeze the exact ID and run window in the report."
+      ],
+      "evidence": [
+        "GET https://opencode.ai/zen/v1/models (2026-10-20)",
+        "models.dev api.json entry opencode-go/glm-5.3-flash (2026-10-20)",
+        "local OpenCode smoke tests: read -> edit -> python -m pytest (2026-10-20)"
+      ]
+    }
+  ],
+  "comparability_notes": [
+    "The two models differ in vendor, parameter scale, output limit and price tier; this is a comparison of two practically available low-cost code models under one scaffold, not a controlled same-scale comparison.",
+    "Both models use identical prompts, tools, permissions, step limits and test-execution mode. Only the model ID differs.",
+    "Do not generalize the result to 'vendor A is better than vendor B'; report within-model feedback effects and the between-model interaction separately."
+  ]
+}

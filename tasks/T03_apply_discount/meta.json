@@ -1,0 +1,46 @@
+{
+  "task_id": "T03",
+  "name": "apply_discount",
+  "category": "函数逻辑",
+  "difficulty": "标准",
+  "source": {
+    "name": "Original",
+    "source_id": "T03_apply_discount",
+    "url": "",
+    "commit": "",
+    "license": "Original task",
+    "modifications": "Authored for this experiment as a small decimal pricing package with money, discount and cart modules."
+  },
+  "issue": "调用 apply_discount 或 discounted_total 计算百分比折扣时，折扣被重复除以 100。例如金额 100 元、折扣 20% 期望支付 80 元，实际支付 99.80 元。请修复该问题，并保持金额转换、四舍五入、购物车合计和百分比校验的行为不变。",
+  "target_tests": [
+    "tests/test_target.py::test_apply_discount_subtracts_percentage",
+    "tests/test_target.py::test_discounted_total_subtracts_percentage"
+  ],
+  "regression_tests": [
+    "tests/test_regression.py::test_to_decimal_accepts_numbers_and_text",
+    "tests/test_regression.py::test_to_decimal_rejects_invalid_values",
+    "tests/test_regression.py::test_round_money_rounds_half_up",
+    "tests/test_regression.py::test_format_money",
+    "tests/test_regression.py::test_add_and_subtract_money",
+    "tests/test_regression.py::test_line_total",
+    "tests/test_regression.py::test_cart_total_single_item",
+    "tests/test_regression.py::test_cart_total_multiple_items",
+    "tests/test_regression.py::test_cart_total_empty",
+    "tests/test_regression.py::test_cart_total_rejects_non_list",
+    "tests/test_regression.py::test_cart_item_requires_price_and_quantity",
+    "tests/test_regression.py::test_line_total_rejects_negative_quantity",
+    "tests/test_regression.py::test_line_total_rejects_boolean_quantity",
+    "tests/test_regression.py::test_apply_discount_zero_percent",
+    "tests/test_regression.py::test_discounted_total_zero_percent",
+    "tests/test_regression.py::test_validate_percent_bounds"
+  ],
+  "target_failure_mode": "assertion",
+  "gold_lines": 1,
+  "allowed_files": [
+    "src/pricing/discount.py"
+  ],
+  "test_command": "python -m pytest",
+  "expected_buggy": "2 failed, 16 passed",
+  "expected_gold": "18 passed",
+  "notes": "The discount rate is divided by 100 twice. Regression tests use zero percent discounts or helper functions, so they pass in both states."
+}

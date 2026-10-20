@@ -1,0 +1,9 @@
+--- a/src/pricing/discount.py
++++ b/src/pricing/discount.py
+@@ -19,5 +19,5 @@
+     if value < 0:
+         raise ValueError("amount must be non-negative")
+     rate = validate_percent(percent)
+-    discount = value * rate / Decimal("100") / Decimal("100")
++    discount = value * rate / Decimal("100")
+     return subtract_money(value, discount)

@@ -1,0 +1,21 @@
+.............FF                                                          [100%]
+================================== FAILURES ===================================
+____________________ test_parse_range_includes_upper_bound ____________________
+tests/test_target.py:5: in test_parse_range_includes_upper_bound
+    assert parse_range("1-5") == [1, 2, 3, 4, 5]
+E   assert [1, 2, 3, 4] == [1, 2, 3, 4, 5]
+E     
+E     Right contains one more item: 5
+E     Use -v to get more diff
+__________________ test_parse_many_includes_each_upper_bound __________________
+tests/test_target.py:9: in test_parse_many_includes_each_upper_bound
+    assert parse_many(["1-3", "7"]) == [1, 2, 3, 7]
+E   assert [1, 2, 7] == [1, 2, 3, 7]
+E     
+E     At index 2 diff: 7 != 3
+E     Right contains one more item: 7
+E     Use -v to get more diff
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_parse_range_includes_upper_bound - assert [...
+FAILED tests/test_target.py::test_parse_many_includes_each_upper_bound - asse...
+2 failed, 13 passed in 0.08s
