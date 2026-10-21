@@ -1,0 +1,43 @@
+{
+  "task_id": "T15",
+  "name": "slugify",
+  "category": "正则",
+  "difficulty": "困难",
+  "source": {
+    "name": "Original",
+    "source_id": "T15_slugify",
+    "url": "",
+    "commit": "",
+    "license": "Original task",
+    "modifications": "Authored for this experiment as a multi-module slug package with shared whitespace helpers, accent folding, title normalisation, segment helpers and reports."
+  },
+  "issue": "生成链接标识时，连续出现的标点或分隔符被逐个替换，结果中出现连续连字符。例如 Hello, World 期望得到 hello-world，实际得到 hello--world。请修复该问题，并保持空白归一化、标题大小写、重音折叠、唯一标识、路径渲染与标题渲染的行为不变。",
+  "target_tests": [
+    "tests/test_target.py::test_slugify_collapses_punctuation_runs",
+    "tests/test_target.py::test_format_index_collapses_separators"
+  ],
+  "regression_tests": [
+    "tests/test_regression.py::test_normalize_whitespace",
+    "tests/test_regression.py::test_collapse_blank_lines_and_indent",
+    "tests/test_regression.py::test_title_case_and_normalize_title",
+    "tests/test_regression.py::test_shorten_title",
+    "tests/test_regression.py::test_strip_accents_and_helpers",
+    "tests/test_regression.py::test_slugify_simple_text",
+    "tests/test_regression.py::test_slug_parts_and_is_slug",
+    "tests/test_regression.py::test_unique_slug",
+    "tests/test_regression.py::test_format_path",
+    "tests/test_regression.py::test_format_unique",
+    "tests/test_regression.py::test_format_heading",
+    "tests/test_regression.py::test_split_words_and_counts",
+    "tests/test_regression.py::test_unique_words"
+  ],
+  "target_failure_mode": "assertion",
+  "gold_lines": 2,
+  "allowed_files": [
+    "src/slugkit/slug.py"
+  ],
+  "test_command": "python -m pytest",
+  "expected_buggy": "2 failed, 13 passed",
+  "expected_gold": "15 passed",
+  "notes": "The slug pattern replaces each non-alphanumeric character separately. Two callers share slugify, the direct call and the index report. Whitespace and title helpers are separate modules and are covered by regression tests."
+}

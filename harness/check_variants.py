@@ -115,6 +115,128 @@ VARIANTS = {
         "alternative": 'DATE_FORMAT = "%Y-%m-%d"',
         "wrong": 'DATE_FORMAT = "%Y-%d-%m"',
     },
+    "T13_paginate": {
+        "file": "src/pagekit/limits.py",
+        "buggy": "    return max(low, min(value, high + 1))",
+        "alternative": "    return min(max(value, low), high)",
+        "wrong": "    return max(low, min(value, high + 2))",
+    },
+    "T15_slugify": {
+        "file": "src/slugkit/slug.py",
+        "buggy": 'SLUG_PATTERN = re.compile(r"[^a-z0-9]")',
+        "alternative": 'SLUG_PATTERN = re.compile(r"[\\W_]+")',
+        "wrong": 'SLUG_PATTERN = re.compile(r"[^a-z]+")',
+    },
+    "T17_merge_records": {
+        "file": "src/mergekit/records.py",
+        "buggy": "        if key not in merged:\n            merged[key] = candidate\n",
+        "alternative": (
+            "        if key not in merged:\n"
+            "            merged[key] = candidate\n"
+            "        else:\n"
+            "            merged[key] = pick_latest(merged[key], candidate)\n"
+        ),
+        "wrong": "        if key not in merged:\n            merged[key] = candidate\n",
+    },
+    "T18_parse_bool": {
+        "file": "src/confkit/booleans.py",
+        "buggy": (
+            "    if isinstance(value, bool):\n"
+            "        return value\n"
+            "    return bool(value)\n"
+        ),
+        "alternative": (
+            "    if isinstance(value, bool):\n"
+            "        return value\n"
+            "    if isinstance(value, str):\n"
+            "        text = value.strip().lower()\n"
+            "        if text not in TRUE_WORDS and text not in FALSE_WORDS:\n"
+            '            raise ValueError(f"not a boolean: {value}")\n'
+            "        return text in TRUE_WORDS\n"
+            "    return bool(value)\n"
+        ),
+        "wrong": (
+            "    if isinstance(value, bool):\n"
+            "        return value\n"
+            "    if isinstance(value, str):\n"
+            "        text = value.strip().lower()\n"
+            "        if text in TRUE_WORDS:\n"
+            "            return False\n"
+            "        if text in FALSE_WORDS:\n"
+            "            return True\n"
+            '        raise ValueError(f"not a boolean: {value}")\n'
+            "    return bool(value)\n"
+        ),
+    },
+    "T19_to_decimal": {
+        "file": "src/moneykit/amounts.py",
+        "buggy": (
+            "    if isinstance(value, float):\n"
+            "        return Decimal(value)\n"
+            "    try:\n"
+        ),
+        "alternative": (
+            "    if isinstance(value, float):\n"
+            "        return Decimal(repr(value))\n"
+            "    try:\n"
+        ),
+        "wrong": (
+            "    if isinstance(value, float):\n"
+            "        return Decimal(round(value, 2))\n"
+            "    try:\n"
+        ),
+    },
+    "T22_json_dumps": {
+        "file": "src/payloadkit/serialise.py",
+        "buggy": (
+            "            ensure_ascii=True,\n"
+            "            sort_keys=False,\n"
+            '            separators=(",", ": "),\n'
+        ),
+        "alternative": (
+            "            ensure_ascii=False,\n"
+            "            sort_keys=True,\n"
+            '            separators=(",", ":"),\n'
+        ),
+        "wrong": (
+            "            ensure_ascii=False,\n"
+            "            sort_keys=True,\n"
+            '            separators=(", ", ": "),\n'
+        ),
+    },
+    "T23_parse_flags": {
+        "edits": [
+            {
+                "file": "src/clikit/options.py",
+                "buggy": "import argparse\n",
+                "alternative": "import argparse\n\nfrom .flags import to_bool\n",
+                "wrong": "import argparse\n\nfrom .flags import to_bool\n",
+            },
+            {
+                "file": "src/clikit/options.py",
+                "buggy": (
+                    '    parser.add_argument("--verbose", type=bool, default=False)'
+                ),
+                "alternative": (
+                    '    parser.add_argument("--verbose", type=to_bool, default=False)'
+                ),
+                "wrong": (
+                    '    parser.add_argument("--verbose", type=to_bool, default=True)'
+                ),
+            },
+        ],
+    },
+    "T24_join_path": {
+        "file": "src/pathmont/join.py",
+        "buggy": "    return posixpath.join(base, *parts)",
+        "alternative": (
+            "    cleaned = [\n"
+            '        require_path(part, "part").lstrip("/") for part in parts\n'
+            "    ]\n"
+            "    return posixpath.join(base, *cleaned)"
+        ),
+        "wrong": "    return posixpath.normpath(posixpath.join(base, *parts))",
+    },
     "T16_sales_aggregation": {
         "file": "src/saleskit/aggregate.py",
         "buggy": (

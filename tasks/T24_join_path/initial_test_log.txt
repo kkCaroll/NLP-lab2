@@ -1,0 +1,22 @@
+.........FF                                                              [100%]
+================================== FAILURES ===================================
+___________ test_join_path_keeps_the_base_for_a_leading_slash_part ____________
+tests\test_target.py:5: in test_join_path_keeps_the_base_for_a_leading_slash_part
+    assert join_path("data", "/reports/q1.csv") == "data/reports/q1.csv"
+E   AssertionError: assert '/reports/q1.csv' == 'data/reports/q1.csv'
+E     
+E     - data/reports/q1.csv
+E     ? ----
+E     + /reports/q1.csv
+_________ test_resolve_under_keeps_the_root_for_a_leading_slash_part __________
+tests\test_target.py:9: in test_resolve_under_keeps_the_root_for_a_leading_slash_part
+    assert resolve_under("data", "/etc/passwd") == "data/etc/passwd"
+E   AssertionError: assert '/etc/passwd' == 'data/etc/passwd'
+E     
+E     - data/etc/passwd
+E     ? ----
+E     + /etc/passwd
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_join_path_keeps_the_base_for_a_leading_slash_part
+FAILED tests/test_target.py::test_resolve_under_keeps_the_root_for_a_leading_slash_part
+2 failed, 9 passed in 0.14s

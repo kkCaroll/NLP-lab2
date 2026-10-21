@@ -1,0 +1,11 @@
+--- a/src/mergekit/records.py
++++ b/src/mergekit/records.py
+@@ -46,7 +46,7 @@
+     for record in records:
+         key = record_key(record)
+         candidate = fill_missing(record)
+-        if key not in merged:
++        if key not in merged or candidate["version"] > merged[key]["version"]:
+             merged[key] = candidate
+     return list(merged.values())
+ 

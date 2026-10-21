@@ -1,0 +1,21 @@
+.................FF                                                      [100%]
+================================== FAILURES ===================================
+__________ test_paginate_beyond_the_last_page_returns_the_last_page ___________
+tests\test_target.py:5: in test_paginate_beyond_the_last_page_returns_the_last_page
+    assert paginate([1, 2, 3, 4, 5, 6, 7], 5, 3) == [7]
+E   assert [] == [7]
+E     
+E     Right contains one more item: 7
+E     Use -v to get more diff
+___________ test_slice_window_beyond_the_end_keeps_the_final_window ___________
+tests\test_target.py:9: in test_slice_window_beyond_the_end_keeps_the_final_window
+    assert slice_window([1, 2, 3, 4, 5], 9, 2) == [4, 5]
+E   assert [5] == [4, 5]
+E     
+E     At index 0 diff: 5 != 4
+E     Right contains one more item: 5
+E     Use -v to get more diff
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_paginate_beyond_the_last_page_returns_the_last_page
+FAILED tests/test_target.py::test_slice_window_beyond_the_end_keeps_the_final_window
+2 failed, 17 passed in 0.16s

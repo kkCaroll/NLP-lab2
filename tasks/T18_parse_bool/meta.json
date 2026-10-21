@@ -1,0 +1,42 @@
+{
+  "task_id": "T18",
+  "name": "parse_bool",
+  "category": "类型转换",
+  "difficulty": "困难",
+  "source": {
+    "name": "Original",
+    "source_id": "T18_parse_bool",
+    "url": "",
+    "commit": "",
+    "license": "Original task",
+    "modifications": "Authored for this experiment as a multi-module configuration package with boolean conversion, defaults, command line parsing, validation, environment helpers and reports."
+  },
+  "issue": "解析配置中的布尔值时，任意非空字符串都被当作真值，关闭开关的取值如 false 仍然生效为开启。例如 debug 配置为 false 时，加载结果仍为真。请修复该问题，并保持真值解析、默认值、配置合并、命令行解析、键校验与文本渲染的行为不变。",
+  "target_tests": [
+    "tests/test_target.py::test_parse_bool_reads_false_text",
+    "tests/test_target.py::test_load_config_converts_false_text"
+  ],
+  "regression_tests": [
+    "tests/test_regression.py::test_parse_bool_python_values",
+    "tests/test_regression.py::test_parse_bool_true_words",
+    "tests/test_regression.py::test_format_bool",
+    "tests/test_regression.py::test_is_true_and_toggle",
+    "tests/test_regression.py::test_load_config_defaults",
+    "tests/test_regression.py::test_load_config_converts_values",
+    "tests/test_regression.py::test_resolve_config_precedence",
+    "tests/test_regression.py::test_override_and_public_config",
+    "tests/test_regression.py::test_cli_parsing",
+    "tests/test_regression.py::test_validation_helpers",
+    "tests/test_regression.py::test_report_helpers",
+    "tests/test_regression.py::test_env_helpers"
+  ],
+  "target_failure_mode": "assertion",
+  "gold_lines": 7,
+  "allowed_files": [
+    "src/confkit/booleans.py"
+  ],
+  "test_command": "python -m pytest",
+  "expected_buggy": "2 failed, 12 passed",
+  "expected_gold": "14 passed",
+  "notes": "The converter delegates text to the builtin truth test, which treats every non-empty string as true. The same converter feeds configuration loading, command line options and environment values. Regression tests use true words or non-text values."
+}

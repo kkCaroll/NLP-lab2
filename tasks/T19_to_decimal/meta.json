@@ -1,0 +1,38 @@
+{
+  "task_id": "T19",
+  "name": "to_decimal",
+  "category": "类型转换",
+  "difficulty": "困难",
+  "source": {
+    "name": "Original",
+    "source_id": "T19_to_decimal",
+    "url": "",
+    "commit": "",
+    "license": "Original task",
+    "modifications": "Authored for this experiment as a multi-module money package with amount conversion, rounding, totals, percentages, currency helpers and text formatting."
+  },
+  "issue": "把浮点金额转换为精确小数时直接使用了二进制浮点值，半分的金额在四舍五入时向下偏移。例如 2.675 元保留两位小数期望得到 2.68，实际得到 2.67，格式化输出同样少一分。请修复该问题，并保持文本与整数转换、舍入模式、汇总、百分比、货币校验与格式化的行为不变。",
+  "target_tests": [
+    "tests/test_target.py::test_round_money_rounds_a_float_half_cent_upwards",
+    "tests/test_target.py::test_format_money_rounds_a_float_half_cent_upwards"
+  ],
+  "regression_tests": [
+    "tests/test_regression.py::test_to_decimal_from_text_and_integers",
+    "tests/test_regression.py::test_to_decimal_errors",
+    "tests/test_regression.py::test_round_money_with_text_inputs",
+    "tests/test_regression.py::test_floor_ceil_and_units",
+    "tests/test_regression.py::test_totals",
+    "tests/test_regression.py::test_rates_and_percentages",
+    "tests/test_regression.py::test_currency_helpers",
+    "tests/test_regression.py::test_format_helpers"
+  ],
+  "target_failure_mode": "assertion",
+  "gold_lines": 2,
+  "allowed_files": [
+    "src/moneykit/amounts.py"
+  ],
+  "test_command": "python -m pytest",
+  "expected_buggy": "2 failed, 8 passed",
+  "expected_gold": "10 passed",
+  "notes": "The float branch stores the binary approximation instead of the decimal text. Rounding and formatting both call this converter. Regression tests use text or integer inputs, which take the correct path even in the buggy state."
+}

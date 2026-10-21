@@ -1,0 +1,42 @@
+{
+  "task_id": "T23",
+  "name": "parse_flags",
+  "category": "API 参数误用",
+  "difficulty": "困难",
+  "source": {
+    "name": "Original",
+    "source_id": "T23_parse_flags",
+    "url": "",
+    "commit": "",
+    "license": "Original task",
+    "modifications": "Authored for this experiment as a multi-module command line package with flag conversion, parser construction, argument helpers, validation, commands and reports."
+  },
+  "issue": "命令行开关把文本值直接交给内置类型转换，任何非空文本都成为真值，--verbose false 仍然开启详细输出。请修复该问题，并保持真值解析、默认值、命令执行、参数校验与文本渲染的行为不变。",
+  "target_tests": [
+    "tests/test_target.py::test_parse_args_reads_a_false_flag",
+    "tests/test_target.py::test_run_honours_a_false_flag"
+  ],
+  "regression_tests": [
+    "tests/test_regression.py::test_to_bool_words",
+    "tests/test_regression.py::test_to_bool_errors",
+    "tests/test_regression.py::test_flag_helpers",
+    "tests/test_regression.py::test_parse_args_values",
+    "tests/test_regression.py::test_parse_args_defaults",
+    "tests/test_regression.py::test_command_helpers",
+    "tests/test_regression.py::test_run_defaults",
+    "tests/test_regression.py::test_run_verbose_true",
+    "tests/test_regression.py::test_run_many",
+    "tests/test_regression.py::test_validation_helpers",
+    "tests/test_regression.py::test_report_helpers",
+    "tests/test_regression.py::test_argv_helpers"
+  ],
+  "target_failure_mode": "assertion",
+  "gold_lines": 3,
+  "allowed_files": [
+    "src/clikit/options.py"
+  ],
+  "test_command": "python -m pytest",
+  "expected_buggy": "2 failed, 12 passed",
+  "expected_gold": "14 passed",
+  "notes": "The parser uses the builtin truth test as the flag type, so false text becomes true. A correct text converter already exists in the flags module. Regression tests use true values or omit the flag."
+}

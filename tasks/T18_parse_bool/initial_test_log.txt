@@ -1,0 +1,15 @@
+............FF                                                           [100%]
+================================== FAILURES ===================================
+______________________ test_parse_bool_reads_false_text _______________________
+tests\test_target.py:5: in test_parse_bool_reads_false_text
+    assert parse_bool("false") is False
+E   AssertionError: assert True is False
+E    +  where True = parse_bool('false')
+____________________ test_load_config_converts_false_text _____________________
+tests\test_target.py:9: in test_load_config_converts_false_text
+    assert load_config({"debug": "false"})["debug"] is False
+E   assert True is False
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_parse_bool_reads_false_text - AssertionErro...
+FAILED tests/test_target.py::test_load_config_converts_false_text - assert Tr...
+2 failed, 12 passed in 0.11s

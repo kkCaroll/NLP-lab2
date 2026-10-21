@@ -1,0 +1,22 @@
+.............FF                                                          [100%]
+================================== FAILURES ===================================
+___________________ test_slugify_collapses_punctuation_runs ___________________
+tests\test_target.py:5: in test_slugify_collapses_punctuation_runs
+    assert slugify("Hello, World!") == "hello-world"
+E   AssertionError: assert 'hello--world' == 'hello-world'
+E     
+E     - hello-world
+E     + hello--world
+E     ?       +
+___________________ test_format_index_collapses_separators ____________________
+tests\test_target.py:9: in test_format_index_collapses_separators
+    assert format_index([("Data -- Science", 3)]) == "data-science: 3"
+E   AssertionError: assert 'data----science: 3' == 'data-science: 3'
+E     
+E     - data-science: 3
+E     + data----science: 3
+E     ?     +++
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_slugify_collapses_punctuation_runs - Assert...
+FAILED tests/test_target.py::test_format_index_collapses_separators - Asserti...
+2 failed, 13 passed in 0.13s

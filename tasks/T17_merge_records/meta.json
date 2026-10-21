@@ -1,0 +1,43 @@
+{
+  "task_id": "T17",
+  "name": "merge_records",
+  "category": "数据处理",
+  "difficulty": "困难",
+  "source": {
+    "name": "Original",
+    "source_id": "T17_merge_records",
+    "url": "",
+    "commit": "",
+    "license": "Original task",
+    "modifications": "Authored for this experiment as a multi-module record package with field completion, merging, ordering, conflict detection and reports."
+  },
+  "issue": "按标识符合并记录时，同一标识符的多个版本只保留第一次出现的记录，较新的版本被丢弃。例如标识 a 先出现版本一后出现版本二，合并结果仍是版本一。请修复该问题，并保持字段补全、分组、排序、冲突检测与文本渲染的行为不变。",
+  "target_tests": [
+    "tests/test_target.py::test_merge_records_keeps_the_latest_version",
+    "tests/test_target.py::test_summarize_versions_reports_the_latest_version"
+  ],
+  "regression_tests": [
+    "tests/test_regression.py::test_fill_missing_applies_defaults_without_mutation",
+    "tests/test_regression.py::test_complete_record",
+    "tests/test_regression.py::test_field_helpers",
+    "tests/test_regression.py::test_record_key",
+    "tests/test_regression.py::test_group_by_id",
+    "tests/test_regression.py::test_merge_records_with_unique_ids",
+    "tests/test_regression.py::test_merge_records_with_equal_versions_keeps_the_first",
+    "tests/test_regression.py::test_pick_latest",
+    "tests/test_regression.py::test_latest_versions",
+    "tests/test_regression.py::test_order_helpers",
+    "tests/test_regression.py::test_conflicts",
+    "tests/test_regression.py::test_format_helpers",
+    "tests/test_regression.py::test_summarize_versions_with_unique_ids"
+  ],
+  "target_failure_mode": "assertion",
+  "gold_lines": 2,
+  "allowed_files": [
+    "src/mergekit/records.py"
+  ],
+  "test_command": "python -m pytest",
+  "expected_buggy": "2 failed, 13 passed",
+  "expected_gold": "15 passed",
+  "notes": "The merge loop stores the first record for each identifier and never compares versions. Both the merge function and the version summary share this path. Regression tests use unique identifiers or equal versions."
+}

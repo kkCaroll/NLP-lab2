@@ -1,0 +1,22 @@
+.............FF                                                          [100%]
+================================== FAILURES ===================================
+_________________ test_merge_records_keeps_the_latest_version _________________
+tests\test_target.py:12: in test_merge_records_keeps_the_latest_version
+    assert [record["name"] for record in merged] == ["new", "bee"]
+E   AssertionError: assert ['old', 'bee'] == ['new', 'bee']
+E     
+E     At index 0 diff: 'old' != 'new'
+E     Use -v to get more diff
+_____________ test_summarize_versions_reports_the_latest_version ______________
+tests\test_target.py:16: in test_summarize_versions_reports_the_latest_version
+    assert summarize_versions(RECORDS) == "a=2, b=1"
+E   AssertionError: assert 'a=1, b=1' == 'a=2, b=1'
+E     
+E     - a=2, b=1
+E     ?   ^
+E     + a=1, b=1
+E     ?   ^
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_merge_records_keeps_the_latest_version - As...
+FAILED tests/test_target.py::test_summarize_versions_reports_the_latest_version
+2 failed, 13 passed in 0.12s

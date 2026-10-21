@@ -1,0 +1,19 @@
+............FF                                                           [100%]
+================================== FAILURES ===================================
+_____________________ test_parse_args_reads_a_false_flag ______________________
+tests\test_target.py:5: in test_parse_args_reads_a_false_flag
+    assert parse_args(["--verbose", "false"]).verbose is False
+E   AssertionError: assert True is False
+E    +  where True = Namespace(verbose=True, name='world', repeat=1, command='greet').verbose
+E    +    where Namespace(verbose=True, name='world', repeat=1, command='greet') = parse_args(['--verbose', 'false'])
+________________________ test_run_honours_a_false_flag ________________________
+tests\test_target.py:9: in test_run_honours_a_false_flag
+    assert run(["--verbose", "false", "greet"]) == "hello world"
+E   AssertionError: assert 'verbose=True\nhello world' == 'hello world'
+E     
+E     + verbose=True
+E       hello world
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_parse_args_reads_a_false_flag - AssertionEr...
+FAILED tests/test_target.py::test_run_honours_a_false_flag - AssertionError: ...
+2 failed, 12 passed in 0.13s

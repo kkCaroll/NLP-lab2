@@ -1,0 +1,21 @@
+........FF                                                               [100%]
+================================== FAILURES ===================================
+______________ test_round_money_rounds_a_float_half_cent_upwards ______________
+tests\test_target.py:7: in test_round_money_rounds_a_float_half_cent_upwards
+    assert round_money(2.675) == Decimal("2.68")
+E   AssertionError: assert Decimal('2.67') == Decimal('2.68')
+E    +  where Decimal('2.67') = round_money(2.675)
+E    +  and   Decimal('2.68') = Decimal('2.68')
+_____________ test_format_money_rounds_a_float_half_cent_upwards ______________
+tests\test_target.py:11: in test_format_money_rounds_a_float_half_cent_upwards
+    assert format_money(1.005) == "1.01"
+E   AssertionError: assert '1.00' == '1.01'
+E     
+E     - 1.01
+E     ?    ^
+E     + 1.00
+E     ?    ^
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_round_money_rounds_a_float_half_cent_upwards
+FAILED tests/test_target.py::test_format_money_rounds_a_float_half_cent_upwards
+2 failed, 8 passed in 0.16s

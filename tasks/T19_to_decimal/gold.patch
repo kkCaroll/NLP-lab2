@@ -1,0 +1,11 @@
+--- a/src/moneykit/amounts.py
++++ b/src/moneykit/amounts.py
+@@ -7,8 +7,6 @@
+     """Return value as an exact decimal amount."""
+     if isinstance(value, Decimal):
+         return value
+-    if isinstance(value, float):
+-        return Decimal(value)
+     try:
+         return Decimal(str(value).strip())
+     except (InvalidOperation, AttributeError):

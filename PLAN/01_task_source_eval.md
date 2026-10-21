@@ -216,3 +216,5 @@ T03 为原创标准题，题目为百分比折扣 `apply_discount`，见 `../tas
 2026-10-21 完成标准题批次一。新增 T04 `next_permutation`、T06 `version_scan`、T07 `group_counts` 与 T08 `inventory_summary`，类别分别为函数逻辑、正则、数据处理与数据处理。四题源码为 4 个文件 101 至 142 行，buggy 状态均为 2 failed，gold 状态全部通过，五轮确定性检查与 G10 变体检查通过。标准题达到 8 道，困难题仍为 4 道，任务集累计 12 题。构造记录见 `../LOG/2026-10-21_standard_batch_1.md`。
 
 2026-10-21 完成标准题批次二。新增 T09 `safe_int`、T10 `top_k`、T11 `sort_items` 与 T12 `format_datetime`，类别分别为类型转换、排序查找、API 误用与 API 误用。四题源码为 4 个文件 102 至 153 行，buggy 状态均为 2 failed，gold 状态全部通过，五轮确定性检查与 G10 变体检查通过。标准题达到 12 道，困难题仍为 4 道，任务集累计 16 题。构造记录见 `../LOG/2026-10-21_standard_batch_2.md`。
+
+2026-10-21 完成困难题批次。新增 T13 `paginate`、T15 `slugify`、T17 `merge_records`、T18 `parse_bool`、T19 `to_decimal`、T22 `json_dumps`、T23 `parse_flags` 与 T24 `join_path`，类别分别为边界条件、正则、数据处理、类型转换、类型转换、API 误用、API 误用与 API 误用。八题源码为 6 至 7 个文件 260 至 306 行，buggy 状态均为 2 failed，gold 状态全部通过，五轮确定性检查与 G10 变体检查通过。标准题 12 道与困难题 12 道齐备，任务集累计 24 题。构造记录见 `../LOG/2026-10-21_hard_batch.md`。

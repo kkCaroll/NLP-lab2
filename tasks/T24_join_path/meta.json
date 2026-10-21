@@ -1,0 +1,39 @@
+{
+  "task_id": "T24",
+  "name": "join_path",
+  "category": "API 参数误用",
+  "difficulty": "困难",
+  "source": {
+    "name": "Original",
+    "source_id": "T24_join_path",
+    "url": "",
+    "commit": "",
+    "license": "Original task",
+    "modifications": "Authored for this experiment as a multi-module path package with normalisation, joining, root containment, extension helpers, segment checks and reports."
+  },
+  "issue": "拼接路径时，以斜杠开头的片段会丢弃前面的根目录。例如把 /reports/q1.csv 拼接到 data 下，期望得到 data/reports/q1.csv，实际得到 /reports/q1.csv；解析落到根目录之外的路径时同样会越过根目录。请修复该问题，并保持路径清理、相对片段拼接、扩展名、根目录判断与文本渲染的行为不变。",
+  "target_tests": [
+    "tests/test_target.py::test_join_path_keeps_the_base_for_a_leading_slash_part",
+    "tests/test_target.py::test_resolve_under_keeps_the_root_for_a_leading_slash_part"
+  ],
+  "regression_tests": [
+    "tests/test_regression.py::test_clean_path",
+    "tests/test_regression.py::test_path_parts",
+    "tests/test_regression.py::test_join_relative_parts",
+    "tests/test_regression.py::test_join_url",
+    "tests/test_regression.py::test_resolve_and_relative",
+    "tests/test_regression.py::test_common_root",
+    "tests/test_regression.py::test_extension_helpers",
+    "tests/test_regression.py::test_segment_helpers",
+    "tests/test_regression.py::test_report_helpers"
+  ],
+  "target_failure_mode": "assertion",
+  "gold_lines": 6,
+  "allowed_files": [
+    "src/pathmont/join.py"
+  ],
+  "test_command": "python -m pytest",
+  "expected_buggy": "2 failed, 9 passed",
+  "expected_gold": "11 passed",
+  "notes": "The join helper passes parts unchanged to the library join, which discards the earlier base for absolute style parts. Root containment builds on the same helper. Regression tests use relative parts only."
+}

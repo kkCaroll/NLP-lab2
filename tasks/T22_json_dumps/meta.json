@@ -1,0 +1,39 @@
+{
+  "task_id": "T22",
+  "name": "json_dumps",
+  "category": "API 参数误用",
+  "difficulty": "困难",
+  "source": {
+    "name": "Original",
+    "source_id": "T22_json_dumps",
+    "url": "",
+    "commit": "",
+    "license": "Original task",
+    "modifications": "Authored for this experiment as a multi-module payload package with JSON conversion, envelopes, text helpers, normalisation and reports."
+  },
+  "issue": "序列化 JSON 时三个选项组合不正确，中文等非 ASCII 字符被转义，键的顺序也未排序且分隔符带多余空格。例如只含 name 与 café 的对象期望输出紧凑且保留原字符的文本，实际输出带转义且含空格。请修复该问题，并保持解析、信封结构、文本处理、负载规范化与描述文本的行为不变。",
+  "target_tests": [
+    "tests/test_target.py::test_json_dumps_keeps_unicode_text",
+    "tests/test_target.py::test_build_envelope_sorts_keys"
+  ],
+  "regression_tests": [
+    "tests/test_regression.py::test_json_roundtrip",
+    "tests/test_regression.py::test_json_roundtrip_unicode",
+    "tests/test_regression.py::test_json_errors",
+    "tests/test_regression.py::test_text_helpers",
+    "tests/test_regression.py::test_sort_and_safe_payload",
+    "tests/test_regression.py::test_normalise_helpers",
+    "tests/test_regression.py::test_envelope_roundtrip",
+    "tests/test_regression.py::test_envelope_errors",
+    "tests/test_regression.py::test_report_helpers"
+  ],
+  "target_failure_mode": "assertion",
+  "gold_lines": 6,
+  "allowed_files": [
+    "src/payloadkit/serialise.py"
+  ],
+  "test_command": "python -m pytest",
+  "expected_buggy": "2 failed, 9 passed",
+  "expected_gold": "11 passed",
+  "notes": "The serialiser escapes non-ASCII text, keeps insertion order and uses spaced separators. The envelope builder shares the same serialiser. Regression tests check round trips and descriptions rather than exact JSON text."
+}
