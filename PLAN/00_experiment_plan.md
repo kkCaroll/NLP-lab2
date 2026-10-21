@@ -1,7 +1,7 @@
 # 负面反馈对代码智能体修复行为与过度修改的影响：实验方案
 
 > 对应题目：[REQUIRE.md](../REQUIRE.md) 问题 20
-> 状态：设计稿，待 pilot 校准后冻结
+> 状态：方案已按 pilot 校准冻结，模型与预算已确定
 
 ## 0. 已确认的决策
 
@@ -80,7 +80,7 @@ pristine buggy repo
 |---|---|
 | 运行器 | OpenCode 1.18.25，`opencode run`，`--format json`，`--pure`，`--auto` |
 | Agent | `build`（primary） |
-| 配置隔离 | `OPENCODE_CONFIG` 指向实验配置；`XDG_CONFIG_HOME` 指向空目录，避免加载用户全局插件/MCP/agent |
+| 配置隔离 | `XDG_CONFIG_HOME` 指向项目内 `.runner/config`，仅加载实验配置，避免用户全局插件/MCP/agent；`XDG_DATA_HOME` 每个 episode 使用临时目录，避免会话数据库锁竞争 |
 | 项目读取 | 可以读取整个 workspace；`external_directory: deny`，工作区外读取被拒 |
 | 工具 | `read`、`edit`、`write`、`glob`、`grep`、`list`、`bash`（仅 pytest）；`task`、`skill`、`webfetch`、`websearch` 禁用 |
 | 测试执行 | 主实验允许 `python -m pytest*`；其他 bash 命令一律拒绝 |
@@ -89,33 +89,15 @@ pristine buggy repo
 | 修改上限 | `edit` + `write` 合计 8 次时强制终止 |
 | 超时 | 300 s / episode |
 | 成本上限 | 0.50 USD / episode（安全阀；pilot 验证无 episode 触及） |
-| 温度 | 不强制，使用各 provider 默认值（DeepSeek 设置 temperature=0 会挂起，已在预实验中发现） |
-| 上下文 | 两个模型均按各自 provider 默认；DeepSeek 1M，GLM 以实际为准 |
+| 温度 | 不强制，使用各 provider 默认值 |
+| 上下文 | MiniMax-M3.1-Flash 1M，MiMo-V2.6-Flash 200K |
 
 ### 3.2 工具权限配置
 
-主实验 `harness/configs/main.json`：
+主实验 `harness/configs/main/opencode.json`：
 
 ```json
 {
-  "provider": {
-    "deepseek": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "DeepSeek",
-      "options": {
-        "baseURL": "https://api.deepseek.com/v1",
-        "apiKey": "{env:ANTHROPIC_AUTH_TOKEN}"
-      },
-      "models": {
-        "deepseek-flash": {
-          "name": "DeepSeek V4.1 Flash",
-          "tool_call": true,
-          "reasoning": true,
-          "limit": {"context": 1000000, "output": 32000}
-        }
-      }
-    }
-  },
   "permission": {
     "read": "allow",
     "edit": "allow",
@@ -137,14 +119,14 @@ pristine buggy repo
 }
 ```
 
-`harness/configs/no_tests.json` 与上面相同，只把 `bash` 改为 `"bash": {"*": "deny"}`，用于消融。
+`harness/configs/ablation/opencode.json` 与上面相同，只把 `bash` 改为 `"bash": {"*": "deny"}`，用于无测试消融。
 
 ### 3.3 模型标识
 
 | 报告名 | OpenCode 模型 ID | 厂商 | 费用 |
 |---|---|---|---|
-| DeepSeek-V4.1-Flash | `deepseek/deepseek-flash` | DeepSeek | 按 token 计费 |
-| GLM-5.3-Flash | `opencode/glm-5.3-flash-free` | 智谱 | OpenCode Zen 免费 |
+| MiniMax-M3.1-Flash | `opencode/minimax-m3.1-flash-free` | MiniMax | OpenCode Zen 免费 |
+| MiMo-V2.6-Flash | `opencode/mimo-v2.6-flash-free` | 小米 | OpenCode Zen 免费 |
 
 > 运行前记录 `opencode --version`、模型 ID、配置哈希、运行时间窗口；免费模型可能被供应商更新或限流，需在报告中注明。
 
@@ -383,7 +365,7 @@ tasks/T01_next_palindrome/
 ## 9. 效度威胁
 
 - **外壳特异性**：结论针对 OpenCode build agent + 该工具集；不能直接外推到 Claude Code/Codex 的真实产品行为。
-- **模型对**：DeepSeek-V4.1-Flash 与 GLM-5.3-Flash 不能代表所有代码模型；GLM 为免费层，可能限流或版本漂移。
+- **模型对**：MiniMax-M3.1-Flash 与 MiMo-V2.6-Flash 不能代表所有代码模型；两者均为免费层，可能限流或版本漂移。
 - **自建任务**：小型、人工注入 bug，真实性和复杂度有限；测试对模型可见，可能低估“隐藏测试”下的过度修改。
 - **中文提示词**：反馈措辞的中文语气/礼貌程度可能影响模型；英文结论需另行验证。
 - **单次运行**：每个 cell 只跑一次，随机性用 6 题复跑估计，不能完全消除。
@@ -399,7 +381,7 @@ tasks/T01_next_palindrome/
 |---|---|---|
 | P0 | 写 `PLAN/00_experiment_plan.md`、目录、`.gitignore`、OpenCode 配置 | 方案确认 |
 | P1 | 4 题垂直切片（T01、T05、T14、T20）+ 验证脚本 | buggy/gold 两态全部符合预期 |
-| P2 | Harness：运行、事件解析、预算终止、评测、分支、diff、日志 | 单题 round1→branch→round2 端到端跑通 |
+| P2 | Harness：运行、事件解析、预算终止、评测、分支、diff、日志 | 单题 round1→branch→round2 端到端跑通，2026-10-21 已完成 |
 | P3 | Pilot：4 题 × 2 模型 × 第一轮；抽查 1 个失败任务的全部分支 | 失败率/成本/权限/日志质量可接受 |
 | P4 | 补齐剩余 20 题；全量验证；冻结任务与预算 | 24 题 validation 全绿 |
 | P5 | 主实验：24 题 × 2 模型 × (round1 + 5 分支) | 所有 episode 有完整 artifact |
@@ -439,8 +421,8 @@ nlp_proj_2/
       slides.md
   NOTES/
   harness/
-    configs/main.json
-    configs/no_tests.json
+    configs/main/opencode.json
+    configs/ablation/opencode.json
     inventory_sources.py
     prompts.py
     opencode_runner.py

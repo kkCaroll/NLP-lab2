@@ -28,4 +28,5 @@
 - 将 T14 与 T20 改造为多缺陷题，用 minimax 与 mimo 重跑 pilot，首轮失败率仍为 0%，结果见 `RECORD/pilot/v4/summary.md`
 - 将第一轮工具调用上限收紧至 10 次，两个免费模型各为 2 通过 2 失败，合计失败率 50%，进入预注册区间，结果见 `RECORD/pilot/v5/summary.md`
 - 人工复核表已生成，位于 `RECORD/calibration/review/`，尚待复核人签字
-- 下一步构建主实验 harness，完成单题第一轮、分支与第二轮的端到端流程
+- 完成主实验 harness，单题第一轮、五分支与第二轮端到端跑通，分支继承状态一致，结果见 `RECORD/smoke/2026-10-21_e2e.md`
+- 下一步补齐任务集到 24 题，并实现批量运行、指标聚合与统计分析

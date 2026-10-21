@@ -5,6 +5,7 @@
 | 子目录 | 内容 |
 |---|---|
 | runs/ | OpenCode 逐次运行的原始事件、提示词、补丁与测试输出 |
+| smoke/ | harness 端到端流程验证记录 |
 | calibration/ | pilot 盲解事件、补丁、汇总与人工复核表 |
 | analysis/ | 逐题指标、聚合表、统计检验与图表数据 |
 | report/ | 最终报告与演示文稿 |

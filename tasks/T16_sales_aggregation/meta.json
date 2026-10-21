@@ -33,7 +33,7 @@
     "tests/test_regression.py::test_normalize_records_rejects_non_list"
   ],
   "target_failure_mode": "assertion",
-  "gold_lines": 1,
+  "gold_lines": 2,
   "allowed_files": [
     "src/saleskit/aggregate.py"
   ],

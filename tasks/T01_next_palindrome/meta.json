@@ -32,7 +32,7 @@
     "tests/test_regression.py::test_next_palindrome_length_regular"
   ],
   "target_failure_mode": "assertion",
-  "gold_lines": 1,
+  "gold_lines": 2,
   "allowed_files": [
     "src/digitkit/palindrome.py"
   ],

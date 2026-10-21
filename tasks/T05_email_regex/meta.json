@@ -31,7 +31,7 @@
     "tests/test_regression.py::test_non_string_inputs"
   ],
   "target_failure_mode": "assertion",
-  "gold_lines": 1,
+  "gold_lines": 2,
   "allowed_files": [
     "src/mailscan/patterns.py"
   ],

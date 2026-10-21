@@ -34,7 +34,7 @@
     "tests/test_regression.py::test_invalid_parcel_shapes"
   ],
   "target_failure_mode": "assertion",
-  "gold_lines": 5,
+  "gold_lines": 10,
   "allowed_files": [
     "src/logistics/units.py",
     "src/logistics/parcels.py"

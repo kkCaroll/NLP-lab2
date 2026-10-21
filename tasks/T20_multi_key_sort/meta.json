@@ -33,7 +33,7 @@
     "tests/test_regression.py::test_summary_and_table_handle_extremes_and_single_row"
   ],
   "target_failure_mode": "assertion",
-  "gold_lines": 2,
+  "gold_lines": 4,
   "allowed_files": [
     "src/recordkit/keys.py",
     "src/recordkit/grouping.py"

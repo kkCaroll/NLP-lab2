@@ -32,7 +32,7 @@
     "tests/test_regression.py::test_validate_range_rejects_invalid_pairs"
   ],
   "target_failure_mode": "assertion",
-  "gold_lines": 1,
+  "gold_lines": 2,
   "allowed_files": [
     "src/rangekit/parse.py"
   ],
