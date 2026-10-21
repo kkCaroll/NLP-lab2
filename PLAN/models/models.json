@@ -1,6 +1,7 @@
 {
   "schema_version": 2,
   "verified_at": "2026-10-21",
+  "free_tier_watch": "Both evaluated models are limited-time free entries on OpenCode Zen with no published end date. Check https://opencode.ai/zen/v1/models before each run window. If either ID disappears or its price changes, stop and record the change before continuing.",
   "purpose": "Model metadata for the problem-20 code-repair feedback experiment",
   "scaffold": {
     "name": "OpenCode",
@@ -56,7 +57,14 @@
         "tier": "free",
         "base_url": "https://opencode.ai/zen/v1",
         "auth": "OpenCode Zen session; no separate API key",
-        "notes": "Free-tier availability and the exact served weights are controlled by OpenCode and are not publicly specified."
+        "notes": "Free-tier availability and the exact served weights are controlled by OpenCode and are not publicly specified.",
+        "free_tier_status": {
+          "verified_at": "2026-10-21",
+          "status": "limited-time free",
+          "end_date": null,
+          "data_terms": "The provider follows a zero-retention policy and does not use data for model training.",
+          "source": "https://opencode.ai/docs/zen/ and https://opencode.ai/zen/v1/models"
+        }
       },
       "pricing": {
         "currency": "USD",
@@ -98,7 +106,14 @@
         "tier": "free",
         "base_url": "https://opencode.ai/zen/v1",
         "auth": "OpenCode Zen session; no separate API key",
-        "notes": "The free entry has a 200k context window, smaller than the 1M of the paid MiMo-V2.6-Flash entry. Task repositories are under 300 lines, so the limit is not binding in this experiment."
+        "notes": "The free entry has a 200k context window, smaller than the 1M of the paid MiMo-V2.6-Flash entry. Task repositories are under 300 lines, so the limit is not binding in this experiment.",
+        "free_tier_status": {
+          "verified_at": "2026-10-21",
+          "status": "limited-time free",
+          "end_date": null,
+          "data_terms": "During the free period, collected data may be used to improve the model.",
+          "source": "https://opencode.ai/docs/zen/ and https://opencode.ai/zen/v1/models"
+        }
       },
       "pricing": {
         "currency": "USD",
