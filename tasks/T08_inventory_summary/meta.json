@@ -1,0 +1,43 @@
+{
+  "task_id": "T08",
+  "name": "inventory_summary",
+  "category": "数据处理",
+  "difficulty": "标准",
+  "source": {
+    "name": "Original",
+    "source_id": "T08_inventory_summary",
+    "url": "",
+    "commit": "",
+    "license": "Original task",
+    "modifications": "Authored for this experiment as a small inventory package with normalisation, mutation, summary and formatting modules."
+  },
+  "issue": "统计库存总件数时，未填写数量的条目被当作零，导致总数偏小。例如只写名称的笔应计为一件，实际没有计入。请修复该问题，并保持条目校验、增删、分类统计、低库存判断与文本格式化的行为不变。",
+  "target_tests": [
+    "tests/test_target.py::test_total_units_counts_an_omitted_quantity_as_one",
+    "tests/test_target.py::test_summary_uses_the_default_quantity"
+  ],
+  "regression_tests": [
+    "tests/test_regression.py::test_normalize_item_defaults",
+    "tests/test_regression.py::test_normalize_item_explicit_values",
+    "tests/test_regression.py::test_normalize_item_rejects_invalid_input",
+    "tests/test_regression.py::test_add_item",
+    "tests/test_regression.py::test_remove_item",
+    "tests/test_regression.py::test_remove_item_errors",
+    "tests/test_regression.py::test_total_units_explicit_quantities",
+    "tests/test_regression.py::test_count_categories",
+    "tests/test_regression.py::test_low_stock_is_inclusive",
+    "tests/test_regression.py::test_low_stock_rejects_bad_threshold",
+    "tests/test_regression.py::test_format_item",
+    "tests/test_regression.py::test_format_summary",
+    "tests/test_regression.py::test_summarize_inventory_categories"
+  ],
+  "target_failure_mode": "assertion",
+  "gold_lines": 2,
+  "allowed_files": [
+    "src/inventory/summary.py"
+  ],
+  "test_command": "python -m pytest",
+  "expected_buggy": "2 failed, 13 passed",
+  "expected_gold": "15 passed",
+  "notes": "An omitted quantity means one unit, consistent with normalize_item. Regression tests either provide explicit quantities or assert other summary fields."
+}

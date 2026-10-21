@@ -37,11 +37,83 @@ VARIANTS = {
         "alternative": 'discount = value * rate * Decimal("0.01")',
         "wrong": 'discount = value * rate / Decimal("1000")',
     },
+    "T04_next_permutation": {
+        "file": "src/seqkit/permute.py",
+        "buggy": "values[pivot:] = reversed(values[pivot:])",
+        "alternative": "values[pivot + 1:] = values[pivot + 1:][::-1]",
+        "wrong": "values[pivot:] = reversed(values[pivot:])",
+    },
     "T05_email_regex": {
         "file": "src/mailscan/patterns.py",
         "buggy": 'r"[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"',
         "alternative": 'r"[A-Za-z0-9._%+\\-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"',
         "wrong": 'r"[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"',
+    },
+    "T06_version_scan": {
+        "file": "src/textscan/patterns.py",
+        "buggy": 'r"(?<![\\w.-])v?(\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?)"',
+        "alternative": (
+            'r"(?<![\\w.-])v?(\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?)'
+            '(?![0-9A-Za-z_.-])"'
+        ),
+        "wrong": 'r"(?<![\\w.-])v?(\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?)"',
+    },
+    "T07_group_counts": {
+        "file": "src/recordkit/aggregate.py",
+        "buggy": "        return value.strip()",
+        "alternative": "        return value.strip().casefold()",
+        "wrong": "        return value",
+    },
+    "T08_inventory_summary": {
+        "file": "src/inventory/summary.py",
+        "buggy": '        total += item.get("quantity", 0)',
+        "alternative": (
+            '        quantity = item.get("quantity")\n'
+            "        total += 1 if quantity is None else quantity"
+        ),
+        "wrong": '        total += item.get("quantity", 2)',
+    },
+    "T09_safe_int": {
+        "file": "src/convertkit/parse.py",
+        "buggy": (
+            "    try:\n"
+            "        return int(value)\n"
+            "    except ValueError:\n"
+            "        return default\n"
+        ),
+        "alternative": (
+            "    try:\n"
+            "        return int(value)\n"
+            "    except (ValueError, TypeError):\n"
+            "        return default\n"
+        ),
+        "wrong": (
+            "    try:\n"
+            "        return int(value)\n"
+            "    except (TypeError, ValueError):\n"
+            "        return 0\n"
+        ),
+    },
+    "T10_top_k": {
+        "file": "src/rankkit/topk.py",
+        "buggy": "    return values[: limit + 1]",
+        "alternative": "    return values[:limit]",
+        "wrong": "    return values[: limit + 2]",
+    },
+    "T11_sort_items": {
+        "file": "src/listkit/ordering.py",
+        "buggy": "    return items.sort(reverse=reverse)",
+        "alternative": "    return sorted(items, reverse=reverse)",
+        "wrong": (
+            "    items.sort(reverse=reverse)\n"
+            "    return items"
+        ),
+    },
+    "T12_format_datetime": {
+        "file": "src/timekit/format.py",
+        "buggy": 'DATE_FORMAT = "%Y-%M-%d"',
+        "alternative": 'DATE_FORMAT = "%Y-%m-%d"',
+        "wrong": 'DATE_FORMAT = "%Y-%d-%m"',
     },
     "T16_sales_aggregation": {
         "file": "src/saleskit/aggregate.py",

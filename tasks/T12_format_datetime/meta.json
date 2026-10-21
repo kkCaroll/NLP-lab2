@@ -1,0 +1,40 @@
+{
+  "task_id": "T12",
+  "name": "format_datetime",
+  "category": "API 误用",
+  "difficulty": "标准",
+  "source": {
+    "name": "Original",
+    "source_id": "T12_format_datetime",
+    "url": "",
+    "commit": "",
+    "license": "Original task",
+    "modifications": "Authored for this experiment as a small time package with formatting, parsing and interval modules."
+  },
+  "issue": "日期格式化输出的月份字段错误，三月的日期会显示成当月分钟数对应的月份。请修复该问题，并保持时间格式化、日期解析、可选值解析、日期间隔与工作日计算的行为不变。",
+  "target_tests": [
+    "tests/test_target.py::test_format_date_renders_the_month_field",
+    "tests/test_target.py::test_format_datetime_renders_month_and_minute"
+  ],
+  "regression_tests": [
+    "tests/test_regression.py::test_format_time",
+    "tests/test_regression.py::test_format_compact",
+    "tests/test_regression.py::test_parse_date",
+    "tests/test_regression.py::test_parse_datetime",
+    "tests/test_regression.py::test_parse_optional",
+    "tests/test_regression.py::test_parse_many",
+    "tests/test_regression.py::test_days_between",
+    "tests/test_regression.py::test_is_weekend",
+    "tests/test_regression.py::test_next_weekday",
+    "tests/test_regression.py::test_month_length"
+  ],
+  "target_failure_mode": "assertion",
+  "gold_lines": 2,
+  "allowed_files": [
+    "src/timekit/format.py"
+  ],
+  "test_command": "python -m pytest",
+  "expected_buggy": "2 failed, 10 passed",
+  "expected_gold": "12 passed",
+  "notes": "The date format uses the minute directive in the month position, which happens to equal the real month only in July. Regression tests cover other functions and do not call format_date or format_datetime."
+}

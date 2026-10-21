@@ -1,0 +1,11 @@
+--- a/src/inventory/summary.py
++++ b/src/inventory/summary.py
+@@ -11,7 +11,7 @@
+     for item in items:
+         if not isinstance(item, dict):
+             raise TypeError("each item must be a dictionary")
+-        total += item.get("quantity", 0)
++        total += item.get("quantity", 1)
+     return total
+ 
+ 

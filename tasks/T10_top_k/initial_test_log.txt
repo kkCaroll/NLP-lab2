@@ -1,0 +1,20 @@
+............FF                                                           [100%]
+================================== FAILURES ===================================
+______________ test_top_k_returns_the_requested_number_of_values ______________
+tests\test_target.py:5: in test_top_k_returns_the_requested_number_of_values
+    assert top_k([5, 3, 9, 1], 2) == [9, 5]
+E   assert [9, 5, 3] == [9, 5]
+E     
+E     Left contains one more item: 3
+E     Use -v to get more diff
+_______________ test_top_k_preserves_the_order_of_equal_scores ________________
+tests\test_target.py:10: in test_top_k_preserves_the_order_of_equal_scores
+    assert top_k(scores, 2, key=lambda entry: entry[1]) == [("bo", 9), ("ana", 7)]
+E   AssertionError: assert [('bo', 9), (...7), ('cy', 7)] == [('bo', 9), ('ana', 7)]
+E     
+E     Left contains one more item: ('cy', 7)
+E     Use -v to get more diff
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_top_k_returns_the_requested_number_of_values
+FAILED tests/test_target.py::test_top_k_preserves_the_order_of_equal_scores
+2 failed, 12 passed in 0.10s

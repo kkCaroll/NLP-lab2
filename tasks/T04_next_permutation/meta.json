@@ -1,0 +1,42 @@
+{
+  "task_id": "T04",
+  "name": "next_permutation",
+  "category": "函数逻辑",
+  "difficulty": "标准",
+  "source": {
+    "name": "QuixBugs",
+    "source_id": "next_permutation",
+    "url": "https://github.com/jkoppel/QuixBugs/blob/master/python_programs/next_permutation.py",
+    "commit": "4257f44b0ff1181dedaedee6a447e133219fcebf",
+    "license": "MIT",
+    "modifications": "Wrapped the function in the seqkit package, added comparison, suffix rotation and formatting helpers, rewrote the target and regression tests, and replaced the original defect with a suffix reversal start error."
+  },
+  "issue": "调用 next_permutation 获取下一个字典序排列时，返回值有时与输入相同，无法继续枚举排列。例如输入 1 2 3 时，期望得到 1 3 2，实际仍为 1 2 3。请修复该问题，并保持序列比较、后缀反转、格式化和末排列判断的行为不变。",
+  "target_tests": [
+    "tests/test_target.py::test_next_permutation_advances_a_middle_pivot",
+    "tests/test_target.py::test_permutations_from_returns_successive_orders"
+  ],
+  "regression_tests": [
+    "tests/test_regression.py::test_is_sorted",
+    "tests/test_regression.py::test_compare_sequences",
+    "tests/test_regression.py::test_count_inversions",
+    "tests/test_regression.py::test_next_permutation_returns_none_for_descending_order",
+    "tests/test_regression.py::test_next_permutation_returns_none_for_short_input",
+    "tests/test_regression.py::test_next_permutation_does_not_mutate_input",
+    "tests/test_regression.py::test_permutations_from_stops_at_last_order",
+    "tests/test_regression.py::test_rotate_suffix",
+    "tests/test_regression.py::test_rotate_suffix_rejects_bad_start",
+    "tests/test_regression.py::test_format_sequence",
+    "tests/test_regression.py::test_format_permutations",
+    "tests/test_regression.py::test_summarize_step"
+  ],
+  "target_failure_mode": "assertion",
+  "gold_lines": 2,
+  "allowed_files": [
+    "src/seqkit/permute.py"
+  ],
+  "test_command": "python -m pytest",
+  "expected_buggy": "2 failed, 12 passed",
+  "expected_gold": "14 passed",
+  "notes": "The suffix must be reversed from the pivot successor, not from the pivot itself. Regression tests avoid multi-element sequences with an ascending pivot so they pass in both states."
+}

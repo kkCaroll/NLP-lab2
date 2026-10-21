@@ -1,0 +1,42 @@
+{
+  "task_id": "T10",
+  "name": "top_k",
+  "category": "排序查找",
+  "difficulty": "标准",
+  "source": {
+    "name": "Original",
+    "source_id": "T10_top_k",
+    "url": "",
+    "commit": "",
+    "license": "Original task",
+    "modifications": "Authored for this experiment as a small ranking package with sorting, statistics and formatting modules."
+  },
+  "issue": "取分数最高的前若干条记录时，返回的条数总是比要求的多一条，榜单末尾多出一个不应出现的条目。请修复该问题，并保持排序副本、统计量、名次计算与文本渲染的行为不变。",
+  "target_tests": [
+    "tests/test_target.py::test_top_k_returns_the_requested_number_of_values",
+    "tests/test_target.py::test_top_k_preserves_the_order_of_equal_scores"
+  ],
+  "regression_tests": [
+    "tests/test_regression.py::test_sorted_descending_returns_a_copy",
+    "tests/test_regression.py::test_sorted_descending_rejects_non_sequences",
+    "tests/test_regression.py::test_top_k_on_an_empty_list",
+    "tests/test_regression.py::test_top_k_with_a_full_limit",
+    "tests/test_regression.py::test_top_k_rejects_bad_limits",
+    "tests/test_regression.py::test_mean",
+    "tests/test_regression.py::test_median",
+    "tests/test_regression.py::test_spread",
+    "tests/test_regression.py::test_rank_of",
+    "tests/test_regression.py::test_format_ranking",
+    "tests/test_regression.py::test_format_table",
+    "tests/test_regression.py::test_summarize"
+  ],
+  "target_failure_mode": "assertion",
+  "gold_lines": 2,
+  "allowed_files": [
+    "src/rankkit/topk.py"
+  ],
+  "test_command": "python -m pytest",
+  "expected_buggy": "2 failed, 12 passed",
+  "expected_gold": "14 passed",
+  "notes": "The slice bound adds one to the requested limit. Regression tests either request the full length or use an empty input, so they do not depend on the correct bound."
+}

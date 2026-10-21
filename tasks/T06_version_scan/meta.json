@@ -1,0 +1,43 @@
+{
+  "task_id": "T06",
+  "name": "version_scan",
+  "category": "正则",
+  "difficulty": "标准",
+  "source": {
+    "name": "Original",
+    "source_id": "T06_version_scan",
+    "url": "",
+    "commit": "",
+    "license": "Original task",
+    "modifications": "Authored for this experiment as a small log scanning package with version matching, text normalisation and summary modules."
+  },
+  "issue": "从日志文本中提取版本号时，四段数字中的前三段会被误识别为版本号。例如 1.2.3.4 被识别为 1.2.3，导致版本统计出现错误。请修复该问题，并保持精确匹配、版本替换、空白规范化与版本汇总的行为不变。",
+  "target_tests": [
+    "tests/test_target.py::test_extract_versions_rejects_a_numeric_suffix",
+    "tests/test_target.py::test_extract_versions_keeps_only_complete_versions"
+  ],
+  "regression_tests": [
+    "tests/test_regression.py::test_extract_versions_normal_forms",
+    "tests/test_regression.py::test_extract_versions_rejects_non_string",
+    "tests/test_regression.py::test_is_version",
+    "tests/test_regression.py::test_replace_versions",
+    "tests/test_regression.py::test_normalize_spaces",
+    "tests/test_regression.py::test_line_normalisation",
+    "tests/test_regression.py::test_strip_punctuation",
+    "tests/test_regression.py::test_version_majors",
+    "tests/test_regression.py::test_group_by_major",
+    "tests/test_regression.py::test_summarize_versions",
+    "tests/test_regression.py::test_format_versions",
+    "tests/test_regression.py::test_find_version_positions",
+    "tests/test_regression.py::test_has_prerelease"
+  ],
+  "target_failure_mode": "assertion",
+  "gold_lines": 2,
+  "allowed_files": [
+    "src/textscan/patterns.py"
+  ],
+  "test_command": "python -m pytest",
+  "expected_buggy": "2 failed, 13 passed",
+  "expected_gold": "15 passed",
+  "notes": "The version pattern needs a trailing boundary so a three-part prefix of a four-part number is not accepted. Regression tests use well-formed versions or unrelated helpers."
+}

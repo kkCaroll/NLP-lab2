@@ -1,0 +1,8 @@
+--- a/src/rankkit/topk.py
++++ b/src/rankkit/topk.py
+@@ -17,4 +17,4 @@
+     if limit < 0:
+         raise ValueError("limit must not be negative")
+     values = sorted(items, key=key, reverse=True)
+-    return values[: limit + 1]
++    return values[:limit]

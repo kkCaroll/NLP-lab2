@@ -1,0 +1,11 @@
+--- a/src/timekit/format.py
++++ b/src/timekit/format.py
+@@ -2,7 +2,7 @@
+ 
+ from datetime import date, datetime
+ 
+-DATE_FORMAT = "%Y-%M-%d"
++DATE_FORMAT = "%Y-%m-%d"
+ TIME_FORMAT = "%H:%M"
+ DATETIME_FORMAT = f"{DATE_FORMAT} {TIME_FORMAT}"
+ 

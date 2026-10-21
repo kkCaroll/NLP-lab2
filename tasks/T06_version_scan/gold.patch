@@ -1,0 +1,11 @@
+--- a/src/textscan/patterns.py
++++ b/src/textscan/patterns.py
+@@ -3,7 +3,7 @@
+ import re
+ 
+ VERSION_PATTERN = re.compile(
+-    r"(?<![\w.-])v?(\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?)"
++    r"(?<![\w.-])v?(\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?)(?![\w.-])"
+ )
+ VERSION_EXACT = re.compile(r"^v?\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$")
+ 

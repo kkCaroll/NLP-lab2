@@ -1,0 +1,42 @@
+{
+  "task_id": "T07",
+  "name": "group_counts",
+  "category": "数据处理",
+  "difficulty": "标准",
+  "source": {
+    "name": "Original",
+    "source_id": "T07_group_counts",
+    "url": "",
+    "commit": "",
+    "license": "Original task",
+    "modifications": "Authored for this experiment as a small record parsing and grouping package with parsing, aggregation and report modules."
+  },
+  "issue": "按城市或标签分组统计时，同一值的不同大小写会被分成两组。例如 Beijing 与 beijing 分别计数，期望合并为一组。请修复该问题，并保持字段拆分、行解析、频次排序、文本渲染与非法输入校验的行为不变。",
+  "target_tests": [
+    "tests/test_target.py::test_group_counts_ignores_case_and_edge_space",
+    "tests/test_target.py::test_group_counts_merges_mixed_case_values"
+  ],
+  "regression_tests": [
+    "tests/test_regression.py::test_split_fields",
+    "tests/test_regression.py::test_split_fields_rejects_non_string",
+    "tests/test_regression.py::test_parse_header",
+    "tests/test_regression.py::test_parse_rows",
+    "tests/test_regression.py::test_parse_rows_fills_missing_fields",
+    "tests/test_regression.py::test_parse_rows_empty_text",
+    "tests/test_regression.py::test_group_counts_non_string_values",
+    "tests/test_regression.py::test_group_counts_empty_and_missing_key",
+    "tests/test_regression.py::test_top_values",
+    "tests/test_regression.py::test_top_values_rejects_bad_limit",
+    "tests/test_regression.py::test_format_counts",
+    "tests/test_regression.py::test_format_table"
+  ],
+  "target_failure_mode": "assertion",
+  "gold_lines": 2,
+  "allowed_files": [
+    "src/recordkit/aggregate.py"
+  ],
+  "test_command": "python -m pytest",
+  "expected_buggy": "2 failed, 12 passed",
+  "expected_gold": "14 passed",
+  "notes": "Grouping keys must remove surrounding space and fold case. Regression tests use values that are already uniform in case so they pass in both states."
+}

@@ -1,0 +1,11 @@
+--- a/src/seqkit/permute.py
++++ b/src/seqkit/permute.py
+@@ -22,7 +22,7 @@
+     while values[successor] <= values[pivot]:
+         successor -= 1
+     values[pivot], values[successor] = values[successor], values[pivot]
+-    values[pivot:] = reversed(values[pivot:])
++    values[pivot + 1:] = reversed(values[pivot + 1:])
+     return values
+ 
+ 

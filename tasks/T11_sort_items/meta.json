@@ -1,0 +1,41 @@
+{
+  "task_id": "T11",
+  "name": "sort_items",
+  "category": "API 误用",
+  "difficulty": "标准",
+  "source": {
+    "name": "Original",
+    "source_id": "T11_sort_items",
+    "url": "",
+    "commit": "",
+    "license": "Original task",
+    "modifications": "Authored for this experiment as a small list package with ordering, transformation and formatting modules."
+  },
+  "issue": "排序函数本应返回排好序的新列表，调用方拿到的却是空值，同时传入的列表被就地改写。请修复该问题，并保持按键排序、去重、分组、拆分、轮转与文本渲染的行为不变。",
+  "target_tests": [
+    "tests/test_target.py::test_sort_items_returns_the_sorted_values",
+    "tests/test_target.py::test_sort_items_does_not_reorder_the_input"
+  ],
+  "regression_tests": [
+    "tests/test_regression.py::test_sort_items_rejects_non_sequences",
+    "tests/test_regression.py::test_sort_by_key",
+    "tests/test_regression.py::test_sort_by_key_errors",
+    "tests/test_regression.py::test_deduplicate",
+    "tests/test_regression.py::test_partition",
+    "tests/test_regression.py::test_flatten",
+    "tests/test_regression.py::test_chunk",
+    "tests/test_regression.py::test_rotate",
+    "tests/test_regression.py::test_format_items",
+    "tests/test_regression.py::test_format_records",
+    "tests/test_regression.py::test_format_sorted"
+  ],
+  "target_failure_mode": "assertion",
+  "gold_lines": 2,
+  "allowed_files": [
+    "src/listkit/ordering.py"
+  ],
+  "test_command": "python -m pytest",
+  "expected_buggy": "2 failed, 11 passed",
+  "expected_gold": "13 passed",
+  "notes": "The in-place list method returns None and reorders the caller's list. Regression tests avoid the affected function except for its type check."
+}

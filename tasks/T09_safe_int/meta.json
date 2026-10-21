@@ -1,0 +1,42 @@
+{
+  "task_id": "T09",
+  "name": "safe_int",
+  "category": "类型转换",
+  "difficulty": "标准",
+  "source": {
+    "name": "Original",
+    "source_id": "T09_safe_int",
+    "url": "",
+    "commit": "",
+    "license": "Original task",
+    "modifications": "Authored for this experiment as a small conversion package with parsing, validation and formatting modules."
+  },
+  "issue": "把用户输入转换为整数时，缺失值没有走默认值分支，直接抛出异常，导致批量转换整批失败。请修复该问题，并保持文本解析、浮点解析、取值校验、区间截断与格式化的行为不变。",
+  "target_tests": [
+    "tests/test_target.py::test_safe_int_uses_the_default_for_missing_values",
+    "tests/test_target.py::test_convert_all_replaces_unconvertible_entries"
+  ],
+  "regression_tests": [
+    "tests/test_regression.py::test_safe_int_parses_padded_text",
+    "tests/test_regression.py::test_safe_int_returns_default_for_text",
+    "tests/test_regression.py::test_safe_int_truncates_floats",
+    "tests/test_regression.py::test_safe_float_parses_text",
+    "tests/test_regression.py::test_convert_all_rejects_non_sequences",
+    "tests/test_regression.py::test_is_integer",
+    "tests/test_regression.py::test_require_int",
+    "tests/test_regression.py::test_clamp",
+    "tests/test_regression.py::test_positive_or",
+    "tests/test_regression.py::test_format_number",
+    "tests/test_regression.py::test_format_percent",
+    "tests/test_regression.py::test_format_record"
+  ],
+  "target_failure_mode": "error",
+  "gold_lines": 2,
+  "allowed_files": [
+    "src/convertkit/parse.py"
+  ],
+  "test_command": "python -m pytest",
+  "expected_buggy": "2 failed, 12 passed",
+  "expected_gold": "14 passed",
+  "notes": "The object branch of safe_int handles ValueError only, so a missing value raises TypeError before the default applies. Regression tests never pass a missing value to the conversion helpers."
+}

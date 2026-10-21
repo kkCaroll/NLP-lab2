@@ -1,0 +1,11 @@
+--- a/src/recordkit/aggregate.py
++++ b/src/recordkit/aggregate.py
+@@ -4,7 +4,7 @@
+ def _normalise(value):
+     """Return a grouping key with surrounding space and case removed."""
+     if isinstance(value, str):
+-        return value.strip()
++        return value.strip().lower()
+     return value
+ 
+ 

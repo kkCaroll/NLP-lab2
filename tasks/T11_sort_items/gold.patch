@@ -1,0 +1,11 @@
+--- a/src/listkit/ordering.py
++++ b/src/listkit/ordering.py
+@@ -5,7 +5,7 @@
+     """Return a sorted copy of items."""
+     if not isinstance(items, (list, tuple)):
+         raise TypeError("items must be a list or tuple")
+-    return items.sort(reverse=reverse)
++    return sorted(items, reverse=reverse)
+ 
+ 
+ def sort_by_key(records, key, reverse=False):

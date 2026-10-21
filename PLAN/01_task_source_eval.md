@@ -212,3 +212,7 @@ T03 为原创标准题，题目为百分比折扣 `apply_discount`，见 `../tas
 免费模型筛选与多缺陷 pilot 显示，minimax-m3.1-flash-free 与 mimo-v2.6-flash-free 仍在 T01、T05、T14、T20 上首轮全部通过，失败率 0%，结果见 `../RECORD/pilot/v4/summary.md`。现有任务与模型组合无法产生反馈分支所需的首轮失败样本。
 
 2026-10-21 完成首轮预算收紧。第一轮工具调用上限定为 10 次，由 harness 逐行解析 `tool_use` 事件并在计数达到上限时终止进程树。重跑 pilot 后 MiniMax-M3.1-Flash 与 MiMo-V2.6-Flash 各为 2 通过 2 失败，合计失败率 50%，进入 40% 到 80% 区间，结果见 `../RECORD/pilot/v5/summary.md`。四次失败中三次没有源码改动，一次只修复两处缺陷中的一处，失败全部出现在困难题。第一轮预算冻结为 10 次，第二轮保持 15 次，五个反馈条件使用相同预算。
+
+2026-10-21 完成标准题批次一。新增 T04 `next_permutation`、T06 `version_scan`、T07 `group_counts` 与 T08 `inventory_summary`，类别分别为函数逻辑、正则、数据处理与数据处理。四题源码为 4 个文件 101 至 142 行，buggy 状态均为 2 failed，gold 状态全部通过，五轮确定性检查与 G10 变体检查通过。标准题达到 8 道，困难题仍为 4 道，任务集累计 12 题。构造记录见 `../LOG/2026-10-21_standard_batch_1.md`。
+
+2026-10-21 完成标准题批次二。新增 T09 `safe_int`、T10 `top_k`、T11 `sort_items` 与 T12 `format_datetime`，类别分别为类型转换、排序查找、API 误用与 API 误用。四题源码为 4 个文件 102 至 153 行，buggy 状态均为 2 failed，gold 状态全部通过，五轮确定性检查与 G10 变体检查通过。标准题达到 12 道，困难题仍为 4 道，任务集累计 16 题。构造记录见 `../LOG/2026-10-21_standard_batch_2.md`。

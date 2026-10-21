@@ -1,0 +1,24 @@
+..........FF                                                             [100%]
+================================== FAILURES ===================================
+__________________ test_format_date_renders_the_month_field ___________________
+tests\test_target.py:7: in test_format_date_renders_the_month_field
+    assert format_date(datetime(2024, 3, 5)) == "2024-03-05"
+E   AssertionError: assert '2024-00-05' == '2024-03-05'
+E     
+E     - 2024-03-05
+E     ?       ^
+E     + 2024-00-05
+E     ?       ^
+________________ test_format_datetime_renders_month_and_minute ________________
+tests\test_target.py:11: in test_format_datetime_renders_month_and_minute
+    assert format_datetime(datetime(2024, 11, 23, 14, 7)) == "2024-11-23 14:07"
+E   AssertionError: assert '2024-07-23 14:07' == '2024-11-23 14:07'
+E     
+E     - 2024-11-23 14:07
+E     ?      ^^
+E     + 2024-07-23 14:07
+E     ?      ^^
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_format_date_renders_the_month_field - Asser...
+FAILED tests/test_target.py::test_format_datetime_renders_month_and_minute - ...
+2 failed, 10 passed in 0.11s
