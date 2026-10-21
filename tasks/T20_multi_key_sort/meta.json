@@ -11,7 +11,7 @@
     "license": "Original task",
     "modifications": "Authored for this experiment as a multi-module employee record package with shared ordering keys, sorting and selection, department grouping and text reports."
   },
-  "issue": "员工记录需要按年龄降序排列，年龄相同时按姓名升序排列。当前 sort_records 返回年龄升序的结果，例如 41 岁的 dave 排在最后，同年龄的 bob 也排在 Ana 之前。top_k 与 department_age_order 使用同一套排序规则，因此也返回错误顺序。请修复排序行为，并保持字段校验、分组、部门汇总与报告输出的行为不变。",
+  "issue": "员工记录需要按年龄降序排列，年龄相同时按姓名升序排列。当前 sort_records 返回年龄升序的结果，例如 41 岁的 dave 排在最后，同年龄的 bob 也排在 Ana 之前。top_k 同样返回错误顺序。department_age_order 没有应用该排序规则，部门内部直接按输入顺序返回姓名。请修复这两处排序问题，并保持字段校验、分组、部门汇总与报告输出的行为不变。",
   "target_tests": [
     "tests/test_target.py::test_sort_records_orders_age_descending_then_name_ascending",
     "tests/test_target.py::test_top_k_and_department_order_share_multi_key_order"
@@ -33,12 +33,13 @@
     "tests/test_regression.py::test_summary_and_table_handle_extremes_and_single_row"
   ],
   "target_failure_mode": "assertion",
-  "gold_lines": 1,
+  "gold_lines": 2,
   "allowed_files": [
-    "src/recordkit/keys.py"
+    "src/recordkit/keys.py",
+    "src/recordkit/grouping.py"
   ],
   "test_command": "python -m pytest",
   "expected_buggy": "2 failed, 14 passed",
   "expected_gold": "16 passed",
-  "notes": "The shared ordering key already encodes descending age through a negated value. The ordering helper additionally passes reverse=True, which reverses both the age key and the name tie breaker. Three public paths depend on the helper, so callers must be traced to the shared layer."
+  "notes": "Two independent defects. The shared ordering helper passes reverse=True on a key that already encodes descending age, reversing both keys. The department ordering function bypasses the shared helper and returns input order. The second target test requires both repairs, so fixing only the helper still fails."
 }

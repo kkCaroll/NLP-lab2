@@ -17,4 +17,4 @@ E     Use -v to get more diff
 =========================== short test summary info ===========================
 FAILED tests/test_target.py::test_sort_records_orders_age_descending_then_name_ascending
 FAILED tests/test_target.py::test_top_k_and_department_order_share_multi_key_order
-2 failed, 14 passed in 0.22s
+2 failed, 14 passed in 0.12s

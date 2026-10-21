@@ -1,0 +1,72 @@
+[
+  {
+    "task": "T01_next_palindrome",
+    "model": "opencode/nemotron-3.5-lightning-free",
+    "exit_code": 0,
+    "timed_out": false,
+    "duration_s": 71.64,
+    "pytest_exit_code": 0,
+    "tests_failed": 0,
+    "tests_passed": 15,
+    "all_passed": true,
+    "test_tampered": false,
+    "tool_calls": 9,
+    "edits": 1,
+    "cost_usd": 0.0,
+    "diff_lines": 2,
+    "files_changed": [
+      "src/digitkit/palindrome.py"
+    ]
+  },
+  {
+    "task": "T05_email_regex",
+    "model": "opencode/nemotron-3.5-lightning-free",
+    "exit_code": 0,
+    "timed_out": false,
+    "duration_s": 68.73,
+    "pytest_exit_code": 1,
+    "tests_failed": 2,
+    "tests_passed": 12,
+    "all_passed": false,
+    "test_tampered": false,
+    "tool_calls": 21,
+    "edits": 1,
+    "cost_usd": 0.0,
+    "diff_lines": 0,
+    "files_changed": []
+  },
+  {
+    "task": "T14_shipping_fee",
+    "model": "opencode/nemotron-3.5-lightning-free",
+    "exit_code": 0,
+    "timed_out": false,
+    "duration_s": 50.4,
+    "pytest_exit_code": 1,
+    "tests_failed": 2,
+    "tests_passed": 14,
+    "all_passed": false,
+    "test_tampered": false,
+    "tool_calls": 13,
+    "edits": 0,
+    "cost_usd": 0.0,
+    "diff_lines": 0,
+    "files_changed": []
+  },
+  {
+    "task": "T20_multi_key_sort",
+    "model": "opencode/nemotron-3.5-lightning-free",
+    "exit_code": 0,
+    "timed_out": false,
+    "duration_s": 56.76,
+    "pytest_exit_code": 1,
+    "tests_failed": 2,
+    "tests_passed": 14,
+    "all_passed": false,
+    "test_tampered": false,
+    "tool_calls": 14,
+    "edits": 0,
+    "cost_usd": 0.0,
+    "diff_lines": 0,
+    "files_changed": []
+  }
+]

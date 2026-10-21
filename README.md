@@ -23,5 +23,9 @@
 - 完成四道 pilot 题的 DeepSeek-V4-Pro 盲解，四题全部通过，无测试篡改
 - 完成 DeepSeek-V4.1-Flash 与 GLM-5.3-Flash 的四题 pilot，首轮失败率均为 0%，低于预注册区间
 - 按预注册规则以 T14 与 T20 替换 T16 与 T21，pilot 题集改为 T01、T05、T14、T20
+- 完成替换后的 pilot，两道模型仍为首轮 4 题通过，失败率 0%，结果见 `RECORD/pilot/v2/summary.md`
+- 筛选六个免费模型，五个可用模型在 T14 与 T20 上首轮通过
+- 将 T14 与 T20 改造为多缺陷题，用 minimax 与 mimo 重跑 pilot，首轮失败率仍为 0%，结果见 `RECORD/pilot/v4/summary.md`
+- 将第一轮工具调用上限收紧至 10 次，两个免费模型各为 2 通过 2 失败，合计失败率 50%，进入预注册区间，结果见 `RECORD/pilot/v5/summary.md`
 - 人工复核表已生成，位于 `RECORD/calibration/review/`，尚待复核人签字
-- 下一步用 T01、T05、T14、T20 重新运行两道被测模型的 pilot
+- 下一步构建主实验 harness，完成单题第一轮、分支与第二轮的端到端流程

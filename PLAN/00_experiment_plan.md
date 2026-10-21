@@ -47,7 +47,7 @@
 pristine buggy repo
       │
       ▼
-  Round 1（统一提示词，最多 K 次工具调用）
+  Round 1（统一提示词，最多 10 次工具调用）
       │
       ├── 全部测试通过 ──► 记录，结束（无反馈分支）
       │
@@ -84,8 +84,8 @@ pristine buggy repo
 | 项目读取 | 可以读取整个 workspace；`external_directory: deny`，工作区外读取被拒 |
 | 工具 | `read`、`edit`、`write`、`glob`、`grep`、`list`、`bash`（仅 pytest）；`task`、`skill`、`webfetch`、`websearch` 禁用 |
 | 测试执行 | 主实验允许 `python -m pytest*`；其他 bash 命令一律拒绝 |
-| 步数上限 | `agent.build.steps = 12` |
-| 工具调用上限 | 外层 harness 解析 `tool_use` 事件，第 15 次调用时强制终止 |
+| 步数上限 | `agent.build.steps = 20`，使工具调用上限先触发 |
+| 工具调用上限 | 第一轮 10 次，第二轮 15 次；外层 harness 逐行解析 `tool_use` 事件，计数达到上限时终止进程树 |
 | 修改上限 | `edit` + `write` 合计 8 次时强制终止 |
 | 超时 | 300 s / episode |
 | 成本上限 | 0.50 USD / episode（安全阀；pilot 验证无 episode 触及） |
@@ -132,7 +132,7 @@ pristine buggy repo
     "doom_loop": "deny"
   },
   "agent": {
-    "build": {"steps": 12}
+    "build": {"steps": 20}
   }
 }
 ```
@@ -226,6 +226,8 @@ tasks/T01_next_palindrome/
 - Pilot 用 4 题（T01 `next_palindrome`、T05 `email_regex` 标准；T14 `shipping_fee`、T20 `sort_records` 困难）× 2 模型。初版困难题为 T16 与 T21，2026-10-21 首轮失败率为 0% 后按预注册规则替换为 T14 与 T20。T16 与 T21 保留为正式任务并记录其难度不足。T14 与 T20 已完成构造并通过本地双态验证，分别见 `tasks/T14_shipping_fee/` 与 `tasks/T20_multi_key_sort/`。
 - 四题已通过现有自动检查，覆盖结构、泄漏标记、buggy 与 gold 双态、补丁范围、测试哈希、五轮确定性与 G10。四题还通过 DeepSeek-V4-Pro 盲解，盲解全部通过且无测试篡改，结果见 `../RECORD/calibration/summary.md`。人工复核表见 `../RECORD/calibration/review/`，签字完成前不冻结。
 - 已完成 DeepSeek-V4.1-Flash 与 GLM-5.3-Flash 的四题 pilot。两模型首轮均 4 题通过，失败率 0%，低于 40% 到 80% 的目标，结果见 `../RECORD/pilot/summary.md`。诊断显示四道题的目标测试直接给出期望值，单行缺陷可在一次读取后定位。按预注册替换规则，T16 与 T21 替换为 T14 与 T20，两题均采用共享 helper 与多条调用链，需要沿调用关系判断缺陷层。替换后重新运行 pilot。
+- 替换后 pilot 仍为 0% 失败。随后筛选六个免费模型，五个可用模型在 T14 与 T20 上首轮通过。按用户决定，将 T14 与 T20 改造为多缺陷题，并用 minimax-m3.1-flash-free 与 mimo-v2.6-flash-free 重跑 pilot，八次运行仍全部通过，失败率 0%，结果见 `../RECORD/pilot/v4/summary.md`。多缺陷设计与免费模型均未改变饱和结果，需要从预算或研究设计层面调整。
+- 按用户决定，第一轮工具调用上限收紧至 10 次，保留 minimax-m3.1-flash-free 与 mimo-v2.6-flash-free 以及多缺陷题。重跑 pilot 后两个模型各为 2 通过 2 失败，合计失败率 50%，进入目标区间，结果见 `../RECORD/pilot/v5/summary.md`。四次失败中三次没有源码改动，一次只修复一处缺陷，失败全部出现在困难题。第一轮预算冻结为 10 次。第二轮保持 15 次，使反馈分支具备修改代码的预算，五个条件使用相同预算。
 - 目标：每个模型第一轮失败率落在 **40%–80%**。若强模型通过率过高，优先增加困难题比例/多文件耦合；若失败率接近 100%，检查是否工具预算过紧或题目歧义，而不是直接放宽预算。
 - 校准只用于调整题目与预算；正式实验的 24 题在 pilot 后冻结，不再根据单次结果改题。
 

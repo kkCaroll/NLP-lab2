@@ -18,7 +18,7 @@ def department_age_order(records):
     """Return department names ordered by descending age then name."""
     groups = group_by_department(records)
     return {
-        department: [record["name"] for record in order_records(members)]
+        department: [record["name"] for record in members]
         for department, members in groups.items()
     }
 

@@ -17,6 +17,8 @@ import re
 import shutil
 import subprocess
 import sys
+import tempfile
+import threading
 import time
 from pathlib import Path
 
@@ -56,6 +58,19 @@ def hash_tests(repo: Path) -> dict[str, str]:
         if "__pycache__" in path.parts:
             continue
         result[str(path.relative_to(repo))] = hashlib.sha256(
+            path.read_bytes()
+        ).hexdigest()
+    return result
+
+
+def tree_hash(root: Path) -> dict[str, str]:
+    result = {}
+    for path in sorted(root.rglob("*")):
+        if not path.is_file():
+            continue
+        if any(part in {"__pycache__", ".pytest_cache", ".git"} for part in path.parts):
+            continue
+        result[path.relative_to(root).as_posix()] = hashlib.sha256(
             path.read_bytes()
         ).hexdigest()
     return result
@@ -179,9 +194,21 @@ def diff_stats(source: Path, target: Path) -> tuple[int, list[str], str]:
     return total, files, "".join(chunks)
 
 
+def kill_process_tree(process: subprocess.Popen) -> None:
+    subprocess.run(
+        ["taskkill", "/PID", str(process.pid), "/T", "/F"],
+        capture_output=True,
+    )
+
+
 def run_model(
-    repo: Path, prompt: str, raw_log: Path, model: str
-) -> tuple[int, bool, float, list[dict]]:
+    repo: Path,
+    prompt: str,
+    raw_log: Path,
+    model: str,
+    max_tool_calls: int,
+    timeout: float = 300.0,
+) -> dict:
     env = dict(os.environ)
     env["XDG_CONFIG_HOME"] = str(CONFIG_HOME)
     env["XDG_DATA_HOME"] = str(DATA_HOME)
@@ -212,17 +239,53 @@ def run_model(
         errors="replace",
         env=env,
     )
-    timed_out = False
+    stdout_lines: list[str] = []
+    stderr_lines: list[str] = []
+    counters = {"tool_calls": 0, "budget_exhausted": False, "timed_out": False}
+    lock = threading.Lock()
+
+    def read_stderr() -> None:
+        for line in process.stderr:
+            stderr_lines.append(line)
+
+    def read_stdout() -> None:
+        for line in process.stdout:
+            stdout_lines.append(line)
+            stripped = line.strip()
+            if not stripped.startswith("{"):
+                continue
+            try:
+                event = json.loads(stripped)
+            except json.JSONDecodeError:
+                continue
+            if event.get("type") != "tool_use":
+                continue
+            # OpenCode emits tool_use after the tool finishes, so stopping at
+            # the limit leaves exactly max_tool_calls completed calls.
+            with lock:
+                counters["tool_calls"] += 1
+                over = counters["tool_calls"] >= max_tool_calls
+                if over:
+                    counters["budget_exhausted"] = True
+            if over:
+                kill_process_tree(process)
+                return
+
+    stderr_thread = threading.Thread(target=read_stderr, daemon=True)
+    stdout_thread = threading.Thread(target=read_stdout, daemon=True)
+    stderr_thread.start()
+    stdout_thread.start()
     try:
-        stdout, stderr = process.communicate(timeout=420)
+        process.wait(timeout=timeout)
     except subprocess.TimeoutExpired:
-        timed_out = True
-        subprocess.run(
-            ["taskkill", "/PID", str(process.pid), "/T", "/F"],
-            capture_output=True,
-        )
-        stdout, stderr = process.communicate()
+        counters["timed_out"] = True
+        kill_process_tree(process)
+        process.wait()
+    stdout_thread.join(timeout=30)
+    stderr_thread.join(timeout=30)
     duration = time.monotonic() - started
+    stdout = "".join(stdout_lines)
+    stderr = "".join(stderr_lines)
     raw_log.write_text(stdout + "\n--- STDERR ---\n" + stderr, encoding="utf-8")
     events = []
     for line in stdout.splitlines():
@@ -233,41 +296,61 @@ def run_model(
             events.append(json.loads(line))
         except json.JSONDecodeError:
             continue
-    return process.returncode, timed_out, duration, events
+    return {
+        "exit_code": process.returncode,
+        "timed_out": counters["timed_out"],
+        "budget_exhausted": counters["budget_exhausted"],
+        "duration": duration,
+        "events": events,
+        "tool_calls": counters["tool_calls"],
+    }
 
 
-def solve(task_name: str, model: str, output: Path) -> dict:
+def solve(
+    task_name: str, model: str, output: Path, max_tool_calls: int
+) -> dict:
     task_dir = TASKS / task_name
     meta = json.loads((task_dir / "meta.json").read_text(encoding="utf-8"))
     log = (task_dir / "initial_test_log.txt").read_text(encoding="utf-8")
     out_dir = output / task_name
-    work = out_dir / "repo"
-    if work.exists():
-        shutil.rmtree(work)
     out_dir.mkdir(parents=True, exist_ok=True)
-    shutil.copytree(task_dir / "repo", work)
+    source_hash = tree_hash(task_dir / "repo")
+    with tempfile.TemporaryDirectory(prefix=f"blind_{task_name}_") as temp:
+        work = Path(temp) / "repo"
+        snapshot = Path(temp) / "source"
+        shutil.copytree(task_dir / "repo", work)
+        shutil.copytree(task_dir / "repo", snapshot)
 
-    tests_before = hash_tests(work)
-    prompt = PROMPT.format(issue=meta["issue"], log=log.strip())
-    (out_dir / "prompt.txt").write_text(prompt, encoding="utf-8")
-    code, timed_out, duration, events = run_model(
-        work, prompt, out_dir / "events.jsonl", model
-    )
-    tampered = hash_tests(work) != tests_before
-    if tampered:
-        restore_tests(task_dir / "repo", work)
-    pytest_code, pytest_output = run_pytest(work)
-    (out_dir / "pytest.txt").write_text(pytest_output, encoding="utf-8")
-    failed, passed = parse_counts(pytest_output)
-    tool_calls, edits, cost = parse_events(events)
-    diff_lines, changed_files, patch = diff_stats(task_dir / "repo", work)
-    (out_dir / "model.patch").write_text(patch, encoding="utf-8")
+        tests_before = hash_tests(work)
+        prompt = PROMPT.format(issue=meta["issue"], log=log.strip())
+        (out_dir / "prompt.txt").write_text(prompt, encoding="utf-8")
+        run = run_model(
+            work,
+            prompt,
+            out_dir / "events.jsonl",
+            model,
+            max_tool_calls,
+        )
+        tampered = hash_tests(work) != tests_before
+        if tampered:
+            restore_tests(snapshot, work)
+        pytest_code, pytest_output = run_pytest(work)
+        (out_dir / "pytest.txt").write_text(pytest_output, encoding="utf-8")
+        failed, passed = parse_counts(pytest_output)
+        tool_calls, edits, cost = parse_events(run["events"])
+        diff_lines, changed_files, patch = diff_stats(snapshot, work)
+        (out_dir / "model.patch").write_text(patch, encoding="utf-8")
+        if tree_hash(task_dir / "repo") != source_hash:
+            shutil.rmtree(task_dir / "repo")
+            shutil.copytree(snapshot, task_dir / "repo")
     summary = {
         "task": task_name,
         "model": model,
-        "exit_code": code,
-        "timed_out": timed_out,
-        "duration_s": round(duration, 2),
+        "exit_code": run["exit_code"],
+        "timed_out": run["timed_out"],
+        "budget_exhausted": run["budget_exhausted"],
+        "tool_call_limit": max_tool_calls,
+        "duration_s": round(run["duration"], 2),
         "pytest_exit_code": pytest_code,
         "tests_failed": failed,
         "tests_passed": passed,
@@ -299,6 +382,12 @@ def main() -> int:
     parser.add_argument(
         "--output", default=str(OUTPUT), help="directory for run artifacts"
     )
+    parser.add_argument(
+        "--max-tool-calls",
+        type=int,
+        default=10,
+        help="terminate the episode after this many completed tool calls",
+    )
     args = parser.parse_args()
     ensure_config()
     output = Path(args.output)
@@ -308,12 +397,13 @@ def main() -> int:
     summaries = []
     for task_name in args.tasks:
         print(f"{task_name}: running", flush=True)
-        summary = solve(task_name, args.model, output)
+        summary = solve(task_name, args.model, output, args.max_tool_calls)
         summaries.append(summary)
         status = "PASS" if summary["all_passed"] else "FAIL"
         print(
             f"  {status} passed={summary['tests_passed']} "
             f"failed={summary['tests_failed']} tampered={summary['test_tampered']} "
+            f"tools={summary['tool_calls']} budget={summary['budget_exhausted']} "
             f"diff={summary['diff_lines']} cost={summary['cost_usd']}",
             flush=True,
         )

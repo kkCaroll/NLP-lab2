@@ -1,0 +1,13 @@
+--- a/src/mailscan/patterns.py
++++ b/src/mailscan/patterns.py
+@@ -4,8 +4,8 @@
+ 
+ EMAIL_PATTERN = re.compile(
+     r"(?<![A-Za-z0-9._%+-])"
+-    r"[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"
+-    r"(?![A-Za-z0-9.-])"
++    r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"
++    r"(?![A-Za-z0-9.+-])"
+ )
+ 
+ 

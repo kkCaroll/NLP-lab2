@@ -1,9 +1,19 @@
 --- a/src/recordkit/keys.py
 +++ b/src/recordkit/keys.py
-@@ -13,5 +13,5 @@
- 
+@@ -14,4 +14,4 @@
  
  def order_records(records):
      """Return records ordered by descending age then ascending name."""
 -    return sorted(records, key=record_key, reverse=True)
 +    return sorted(records, key=record_key)
+--- a/src/recordkit/grouping.py
++++ b/src/recordkit/grouping.py
+@@ -18,7 +18,7 @@
+     """Return department names ordered by descending age then name."""
+     groups = group_by_department(records)
+     return {
+-        department: [record["name"] for record in members]
++        department: [record["name"] for record in order_records(members)]
+         for department, members in groups.items()
+     }
+ 

@@ -1,0 +1,19 @@
+{
+  "task": "T20_multi_key_sort",
+  "model": "opencode/mimo-v2.6-flash-free",
+  "exit_code": 1,
+  "timed_out": false,
+  "budget_exhausted": true,
+  "tool_call_limit": 10,
+  "duration_s": 30.04,
+  "pytest_exit_code": 1,
+  "tests_failed": 2,
+  "tests_passed": 14,
+  "all_passed": false,
+  "test_tampered": false,
+  "tool_calls": 10,
+  "edits": 0,
+  "cost_usd": 0.0,
+  "diff_lines": 0,
+  "files_changed": []
+}

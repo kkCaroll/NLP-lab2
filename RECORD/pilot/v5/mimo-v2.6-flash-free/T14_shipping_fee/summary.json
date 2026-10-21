@@ -1,0 +1,21 @@
+{
+  "task": "T14_shipping_fee",
+  "model": "opencode/mimo-v2.6-flash-free",
+  "exit_code": 1,
+  "timed_out": false,
+  "budget_exhausted": true,
+  "tool_call_limit": 10,
+  "duration_s": 31.96,
+  "pytest_exit_code": 1,
+  "tests_failed": 1,
+  "tests_passed": 16,
+  "all_passed": false,
+  "test_tampered": false,
+  "tool_calls": 10,
+  "edits": 1,
+  "cost_usd": 0.0,
+  "diff_lines": 2,
+  "files_changed": [
+    "src/logistics/units.py"
+  ]
+}

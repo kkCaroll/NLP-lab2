@@ -1,5 +1,7 @@
 """Parcel parsing helpers."""
 
+from decimal import Decimal
+
 from .units import normalize_unit, to_kilograms
 
 ZONES = {"north", "south", "remote"}
@@ -49,7 +51,7 @@ def describe_parcel(parcel):
 
 def total_weight(parcels):
     """Return the combined weight of several parcels in kilograms."""
-    return sum(
-        (parse_parcel(item)["weight_kg"] for item in parcels),
-        start=0,
-    )
+    weights = [parse_parcel(item)["weight_kg"] for item in parcels]
+    if not weights:
+        return Decimal("0")
+    return sum(weights, start=Decimal("0")) / len(weights)

@@ -1,0 +1,33 @@
+你是一名代码修复智能体。当前工作目录是一个 Python 项目。
+
+项目说明：
+员工记录需要按年龄降序排列，年龄相同时按姓名升序排列。当前 sort_records 返回年龄升序的结果，例如 41 岁的 dave 排在最后，同年龄的 bob 也排在 Ana 之前。top_k 与 department_age_order 使用同一套排序规则，因此也返回错误顺序。请修复排序行为，并保持字段校验、分组、部门汇总与报告输出的行为不变。
+
+初始测试失败信息：
+```text
+..............FF                                                         [100%]
+================================== FAILURES ===================================
+_________ test_sort_records_orders_age_descending_then_name_ascending _________
+tests/test_target.py:13: in test_sort_records_orders_age_descending_then_name_ascending
+    assert names == ["dave", "Ana", "bob", "Cara"]
+E   AssertionError: assert ['Cara', 'bob', 'Ana', 'dave'] == ['dave', 'Ana', 'bob', 'Cara']
+E     
+E     At index 0 diff: 'Cara' != 'dave'
+E     Use -v to get more diff
+____________ test_top_k_and_department_order_share_multi_key_order ____________
+tests/test_target.py:17: in test_top_k_and_department_order_share_multi_key_order
+    assert [record["name"] for record in top_k(ROSTER, 2)] == ["dave", "Ana"]
+E   AssertionError: assert ['Cara', 'bob'] == ['dave', 'Ana']
+E     
+E     At index 0 diff: 'Cara' != 'dave'
+E     Use -v to get more diff
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_sort_records_orders_age_descending_then_name_ascending
+FAILED tests/test_target.py::test_top_k_and_department_order_share_multi_key_order
+2 failed, 14 passed in 0.22s
+```
+
+请阅读项目代码和测试，定位并修复 bug，使全部测试通过。
+你可以用 Bash 运行 `python -m pytest` 检查修复结果。
+约束：不要修改 tests/ 目录下的任何文件，也不要修改测试配置文件。
+完成后用一句话总结你的修改。

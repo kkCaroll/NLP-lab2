@@ -206,3 +206,9 @@ T03 为原创标准题，题目为百分比折扣 `apply_discount`，见 `../tas
 四道 pilot 题已完成 DeepSeek-V4-Pro 盲解。四题全部通过，步数 5 到 6，工具调用 10 到 15，均未修改测试。T21 达到 15 次工具调用上限，需在正式实验中区分正常完成与预算耗尽。盲解汇总见 `../RECORD/calibration/summary.md`，人工复核表见 `../RECORD/calibration/review/`。
 
 2026-10-21 完成被测模型 pilot。DeepSeek-V4.1-Flash 与 GLM-5.3-Flash 在 T01、T05、T16、T21 上首轮全部通过，失败率为 0%，低于预注册的 40% 到 80% 区间，结果见 `../RECORD/pilot/summary.md`。按预注册的 floor 与 ceiling 替换规则，T16 与 T21 对当前模型代际过易，pilot 题集改为 T01、T05、T14、T20。T14 已构造完成，源码 6 个文件 290 行，buggy 状态为 2 failed 与 14 passed，gold 状态为 16 passed，通过五轮确定性检查与 G10 检查，构造记录见 `../LOG/2026-10-21_T14_construction.md`。T20 已构造完成，源码 6 个文件 264 行，buggy 状态为 2 failed 与 14 passed，gold 状态为 16 passed，同样通过五轮确定性检查与 G10 检查，构造记录见 `../LOG/2026-10-21_T20_construction.md`。T16 与 T21 保留为正式任务，并记录其 pilot 难度不足的情况，主实验分析时需单独报告。
+
+2026-10-21 完成多缺陷改造。T14 增加 total_weight 返回平均重量而非总重量的缺陷，源码 6 个文件 292 行，buggy 状态为 3 failed 与 14 passed，gold 状态为 17 passed，gold patch 涉及两个文件。T20 增加 department_age_order 绕过共享排序 helper 的缺陷，源码 6 个文件 264 行，buggy 状态为 2 failed 与 14 passed，gold 状态为 16 passed，gold patch 涉及两个文件。两题均通过验证与多文件变体检查，记录见 `../LOG/2026-10-21_multi_defect_revision.md`。
+
+免费模型筛选与多缺陷 pilot 显示，minimax-m3.1-flash-free 与 mimo-v2.6-flash-free 仍在 T01、T05、T14、T20 上首轮全部通过，失败率 0%，结果见 `../RECORD/pilot/v4/summary.md`。现有任务与模型组合无法产生反馈分支所需的首轮失败样本。
+
+2026-10-21 完成首轮预算收紧。第一轮工具调用上限定为 10 次，由 harness 逐行解析 `tool_use` 事件并在计数达到上限时终止进程树。重跑 pilot 后 MiniMax-M3.1-Flash 与 MiMo-V2.6-Flash 各为 2 通过 2 失败，合计失败率 50%，进入 40% 到 80% 区间，结果见 `../RECORD/pilot/v5/summary.md`。四次失败中三次没有源码改动，一次只修复两处缺陷中的一处，失败全部出现在困难题。第一轮预算冻结为 10 次，第二轮保持 15 次，五个反馈条件使用相同预算。

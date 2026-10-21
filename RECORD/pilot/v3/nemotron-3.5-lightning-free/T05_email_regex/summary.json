@@ -1,0 +1,17 @@
+{
+  "task": "T05_email_regex",
+  "model": "opencode/nemotron-3.5-lightning-free",
+  "exit_code": 0,
+  "timed_out": false,
+  "duration_s": 68.73,
+  "pytest_exit_code": 1,
+  "tests_failed": 2,
+  "tests_passed": 12,
+  "all_passed": false,
+  "test_tampered": false,
+  "tool_calls": 21,
+  "edits": 1,
+  "cost_usd": 0.0,
+  "diff_lines": 0,
+  "files_changed": []
+}

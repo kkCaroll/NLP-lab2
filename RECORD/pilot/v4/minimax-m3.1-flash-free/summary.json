@@ -1,0 +1,80 @@
+[
+  {
+    "task": "T01_next_palindrome",
+    "model": "opencode/minimax-m3.1-flash-free",
+    "exit_code": 0,
+    "timed_out": false,
+    "duration_s": 66.35,
+    "pytest_exit_code": 0,
+    "tests_failed": 0,
+    "tests_passed": 15,
+    "all_passed": true,
+    "test_tampered": false,
+    "tool_calls": 13,
+    "edits": 1,
+    "cost_usd": 0.0,
+    "diff_lines": 2,
+    "files_changed": [
+      "src/digitkit/palindrome.py"
+    ]
+  },
+  {
+    "task": "T05_email_regex",
+    "model": "opencode/minimax-m3.1-flash-free",
+    "exit_code": 0,
+    "timed_out": false,
+    "duration_s": 96.21,
+    "pytest_exit_code": 0,
+    "tests_failed": 0,
+    "tests_passed": 14,
+    "all_passed": true,
+    "test_tampered": false,
+    "tool_calls": 18,
+    "edits": 3,
+    "cost_usd": 0.0,
+    "diff_lines": 2,
+    "files_changed": [
+      "src/mailscan/patterns.py"
+    ]
+  },
+  {
+    "task": "T14_shipping_fee",
+    "model": "opencode/minimax-m3.1-flash-free",
+    "exit_code": 0,
+    "timed_out": false,
+    "duration_s": 29.82,
+    "pytest_exit_code": 0,
+    "tests_failed": 0,
+    "tests_passed": 17,
+    "all_passed": true,
+    "test_tampered": false,
+    "tool_calls": 13,
+    "edits": 2,
+    "cost_usd": 0.0,
+    "diff_lines": 4,
+    "files_changed": [
+      "src/logistics/parcels.py",
+      "src/logistics/units.py"
+    ]
+  },
+  {
+    "task": "T20_multi_key_sort",
+    "model": "opencode/minimax-m3.1-flash-free",
+    "exit_code": 0,
+    "timed_out": false,
+    "duration_s": 21.68,
+    "pytest_exit_code": 0,
+    "tests_failed": 0,
+    "tests_passed": 16,
+    "all_passed": true,
+    "test_tampered": false,
+    "tool_calls": 16,
+    "edits": 2,
+    "cost_usd": 0.0,
+    "diff_lines": 4,
+    "files_changed": [
+      "src/recordkit/grouping.py",
+      "src/recordkit/keys.py"
+    ]
+  }
+]

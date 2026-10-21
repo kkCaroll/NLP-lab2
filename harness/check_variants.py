@@ -59,29 +59,59 @@ VARIANTS = {
         ),
     },
     "T14_shipping_fee": {
-        "file": "src/logistics/units.py",
-        "buggy": '    if normalized == "g":\n        return amount',
-        "alternative": (
-            '    if normalized == "g":\n'
-            '        return amount * Decimal("0.001")'
-        ),
-        "wrong": (
-            '    if normalized == "g":\n'
-            '        return amount / Decimal("100")'
-        ),
+        "edits": [
+            {
+                "file": "src/logistics/units.py",
+                "buggy": '    if normalized == "g":\n        return amount',
+                "alternative": (
+                    '    if normalized == "g":\n'
+                    '        return amount * Decimal("0.001")'
+                ),
+                "wrong": (
+                    '    if normalized == "g":\n'
+                    '        return amount / Decimal("100")'
+                ),
+            },
+            {
+                "file": "src/logistics/parcels.py",
+                "buggy": (
+                    '    weights = [parse_parcel(item)["weight_kg"] for item in parcels]\n'
+                    "    if not weights:\n"
+                    '        return Decimal("0")\n'
+                    '    return sum(weights, start=Decimal("0")) / len(weights)'
+                ),
+                "alternative": (
+                    "    return sum(\n"
+                    '        (parse_parcel(item)["weight_kg"] for item in parcels),\n'
+                    '        start=Decimal("0"),\n'
+                    "    )"
+                ),
+                "wrong": (
+                    '    weights = [parse_parcel(item)["weight_kg"] for item in parcels]\n'
+                    "    if not weights:\n"
+                    '        return Decimal("0")\n'
+                    '    return sum(weights, start=Decimal("0")) / len(weights)'
+                ),
+            },
+        ],
     },
     "T20_multi_key_sort": {
-        "file": "src/recordkit/keys.py",
-        "buggy": "return sorted(records, key=record_key, reverse=True)",
-        "alternative": (
-            "return sorted(records, key=lambda record: ("
-            '-parse_age(record["age"]), normalize_name(record["name"])))'
-        ),
-        "wrong": (
-            "return sorted(records, key=lambda record: ("
-            'parse_age(record["age"]), normalize_name(record["name"])), '
-            "reverse=True)"
-        ),
+        "edits": [
+            {
+                "file": "src/recordkit/keys.py",
+                "buggy": "return sorted(records, key=record_key, reverse=True)",
+                "alternative": "return sorted(records, key=record_key)",
+                "wrong": "return sorted(records, key=record_key, reverse=True)",
+            },
+            {
+                "file": "src/recordkit/grouping.py",
+                "buggy": 'department: [record["name"] for record in members]',
+                "alternative": (
+                    'department: [record["name"] for record in order_records(members)]'
+                ),
+                "wrong": 'department: [record["name"] for record in members]',
+            },
+        ],
     },
     "T21_first_duplicate": {
         "file": "src/seqkit/search.py",
@@ -130,23 +160,33 @@ def run_suite(repo: Path) -> tuple[int, str]:
     return result.returncode, result.stdout + result.stderr
 
 
-def check_task(task_dir: Path, variant: dict[str, str]) -> list[str]:
+def variant_edits(variant: dict) -> list[dict]:
+    if "edits" in variant:
+        return variant["edits"]
+    return [variant]
+
+
+def check_task(task_dir: Path, variant: dict) -> list[str]:
     errors = []
-    source = task_dir / "repo" / variant["file"]
-    text = source.read_text(encoding="utf-8")
-    if text.count(variant["buggy"]) != 1:
-        return [f"buggy line not found exactly once in {variant['file']}"]
+    edits = variant_edits(variant)
+    for edit in edits:
+        source = task_dir / "repo" / edit["file"]
+        text = source.read_text(encoding="utf-8")
+        if text.count(edit["buggy"]) != 1:
+            return [f"buggy line not found exactly once in {edit['file']}"]
 
     for name in ("alternative", "wrong"):
         with tempfile.TemporaryDirectory(prefix=f"variant_{task_dir.name}_") as temp:
             work = Path(temp) / "repo"
             shutil.copytree(task_dir / "repo", work)
-            target = work / variant["file"]
-            content = target.read_text(encoding="utf-8")
-            target.write_text(
-                content.replace(variant["buggy"], variant[name], 1),
-                encoding="utf-8",
-            )
+            for edit in edits:
+                target = work / edit["file"]
+                content = target.read_text(encoding="utf-8")
+                target.write_text(
+                    content.replace(edit["buggy"], edit[name], 1),
+                    encoding="utf-8",
+                    newline="\n",
+                )
             code, output = run_suite(work)
             failure = "failed" if code else "passed"
             print(f"  {name}: {failure}")

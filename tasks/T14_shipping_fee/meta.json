@@ -11,10 +11,11 @@
     "license": "Original task",
     "modifications": "Authored for this experiment as a multi-module parcel and shipping fee package with shared weight conversion, parcel parsing, rate tables, fee calculation and batch helpers."
   },
-  "issue": "调用 parse_parcel 或 shipping_fee 处理以克为单位的包裹时，重量没有换算成千克。例如 2000 克被当作 2000 千克，north 区域标准运费返回 5005.00 元，期望 10.00 元。请修复该问题，并保持千克与磅换算、区域附加费、加急倍率、批量统计和非法输入校验的行为不变。",
+  "issue": "调用 parse_parcel 或 shipping_fee 处理以克为单位的包裹时，重量没有换算成千克。例如 2000 克被当作 2000 千克，north 区域标准运费返回 5005.00 元，期望 10.00 元。另外 total_weight 对多个包裹返回平均重量而不是总重量，例如 2000 克与 1 千克两个包裹期望合计 3 千克，实际返回 1000.5。请修复这两处问题，并保持千克与磅换算、区域附加费、加急倍率、批量统计和非法输入校验的行为不变。",
   "target_tests": [
     "tests/test_target.py::test_parse_parcel_converts_grams_to_kilograms",
-    "tests/test_target.py::test_shipping_fee_uses_kilograms_for_gram_input"
+    "tests/test_target.py::test_shipping_fee_uses_kilograms_for_gram_input",
+    "tests/test_target.py::test_total_weight_sums_mixed_units"
   ],
   "regression_tests": [
     "tests/test_regression.py::test_to_kilograms_kilograms",
@@ -33,12 +34,13 @@
     "tests/test_regression.py::test_invalid_parcel_shapes"
   ],
   "target_failure_mode": "assertion",
-  "gold_lines": 1,
+  "gold_lines": 5,
   "allowed_files": [
-    "src/logistics/units.py"
+    "src/logistics/units.py",
+    "src/logistics/parcels.py"
   ],
   "test_command": "python -m pytest",
-  "expected_buggy": "2 failed, 14 passed",
-  "expected_gold": "16 passed",
-  "notes": "The grams branch of the shared to_kilograms helper returns the raw value. Both parse_parcel and shipping_fee call the helper, so the failure appears in two public paths. Regression tests use kilograms or zero grams and pass in both states."
+  "expected_buggy": "3 failed, 14 passed",
+  "expected_gold": "17 passed",
+  "notes": "Two independent defects. The grams branch of the shared to_kilograms helper returns the raw value, affecting parse_parcel and shipping_fee. The total_weight helper returns the mean weight instead of the sum. The mixed-unit target test depends on both repairs, so fixing only one defect still fails."
 }

@@ -9,3 +9,17 @@
      return amount * KG_PER_POUND
  
  
+--- a/src/logistics/parcels.py
++++ b/src/logistics/parcels.py
+@@ -51,7 +51,7 @@
+ 
+ def total_weight(parcels):
+     """Return the combined weight of several parcels in kilograms."""
+-    weights = [parse_parcel(item)["weight_kg"] for item in parcels]
+-    if not weights:
+-        return Decimal("0")
+-    return sum(weights, start=Decimal("0")) / len(weights)
++    return sum(
++        (parse_parcel(item)["weight_kg"] for item in parcels),
++        start=Decimal("0"),
++    )

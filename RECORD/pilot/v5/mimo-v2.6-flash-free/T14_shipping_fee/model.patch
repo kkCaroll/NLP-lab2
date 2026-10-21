@@ -1,0 +1,11 @@
+--- a/src/logistics/units.py
++++ b/src/logistics/units.py
+@@ -38,7 +38,7 @@
+     if normalized == "kg":
+         return amount
+     if normalized == "g":
+-        return amount
++        return amount / KG_PER_GRAM
+     return amount * KG_PER_POUND
+ 
+ 

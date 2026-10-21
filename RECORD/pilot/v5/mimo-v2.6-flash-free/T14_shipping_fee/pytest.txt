@@ -1,0 +1,11 @@
+................F                                                        [100%]
+================================== FAILURES ===================================
+_____________________ test_total_weight_sums_mixed_units ______________________
+tests\test_target.py:31: in test_total_weight_sums_mixed_units
+    assert total_weight(parcels) == Decimal("3")
+E   AssertionError: assert Decimal('1.5') == Decimal('3')
+E    +  where Decimal('1.5') = total_weight([{'id': 'p1', 'weight': '2000', 'unit': 'g', 'zone': 'north'}, {'id': 'p2', 'weight': '1', 'unit': 'kg', 'zone': 'north'}])
+E    +  and   Decimal('3') = Decimal('3')
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_total_weight_sums_mixed_units - AssertionEr...
+1 failed, 16 passed in 0.09s
