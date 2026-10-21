@@ -58,6 +58,31 @@ VARIANTS = {
             '            totals[record["region"]] += amount'
         ),
     },
+    "T14_shipping_fee": {
+        "file": "src/logistics/units.py",
+        "buggy": '    if normalized == "g":\n        return amount',
+        "alternative": (
+            '    if normalized == "g":\n'
+            '        return amount * Decimal("0.001")'
+        ),
+        "wrong": (
+            '    if normalized == "g":\n'
+            '        return amount / Decimal("100")'
+        ),
+    },
+    "T20_multi_key_sort": {
+        "file": "src/recordkit/keys.py",
+        "buggy": "return sorted(records, key=record_key, reverse=True)",
+        "alternative": (
+            "return sorted(records, key=lambda record: ("
+            '-parse_age(record["age"]), normalize_name(record["name"])))'
+        ),
+        "wrong": (
+            "return sorted(records, key=lambda record: ("
+            'parse_age(record["age"]), normalize_name(record["name"])), '
+            "reverse=True)"
+        ),
+    },
     "T21_first_duplicate": {
         "file": "src/seqkit/search.py",
         "buggy": (

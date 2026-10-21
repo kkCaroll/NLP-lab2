@@ -1,0 +1,20 @@
+..............FF                                                         [100%]
+================================== FAILURES ===================================
+_________ test_sort_records_orders_age_descending_then_name_ascending _________
+tests/test_target.py:13: in test_sort_records_orders_age_descending_then_name_ascending
+    assert names == ["dave", "Ana", "bob", "Cara"]
+E   AssertionError: assert ['Cara', 'bob', 'Ana', 'dave'] == ['dave', 'Ana', 'bob', 'Cara']
+E     
+E     At index 0 diff: 'Cara' != 'dave'
+E     Use -v to get more diff
+____________ test_top_k_and_department_order_share_multi_key_order ____________
+tests/test_target.py:17: in test_top_k_and_department_order_share_multi_key_order
+    assert [record["name"] for record in top_k(ROSTER, 2)] == ["dave", "Ana"]
+E   AssertionError: assert ['Cara', 'bob'] == ['dave', 'Ana']
+E     
+E     At index 0 diff: 'Cara' != 'dave'
+E     Use -v to get more diff
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_sort_records_orders_age_descending_then_name_ascending
+FAILED tests/test_target.py::test_top_k_and_department_order_share_multi_key_order
+2 failed, 14 passed in 0.22s

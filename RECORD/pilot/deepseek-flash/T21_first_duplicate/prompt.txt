@@ -1,0 +1,34 @@
+你是一名代码修复智能体。当前工作目录是一个 Python 项目。
+
+项目说明：
+调用 find_first_duplicate 或 duplicate_report 处理包含多个重复值的序列时，返回的不是位置最靠前的重复值。例如输入 [3, 1, 3, 2, 1] 期望返回 3，实际返回 1。请修复该问题，并保持无重复、单一重复、计数、位置和连续段统计的行为不变。
+
+初始测试失败信息：
+```text
+................FFF                                                      [100%]
+================================== FAILURES ===================================
+______________ test_find_first_duplicate_prefers_earliest_value _______________
+tests/test_target.py:6: in test_find_first_duplicate_prefers_earliest_value
+    assert find_first_duplicate([3, 1, 3, 2, 1]) == 3
+E   assert 1 == 3
+E    +  where 1 = find_first_duplicate([3, 1, 3, 2, 1])
+______________ test_first_duplicate_index_prefers_earliest_value ______________
+tests/test_target.py:10: in test_first_duplicate_index_prefers_earliest_value
+    assert first_duplicate_index([3, 1, 3, 2, 1]) == 0
+E   assert 1 == 0
+E    +  where 1 = first_duplicate_index([3, 1, 3, 2, 1])
+__________________ test_duplicate_report_uses_earliest_value __________________
+tests/test_target.py:15: in test_duplicate_report_uses_earliest_value
+    assert report["first_duplicate"] == 5
+E   assert 4 == 5
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_find_first_duplicate_prefers_earliest_value
+FAILED tests/test_target.py::test_first_duplicate_index_prefers_earliest_value
+FAILED tests/test_target.py::test_duplicate_report_uses_earliest_value - asse...
+3 failed, 16 passed in 0.09s
+```
+
+请阅读项目代码和测试，定位并修复 bug，使全部测试通过。
+你可以用 Bash 运行 `python -m pytest` 检查修复结果。
+约束：不要修改 tests/ 目录下的任何文件，也不要修改测试配置文件。
+完成后用一句话总结你的修改。

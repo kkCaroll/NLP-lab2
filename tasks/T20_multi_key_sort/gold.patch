@@ -1,0 +1,9 @@
+--- a/src/recordkit/keys.py
++++ b/src/recordkit/keys.py
+@@ -13,5 +13,5 @@
+ 
+ 
+ def order_records(records):
+     """Return records ordered by descending age then ascending name."""
+-    return sorted(records, key=record_key, reverse=True)
++    return sorted(records, key=record_key)

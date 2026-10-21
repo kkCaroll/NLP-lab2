@@ -1,0 +1,17 @@
+..............FF                                                         [100%]
+================================== FAILURES ===================================
+________________ test_parse_parcel_converts_grams_to_kilograms ________________
+tests/test_target.py:13: in test_parse_parcel_converts_grams_to_kilograms
+    assert parse_parcel(parcel)["weight_kg"] == Decimal("2")
+E   AssertionError: assert Decimal('2000') == Decimal('2')
+E    +  where Decimal('2') = Decimal('2')
+_______________ test_shipping_fee_uses_kilograms_for_gram_input _______________
+tests/test_target.py:23: in test_shipping_fee_uses_kilograms_for_gram_input
+    assert shipping_fee(parcel) == Decimal("10.00")
+E   AssertionError: assert Decimal('5005.00') == Decimal('10.00')
+E    +  where Decimal('5005.00') = shipping_fee({'id': 'p1', 'weight': '2000', 'unit': 'g', 'zone': 'north'})
+E    +  and   Decimal('10.00') = Decimal('10.00')
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_parse_parcel_converts_grams_to_kilograms - ...
+FAILED tests/test_target.py::test_shipping_fee_uses_kilograms_for_gram_input
+2 failed, 14 passed in 0.09s

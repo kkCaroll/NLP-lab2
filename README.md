@@ -17,9 +17,11 @@
 
 - 完成来源下载与 53 题候选池
 - 完成 T01、T05、T16、T21 四道 pilot 题的构造与 buggy 及 gold 双态验证
-- 完成 T02 `parse_range` 与 T03 `apply_discount` 两道标准题，任务集累计 6 题
-- 完成 `harness/validate_tasks.py`，六道题均通过结构、泄漏、双态、补丁范围、测试哈希与五轮确定性检查
-- 完成 `harness/check_variants.py`，六道题均通过 G10 等价修复与错误修复检查
+- 完成 T02 `parse_range`、T03 `apply_discount`、T14 `shipping_fee` 与 T20 `multi_key_sort`，任务集累计 8 题
+- 完成 `harness/validate_tasks.py`，八道题均通过结构、泄漏、双态、补丁范围、测试哈希与五轮确定性检查
+- 完成 `harness/check_variants.py`，八道题均通过 G10 等价修复与错误修复检查
 - 完成四道 pilot 题的 DeepSeek-V4-Pro 盲解，四题全部通过，无测试篡改
+- 完成 DeepSeek-V4.1-Flash 与 GLM-5.3-Flash 的四题 pilot，首轮失败率均为 0%，低于预注册区间
+- 按预注册规则以 T14 与 T20 替换 T16 与 T21，pilot 题集改为 T01、T05、T14、T20
 - 人工复核表已生成，位于 `RECORD/calibration/review/`，尚待复核人签字
-- 下一步由复核人签字冻结 pilot，再用两道被测模型运行 pilot 并校准首轮失败率
+- 下一步用 T01、T05、T14、T20 重新运行两道被测模型的 pilot

@@ -1,0 +1,19 @@
+{
+  "task": "T16_sales_aggregation",
+  "model": "deepseek/deepseek-flash",
+  "exit_code": 0,
+  "timed_out": false,
+  "duration_s": 13.51,
+  "pytest_exit_code": 0,
+  "tests_failed": 0,
+  "tests_passed": 16,
+  "all_passed": true,
+  "test_tampered": false,
+  "tool_calls": 12,
+  "edits": 1,
+  "cost_usd": 0.00236,
+  "diff_lines": 2,
+  "files_changed": [
+    "src/saleskit/aggregate.py"
+  ]
+}

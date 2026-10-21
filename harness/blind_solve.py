@@ -179,7 +179,9 @@ def diff_stats(source: Path, target: Path) -> tuple[int, list[str], str]:
     return total, files, "".join(chunks)
 
 
-def run_model(repo: Path, prompt: str, raw_log: Path) -> tuple[int, bool, float, list[dict]]:
+def run_model(
+    repo: Path, prompt: str, raw_log: Path, model: str
+) -> tuple[int, bool, float, list[dict]]:
     env = dict(os.environ)
     env["XDG_CONFIG_HOME"] = str(CONFIG_HOME)
     env["XDG_DATA_HOME"] = str(DATA_HOME)
@@ -190,7 +192,7 @@ def run_model(repo: Path, prompt: str, raw_log: Path) -> tuple[int, bool, float,
         "--dir",
         str(repo),
         "--model",
-        MODEL,
+        model,
         "--agent",
         "build",
         "--format",
@@ -234,11 +236,11 @@ def run_model(repo: Path, prompt: str, raw_log: Path) -> tuple[int, bool, float,
     return process.returncode, timed_out, duration, events
 
 
-def solve(task_name: str) -> dict:
+def solve(task_name: str, model: str, output: Path) -> dict:
     task_dir = TASKS / task_name
     meta = json.loads((task_dir / "meta.json").read_text(encoding="utf-8"))
     log = (task_dir / "initial_test_log.txt").read_text(encoding="utf-8")
-    out_dir = OUTPUT / task_name
+    out_dir = output / task_name
     work = out_dir / "repo"
     if work.exists():
         shutil.rmtree(work)
@@ -249,7 +251,7 @@ def solve(task_name: str) -> dict:
     prompt = PROMPT.format(issue=meta["issue"], log=log.strip())
     (out_dir / "prompt.txt").write_text(prompt, encoding="utf-8")
     code, timed_out, duration, events = run_model(
-        work, prompt, out_dir / "events.jsonl"
+        work, prompt, out_dir / "events.jsonl", model
     )
     tampered = hash_tests(work) != tests_before
     if tampered:
@@ -262,7 +264,7 @@ def solve(task_name: str) -> dict:
     (out_dir / "model.patch").write_text(patch, encoding="utf-8")
     summary = {
         "task": task_name,
-        "model": MODEL,
+        "model": model,
         "exit_code": code,
         "timed_out": timed_out,
         "duration_s": round(duration, 2),
@@ -293,13 +295,20 @@ def ensure_config() -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("tasks", nargs="*", default=PILOTS, help="task directory names")
+    parser.add_argument("--model", default=MODEL, help="OpenCode model id")
+    parser.add_argument(
+        "--output", default=str(OUTPUT), help="directory for run artifacts"
+    )
     args = parser.parse_args()
     ensure_config()
-    OUTPUT.mkdir(parents=True, exist_ok=True)
+    output = Path(args.output)
+    if not output.is_absolute():
+        output = ROOT / output
+    output.mkdir(parents=True, exist_ok=True)
     summaries = []
     for task_name in args.tasks:
         print(f"{task_name}: running", flush=True)
-        summary = solve(task_name)
+        summary = solve(task_name, args.model, output)
         summaries.append(summary)
         status = "PASS" if summary["all_passed"] else "FAIL"
         print(
@@ -308,7 +317,7 @@ def main() -> int:
             f"diff={summary['diff_lines']} cost={summary['cost_usd']}",
             flush=True,
         )
-    summary_path = OUTPUT / "summary.json"
+    summary_path = output / "summary.json"
     existing = []
     if summary_path.exists():
         existing = json.loads(summary_path.read_text(encoding="utf-8"))

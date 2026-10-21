@@ -1,0 +1,11 @@
+--- a/src/digitkit/palindrome.py
++++ b/src/digitkit/palindrome.py
+@@ -22,7 +22,7 @@
+                 digit_list[low_mid] += 1
+             return digit_list
+ 
+-    return [1] + (len(digit_list)) * [0] + [1]
++    return [1] + (len(digit_list) - 1) * [0] + [1]
+ 
+ 
+ def is_palindrome(value):

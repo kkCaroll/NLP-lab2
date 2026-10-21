@@ -174,7 +174,7 @@ HumanEval 不适合作为主来源，主要原因是题目饱和、污染严重�
 
 1. 下载并检查三个来源，建立 40 到 60 题的候选池。
 2. 按七类错误和两个难度层打标签，检查类别缺口。
-3. 选出 24 题，先改造 4 道 pilot 题，即 T01、T05、T16、T21。
+3. 选出 24 题，先改造 4 道 pilot 题。初版为 T01、T05、T16、T21，pilot 校准后替换为 T01、T05、T14、T20。
 4. 对 pilot 题跑自动验证、V4-Pro 盲解和人工复核。
 5. Pilot 通过后批量改造剩余 20 题。
 6. 冻结题目，进入主实验。
@@ -204,3 +204,5 @@ T02 为原创标准题，题目为闭区间解析 `parse_range`，见 `../tasks/
 T03 为原创标准题，题目为百分比折扣 `apply_discount`，见 `../tasks/T03_apply_discount/`。源码 4 个文件 109 行，buggy 状态为 2 failed 与 16 passed，gold 状态为 18 passed，gold patch 为一行改动。该题通过五轮确定性检查与 G10 检查，构造记录见 `../LOG/2026-10-20_T03_construction.md`。
 
 四道 pilot 题已完成 DeepSeek-V4-Pro 盲解。四题全部通过，步数 5 到 6，工具调用 10 到 15，均未修改测试。T21 达到 15 次工具调用上限，需在正式实验中区分正常完成与预算耗尽。盲解汇总见 `../RECORD/calibration/summary.md`，人工复核表见 `../RECORD/calibration/review/`。
+
+2026-10-21 完成被测模型 pilot。DeepSeek-V4.1-Flash 与 GLM-5.3-Flash 在 T01、T05、T16、T21 上首轮全部通过，失败率为 0%，低于预注册的 40% 到 80% 区间，结果见 `../RECORD/pilot/summary.md`。按预注册的 floor 与 ceiling 替换规则，T16 与 T21 对当前模型代际过易，pilot 题集改为 T01、T05、T14、T20。T14 已构造完成，源码 6 个文件 290 行，buggy 状态为 2 failed 与 14 passed，gold 状态为 16 passed，通过五轮确定性检查与 G10 检查，构造记录见 `../LOG/2026-10-21_T14_construction.md`。T20 已构造完成，源码 6 个文件 264 行，buggy 状态为 2 failed 与 14 passed，gold 状态为 16 passed，同样通过五轮确定性检查与 G10 检查，构造记录见 `../LOG/2026-10-21_T20_construction.md`。T16 与 T21 保留为正式任务，并记录其 pilot 难度不足的情况，主实验分析时需单独报告。

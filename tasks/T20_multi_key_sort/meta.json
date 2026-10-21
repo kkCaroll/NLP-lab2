@@ -1,0 +1,44 @@
+{
+  "task_id": "T20",
+  "name": "multi_key_sort",
+  "category": "排序查找",
+  "difficulty": "困难",
+  "source": {
+    "name": "Original",
+    "source_id": "T20_multi_key_sort",
+    "url": "",
+    "commit": "",
+    "license": "Original task",
+    "modifications": "Authored for this experiment as a multi-module employee record package with shared ordering keys, sorting and selection, department grouping and text reports."
+  },
+  "issue": "员工记录需要按年龄降序排列，年龄相同时按姓名升序排列。当前 sort_records 返回年龄升序的结果，例如 41 岁的 dave 排在最后，同年龄的 bob 也排在 Ana 之前。top_k 与 department_age_order 使用同一套排序规则，因此也返回错误顺序。请修复排序行为，并保持字段校验、分组、部门汇总与报告输出的行为不变。",
+  "target_tests": [
+    "tests/test_target.py::test_sort_records_orders_age_descending_then_name_ascending",
+    "tests/test_target.py::test_top_k_and_department_order_share_multi_key_order"
+  ],
+  "regression_tests": [
+    "tests/test_regression.py::test_parse_age_accepts_integers_and_digit_strings",
+    "tests/test_regression.py::test_parse_age_rejects_bool_negative_and_noise",
+    "tests/test_regression.py::test_normalize_name_collapses_whitespace",
+    "tests/test_regression.py::test_normalize_name_rejects_empty_and_non_text",
+    "tests/test_regression.py::test_normalize_record_normalizes_fields",
+    "tests/test_regression.py::test_normalize_record_requires_every_field",
+    "tests/test_regression.py::test_normalize_records_rejects_non_sequence",
+    "tests/test_regression.py::test_sort_records_returns_new_list_without_mutating_input",
+    "tests/test_regression.py::test_sort_records_handles_empty_and_single_record",
+    "tests/test_regression.py::test_sort_records_is_stable_and_ranks_identical_keys",
+    "tests/test_regression.py::test_top_k_validates_k_and_handles_empty_result",
+    "tests/test_regression.py::test_group_by_department_preserves_input_order",
+    "tests/test_regression.py::test_department_summary_reports_count_average_and_names",
+    "tests/test_regression.py::test_summary_and_table_handle_extremes_and_single_row"
+  ],
+  "target_failure_mode": "assertion",
+  "gold_lines": 1,
+  "allowed_files": [
+    "src/recordkit/keys.py"
+  ],
+  "test_command": "python -m pytest",
+  "expected_buggy": "2 failed, 14 passed",
+  "expected_gold": "16 passed",
+  "notes": "The shared ordering key already encodes descending age through a negated value. The ordering helper additionally passes reverse=True, which reverses both the age key and the name tie breaker. Three public paths depend on the helper, so callers must be traced to the shared layer."
+}

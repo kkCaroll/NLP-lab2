@@ -1,0 +1,47 @@
+你是一名代码修复智能体。当前工作目录是一个 Python 项目。
+
+项目说明：
+调用 next_palindrome 处理全部由 9 组成的数字序列时，返回的序列比预期多一位。例如输入 [9, 9] 期望得到 [1, 0, 1]，实际得到 [1, 0, 0, 1]。请修复该问题，并保持其他回文序列的转换结果不变。
+
+初始测试失败信息：
+```text
+...........FFFF                                                          [100%]
+================================== FAILURES ===================================
+____________________ test_next_palindrome_after_two_nines _____________________
+tests/test_target.py:5: in test_next_palindrome_after_two_nines
+    assert next_palindrome([9, 9]) == [1, 0, 1]
+E   assert [1, 0, 0, 1] == [1, 0, 1]
+E     
+E     At index 2 diff: 0 != 1
+E     Left contains one more item: 1
+E     Use -v to get more diff
+___________________ test_next_palindrome_after_three_nines ____________________
+tests/test_target.py:9: in test_next_palindrome_after_three_nines
+    assert next_palindrome([9, 9, 9]) == [1, 0, 0, 1]
+E   assert [1, 0, 0, 0, 1] == [1, 0, 0, 1]
+E     
+E     At index 3 diff: 0 != 1
+E     Left contains one more item: 1
+E     Use -v to get more diff
+______________________ test_next_palindrome_int_after_99 ______________________
+tests/test_target.py:13: in test_next_palindrome_int_after_99
+    assert next_palindrome_int(99) == 101
+E   assert 1001 == 101
+E    +  where 1001 = next_palindrome_int(99)
+_____________________ test_next_palindrome_int_after_999 ______________________
+tests/test_target.py:17: in test_next_palindrome_int_after_999
+    assert next_palindrome_int(999) == 1001
+E   assert 10001 == 1001
+E    +  where 10001 = next_palindrome_int(999)
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_next_palindrome_after_two_nines - assert [1...
+FAILED tests/test_target.py::test_next_palindrome_after_three_nines - assert ...
+FAILED tests/test_target.py::test_next_palindrome_int_after_99 - assert 1001 ...
+FAILED tests/test_target.py::test_next_palindrome_int_after_999 - assert 1000...
+4 failed, 11 passed in 0.08s
+```
+
+请阅读项目代码和测试，定位并修复 bug，使全部测试通过。
+你可以用 Bash 运行 `python -m pytest` 检查修复结果。
+约束：不要修改 tests/ 目录下的任何文件，也不要修改测试配置文件。
+完成后用一句话总结你的修改。

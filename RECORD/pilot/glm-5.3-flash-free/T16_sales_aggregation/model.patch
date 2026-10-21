@@ -1,0 +1,11 @@
+--- a/src/saleskit/aggregate.py
++++ b/src/saleskit/aggregate.py
+@@ -15,7 +15,7 @@
+         if record["kind"] == "sale":
+             totals[record["region"]] += amount
+         else:
+-            totals[record["region"]] += amount
++            totals[record["region"]] -= amount
+     return {
+         region: total.quantize(CENT)
+         for region, total in sorted(totals.items())

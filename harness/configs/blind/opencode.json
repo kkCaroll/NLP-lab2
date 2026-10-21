@@ -15,6 +15,13 @@
             "context": 1048576,
             "output": 393216
           }
+        },
+        "deepseek-flash": {
+          "name": "DeepSeek-V4.1-Flash",
+          "limit": {
+            "context": 1048576,
+            "output": 393216
+          }
         }
       }
     }

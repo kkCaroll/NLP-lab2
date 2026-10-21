@@ -223,9 +223,9 @@ tasks/T01_next_palindrome/
 
 ### 4.4 题目难度校准
 
-- Pilot 用 4 题（T01 `next_palindrome`、T05 标准；T16、T21 困难）× 2 模型。四题均已完成构造并通过本地双态验证，分别见 `tasks/T01_next_palindrome/`、`tasks/T05_email_regex/`、`tasks/T16_sales_aggregation/` 与 `tasks/T21_first_duplicate/`。
+- Pilot 用 4 题（T01 `next_palindrome`、T05 `email_regex` 标准；T14 `shipping_fee`、T20 `sort_records` 困难）× 2 模型。初版困难题为 T16 与 T21，2026-10-21 首轮失败率为 0% 后按预注册规则替换为 T14 与 T20。T16 与 T21 保留为正式任务并记录其难度不足。T14 与 T20 已完成构造并通过本地双态验证，分别见 `tasks/T14_shipping_fee/` 与 `tasks/T20_multi_key_sort/`。
 - 四题已通过现有自动检查，覆盖结构、泄漏标记、buggy 与 gold 双态、补丁范围、测试哈希、五轮确定性与 G10。四题还通过 DeepSeek-V4-Pro 盲解，盲解全部通过且无测试篡改，结果见 `../RECORD/calibration/summary.md`。人工复核表见 `../RECORD/calibration/review/`，签字完成前不冻结。
-- 下一步由复核人签字，再用 DeepSeek-V4.1-Flash 与 GLM-5.3-Flash 运行 pilot，检查首轮失败率是否落在 40% 到 80%。
+- 已完成 DeepSeek-V4.1-Flash 与 GLM-5.3-Flash 的四题 pilot。两模型首轮均 4 题通过，失败率 0%，低于 40% 到 80% 的目标，结果见 `../RECORD/pilot/summary.md`。诊断显示四道题的目标测试直接给出期望值，单行缺陷可在一次读取后定位。按预注册替换规则，T16 与 T21 替换为 T14 与 T20，两题均采用共享 helper 与多条调用链，需要沿调用关系判断缺陷层。替换后重新运行 pilot。
 - 目标：每个模型第一轮失败率落在 **40%–80%**。若强模型通过率过高，优先增加困难题比例/多文件耦合；若失败率接近 100%，检查是否工具预算过紧或题目歧义，而不是直接放宽预算。
 - 校准只用于调整题目与预算；正式实验的 24 题在 pilot 后冻结，不再根据单次结果改题。
 
@@ -396,7 +396,7 @@ tasks/T01_next_palindrome/
 | 阶段 | 内容 | 验收 |
 |---|---|---|
 | P0 | 写 `PLAN/00_experiment_plan.md`、目录、`.gitignore`、OpenCode 配置 | 方案确认 |
-| P1 | 4 题垂直切片（T01、T05、T16、T21）+ 验证脚本 | buggy/gold 两态全部符合预期 |
+| P1 | 4 题垂直切片（T01、T05、T14、T20）+ 验证脚本 | buggy/gold 两态全部符合预期 |
 | P2 | Harness：运行、事件解析、预算终止、评测、分支、diff、日志 | 单题 round1→branch→round2 端到端跑通 |
 | P3 | Pilot：4 题 × 2 模型 × 第一轮；抽查 1 个失败任务的全部分支 | 失败率/成本/权限/日志质量可接受 |
 | P4 | 补齐剩余 20 题；全量验证；冻结任务与预算 | 24 题 validation 全绿 |
