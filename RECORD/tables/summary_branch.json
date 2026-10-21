@@ -1,0 +1,586 @@
+{
+  "opencode/minimax-m3.1-flash-free": {
+    "pure_continue": {
+      "n_valid": 14,
+      "n_missing": 0,
+      "round1_passed": 0,
+      "round1_failed": 14,
+      "repaired": 12,
+      "pass_rate": 0.8571,
+      "repair_success": 0.8571,
+      "regression_rate": 0.0,
+      "regression_failed": 0,
+      "regression_tests": 171,
+      "edit_size": {
+        "mean": 4.9286,
+        "median": 2.0,
+        "iqr": 2.0,
+        "min": 0,
+        "max": 36
+      },
+      "edit_ratio": {
+        "mean": 1.2929,
+        "median": 1.0,
+        "iqr": 0.0,
+        "min": 0.0,
+        "max": 7.2
+      },
+      "delta_lines": {
+        "mean": 4.9286,
+        "median": 2.0,
+        "iqr": 2.0,
+        "min": 0,
+        "max": 36
+      },
+      "edit_files": {
+        "mean": 1,
+        "median": 1.0,
+        "iqr": 0.0,
+        "min": 0,
+        "max": 2
+      },
+      "over_edit_rate": 0.0714,
+      "unrelated_file_rate": 0.0,
+      "test_tamper_rate": 0.0714,
+      "budget_exhausted_rate": 0.7143,
+      "timeout_rate": 0.0,
+      "any_edit_rate": 0.0,
+      "no_edit_rate": 0.0,
+      "no_edit_failure_rate": 0.0,
+      "revert_rate": 0.0,
+      "effective_tool_calls": {
+        "mean": null,
+        "median": null,
+        "iqr": null,
+        "min": null,
+        "max": null
+      },
+      "denied_bash_calls": 0,
+      "error_tool_calls": 0
+    },
+    "neutral": {
+      "n_valid": 14,
+      "n_missing": 0,
+      "round1_passed": 0,
+      "round1_failed": 14,
+      "repaired": 9,
+      "pass_rate": 0.6429,
+      "repair_success": 0.6429,
+      "regression_rate": 0.0,
+      "regression_failed": 0,
+      "regression_tests": 171,
+      "edit_size": {
+        "mean": 2.5714,
+        "median": 2.0,
+        "iqr": 3.0,
+        "min": 0,
+        "max": 7
+      },
+      "edit_ratio": {
+        "mean": 0.8357,
+        "median": 1.0,
+        "iqr": 0.95,
+        "min": 0.0,
+        "max": 3.5
+      },
+      "delta_lines": {
+        "mean": 2.5714,
+        "median": 2.0,
+        "iqr": 3.0,
+        "min": 0,
+        "max": 7
+      },
+      "edit_files": {
+        "mean": 0.7857,
+        "median": 1.0,
+        "iqr": 0.75,
+        "min": 0,
+        "max": 2
+      },
+      "over_edit_rate": 0.0714,
+      "unrelated_file_rate": 0.0,
+      "test_tamper_rate": 0.1429,
+      "budget_exhausted_rate": 0.7143,
+      "timeout_rate": 0.0,
+      "any_edit_rate": 0.0,
+      "no_edit_rate": 0.0,
+      "no_edit_failure_rate": 0.0,
+      "revert_rate": 0.0,
+      "effective_tool_calls": {
+        "mean": null,
+        "median": null,
+        "iqr": null,
+        "min": null,
+        "max": null
+      },
+      "denied_bash_calls": 0,
+      "error_tool_calls": 0
+    },
+    "method_guidance": {
+      "n_valid": 14,
+      "n_missing": 0,
+      "round1_passed": 0,
+      "round1_failed": 14,
+      "repaired": 11,
+      "pass_rate": 0.7857,
+      "repair_success": 0.7857,
+      "regression_rate": 0.0,
+      "regression_failed": 0,
+      "regression_tests": 171,
+      "edit_size": {
+        "mean": 2.2857,
+        "median": 2.0,
+        "iqr": 0.0,
+        "min": 0,
+        "max": 6
+      },
+      "edit_ratio": {
+        "mean": 0.7786,
+        "median": 1.0,
+        "iqr": 0.45,
+        "min": 0.0,
+        "max": 1.5
+      },
+      "delta_lines": {
+        "mean": 2.2857,
+        "median": 2.0,
+        "iqr": 0.0,
+        "min": 0,
+        "max": 6
+      },
+      "edit_files": {
+        "mean": 0.9286,
+        "median": 1.0,
+        "iqr": 0.0,
+        "min": 0,
+        "max": 2
+      },
+      "over_edit_rate": 0.0,
+      "unrelated_file_rate": 0.0,
+      "test_tamper_rate": 0.0,
+      "budget_exhausted_rate": 0.6429,
+      "timeout_rate": 0.0,
+      "any_edit_rate": 0.0,
+      "no_edit_rate": 0.0,
+      "no_edit_failure_rate": 0.0,
+      "revert_rate": 0.0,
+      "effective_tool_calls": {
+        "mean": null,
+        "median": null,
+        "iqr": null,
+        "min": null,
+        "max": null
+      },
+      "denied_bash_calls": 0,
+      "error_tool_calls": 0
+    },
+    "negative": {
+      "n_valid": 14,
+      "n_missing": 0,
+      "round1_passed": 0,
+      "round1_failed": 14,
+      "repaired": 9,
+      "pass_rate": 0.6429,
+      "repair_success": 0.6429,
+      "regression_rate": 0.0,
+      "regression_failed": 0,
+      "regression_tests": 171,
+      "edit_size": {
+        "mean": 2.0714,
+        "median": 2.0,
+        "iqr": 2.0,
+        "min": 0,
+        "max": 7
+      },
+      "edit_ratio": {
+        "mean": 0.8214,
+        "median": 1.0,
+        "iqr": 1.0,
+        "min": 0.0,
+        "max": 3.5
+      },
+      "delta_lines": {
+        "mean": 2.0714,
+        "median": 2.0,
+        "iqr": 2.0,
+        "min": 0,
+        "max": 7
+      },
+      "edit_files": {
+        "mean": 0.7143,
+        "median": 1.0,
+        "iqr": 1.0,
+        "min": 0,
+        "max": 2
+      },
+      "over_edit_rate": 0.0714,
+      "unrelated_file_rate": 0.0,
+      "test_tamper_rate": 0.1429,
+      "budget_exhausted_rate": 0.9286,
+      "timeout_rate": 0.0,
+      "any_edit_rate": 0.0,
+      "no_edit_rate": 0.0,
+      "no_edit_failure_rate": 0.0,
+      "revert_rate": 0.0,
+      "effective_tool_calls": {
+        "mean": null,
+        "median": null,
+        "iqr": null,
+        "min": null,
+        "max": null
+      },
+      "denied_bash_calls": 0,
+      "error_tool_calls": 0
+    },
+    "negative_guidance": {
+      "n_valid": 14,
+      "n_missing": 0,
+      "round1_passed": 0,
+      "round1_failed": 14,
+      "repaired": 13,
+      "pass_rate": 0.9286,
+      "repair_success": 0.9286,
+      "regression_rate": 0.0,
+      "regression_failed": 0,
+      "regression_tests": 171,
+      "edit_size": {
+        "mean": 3,
+        "median": 2.0,
+        "iqr": 2.0,
+        "min": 0,
+        "max": 7
+      },
+      "edit_ratio": {
+        "mean": 0.8571,
+        "median": 1.0,
+        "iqr": 0.0,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "delta_lines": {
+        "mean": 3,
+        "median": 2.0,
+        "iqr": 2.0,
+        "min": 0,
+        "max": 7
+      },
+      "edit_files": {
+        "mean": 1.0714,
+        "median": 1.0,
+        "iqr": 0.0,
+        "min": 0,
+        "max": 2
+      },
+      "over_edit_rate": 0.0,
+      "unrelated_file_rate": 0.0,
+      "test_tamper_rate": 0.0714,
+      "budget_exhausted_rate": 0.5714,
+      "timeout_rate": 0.0,
+      "any_edit_rate": 0.0,
+      "no_edit_rate": 0.0,
+      "no_edit_failure_rate": 0.0,
+      "revert_rate": 0.0,
+      "effective_tool_calls": {
+        "mean": null,
+        "median": null,
+        "iqr": null,
+        "min": null,
+        "max": null
+      },
+      "denied_bash_calls": 0,
+      "error_tool_calls": 0
+    }
+  },
+  "opencode/mimo-v2.6-flash-free": {
+    "pure_continue": {
+      "n_valid": 6,
+      "n_missing": 0,
+      "round1_passed": 0,
+      "round1_failed": 6,
+      "repaired": 6,
+      "pass_rate": 1.0,
+      "repair_success": 1.0,
+      "regression_rate": 0.0,
+      "regression_failed": 0,
+      "regression_tests": 74,
+      "edit_size": {
+        "mean": 3.8333,
+        "median": 4.0,
+        "iqr": 1.5,
+        "min": 2,
+        "max": 7
+      },
+      "edit_ratio": {
+        "mean": 0.8667,
+        "median": 1.0,
+        "iqr": 0.15,
+        "min": 0.4,
+        "max": 1.0
+      },
+      "delta_lines": {
+        "mean": 3.8333,
+        "median": 4.0,
+        "iqr": 1.5,
+        "min": 2,
+        "max": 7
+      },
+      "edit_files": {
+        "mean": 1.3333,
+        "median": 1.0,
+        "iqr": 0.75,
+        "min": 1,
+        "max": 2
+      },
+      "over_edit_rate": 0.0,
+      "unrelated_file_rate": 0.0,
+      "test_tamper_rate": 0.1667,
+      "budget_exhausted_rate": 0.1667,
+      "timeout_rate": 0.0,
+      "any_edit_rate": 0.0,
+      "no_edit_rate": 0.0,
+      "no_edit_failure_rate": 0.0,
+      "revert_rate": 0.0,
+      "effective_tool_calls": {
+        "mean": null,
+        "median": null,
+        "iqr": null,
+        "min": null,
+        "max": null
+      },
+      "denied_bash_calls": 0,
+      "error_tool_calls": 0
+    },
+    "neutral": {
+      "n_valid": 6,
+      "n_missing": 0,
+      "round1_passed": 0,
+      "round1_failed": 6,
+      "repaired": 5,
+      "pass_rate": 0.8333,
+      "repair_success": 0.8333,
+      "regression_rate": 0.0,
+      "regression_failed": 0,
+      "regression_tests": 74,
+      "edit_size": {
+        "mean": 3.3333,
+        "median": 3.5,
+        "iqr": 1.75,
+        "min": 0,
+        "max": 7
+      },
+      "edit_ratio": {
+        "mean": 0.6667,
+        "median": 0.8,
+        "iqr": 0.55,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "delta_lines": {
+        "mean": 3.3333,
+        "median": 3.5,
+        "iqr": 1.75,
+        "min": 0,
+        "max": 7
+      },
+      "edit_files": {
+        "mean": 1.1667,
+        "median": 1.0,
+        "iqr": 0.75,
+        "min": 0,
+        "max": 2
+      },
+      "over_edit_rate": 0.0,
+      "unrelated_file_rate": 0.0,
+      "test_tamper_rate": 0.0,
+      "budget_exhausted_rate": 0.0,
+      "timeout_rate": 0.0,
+      "any_edit_rate": 0.0,
+      "no_edit_rate": 0.0,
+      "no_edit_failure_rate": 0.0,
+      "revert_rate": 0.0,
+      "effective_tool_calls": {
+        "mean": null,
+        "median": null,
+        "iqr": null,
+        "min": null,
+        "max": null
+      },
+      "denied_bash_calls": 0,
+      "error_tool_calls": 0
+    },
+    "method_guidance": {
+      "n_valid": 6,
+      "n_missing": 0,
+      "round1_passed": 0,
+      "round1_failed": 6,
+      "repaired": 6,
+      "pass_rate": 1.0,
+      "repair_success": 1.0,
+      "regression_rate": 0.0,
+      "regression_failed": 0,
+      "regression_tests": 74,
+      "edit_size": {
+        "mean": 4,
+        "median": 4.0,
+        "iqr": 2.25,
+        "min": 2,
+        "max": 7
+      },
+      "edit_ratio": {
+        "mean": 0.9,
+        "median": 1.0,
+        "iqr": 0.0,
+        "min": 0.4,
+        "max": 1.0
+      },
+      "delta_lines": {
+        "mean": 4,
+        "median": 4.0,
+        "iqr": 2.25,
+        "min": 2,
+        "max": 7
+      },
+      "edit_files": {
+        "mean": 1.3333,
+        "median": 1.0,
+        "iqr": 0.75,
+        "min": 1,
+        "max": 2
+      },
+      "over_edit_rate": 0.0,
+      "unrelated_file_rate": 0.0,
+      "test_tamper_rate": 0.0,
+      "budget_exhausted_rate": 0.0,
+      "timeout_rate": 0.0,
+      "any_edit_rate": 0.0,
+      "no_edit_rate": 0.0,
+      "no_edit_failure_rate": 0.0,
+      "revert_rate": 0.0,
+      "effective_tool_calls": {
+        "mean": null,
+        "median": null,
+        "iqr": null,
+        "min": null,
+        "max": null
+      },
+      "denied_bash_calls": 0,
+      "error_tool_calls": 0
+    },
+    "negative": {
+      "n_valid": 6,
+      "n_missing": 0,
+      "round1_passed": 0,
+      "round1_failed": 6,
+      "repaired": 5,
+      "pass_rate": 0.8333,
+      "repair_success": 0.8333,
+      "regression_rate": 0.0,
+      "regression_failed": 0,
+      "regression_tests": 74,
+      "edit_size": {
+        "mean": 3.1667,
+        "median": 3.0,
+        "iqr": 3.5,
+        "min": 0,
+        "max": 7
+      },
+      "edit_ratio": {
+        "mean": 0.95,
+        "median": 1.0,
+        "iqr": 0.6,
+        "min": 0.0,
+        "max": 2.5
+      },
+      "delta_lines": {
+        "mean": 3.1667,
+        "median": 3.0,
+        "iqr": 3.5,
+        "min": 0,
+        "max": 7
+      },
+      "edit_files": {
+        "mean": 1,
+        "median": 1.0,
+        "iqr": 0.0,
+        "min": 0,
+        "max": 2
+      },
+      "over_edit_rate": 0.1667,
+      "unrelated_file_rate": 0.0,
+      "test_tamper_rate": 0.0,
+      "budget_exhausted_rate": 0.1667,
+      "timeout_rate": 0.0,
+      "any_edit_rate": 0.0,
+      "no_edit_rate": 0.0,
+      "no_edit_failure_rate": 0.0,
+      "revert_rate": 0.0,
+      "effective_tool_calls": {
+        "mean": null,
+        "median": null,
+        "iqr": null,
+        "min": null,
+        "max": null
+      },
+      "denied_bash_calls": 0,
+      "error_tool_calls": 0
+    },
+    "negative_guidance": {
+      "n_valid": 6,
+      "n_missing": 0,
+      "round1_passed": 0,
+      "round1_failed": 6,
+      "repaired": 6,
+      "pass_rate": 1.0,
+      "repair_success": 1.0,
+      "regression_rate": 0.0,
+      "regression_failed": 0,
+      "regression_tests": 74,
+      "edit_size": {
+        "mean": 3.6667,
+        "median": 3.5,
+        "iqr": 1.75,
+        "min": 2,
+        "max": 7
+      },
+      "edit_ratio": {
+        "mean": 0.8333,
+        "median": 1.0,
+        "iqr": 0.3,
+        "min": 0.4,
+        "max": 1.0
+      },
+      "delta_lines": {
+        "mean": 3.6667,
+        "median": 3.5,
+        "iqr": 1.75,
+        "min": 2,
+        "max": 7
+      },
+      "edit_files": {
+        "mean": 1.3333,
+        "median": 1.0,
+        "iqr": 0.75,
+        "min": 1,
+        "max": 2
+      },
+      "over_edit_rate": 0.0,
+      "unrelated_file_rate": 0.0,
+      "test_tamper_rate": 0.0,
+      "budget_exhausted_rate": 0.0,
+      "timeout_rate": 0.0,
+      "any_edit_rate": 0.0,
+      "no_edit_rate": 0.0,
+      "no_edit_failure_rate": 0.0,
+      "revert_rate": 0.0,
+      "effective_tool_calls": {
+        "mean": null,
+        "median": null,
+        "iqr": null,
+        "min": null,
+        "max": null
+      },
+      "denied_bash_calls": 0,
+      "error_tool_calls": 0
+    }
+  }
+}

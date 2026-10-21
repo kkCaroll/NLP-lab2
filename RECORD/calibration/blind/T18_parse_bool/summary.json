@@ -1,0 +1,21 @@
+{
+  "task": "T18_parse_bool",
+  "model": "deepseek/deepseek-v4-pro",
+  "exit_code": 0,
+  "timed_out": false,
+  "budget_exhausted": false,
+  "tool_call_limit": 15,
+  "duration_s": 33.04,
+  "pytest_exit_code": 0,
+  "tests_failed": 0,
+  "tests_passed": 14,
+  "all_passed": true,
+  "test_tampered": false,
+  "tool_calls": 13,
+  "edits": 1,
+  "cost_usd": 0.012609,
+  "diff_lines": 7,
+  "files_changed": [
+    "src/confkit/booleans.py"
+  ]
+}

@@ -44,6 +44,9 @@ class RunResult:
     cost_usd: float = 0.0
     tool_breakdown: dict[str, int] = field(default_factory=dict)
     first_edit_after_read: bool | None = None
+    denied_tool_calls: int = 0
+    denied_bash_calls: int = 0
+    error_tool_calls: int = 0
     events: list[dict] = field(default_factory=list)
 
 
@@ -75,6 +78,14 @@ def _event_counters(event: dict, counters: dict) -> None:
             counters["read_before_edit"] = True
         if tool in EDIT_TOOLS and counters["first_edit_index"] is None:
             counters["first_edit_index"] = counters["tool_calls"]
+        state = part.get("state", {}) or {}
+        if state.get("status") == "error":
+            counters["error_tool_calls"] += 1
+            message = str(state.get("error", ""))
+            if "prevents you from using" in message:
+                counters["denied_tool_calls"] += 1
+                if tool == "bash":
+                    counters["denied_bash_calls"] += 1
     elif kind == "step_finish":
         counters["steps"] += 1
         counters["cost_usd"] += float(part.get("cost", 0.0) or 0.0)
@@ -135,6 +146,9 @@ def run_opencode(
         "tool_breakdown": {},
         "first_edit_index": None,
         "read_before_edit": False,
+        "denied_tool_calls": 0,
+        "denied_bash_calls": 0,
+        "error_tool_calls": 0,
         "timed_out": False,
         "reasons": [],
     }
@@ -214,5 +228,8 @@ def run_opencode(
         first_edit_after_read=(
             counters["read_before_edit"] if counters["first_edit_index"] else None
         ),
+        denied_tool_calls=counters["denied_tool_calls"],
+        denied_bash_calls=counters["denied_bash_calls"],
+        error_tool_calls=counters["error_tool_calls"],
         events=events,
     )

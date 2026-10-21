@@ -1,0 +1,378 @@
+[
+  {
+    "task": "T13_paginate",
+    "file": "src/pagekit/chunks.py",
+    "line": 30,
+    "kind": "BoolOp",
+    "new": "And",
+    "regression_killed": false
+  },
+  {
+    "task": "T13_paginate",
+    "file": "src/pagekit/paginate.py",
+    "line": 9,
+    "kind": "Compare",
+    "new": "LtE",
+    "regression_killed": true
+  },
+  {
+    "task": "T13_paginate",
+    "file": "src/pagekit/report.py",
+    "line": 7,
+    "kind": "Constant",
+    "new": 11,
+    "regression_killed": false
+  },
+  {
+    "task": "T13_paginate",
+    "file": "src/pagekit/slicing.py",
+    "line": 17,
+    "kind": "Constant",
+    "new": 1,
+    "regression_killed": false
+  },
+  {
+    "task": "T13_paginate",
+    "file": "src/pagekit/state.py",
+    "line": 23,
+    "kind": "BoolOp",
+    "new": "And",
+    "regression_killed": false
+  },
+  {
+    "task": "T13_paginate",
+    "file": "src/pagekit/chunks.py",
+    "line": 32,
+    "kind": "Compare",
+    "new": "LtE",
+    "regression_killed": true
+  },
+  {
+    "task": "T13_paginate",
+    "file": "src/pagekit/paginate.py",
+    "line": 12,
+    "kind": "Compare",
+    "new": "NotEq",
+    "regression_killed": true
+  },
+  {
+    "task": "T13_paginate",
+    "file": "src/pagekit/report.py",
+    "line": 11,
+    "kind": "Compare",
+    "new": "Lt",
+    "regression_killed": false
+  },
+  {
+    "task": "T14_shipping_fee",
+    "file": "src/logistics/rates.py",
+    "line": 21,
+    "kind": "Compare",
+    "new": "In",
+    "regression_killed": true
+  },
+  {
+    "task": "T14_shipping_fee",
+    "file": "src/logistics/rates.py",
+    "line": 29,
+    "kind": "Compare",
+    "new": "LtE",
+    "regression_killed": true
+  },
+  {
+    "task": "T14_shipping_fee",
+    "file": "src/logistics/rates.py",
+    "line": 29,
+    "kind": "Constant",
+    "new": 1,
+    "regression_killed": true
+  },
+  {
+    "task": "T14_shipping_fee",
+    "file": "src/logistics/rates.py",
+    "line": 31,
+    "kind": "BinOp",
+    "new": "Sub",
+    "regression_killed": true
+  },
+  {
+    "task": "T14_shipping_fee",
+    "file": "src/logistics/rates.py",
+    "line": 48,
+    "kind": "BinOp",
+    "new": "Div",
+    "regression_killed": true
+  },
+  {
+    "task": "T14_shipping_fee",
+    "file": "src/logistics/rates.py",
+    "line": 31,
+    "kind": "BinOp",
+    "new": "Div",
+    "regression_killed": true
+  },
+  {
+    "task": "T14_shipping_fee",
+    "file": "src/logistics/rates.py",
+    "line": 48,
+    "kind": "BinOp",
+    "new": "Sub",
+    "regression_killed": true
+  },
+  {
+    "task": "T18_parse_bool",
+    "file": "src/confkit/config.py",
+    "line": 7,
+    "kind": "Constant",
+    "new": 4,
+    "regression_killed": true
+  },
+  {
+    "task": "T18_parse_bool",
+    "file": "src/confkit/env.py",
+    "line": 10,
+    "kind": "BinOp",
+    "new": "Sub",
+    "regression_killed": true
+  },
+  {
+    "task": "T18_parse_bool",
+    "file": "src/confkit/validate.py",
+    "line": 10,
+    "kind": "BinOp",
+    "new": "Add",
+    "regression_killed": true
+  },
+  {
+    "task": "T18_parse_bool",
+    "file": "src/confkit/config.py",
+    "line": 35,
+    "kind": "BoolOp",
+    "new": "And",
+    "regression_killed": false
+  },
+  {
+    "task": "T18_parse_bool",
+    "file": "src/confkit/env.py",
+    "line": 20,
+    "kind": "Compare",
+    "new": "NotIn",
+    "regression_killed": true
+  },
+  {
+    "task": "T18_parse_bool",
+    "file": "src/confkit/validate.py",
+    "line": 19,
+    "kind": "BinOp",
+    "new": "Add",
+    "regression_killed": true
+  },
+  {
+    "task": "T18_parse_bool",
+    "file": "src/confkit/config.py",
+    "line": 20,
+    "kind": "Compare",
+    "new": "NotEq",
+    "regression_killed": true
+  },
+  {
+    "task": "T18_parse_bool",
+    "file": "src/confkit/config.py",
+    "line": 22,
+    "kind": "Compare",
+    "new": "NotEq",
+    "regression_killed": true
+  },
+  {
+    "task": "T19_to_decimal",
+    "file": "src/moneykit/currency.py",
+    "line": 15,
+    "kind": "Compare",
+    "new": "In",
+    "regression_killed": true
+  },
+  {
+    "task": "T19_to_decimal",
+    "file": "src/moneykit/format.py",
+    "line": 14,
+    "kind": "Compare",
+    "new": "GtE",
+    "regression_killed": false
+  },
+  {
+    "task": "T19_to_decimal",
+    "file": "src/moneykit/percent.py",
+    "line": 10,
+    "kind": "BinOp",
+    "new": "Mult",
+    "regression_killed": true
+  },
+  {
+    "task": "T19_to_decimal",
+    "file": "src/moneykit/rounding.py",
+    "line": 35,
+    "kind": "BinOp",
+    "new": "Div",
+    "regression_killed": true
+  },
+  {
+    "task": "T19_to_decimal",
+    "file": "src/moneykit/totals.py",
+    "line": 21,
+    "kind": "BinOp",
+    "new": "Add",
+    "regression_killed": true
+  },
+  {
+    "task": "T19_to_decimal",
+    "file": "src/moneykit/currency.py",
+    "line": 22,
+    "kind": "BinOp",
+    "new": "Sub",
+    "regression_killed": true
+  },
+  {
+    "task": "T19_to_decimal",
+    "file": "src/moneykit/format.py",
+    "line": 29,
+    "kind": "Constant",
+    "new": 3,
+    "regression_killed": true
+  },
+  {
+    "task": "T19_to_decimal",
+    "file": "src/moneykit/percent.py",
+    "line": 18,
+    "kind": "Compare",
+    "new": "NotEq",
+    "regression_killed": true
+  },
+  {
+    "task": "T20_multi_key_sort",
+    "file": "src/recordkit/records.py",
+    "line": 31,
+    "kind": "Compare",
+    "new": "LtE",
+    "regression_killed": false
+  },
+  {
+    "task": "T20_multi_key_sort",
+    "file": "src/recordkit/report.py",
+    "line": 15,
+    "kind": "Constant",
+    "new": 1,
+    "regression_killed": true
+  },
+  {
+    "task": "T20_multi_key_sort",
+    "file": "src/recordkit/sorting.py",
+    "line": 16,
+    "kind": "BoolOp",
+    "new": "And",
+    "regression_killed": true
+  },
+  {
+    "task": "T20_multi_key_sort",
+    "file": "src/recordkit/records.py",
+    "line": 69,
+    "kind": "BoolOp",
+    "new": "And",
+    "regression_killed": false
+  },
+  {
+    "task": "T20_multi_key_sort",
+    "file": "src/recordkit/report.py",
+    "line": 18,
+    "kind": "Constant",
+    "new": 1,
+    "regression_killed": true
+  },
+  {
+    "task": "T20_multi_key_sort",
+    "file": "src/recordkit/sorting.py",
+    "line": 18,
+    "kind": "Compare",
+    "new": "Lt",
+    "regression_killed": false
+  },
+  {
+    "task": "T20_multi_key_sort",
+    "file": "src/recordkit/records.py",
+    "line": 27,
+    "kind": "BoolOp",
+    "new": "Or",
+    "regression_killed": true
+  },
+  {
+    "task": "T20_multi_key_sort",
+    "file": "src/recordkit/report.py",
+    "line": 27,
+    "kind": "BinOp",
+    "new": "Mult",
+    "regression_killed": true
+  },
+  {
+    "task": "T24_join_path",
+    "file": "src/pathmont/extensions.py",
+    "line": 32,
+    "kind": "BoolOp",
+    "new": "Or",
+    "regression_killed": true
+  },
+  {
+    "task": "T24_join_path",
+    "file": "src/pathmont/normalize.py",
+    "line": 21,
+    "kind": "Compare",
+    "new": "NotEq",
+    "regression_killed": true
+  },
+  {
+    "task": "T24_join_path",
+    "file": "src/pathmont/report.py",
+    "line": 33,
+    "kind": "BoolOp",
+    "new": "And",
+    "regression_killed": true
+  },
+  {
+    "task": "T24_join_path",
+    "file": "src/pathmont/roots.py",
+    "line": 16,
+    "kind": "Compare",
+    "new": "NotEq",
+    "regression_killed": true
+  },
+  {
+    "task": "T24_join_path",
+    "file": "src/pathmont/segments.py",
+    "line": 11,
+    "kind": "Compare",
+    "new": "NotIn",
+    "regression_killed": true
+  },
+  {
+    "task": "T24_join_path",
+    "file": "src/pathmont/extensions.py",
+    "line": 35,
+    "kind": "BinOp",
+    "new": "Sub",
+    "regression_killed": true
+  },
+  {
+    "task": "T24_join_path",
+    "file": "src/pathmont/normalize.py",
+    "line": 42,
+    "kind": "Compare",
+    "new": "NotEq",
+    "regression_killed": true
+  },
+  {
+    "task": "T24_join_path",
+    "file": "src/pathmont/report.py",
+    "line": 19,
+    "kind": "BinOp",
+    "new": "Sub",
+    "regression_killed": true
+  }
+]

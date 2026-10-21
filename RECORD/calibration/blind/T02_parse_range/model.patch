@@ -1,0 +1,11 @@
+--- a/src/rangekit/parse.py
++++ b/src/rangekit/parse.py
+@@ -30,7 +30,7 @@
+     start = int(start_text)
+     end = int(end_text)
+     validate_range(start, end)
+-    return list(range(start, end))
++    return list(range(start, end + 1))
+ 
+ 
+ def parse_many(items):

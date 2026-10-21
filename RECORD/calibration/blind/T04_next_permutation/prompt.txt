@@ -1,0 +1,33 @@
+你是一名代码修复智能体。当前工作目录是一个 Python 项目。
+
+项目说明：
+调用 next_permutation 获取下一个字典序排列时，返回值有时与输入相同，无法继续枚举排列。例如输入 1 2 3 时，期望得到 1 3 2，实际仍为 1 2 3。请修复该问题，并保持序列比较、后缀反转、格式化和末排列判断的行为不变。
+
+初始测试失败信息：
+```text
+............FF                                                           [100%]
+================================== FAILURES ===================================
+________________ test_next_permutation_advances_a_middle_pivot ________________
+tests\test_target.py:5: in test_next_permutation_advances_a_middle_pivot
+    assert next_permutation([1, 2, 3]) == [1, 3, 2]
+E   assert [1, 2, 3] == [1, 3, 2]
+E     
+E     At index 1 diff: 2 != 3
+E     Use -v to get more diff
+______________ test_permutations_from_returns_successive_orders _______________
+tests\test_target.py:9: in test_permutations_from_returns_successive_orders
+    assert permutations_from([1, 2, 3], 3) == [
+E   assert [[1, 2, 3], [...3], [1, 2, 3]] == [[1, 3, 2], [...3], [2, 3, 1]]
+E     
+E     At index 0 diff: [1, 2, 3] != [1, 3, 2]
+E     Use -v to get more diff
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_next_permutation_advances_a_middle_pivot - ...
+FAILED tests/test_target.py::test_permutations_from_returns_successive_orders
+2 failed, 12 passed in 0.09s
+```
+
+请阅读项目代码和测试，定位并修复 bug，使全部测试通过。
+你可以用 Bash 运行 `python -m pytest` 检查修复结果。
+约束：不要修改 tests/ 目录下的任何文件，也不要修改测试配置文件。
+完成后用一句话总结你的修改。

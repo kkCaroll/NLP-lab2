@@ -9,7 +9,7 @@
 |---|---|
 | 任务来源 | 24 个 Python 小型修复任务，基础代码选自 QuixBugs、BigCodeBench 标准库任务或原创多文件项目，统一改造后冻结 |
 | 难度分布 | 12 个标准题 + 12 个困难题 |
-| 模型 | `deepseek/deepseek-flash`（DeepSeek-V4.1-Flash）与 `opencode/glm-5.3-flash-free`（智谱 GLM-5.3-Flash，OpenCode Zen 免费） |
+| 模型 | `opencode/minimax-m3.1-flash-free`（MiniMax-M3.1-Flash）与 `opencode/mimo-v2.6-flash-free`（MiMo-V2.6-Flash），均为 OpenCode Zen 免费层 |
 | 智能体外壳 | OpenCode 1.18.25，两者共用同一 build agent、工具集、权限、步数上限 |
 | 测试权限 | 主实验允许运行 `python -m pytest`；另做 8 题 × flash 的“不可运行测试”消融 |
 | 重复 | 正式实验每个 cell 跑 1 次；另选 6 题完整复跑一次，用于估计随机波动 |
@@ -207,6 +207,7 @@ tasks/T01_next_palindrome/
 
 - Pilot 用 4 题（T01 `next_palindrome`、T05 `email_regex` 标准；T14 `shipping_fee`、T20 `sort_records` 困难）× 2 模型。初版困难题为 T16 与 T21，2026-10-21 首轮失败率为 0% 后按预注册规则替换为 T14 与 T20。T16 与 T21 保留为正式任务并记录其难度不足。T14 与 T20 已完成构造并通过本地双态验证，分别见 `tasks/T14_shipping_fee/` 与 `tasks/T20_multi_key_sort/`。
 - 四题已通过现有自动检查，覆盖结构、泄漏标记、buggy 与 gold 双态、补丁范围、测试哈希、五轮确定性与 G10。四题还通过 DeepSeek-V4-Pro 盲解，盲解全部通过且无测试篡改，结果见 `../RECORD/calibration/summary.md`。人工复核表见 `../RECORD/calibration/review/`，签字完成前不冻结。
+- 2026-10-21 完成全部 24 题的 V4-Pro 盲解，24 题全部通过且无测试篡改，结果见 `../RECORD/calibration/summary.md`。24 份复核表已生成，尚待复核人签字，签字完成前任务集不冻结。
 - 已完成 DeepSeek-V4.1-Flash 与 GLM-5.3-Flash 的四题 pilot。两模型首轮均 4 题通过，失败率 0%，低于 40% 到 80% 的目标，结果见 `../RECORD/pilot/summary.md`。诊断显示四道题的目标测试直接给出期望值，单行缺陷可在一次读取后定位。按预注册替换规则，T16 与 T21 替换为 T14 与 T20，两题均采用共享 helper 与多条调用链，需要沿调用关系判断缺陷层。替换后重新运行 pilot。
 - 替换后 pilot 仍为 0% 失败。随后筛选六个免费模型，五个可用模型在 T14 与 T20 上首轮通过。按用户决定，将 T14 与 T20 改造为多缺陷题，并用 minimax-m3.1-flash-free 与 mimo-v2.6-flash-free 重跑 pilot，八次运行仍全部通过，失败率 0%，结果见 `../RECORD/pilot/v4/summary.md`。多缺陷设计与免费模型均未改变饱和结果，需要从预算或研究设计层面调整。
 - 按用户决定，第一轮工具调用上限收紧至 10 次，保留 minimax-m3.1-flash-free 与 mimo-v2.6-flash-free 以及多缺陷题。重跑 pilot 后两个模型各为 2 通过 2 失败，合计失败率 50%，进入目标区间，结果见 `../RECORD/pilot/v5/summary.md`。四次失败中三次没有源码改动，一次只修复一处缺陷，失败全部出现在困难题。第一轮预算冻结为 10 次。第二轮保持 15 次，使反馈分支具备修改代码的预算，五个条件使用相同预算。
@@ -418,7 +419,7 @@ nlp_proj_2/
       figures/
     report/
       report.md
-      slides.md
+      slides_v0.md
   NOTES/
   harness/
     configs/main/opencode.json
@@ -459,3 +460,14 @@ nlp_proj_2/
 4. `RECORD/analysis/results.csv`、逐题明细、图表。
 5. `RECORD/report/report.md`：实验设计、表 3、五条件对比、模型对比、消融、案例、效度威胁与结论。
 6. 一页“真实使用建议”：怎样的反馈最有利于修正错误。
+
+## 14. 运行后核查与方案修订
+
+2026-10-21 主实验完成后进行了数据核查，结果见 [../LOG/2026-10-21_main_run_audit.md](../LOG/2026-10-21_main_run_audit.md)。核查确认 48 条任务记录、100 个分支 episode 与 24 个任务包完整，未发现超时、分支继承不一致或初始日志漂移。同时发现四项偏差。
+
+1. 五条件在实际运行中按固定顺序执行，未按本方案第 8 节实施任务内随机化。条件与任务内位置完全共线，主数据只能支持描述性条件比较。
+2. MiMo-V2.6-Flash 第一轮失败率为 0.25，低于 0.40 至 0.80 的校准区间，分支样本仅 6 题。
+3. 两模型五个条件的回归测试失败数均为 0，回归错误率没有方差。
+4. 分支失败以未编辑为主，MiniMax 为 15/16，MiMo 为 2/2。
+
+补充运行、回归敏感性诊断、统计分析与报告安排见 [04_post_run_analysis.md](04_post_run_analysis.md)。本方案第 1 至 13 节保留为预注册设计，不因运行结果改写。分析时以实际运行配置与偏差记录为准。

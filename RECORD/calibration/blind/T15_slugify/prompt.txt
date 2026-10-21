@@ -1,0 +1,35 @@
+你是一名代码修复智能体。当前工作目录是一个 Python 项目。
+
+项目说明：
+生成链接标识时，连续出现的标点或分隔符被逐个替换，结果中出现连续连字符。例如 Hello, World 期望得到 hello-world，实际得到 hello--world。请修复该问题，并保持空白归一化、标题大小写、重音折叠、唯一标识、路径渲染与标题渲染的行为不变。
+
+初始测试失败信息：
+```text
+.............FF                                                          [100%]
+================================== FAILURES ===================================
+___________________ test_slugify_collapses_punctuation_runs ___________________
+tests\test_target.py:5: in test_slugify_collapses_punctuation_runs
+    assert slugify("Hello, World!") == "hello-world"
+E   AssertionError: assert 'hello--world' == 'hello-world'
+E     
+E     - hello-world
+E     + hello--world
+E     ?       +
+___________________ test_format_index_collapses_separators ____________________
+tests\test_target.py:9: in test_format_index_collapses_separators
+    assert format_index([("Data -- Science", 3)]) == "data-science: 3"
+E   AssertionError: assert 'data----science: 3' == 'data-science: 3'
+E     
+E     - data-science: 3
+E     + data----science: 3
+E     ?     +++
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_slugify_collapses_punctuation_runs - Assert...
+FAILED tests/test_target.py::test_format_index_collapses_separators - Asserti...
+2 failed, 13 passed in 0.13s
+```
+
+请阅读项目代码和测试，定位并修复 bug，使全部测试通过。
+你可以用 Bash 运行 `python -m pytest` 检查修复结果。
+约束：不要修改 tests/ 目录下的任何文件，也不要修改测试配置文件。
+完成后用一句话总结你的修改。

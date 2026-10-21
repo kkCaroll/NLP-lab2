@@ -1,0 +1,10 @@
+--- a/src/pathmont/join.py
++++ b/src/pathmont/join.py
+@@ -12,6 +12,7 @@
+     slash, so the result always stays below base.
+     """
+     base = require_path(base, "base")
++    parts = [require_path(part, "part").lstrip("/") for part in parts]
+     return posixpath.join(base, *parts)
+ 
+ 

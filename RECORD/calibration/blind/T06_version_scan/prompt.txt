@@ -1,0 +1,34 @@
+你是一名代码修复智能体。当前工作目录是一个 Python 项目。
+
+项目说明：
+从日志文本中提取版本号时，四段数字中的前三段会被误识别为版本号。例如 1.2.3.4 被识别为 1.2.3，导致版本统计出现错误。请修复该问题，并保持精确匹配、版本替换、空白规范化与版本汇总的行为不变。
+
+初始测试失败信息：
+```text
+.............FF                                                          [100%]
+================================== FAILURES ===================================
+_______________ test_extract_versions_rejects_a_numeric_suffix ________________
+tests\test_target.py:5: in test_extract_versions_rejects_a_numeric_suffix
+    assert extract_versions("build 1.2.3.4") == []
+E   AssertionError: assert ['1.2.3'] == []
+E     
+E     Left contains one more item: '1.2.3'
+E     Use -v to get more diff
+_____________ test_extract_versions_keeps_only_complete_versions ______________
+tests\test_target.py:9: in test_extract_versions_keeps_only_complete_versions
+    assert extract_versions("1.2.3.4 and 5.6.7") == ["5.6.7"]
+E   AssertionError: assert ['1.2.3', '5.6.7'] == ['5.6.7']
+E     
+E     At index 0 diff: '1.2.3' != '5.6.7'
+E     Left contains one more item: '5.6.7'
+E     Use -v to get more diff
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_extract_versions_rejects_a_numeric_suffix
+FAILED tests/test_target.py::test_extract_versions_keeps_only_complete_versions
+2 failed, 13 passed in 0.11s
+```
+
+请阅读项目代码和测试，定位并修复 bug，使全部测试通过。
+你可以用 Bash 运行 `python -m pytest` 检查修复结果。
+约束：不要修改 tests/ 目录下的任何文件，也不要修改测试配置文件。
+完成后用一句话总结你的修改。

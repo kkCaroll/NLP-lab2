@@ -1,0 +1,37 @@
+你是一名代码修复智能体。当前工作目录是一个 Python 项目。
+
+项目说明：
+调用 parse_parcel 或 shipping_fee 处理以克为单位的包裹时，重量没有换算成千克。例如 2000 克被当作 2000 千克，north 区域标准运费返回 5005.00 元，期望 10.00 元。另外 total_weight 对多个包裹返回平均重量而不是总重量，例如 2000 克与 1 千克两个包裹期望合计 3 千克，实际返回 1000.5。请修复这两处问题，并保持千克与磅换算、区域附加费、加急倍率、批量统计和非法输入校验的行为不变。
+
+初始测试失败信息：
+```text
+..............FFF                                                        [100%]
+================================== FAILURES ===================================
+________________ test_parse_parcel_converts_grams_to_kilograms ________________
+tests/test_target.py:13: in test_parse_parcel_converts_grams_to_kilograms
+    assert parse_parcel(parcel)["weight_kg"] == Decimal("2")
+E   AssertionError: assert Decimal('2000') == Decimal('2')
+E    +  where Decimal('2') = Decimal('2')
+_______________ test_shipping_fee_uses_kilograms_for_gram_input _______________
+tests/test_target.py:23: in test_shipping_fee_uses_kilograms_for_gram_input
+    assert shipping_fee(parcel) == Decimal("10.00")
+E   AssertionError: assert Decimal('5005.00') == Decimal('10.00')
+E    +  where Decimal('5005.00') = shipping_fee({'id': 'p1', 'weight': '2000', 'unit': 'g', 'zone': 'north'})
+E    +  and   Decimal('10.00') = Decimal('10.00')
+_____________________ test_total_weight_sums_mixed_units ______________________
+tests/test_target.py:31: in test_total_weight_sums_mixed_units
+    assert total_weight(parcels) == Decimal("3")
+E   AssertionError: assert Decimal('1000.5') == Decimal('3')
+E    +  where Decimal('1000.5') = total_weight([{'id': 'p1', 'weight': '2000', 'unit': 'g', 'zone': 'north'}, {'id': 'p2', 'weight': '1', 'unit': 'kg', 'zone': 'north'}])
+E    +  and   Decimal('3') = Decimal('3')
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_parse_parcel_converts_grams_to_kilograms - ...
+FAILED tests/test_target.py::test_shipping_fee_uses_kilograms_for_gram_input
+FAILED tests/test_target.py::test_total_weight_sums_mixed_units - AssertionEr...
+3 failed, 14 passed in 0.09s
+```
+
+请阅读项目代码和测试，定位并修复 bug，使全部测试通过。
+你可以用 Bash 运行 `python -m pytest` 检查修复结果。
+约束：不要修改 tests/ 目录下的任何文件，也不要修改测试配置文件。
+完成后用一句话总结你的修改。

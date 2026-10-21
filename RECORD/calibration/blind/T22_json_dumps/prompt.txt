@@ -1,0 +1,35 @@
+你是一名代码修复智能体。当前工作目录是一个 Python 项目。
+
+项目说明：
+序列化 JSON 时三个选项组合不正确，中文等非 ASCII 字符被转义，键的顺序也未排序且分隔符带多余空格。例如只含 name 与 café 的对象期望输出紧凑且保留原字符的文本，实际输出带转义且含空格。请修复该问题，并保持解析、信封结构、文本处理、负载规范化与描述文本的行为不变。
+
+初始测试失败信息：
+```text
+.........FF                                                              [100%]
+================================== FAILURES ===================================
+_____________________ test_json_dumps_keeps_unicode_text ______________________
+tests\test_target.py:5: in test_json_dumps_keeps_unicode_text
+    assert json_dumps({"name": "café"}) == '{"name":"café"}'
+E   assert '{"name": "caf\\u00e9"}' == '{"name":"café"}'
+E     
+E     - {"name":"café"}
+E     ?             ^
+E     + {"name": "caf\u00e9"}
+E     ?         +    ^^^^^^
+_______________________ test_build_envelope_sorts_keys ________________________
+tests\test_target.py:9: in test_build_envelope_sorts_keys
+    assert build_envelope({"b": 1, "a": 2}) == '{"data":{"a":2,"b":1},"ok":true}'
+E   assert '{"ok": true,...": 1,"a": 2}}' == '{"data":{"a"...1},"ok":true}'
+E     
+E     - {"data":{"a":2,"b":1},"ok":true}
+E     + {"ok": true,"data": {"b": 1,"a": 2}}
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_json_dumps_keeps_unicode_text - assert '{"n...
+FAILED tests/test_target.py::test_build_envelope_sorts_keys - assert '{"ok": ...
+2 failed, 9 passed in 0.08s
+```
+
+请阅读项目代码和测试，定位并修复 bug，使全部测试通过。
+你可以用 Bash 运行 `python -m pytest` 检查修复结果。
+约束：不要修改 tests/ 目录下的任何文件，也不要修改测试配置文件。
+完成后用一句话总结你的修改。

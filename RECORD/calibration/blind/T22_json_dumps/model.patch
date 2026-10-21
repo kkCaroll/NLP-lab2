@@ -1,0 +1,15 @@
+--- a/src/payloadkit/serialise.py
++++ b/src/payloadkit/serialise.py
+@@ -12,9 +12,9 @@
+     try:
+         return json.dumps(
+             payload,
+-            ensure_ascii=True,
+-            sort_keys=False,
+-            separators=(",", ": "),
++            ensure_ascii=False,
++            sort_keys=True,
++            separators=(",", ":"),
+         )
+     except (TypeError, ValueError) as error:
+         raise PayloadError(str(error)) from None

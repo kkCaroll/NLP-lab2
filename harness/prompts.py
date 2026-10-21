@@ -34,10 +34,13 @@ ROUND1_TEMPLATE = """你是一名代码修复智能体。当前工作目录是�
 ```
 
 请阅读项目代码和测试，定位并修复 bug，使全部测试通过。
-你可以用 Bash 运行 `python -m pytest` 检查修复结果。
+{test_instruction}
 约束：不要修改 tests/ 目录下的任何文件，也不要修改测试配置文件。
 完成后用一句话总结你的修改。
 """
+
+TEST_INSTRUCTION = "你可以用 Bash 运行 `python -m pytest` 检查修复结果。"
+NO_TEST_INSTRUCTION = "当前环境不允许运行测试，你只能通过阅读代码和日志来修复。"
 
 ROUND2_PREFIX = """你正在继续修复同一个 Python 项目。
 
@@ -57,10 +60,14 @@ ROUND2_PREFIX = """你正在继续修复同一个 Python 项目。
 """
 
 
-def build_round1(issue: str, initial_test_log: str) -> str:
+def build_round1(
+    issue: str, initial_test_log: str, allow_tests: bool = True
+) -> str:
+    instruction = TEST_INSTRUCTION if allow_tests else NO_TEST_INSTRUCTION
     return ROUND1_TEMPLATE.format(
         issue=issue.strip(),
         initial_test_log=initial_test_log.strip(),
+        test_instruction=instruction,
     )
 
 

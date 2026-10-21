@@ -31,7 +31,7 @@
     "tests/test_regression.py::test_argv_helpers"
   ],
   "target_failure_mode": "assertion",
-  "gold_lines": 3,
+  "gold_lines": 4,
   "allowed_files": [
     "src/clikit/options.py"
   ],

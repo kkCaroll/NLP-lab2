@@ -28,7 +28,7 @@
     "tests/test_regression.py::test_report_helpers"
   ],
   "target_failure_mode": "assertion",
-  "gold_lines": 6,
+  "gold_lines": 5,
   "allowed_files": [
     "src/pathmont/join.py"
   ],

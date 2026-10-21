@@ -1,0 +1,37 @@
+你是一名代码修复智能体。当前工作目录是一个 Python 项目。
+
+项目说明：
+日期格式化输出的月份字段错误，三月的日期会显示成当月分钟数对应的月份。请修复该问题，并保持时间格式化、日期解析、可选值解析、日期间隔与工作日计算的行为不变。
+
+初始测试失败信息：
+```text
+..........FF                                                             [100%]
+================================== FAILURES ===================================
+__________________ test_format_date_renders_the_month_field ___________________
+tests\test_target.py:7: in test_format_date_renders_the_month_field
+    assert format_date(datetime(2024, 3, 5)) == "2024-03-05"
+E   AssertionError: assert '2024-00-05' == '2024-03-05'
+E     
+E     - 2024-03-05
+E     ?       ^
+E     + 2024-00-05
+E     ?       ^
+________________ test_format_datetime_renders_month_and_minute ________________
+tests\test_target.py:11: in test_format_datetime_renders_month_and_minute
+    assert format_datetime(datetime(2024, 11, 23, 14, 7)) == "2024-11-23 14:07"
+E   AssertionError: assert '2024-07-23 14:07' == '2024-11-23 14:07'
+E     
+E     - 2024-11-23 14:07
+E     ?      ^^
+E     + 2024-07-23 14:07
+E     ?      ^^
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_format_date_renders_the_month_field - Asser...
+FAILED tests/test_target.py::test_format_datetime_renders_month_and_minute - ...
+2 failed, 10 passed in 0.11s
+```
+
+请阅读项目代码和测试，定位并修复 bug，使全部测试通过。
+你可以用 Bash 运行 `python -m pytest` 检查修复结果。
+约束：不要修改 tests/ 目录下的任何文件，也不要修改测试配置文件。
+完成后用一句话总结你的修改。

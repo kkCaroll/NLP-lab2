@@ -1,0 +1,48 @@
+T02_parse_range: running
+  PASS passed=15 failed=0 tampered=False tools=6 budget=False diff=2 cost=0.005546
+T03_apply_discount: running
+  PASS passed=18 failed=0 tampered=False tools=10 budget=False diff=2 cost=0.007796
+T04_next_permutation: running
+  PASS passed=14 failed=0 tampered=False tools=10 budget=False diff=2 cost=0.008304
+T06_version_scan: running
+  PASS passed=15 failed=0 tampered=False tools=10 budget=False diff=2 cost=0.012523
+T07_group_counts: running
+  PASS passed=14 failed=0 tampered=False tools=10 budget=False diff=2 cost=0.007828
+T08_inventory_summary: running
+  PASS passed=15 failed=0 tampered=False tools=12 budget=False diff=2 cost=0.008684
+T09_safe_int: running
+  PASS passed=14 failed=0 tampered=False tools=9 budget=False diff=2 cost=0.007419
+T10_top_k: running
+  PASS passed=14 failed=0 tampered=False tools=10 budget=False diff=2 cost=0.007215
+T11_sort_items: running
+  PASS passed=13 failed=0 tampered=False tools=10 budget=False diff=2 cost=0.0072
+T12_format_datetime: running
+  PASS passed=12 failed=0 tampered=False tools=8 budget=False diff=2 cost=0.006754
+T13_paginate: running
+  PASS passed=19 failed=0 tampered=False tools=13 budget=False diff=2 cost=0.010351
+T14_shipping_fee: running
+  PASS passed=17 failed=0 tampered=False tools=13 budget=False diff=4 cost=0.010451
+T15_slugify: running
+  PASS passed=15 failed=0 tampered=False tools=13 budget=False diff=2 cost=0.010097
+T17_merge_records: running
+  PASS passed=15 failed=0 tampered=False tools=12 budget=False diff=2 cost=0.01015
+T18_parse_bool: running
+  PASS passed=14 failed=0 tampered=False tools=13 budget=False diff=7 cost=0.012609
+T19_to_decimal: running
+  PASS passed=10 failed=0 tampered=False tools=13 budget=False diff=2 cost=0.010391
+T20_multi_key_sort: running
+  PASS passed=16 failed=0 tampered=False tools=13 budget=False diff=4 cost=0.010699
+T22_json_dumps: running
+Traceback (most recent call last):
+  File "C:\DATA\大三上课程\自然语言处理\nlp_proj_2\harness\blind_solve.py", line 427, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "C:\DATA\大三上课程\自然语言处理\nlp_proj_2\harness\blind_solve.py", line 400, in main
+    summary = solve(task_name, args.model, output, args.max_tool_calls)
+  File "C:\DATA\大三上课程\自然语言处理\nlp_proj_2\harness\blind_solve.py", line 314, in solve
+    log = (task_dir / "initial_test_log.txt").read_text(encoding="utf-8")
+  File "C:\Users\28206\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py", line 788, in read_text
+    return f.read()
+           ~~~~~~^^
+  File "<frozen codecs>", line 325, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xa8 in position 341: invalid start byte

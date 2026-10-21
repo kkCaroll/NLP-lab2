@@ -23,6 +23,8 @@ TEST_CONFIG_FILES = [
     "tox.ini",
     "conftest.py",
     "tests/conftest.py",
+    "sitecustomize.py",
+    "usercustomize.py",
 ]
 
 BASELINE = "baseline"

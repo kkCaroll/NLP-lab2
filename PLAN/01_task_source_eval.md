@@ -205,6 +205,8 @@ T03 为原创标准题，题目为百分比折扣 `apply_discount`，见 `../tas
 
 四道 pilot 题已完成 DeepSeek-V4-Pro 盲解。四题全部通过，步数 5 到 6，工具调用 10 到 15，均未修改测试。T21 达到 15 次工具调用上限，需在正式实验中区分正常完成与预算耗尽。盲解汇总见 `../RECORD/calibration/summary.md`，人工复核表见 `../RECORD/calibration/review/`。
 
+2026-10-21 完成全部 24 题的 DeepSeek-V4-Pro 盲解。24 题全部通过，无测试篡改，无超时，工具调用 6 至 15 次，修改文件均在 `allowed_files` 内，合计费用 0.227416 美元。困难题在步数上与标准题接近，仅工具调用略多，难度分层仍需以被测模型的失败率为准。逐题结果见 `../RECORD/calibration/summary.md`，24 份复核表见 `../RECORD/calibration/review/`，签字完成前不冻结。
+
 2026-10-21 完成被测模型 pilot。DeepSeek-V4.1-Flash 与 GLM-5.3-Flash 在 T01、T05、T16、T21 上首轮全部通过，失败率为 0%，低于预注册的 40% 到 80% 区间，结果见 `../RECORD/pilot/summary.md`。按预注册的 floor 与 ceiling 替换规则，T16 与 T21 对当前模型代际过易，pilot 题集改为 T01、T05、T14、T20。T14 已构造完成，源码 6 个文件 290 行，buggy 状态为 2 failed 与 14 passed，gold 状态为 16 passed，通过五轮确定性检查与 G10 检查，构造记录见 `../LOG/2026-10-21_T14_construction.md`。T20 已构造完成，源码 6 个文件 264 行，buggy 状态为 2 failed 与 14 passed，gold 状态为 16 passed，同样通过五轮确定性检查与 G10 检查，构造记录见 `../LOG/2026-10-21_T20_construction.md`。T16 与 T21 保留为正式任务，并记录其 pilot 难度不足的情况，主实验分析时需单独报告。
 
 2026-10-21 完成多缺陷改造。T14 增加 total_weight 返回平均重量而非总重量的缺陷，源码 6 个文件 292 行，buggy 状态为 3 failed 与 14 passed，gold 状态为 17 passed，gold patch 涉及两个文件。T20 增加 department_age_order 绕过共享排序 helper 的缺陷，源码 6 个文件 264 行，buggy 状态为 2 failed 与 14 passed，gold 状态为 16 passed，gold patch 涉及两个文件。两题均通过验证与多文件变体检查，记录见 `../LOG/2026-10-21_multi_defect_revision.md`。

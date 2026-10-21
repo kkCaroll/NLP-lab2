@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import random
 import shutil
 import tempfile
 import time
@@ -30,6 +31,14 @@ DEFAULT_MODEL = "opencode/minimax-m3.1-flash-free"
 
 def model_slug(model: str) -> str:
     return model.replace("/", "_").replace(":", "_")
+
+
+def shuffled_conditions(conditions: list[str], seed_text: str) -> tuple[list[str], str]:
+    """Return a reproducible task level condition order and its seed digest."""
+    digest = hashlib.sha256(seed_text.encode("utf-8")).hexdigest()[:8]
+    order = list(conditions)
+    random.Random(int(digest, 16)).shuffle(order)
+    return order, digest
 
 
 def write_json(path: Path, data: dict) -> None:
@@ -149,6 +158,16 @@ def main() -> int:
         default=",".join(prompts.CONDITIONS),
         help="comma separated subset of round 2 conditions",
     )
+    parser.add_argument(
+        "--condition-order-seed",
+        default=None,
+        help="seed text for within task condition order; defaults to run, model, task",
+    )
+    parser.add_argument(
+        "--no-tests",
+        action="store_true",
+        help="use the no-test prompt and the ablation config by default",
+    )
     parser.add_argument("--skip-branches", action="store_true")
     parser.add_argument("--keep-temp", action="store_true")
     args = parser.parse_args()
@@ -159,6 +178,10 @@ def main() -> int:
         raise SystemExit(f"unknown conditions: {unknown}")
 
     run_id = args.run_id or time.strftime("%Y-%m-%d_%H%M%S")
+    seed_text = args.condition_order_seed or f"{run_id}|{args.model}|{args.task}"
+    conditions, order_seed = shuffled_conditions(conditions, seed_text)
+    if args.no_tests and args.config == "harness/configs/main/opencode.json":
+        args.config = "harness/configs/ablation/opencode.json"
     output = Path(args.output)
     if not output.is_absolute():
         output = ROOT / output
@@ -200,6 +223,9 @@ def main() -> int:
             "seconds": args.timeout,
         },
         "conditions": conditions,
+        "condition_order": conditions,
+        "condition_order_seed": order_seed,
+        "no_tests": args.no_tests,
         "round1": {},
         "branches": {},
     }
@@ -211,12 +237,17 @@ def main() -> int:
             "run_id": run_id,
             "limits": summary["limits"],
             "conditions": conditions,
+            "condition_order": conditions,
+            "condition_order_seed": order_seed,
+            "no_tests": args.no_tests,
             "opencode_config": config_ref,
         },
     )
 
     try:
-        round1_prompt = prompts.build_round1(meta["issue"], initial_log)
+        round1_prompt = prompts.build_round1(
+            meta["issue"], initial_log, allow_tests=not args.no_tests
+        )
         round1_limits = RunLimits(
             tool_calls=args.round1_tool_calls,
             edits=args.edit_limit,

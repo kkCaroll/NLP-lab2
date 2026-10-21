@@ -1,0 +1,35 @@
+你是一名代码修复智能体。当前工作目录是一个 Python 项目。
+
+项目说明：
+按标识符合并记录时，同一标识符的多个版本只保留第一次出现的记录，较新的版本被丢弃。例如标识 a 先出现版本一后出现版本二，合并结果仍是版本一。请修复该问题，并保持字段补全、分组、排序、冲突检测与文本渲染的行为不变。
+
+初始测试失败信息：
+```text
+.............FF                                                          [100%]
+================================== FAILURES ===================================
+_________________ test_merge_records_keeps_the_latest_version _________________
+tests\test_target.py:12: in test_merge_records_keeps_the_latest_version
+    assert [record["name"] for record in merged] == ["new", "bee"]
+E   AssertionError: assert ['old', 'bee'] == ['new', 'bee']
+E     
+E     At index 0 diff: 'old' != 'new'
+E     Use -v to get more diff
+_____________ test_summarize_versions_reports_the_latest_version ______________
+tests\test_target.py:16: in test_summarize_versions_reports_the_latest_version
+    assert summarize_versions(RECORDS) == "a=2, b=1"
+E   AssertionError: assert 'a=1, b=1' == 'a=2, b=1'
+E     
+E     - a=2, b=1
+E     ?   ^
+E     + a=1, b=1
+E     ?   ^
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_merge_records_keeps_the_latest_version - As...
+FAILED tests/test_target.py::test_summarize_versions_reports_the_latest_version
+2 failed, 13 passed in 0.12s
+```
+
+请阅读项目代码和测试，定位并修复 bug，使全部测试通过。
+你可以用 Bash 运行 `python -m pytest` 检查修复结果。
+约束：不要修改 tests/ 目录下的任何文件，也不要修改测试配置文件。
+完成后用一句话总结你的修改。

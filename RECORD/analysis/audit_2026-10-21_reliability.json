@@ -1,0 +1,27 @@
+{
+  "run_id": "2026-10-21_reliability",
+  "models": [
+    "opencode/minimax-m3.1-flash-free",
+    "opencode/mimo-v2.6-flash-free"
+  ],
+  "tasks": [
+    "T05_email_regex",
+    "T09_safe_int",
+    "T14_shipping_fee",
+    "T18_parse_bool",
+    "T19_to_decimal",
+    "T24_join_path"
+  ],
+  "missing": [],
+  "branch_missing": [],
+  "integrity": [],
+  "prompt_mismatch": [],
+  "order": [],
+  "tampered": [
+    "opencode/mimo-v2.6-flash-free T24_join_path branch:negative"
+  ],
+  "initial_log_mismatch": [],
+  "records": 12,
+  "branch_episodes": 35,
+  "ok": true
+}

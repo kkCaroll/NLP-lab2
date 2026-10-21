@@ -170,6 +170,26 @@ def validate_task(task_dir: Path, repeat: int) -> tuple[list[str], list[str]]:
     if changed_files != meta.get("allowed_files", []):
         errors.append(f"patch changes {changed_files} != {meta.get('allowed_files')}")
 
+    gold_lines = 0
+    current_file = None
+    for line in patch_text.splitlines():
+        if line.startswith("+++ b/"):
+            current_file = line[6:].strip()
+        elif line.startswith("+++ /dev/null"):
+            current_file = None
+        elif (
+            current_file
+            and current_file.endswith(".py")
+            and not current_file.startswith("tests/")
+            and "/tests/" not in current_file
+        ):
+            if line.startswith(("+", "-")) and not line.startswith(("+++", "---")):
+                gold_lines += 1
+    if gold_lines != meta.get("gold_lines"):
+        errors.append(
+            f"gold patch lines {gold_lines} != meta gold_lines {meta.get('gold_lines')}"
+        )
+
     check = subprocess.run(
         ["git", "apply", "--check", "-p1", str(patch_path)],
         cwd=repo,

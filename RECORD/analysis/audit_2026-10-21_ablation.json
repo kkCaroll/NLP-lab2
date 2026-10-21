@@ -1,0 +1,27 @@
+{
+  "run_id": "2026-10-21_ablation",
+  "models": [
+    "opencode/minimax-m3.1-flash-free",
+    "opencode/mimo-v2.6-flash-free"
+  ],
+  "tasks": [
+    "T05_email_regex",
+    "T06_version_scan",
+    "T13_paginate",
+    "T14_shipping_fee",
+    "T18_parse_bool",
+    "T19_to_decimal",
+    "T20_multi_key_sort",
+    "T24_join_path"
+  ],
+  "missing": [],
+  "branch_missing": [],
+  "integrity": [],
+  "prompt_mismatch": [],
+  "order": [],
+  "tampered": [],
+  "initial_log_mismatch": [],
+  "records": 16,
+  "branch_episodes": 50,
+  "ok": true
+}

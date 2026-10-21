@@ -20,6 +20,7 @@ def episode_metrics(
 ) -> dict:
     cumulative_lines, cumulative_files = source_diff_stats(workspace, base_ref)
     delta_lines, delta_files = source_diff_stats(workspace, previous_ref)
+    round1_lines, _ = source_diff_stats(workspace, base_ref, previous_ref)
     gold_lines = int(meta.get("gold_lines", 1) or 1)
     allowed = set(meta.get("allowed_files", []))
     unrelated = sorted(set(cumulative_files) - allowed)
@@ -43,8 +44,17 @@ def episode_metrics(
         "delta_lines": delta_lines,
         "delta_files": delta_files,
         "delta_file_count": len(delta_files),
+        "round1_lines": round1_lines,
+        "revert": cumulative_lines < round1_lines,
+        "any_edit": run.edits > 0,
+        "no_edit": run.edits == 0,
+        "no_edit_failure": (not grade.all_passed) and run.edits == 0,
         "test_tampered": test_tampered,
         "tool_calls": run.tool_calls,
+        "effective_tool_calls": max(0, run.tool_calls - run.denied_tool_calls),
+        "denied_tool_calls": run.denied_tool_calls,
+        "denied_bash_calls": run.denied_bash_calls,
+        "error_tool_calls": run.error_tool_calls,
         "edits": run.edits,
         "steps": run.steps,
         "tool_breakdown": run.tool_breakdown,
@@ -52,6 +62,7 @@ def episode_metrics(
         "budget_exhausted": run.budget_exhausted,
         "budget_reasons": run.budget_reasons,
         "timed_out": run.timed_out,
+        "exit_code": run.exit_code,
         "duration_s": round(run.duration_s, 2),
         "cost_usd": round(run.cost_usd, 6),
     }

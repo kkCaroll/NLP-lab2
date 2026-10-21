@@ -1,0 +1,11 @@
+--- a/src/mergekit/records.py
++++ b/src/mergekit/records.py
+@@ -48,6 +48,8 @@
+         candidate = fill_missing(record)
+         if key not in merged:
+             merged[key] = candidate
++        else:
++            merged[key] = pick_latest(merged[key], candidate)
+     return list(merged.values())
+ 
+ 

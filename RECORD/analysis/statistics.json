@@ -1,0 +1,2636 @@
+{
+  "seed": 20261021,
+  "bootstrap": 10000,
+  "n_branch_rows": 100,
+  "n_full_rows": 240,
+  "paired": {
+    "opencode/mimo-v2.6-flash-free": {
+      "all_passed": {
+        "model": "opencode/mimo-v2.6-flash-free",
+        "metric": "all_passed",
+        "n_tasks": 6,
+        "omnibus": {
+          "test": "cochran_q",
+          "statistic": 3.0,
+          "p": 0.5578254003710748
+        },
+        "pairs": [
+          {
+            "first": "pure_continue",
+            "second": "neutral",
+            "both": 5,
+            "only_first": 1,
+            "only_second": 0,
+            "neither": 0,
+            "discordant": 1,
+            "p": 1.0,
+            "risk_difference": 0.1667,
+            "p_holm": 1.0
+          },
+          {
+            "first": "pure_continue",
+            "second": "method_guidance",
+            "both": 6,
+            "only_first": 0,
+            "only_second": 0,
+            "neither": 0,
+            "discordant": 0,
+            "p": 1.0,
+            "risk_difference": 0.0,
+            "p_holm": 1.0
+          },
+          {
+            "first": "pure_continue",
+            "second": "negative",
+            "both": 5,
+            "only_first": 1,
+            "only_second": 0,
+            "neither": 0,
+            "discordant": 1,
+            "p": 1.0,
+            "risk_difference": 0.1667,
+            "p_holm": 1.0
+          },
+          {
+            "first": "pure_continue",
+            "second": "negative_guidance",
+            "both": 6,
+            "only_first": 0,
+            "only_second": 0,
+            "neither": 0,
+            "discordant": 0,
+            "p": 1.0,
+            "risk_difference": 0.0,
+            "p_holm": 1.0
+          },
+          {
+            "first": "neutral",
+            "second": "method_guidance",
+            "both": 5,
+            "only_first": 0,
+            "only_second": 1,
+            "neither": 0,
+            "discordant": 1,
+            "p": 1.0,
+            "risk_difference": -0.1667,
+            "p_holm": 1.0
+          },
+          {
+            "first": "neutral",
+            "second": "negative",
+            "both": 4,
+            "only_first": 1,
+            "only_second": 1,
+            "neither": 0,
+            "discordant": 2,
+            "p": 1.0,
+            "risk_difference": 0.0,
+            "p_holm": 1.0
+          },
+          {
+            "first": "neutral",
+            "second": "negative_guidance",
+            "both": 5,
+            "only_first": 0,
+            "only_second": 1,
+            "neither": 0,
+            "discordant": 1,
+            "p": 1.0,
+            "risk_difference": -0.1667,
+            "p_holm": 1.0
+          },
+          {
+            "first": "method_guidance",
+            "second": "negative",
+            "both": 5,
+            "only_first": 1,
+            "only_second": 0,
+            "neither": 0,
+            "discordant": 1,
+            "p": 1.0,
+            "risk_difference": 0.1667,
+            "p_holm": 1.0
+          },
+          {
+            "first": "method_guidance",
+            "second": "negative_guidance",
+            "both": 6,
+            "only_first": 0,
+            "only_second": 0,
+            "neither": 0,
+            "discordant": 0,
+            "p": 1.0,
+            "risk_difference": 0.0,
+            "p_holm": 1.0
+          },
+          {
+            "first": "negative",
+            "second": "negative_guidance",
+            "both": 5,
+            "only_first": 0,
+            "only_second": 1,
+            "neither": 0,
+            "discordant": 1,
+            "p": 1.0,
+            "risk_difference": -0.1667,
+            "p_holm": 1.0
+          }
+        ]
+      },
+      "edit_lines": {
+        "model": "opencode/mimo-v2.6-flash-free",
+        "metric": "edit_lines",
+        "n_tasks": 6,
+        "omnibus": {
+          "test": "friedman",
+          "statistic": 2.9333,
+          "p": 0.5690431828955776
+        },
+        "pairs": [
+          {
+            "first": "pure_continue",
+            "second": "neutral",
+            "median_first": 4.0,
+            "median_second": 3.5,
+            "median_difference": 0.0,
+            "cliffs_delta": 0.1389,
+            "delta_ci_low": 0.0,
+            "delta_ci_high": 0.4444,
+            "p": 0.5,
+            "p_holm": 1.0
+          },
+          {
+            "first": "pure_continue",
+            "second": "method_guidance",
+            "median_first": 4.0,
+            "median_second": 4.0,
+            "median_difference": 0.0,
+            "cliffs_delta": -0.0833,
+            "delta_ci_low": -0.4167,
+            "delta_ci_high": 0.0,
+            "p": 1.0,
+            "p_holm": 1.0
+          },
+          {
+            "first": "pure_continue",
+            "second": "negative",
+            "median_first": 4.0,
+            "median_second": 3.0,
+            "median_difference": 0.0,
+            "cliffs_delta": 0.1667,
+            "delta_ci_low": -0.3889,
+            "delta_ci_high": 0.75,
+            "p": 0.75,
+            "p_holm": 1.0
+          },
+          {
+            "first": "pure_continue",
+            "second": "negative_guidance",
+            "median_first": 4.0,
+            "median_second": 3.5,
+            "median_difference": 0.0,
+            "cliffs_delta": 0.0833,
+            "delta_ci_low": 0.0,
+            "delta_ci_high": 0.3333,
+            "p": 1.0,
+            "p_holm": 1.0
+          },
+          {
+            "first": "neutral",
+            "second": "method_guidance",
+            "median_first": 3.5,
+            "median_second": 4.0,
+            "median_difference": 0.0,
+            "cliffs_delta": -0.1944,
+            "delta_ci_low": -0.5833,
+            "delta_ci_high": 0.0,
+            "p": 0.5,
+            "p_holm": 1.0
+          },
+          {
+            "first": "neutral",
+            "second": "negative",
+            "median_first": 3.5,
+            "median_second": 3.0,
+            "median_difference": 0.0,
+            "cliffs_delta": 0.0278,
+            "delta_ci_low": -0.5556,
+            "delta_ci_high": 0.6944,
+            "p": 1.0,
+            "p_holm": 1.0
+          },
+          {
+            "first": "neutral",
+            "second": "negative_guidance",
+            "median_first": 3.5,
+            "median_second": 3.5,
+            "median_difference": 0.0,
+            "cliffs_delta": -0.0556,
+            "delta_ci_low": -0.3333,
+            "delta_ci_high": 0.0,
+            "p": 1.0,
+            "p_holm": 1.0
+          },
+          {
+            "first": "method_guidance",
+            "second": "negative",
+            "median_first": 4.0,
+            "median_second": 3.0,
+            "median_difference": 0.0,
+            "cliffs_delta": 0.2222,
+            "delta_ci_low": -0.3889,
+            "delta_ci_high": 0.8056,
+            "p": 0.5,
+            "p_holm": 1.0
+          },
+          {
+            "first": "method_guidance",
+            "second": "negative_guidance",
+            "median_first": 4.0,
+            "median_second": 3.5,
+            "median_difference": 0.0,
+            "cliffs_delta": 0.1389,
+            "delta_ci_low": 0.0,
+            "delta_ci_high": 0.5833,
+            "p": 1.0,
+            "p_holm": 1.0
+          },
+          {
+            "first": "negative",
+            "second": "negative_guidance",
+            "median_first": 3.0,
+            "median_second": 3.5,
+            "median_difference": 0.0,
+            "cliffs_delta": -0.1389,
+            "delta_ci_low": -0.6944,
+            "delta_ci_high": 0.4167,
+            "p": 0.75,
+            "p_holm": 1.0
+          }
+        ]
+      },
+      "edit_ratio": {
+        "model": "opencode/mimo-v2.6-flash-free",
+        "metric": "edit_ratio",
+        "n_tasks": 6,
+        "omnibus": {
+          "test": "friedman",
+          "statistic": 2.9333,
+          "p": 0.5690431828955776
+        },
+        "pairs": [
+          {
+            "first": "pure_continue",
+            "second": "neutral",
+            "median_first": 1.0,
+            "median_second": 0.8,
+            "median_difference": 0.0,
+            "cliffs_delta": 0.25,
+            "delta_ci_low": 0.0,
+            "delta_ci_high": 0.6944,
+            "p": 0.5,
+            "p_holm": 1.0
+          },
+          {
+            "first": "pure_continue",
+            "second": "method_guidance",
+            "median_first": 1.0,
+            "median_second": 1.0,
+            "median_difference": 0.0,
+            "cliffs_delta": -0.1389,
+            "delta_ci_low": -0.5,
+            "delta_ci_high": 0.0,
+            "p": 1.0,
+            "p_holm": 1.0
+          },
+          {
+            "first": "pure_continue",
+            "second": "negative",
+            "median_first": 1.0,
+            "median_second": 1.0,
+            "median_difference": 0.0,
+            "cliffs_delta": 0.0,
+            "delta_ci_low": -0.3889,
+            "delta_ci_high": 0.4444,
+            "p": 1.0,
+            "p_holm": 1.0
+          },
+          {
+            "first": "pure_continue",
+            "second": "negative_guidance",
+            "median_first": 1.0,
+            "median_second": 1.0,
+            "median_difference": 0.0,
+            "cliffs_delta": 0.0278,
+            "delta_ci_low": 0.0,
+            "delta_ci_high": 0.25,
+            "p": 1.0,
+            "p_holm": 1.0
+          },
+          {
+            "first": "neutral",
+            "second": "method_guidance",
+            "median_first": 0.8,
+            "median_second": 1.0,
+            "median_difference": 0.0,
+            "cliffs_delta": -0.3333,
+            "delta_ci_low": -0.7222,
+            "delta_ci_high": 0.0,
+            "p": 0.5,
+            "p_holm": 1.0
+          },
+          {
+            "first": "neutral",
+            "second": "negative",
+            "median_first": 0.8,
+            "median_second": 1.0,
+            "median_difference": 0.0,
+            "cliffs_delta": -0.1667,
+            "delta_ci_low": -0.7222,
+            "delta_ci_high": 0.4444,
+            "p": 1.0,
+            "p_holm": 1.0
+          },
+          {
+            "first": "neutral",
+            "second": "negative_guidance",
+            "median_first": 0.8,
+            "median_second": 1.0,
+            "median_difference": 0.0,
+            "cliffs_delta": -0.2222,
+            "delta_ci_low": -0.6667,
+            "delta_ci_high": 0.0,
+            "p": 1.0,
+            "p_holm": 1.0
+          },
+          {
+            "first": "method_guidance",
+            "second": "negative",
+            "median_first": 1.0,
+            "median_second": 1.0,
+            "median_difference": 0.0,
+            "cliffs_delta": 0.0833,
+            "delta_ci_low": -0.3889,
+            "delta_ci_high": 0.6111,
+            "p": 1.0,
+            "p_holm": 1.0
+          },
+          {
+            "first": "method_guidance",
+            "second": "negative_guidance",
+            "median_first": 1.0,
+            "median_second": 1.0,
+            "median_difference": 0.0,
+            "cliffs_delta": 0.1389,
+            "delta_ci_low": 0.0,
+            "delta_ci_high": 0.5,
+            "p": 1.0,
+            "p_holm": 1.0
+          },
+          {
+            "first": "negative",
+            "second": "negative_guidance",
+            "median_first": 1.0,
+            "median_second": 1.0,
+            "median_difference": 0.0,
+            "cliffs_delta": 0.0,
+            "delta_ci_low": -0.4444,
+            "delta_ci_high": 0.3889,
+            "p": 1.0,
+            "p_holm": 1.0
+          }
+        ]
+      }
+    },
+    "opencode/minimax-m3.1-flash-free": {
+      "all_passed": {
+        "model": "opencode/minimax-m3.1-flash-free",
+        "metric": "all_passed",
+        "n_tasks": 14,
+        "omnibus": {
+          "test": "cochran_q",
+          "statistic": 7.1111,
+          "p": 0.13013172579628507
+        },
+        "pairs": [
+          {
+            "first": "pure_continue",
+            "second": "neutral",
+            "both": 8,
+            "only_first": 4,
+            "only_second": 1,
+            "neither": 1,
+            "discordant": 5,
+            "p": 0.375,
+            "risk_difference": 0.2143,
+            "p_holm": 1.0
+          },
+          {
+            "first": "pure_continue",
+            "second": "method_guidance",
+            "both": 10,
+            "only_first": 2,
+            "only_second": 1,
+            "neither": 1,
+            "discordant": 3,
+            "p": 1.0,
+            "risk_difference": 0.0714,
+            "p_holm": 1.0
+          },
+          {
+            "first": "pure_continue",
+            "second": "negative",
+            "both": 8,
+            "only_first": 4,
+            "only_second": 1,
+            "neither": 1,
+            "discordant": 5,
+            "p": 0.375,
+            "risk_difference": 0.2143,
+            "p_holm": 1.0
+          },
+          {
+            "first": "pure_continue",
+            "second": "negative_guidance",
+            "both": 11,
+            "only_first": 1,
+            "only_second": 2,
+            "neither": 0,
+            "discordant": 3,
+            "p": 1.0,
+            "risk_difference": -0.0714,
+            "p_holm": 1.0
+          },
+          {
+            "first": "neutral",
+            "second": "method_guidance",
+            "both": 8,
+            "only_first": 1,
+            "only_second": 3,
+            "neither": 2,
+            "discordant": 4,
+            "p": 0.625,
+            "risk_difference": -0.1429,
+            "p_holm": 1.0
+          },
+          {
+            "first": "neutral",
+            "second": "negative",
+            "both": 8,
+            "only_first": 1,
+            "only_second": 1,
+            "neither": 4,
+            "discordant": 2,
+            "p": 1.0,
+            "risk_difference": 0.0,
+            "p_holm": 1.0
+          },
+          {
+            "first": "neutral",
+            "second": "negative_guidance",
+            "both": 9,
+            "only_first": 0,
+            "only_second": 4,
+            "neither": 1,
+            "discordant": 4,
+            "p": 0.125,
+            "risk_difference": -0.2857,
+            "p_holm": 1.0
+          },
+          {
+            "first": "method_guidance",
+            "second": "negative",
+            "both": 9,
+            "only_first": 2,
+            "only_second": 0,
+            "neither": 3,
+            "discordant": 2,
+            "p": 0.5,
+            "risk_difference": 0.1429,
+            "p_holm": 1.0
+          },
+          {
+            "first": "method_guidance",
+            "second": "negative_guidance",
+            "both": 10,
+            "only_first": 1,
+            "only_second": 3,
+            "neither": 0,
+            "discordant": 4,
+            "p": 0.625,
+            "risk_difference": -0.1429,
+            "p_holm": 1.0
+          },
+          {
+            "first": "negative",
+            "second": "negative_guidance",
+            "both": 9,
+            "only_first": 0,
+            "only_second": 4,
+            "neither": 1,
+            "discordant": 4,
+            "p": 0.125,
+            "risk_difference": -0.2857,
+            "p_holm": 1.0
+          }
+        ]
+      },
+      "edit_lines": {
+        "model": "opencode/minimax-m3.1-flash-free",
+        "metric": "edit_lines",
+        "n_tasks": 14,
+        "omnibus": {
+          "test": "friedman",
+          "statistic": 3.2187,
+          "p": 0.5219078334593557
+        },
+        "pairs": [
+          {
+            "first": "pure_continue",
+            "second": "neutral",
+            "median_first": 2.0,
+            "median_second": 2.0,
+            "median_difference": 0.0,
+            "cliffs_delta": 0.1531,
+            "delta_ci_low": -0.2551,
+            "delta_ci_high": 0.5408,
+            "p": 0.5211976866336556,
+            "p_holm": 1.0
+          },
+          {
+            "first": "pure_continue",
+            "second": "method_guidance",
+            "median_first": 2.0,
+            "median_second": 2.0,
+            "median_difference": 0.0,
+            "cliffs_delta": 0.199,
+            "delta_ci_low": -0.102,
+            "delta_ci_high": 0.5153,
+            "p": 0.6504421722317899,
+            "p_holm": 1.0
+          },
+          {
+            "first": "pure_continue",
+            "second": "negative",
+            "median_first": 2.0,
+            "median_second": 2.0,
+            "median_difference": 0.0,
+            "cliffs_delta": 0.2755,
+            "delta_ci_low": -0.102,
+            "delta_ci_high": 0.6277,
+            "p": 0.30816137646381525,
+            "p_holm": 1.0
+          },
+          {
+            "first": "pure_continue",
+            "second": "negative_guidance",
+            "median_first": 2.0,
+            "median_second": 2.0,
+            "median_difference": 0.0,
+            "cliffs_delta": -0.0357,
+            "delta_ci_low": -0.3673,
+            "delta_ci_high": 0.2449,
+            "p": 0.7218069711692019,
+            "p_holm": 1.0
+          },
+          {
+            "first": "neutral",
+            "second": "method_guidance",
+            "median_first": 2.0,
+            "median_second": 2.0,
+            "median_difference": 0.0,
+            "cliffs_delta": 0.0255,
+            "delta_ci_low": -0.2959,
+            "delta_ci_high": 0.352,
+            "p": 0.6297219390380392,
+            "p_holm": 1.0
+          },
+          {
+            "first": "neutral",
+            "second": "negative",
+            "median_first": 2.0,
+            "median_second": 2.0,
+            "median_difference": 0.0,
+            "cliffs_delta": 0.1122,
+            "delta_ci_low": -0.1837,
+            "delta_ci_high": 0.4235,
+            "p": 0.6503566825900606,
+            "p_holm": 1.0
+          },
+          {
+            "first": "neutral",
+            "second": "negative_guidance",
+            "median_first": 2.0,
+            "median_second": 2.0,
+            "median_difference": 0.0,
+            "cliffs_delta": -0.1939,
+            "delta_ci_low": -0.5102,
+            "delta_ci_high": 0.1071,
+            "p": 0.30031092112459856,
+            "p_holm": 1.0
+          },
+          {
+            "first": "method_guidance",
+            "second": "negative",
+            "median_first": 2.0,
+            "median_second": 2.0,
+            "median_difference": 0.0,
+            "cliffs_delta": 0.102,
+            "delta_ci_low": -0.1378,
+            "delta_ci_high": 0.3673,
+            "p": 0.47113475370686153,
+            "p_holm": 1.0
+          },
+          {
+            "first": "method_guidance",
+            "second": "negative_guidance",
+            "median_first": 2.0,
+            "median_second": 2.0,
+            "median_difference": 0.0,
+            "cliffs_delta": -0.2551,
+            "delta_ci_low": -0.5867,
+            "delta_ci_high": 0.0867,
+            "p": 0.560149906589399,
+            "p_holm": 1.0
+          },
+          {
+            "first": "negative",
+            "second": "negative_guidance",
+            "median_first": 2.0,
+            "median_second": 2.0,
+            "median_difference": 0.0,
+            "cliffs_delta": -0.3265,
+            "delta_ci_low": -0.6633,
+            "delta_ci_high": 0.051,
+            "p": 0.2711133323245567,
+            "p_holm": 1.0
+          }
+        ]
+      },
+      "edit_ratio": {
+        "model": "opencode/minimax-m3.1-flash-free",
+        "metric": "edit_ratio",
+        "n_tasks": 14,
+        "omnibus": {
+          "test": "friedman",
+          "statistic": 3.2187,
+          "p": 0.5219078334593557
+        },
+        "pairs": [
+          {
+            "first": "pure_continue",
+            "second": "neutral",
+            "median_first": 1.0,
+            "median_second": 1.0,
+            "median_difference": 0.0,
+            "cliffs_delta": 0.1939,
+            "delta_ci_low": -0.1224,
+            "delta_ci_high": 0.5102,
+            "p": 0.500360859362813,
+            "p_holm": 1.0
+          },
+          {
+            "first": "pure_continue",
+            "second": "method_guidance",
+            "median_first": 1.0,
+            "median_second": 1.0,
+            "median_difference": 0.0,
+            "cliffs_delta": 0.1276,
+            "delta_ci_low": -0.199,
+            "delta_ci_high": 0.449,
+            "p": 0.6503566825900606,
+            "p_holm": 1.0
+          },
+          {
+            "first": "pure_continue",
+            "second": "negative",
+            "median_first": 1.0,
+            "median_second": 1.0,
+            "median_difference": 0.0,
+            "cliffs_delta": 0.2041,
+            "delta_ci_low": -0.1327,
+            "delta_ci_high": 0.5408,
+            "p": 0.3554775520843858,
+            "p_holm": 1.0
+          },
+          {
+            "first": "pure_continue",
+            "second": "negative_guidance",
+            "median_first": 1.0,
+            "median_second": 1.0,
+            "median_difference": 0.0,
+            "cliffs_delta": 0.0918,
+            "delta_ci_low": -0.2602,
+            "delta_ci_high": 0.4337,
+            "p": 0.6974846700125029,
+            "p_holm": 1.0
+          },
+          {
+            "first": "neutral",
+            "second": "method_guidance",
+            "median_first": 1.0,
+            "median_second": 1.0,
+            "median_difference": 0.0,
+            "cliffs_delta": -0.0714,
+            "delta_ci_low": -0.3624,
+            "delta_ci_high": 0.199,
+            "p": 0.5853712025761323,
+            "p_holm": 1.0
+          },
+          {
+            "first": "neutral",
+            "second": "negative",
+            "median_first": 1.0,
+            "median_second": 1.0,
+            "median_difference": 0.0,
+            "cliffs_delta": 0.0255,
+            "delta_ci_low": -0.2144,
+            "delta_ci_high": 0.2704,
+            "p": 0.7461182622160505,
+            "p_holm": 1.0
+          },
+          {
+            "first": "neutral",
+            "second": "negative_guidance",
+            "median_first": 1.0,
+            "median_second": 1.0,
+            "median_difference": 0.0,
+            "cliffs_delta": -0.1327,
+            "delta_ci_low": -0.4082,
+            "delta_ci_high": 0.1122,
+            "p": 0.30031092112459856,
+            "p_holm": 1.0
+          },
+          {
+            "first": "method_guidance",
+            "second": "negative",
+            "median_first": 1.0,
+            "median_second": 1.0,
+            "median_difference": 0.0,
+            "cliffs_delta": 0.0867,
+            "delta_ci_low": -0.1122,
+            "delta_ci_high": 0.3061,
+            "p": 0.4712536770105512,
+            "p_holm": 1.0
+          },
+          {
+            "first": "method_guidance",
+            "second": "negative_guidance",
+            "median_first": 1.0,
+            "median_second": 1.0,
+            "median_difference": 0.0,
+            "cliffs_delta": -0.0459,
+            "delta_ci_low": -0.3571,
+            "delta_ci_high": 0.25,
+            "p": 0.6501855153430511,
+            "p_holm": 1.0
+          },
+          {
+            "first": "negative",
+            "second": "negative_guidance",
+            "median_first": 1.0,
+            "median_second": 1.0,
+            "median_difference": 0.0,
+            "cliffs_delta": -0.1378,
+            "delta_ci_low": -0.4082,
+            "delta_ci_high": 0.102,
+            "p": 0.30031092112459856,
+            "p_holm": 1.0
+          }
+        ]
+      }
+    }
+  },
+  "descriptive": {
+    "branch": [
+      {
+        "sample": "branch",
+        "model": "opencode/mimo-v2.6-flash-free",
+        "condition": "pure_continue",
+        "n": 6,
+        "passed": 6,
+        "pass_rate": 1.0,
+        "repaired": 6,
+        "round1_failures": 6,
+        "repair_success": 1.0,
+        "regression_failed_tests": 0,
+        "regression_rate": 0.0,
+        "regression_tests": 74,
+        "edit_size": {
+          "n": 6,
+          "mean": 3.8333,
+          "median": 4.0,
+          "q1": 2.5,
+          "q3": 4.0,
+          "min": 2.0,
+          "max": 7.0
+        },
+        "edit_ratio": {
+          "n": 6,
+          "mean": 0.8667,
+          "median": 1.0,
+          "q1": 0.85,
+          "q3": 1.0,
+          "min": 0.4,
+          "max": 1.0
+        },
+        "edit_files": {
+          "n": 6,
+          "mean": 1.3333,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.75,
+          "min": 1.0,
+          "max": 2.0
+        },
+        "over_edit_rate": 0.0,
+        "unrelated_file_rate": 0.0,
+        "test_tamper_rate": 0.1667,
+        "budget_exhausted_rate": 0.1667,
+        "timeout_rate": 0.0,
+        "any_edit_rate": null,
+        "no_edit_rate": null,
+        "no_edit_failure_rate": null,
+        "revert_rate": null,
+        "effective_tool_calls": {
+          "n": 6,
+          "mean": 10.3333,
+          "median": 10.0,
+          "q1": 9.25,
+          "q3": 10.75,
+          "min": 8.0,
+          "max": 14.0
+        },
+        "bash_attempts": {
+          "n": 6,
+          "mean": 1.8333,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 2.0,
+          "min": 1.0,
+          "max": 2.0
+        },
+        "tool_calls": {
+          "n": 6,
+          "mean": 11.1667,
+          "median": 11.0,
+          "q1": 9.5,
+          "q3": 11.75,
+          "min": 9.0,
+          "max": 15.0
+        },
+        "duration_s": {
+          "n": 6,
+          "mean": 82.975,
+          "median": 65.12,
+          "q1": 58.2825,
+          "q3": 79.5925,
+          "min": 55.88,
+          "max": 171.31
+        }
+      },
+      {
+        "sample": "branch",
+        "model": "opencode/mimo-v2.6-flash-free",
+        "condition": "neutral",
+        "n": 6,
+        "passed": 5,
+        "pass_rate": 0.8333,
+        "repaired": 5,
+        "round1_failures": 6,
+        "repair_success": 0.8333,
+        "regression_failed_tests": 0,
+        "regression_rate": 0.0,
+        "regression_tests": 74,
+        "edit_size": {
+          "n": 6,
+          "mean": 3.3333,
+          "median": 3.5,
+          "q1": 2.25,
+          "q3": 4.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        "edit_ratio": {
+          "n": 6,
+          "mean": 0.6667,
+          "median": 0.8,
+          "q1": 0.45,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "edit_files": {
+          "n": 6,
+          "mean": 1.1667,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.75,
+          "min": 0.0,
+          "max": 2.0
+        },
+        "over_edit_rate": 0.0,
+        "unrelated_file_rate": 0.0,
+        "test_tamper_rate": 0.0,
+        "budget_exhausted_rate": 0.0,
+        "timeout_rate": 0.0,
+        "any_edit_rate": null,
+        "no_edit_rate": null,
+        "no_edit_failure_rate": null,
+        "revert_rate": null,
+        "effective_tool_calls": {
+          "n": 6,
+          "mean": 10.3333,
+          "median": 10.0,
+          "q1": 10.0,
+          "q3": 10.0,
+          "min": 9.0,
+          "max": 13.0
+        },
+        "bash_attempts": {
+          "n": 6,
+          "mean": 2.0,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 2.0,
+          "min": 1.0,
+          "max": 3.0
+        },
+        "tool_calls": {
+          "n": 6,
+          "mean": 11.5,
+          "median": 11.0,
+          "q1": 11.0,
+          "q3": 11.75,
+          "min": 10.0,
+          "max": 14.0
+        },
+        "duration_s": {
+          "n": 6,
+          "mean": 92.0867,
+          "median": 80.455,
+          "q1": 70.31,
+          "q3": 90.6975,
+          "min": 45.7,
+          "max": 184.87
+        }
+      },
+      {
+        "sample": "branch",
+        "model": "opencode/mimo-v2.6-flash-free",
+        "condition": "method_guidance",
+        "n": 6,
+        "passed": 6,
+        "pass_rate": 1.0,
+        "repaired": 6,
+        "round1_failures": 6,
+        "repair_success": 1.0,
+        "regression_failed_tests": 0,
+        "regression_rate": 0.0,
+        "regression_tests": 74,
+        "edit_size": {
+          "n": 6,
+          "mean": 4.0,
+          "median": 4.0,
+          "q1": 2.5,
+          "q3": 4.75,
+          "min": 2.0,
+          "max": 7.0
+        },
+        "edit_ratio": {
+          "n": 6,
+          "mean": 0.9,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 0.4,
+          "max": 1.0
+        },
+        "edit_files": {
+          "n": 6,
+          "mean": 1.3333,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.75,
+          "min": 1.0,
+          "max": 2.0
+        },
+        "over_edit_rate": 0.0,
+        "unrelated_file_rate": 0.0,
+        "test_tamper_rate": 0.0,
+        "budget_exhausted_rate": 0.0,
+        "timeout_rate": 0.0,
+        "any_edit_rate": null,
+        "no_edit_rate": null,
+        "no_edit_failure_rate": null,
+        "revert_rate": null,
+        "effective_tool_calls": {
+          "n": 6,
+          "mean": 9.5,
+          "median": 9.0,
+          "q1": 8.25,
+          "q3": 11.25,
+          "min": 7.0,
+          "max": 12.0
+        },
+        "bash_attempts": {
+          "n": 6,
+          "mean": 1.5,
+          "median": 1.5,
+          "q1": 1.0,
+          "q3": 2.0,
+          "min": 1.0,
+          "max": 2.0
+        },
+        "tool_calls": {
+          "n": 6,
+          "mean": 10.0,
+          "median": 10.0,
+          "q1": 8.5,
+          "q3": 11.5,
+          "min": 7.0,
+          "max": 13.0
+        },
+        "duration_s": {
+          "n": 6,
+          "mean": 64.9083,
+          "median": 55.515,
+          "q1": 48.615,
+          "q3": 80.4,
+          "min": 45.99,
+          "max": 97.42
+        }
+      },
+      {
+        "sample": "branch",
+        "model": "opencode/mimo-v2.6-flash-free",
+        "condition": "negative",
+        "n": 6,
+        "passed": 5,
+        "pass_rate": 0.8333,
+        "repaired": 5,
+        "round1_failures": 6,
+        "repair_success": 0.8333,
+        "regression_failed_tests": 0,
+        "regression_rate": 0.0,
+        "regression_tests": 74,
+        "edit_size": {
+          "n": 6,
+          "mean": 3.1667,
+          "median": 3.0,
+          "q1": 1.25,
+          "q3": 4.75,
+          "min": 0.0,
+          "max": 7.0
+        },
+        "edit_ratio": {
+          "n": 6,
+          "mean": 0.95,
+          "median": 1.0,
+          "q1": 0.4,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 2.5
+        },
+        "edit_files": {
+          "n": 6,
+          "mean": 1.0,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        "over_edit_rate": 0.1667,
+        "unrelated_file_rate": 0.0,
+        "test_tamper_rate": 0.0,
+        "budget_exhausted_rate": 0.1667,
+        "timeout_rate": 0.0,
+        "any_edit_rate": null,
+        "no_edit_rate": null,
+        "no_edit_failure_rate": null,
+        "revert_rate": null,
+        "effective_tool_calls": {
+          "n": 6,
+          "mean": 11.6667,
+          "median": 12.0,
+          "q1": 10.5,
+          "q3": 12.75,
+          "min": 9.0,
+          "max": 14.0
+        },
+        "bash_attempts": {
+          "n": 6,
+          "mean": 1.6667,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 2.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        "tool_calls": {
+          "n": 6,
+          "mean": 12.5,
+          "median": 13.0,
+          "q1": 11.5,
+          "q3": 13.75,
+          "min": 9.0,
+          "max": 15.0
+        },
+        "duration_s": {
+          "n": 6,
+          "mean": 85.5633,
+          "median": 72.545,
+          "q1": 66.5375,
+          "q3": 99.5375,
+          "min": 33.63,
+          "max": 161.59
+        }
+      },
+      {
+        "sample": "branch",
+        "model": "opencode/mimo-v2.6-flash-free",
+        "condition": "negative_guidance",
+        "n": 6,
+        "passed": 6,
+        "pass_rate": 1.0,
+        "repaired": 6,
+        "round1_failures": 6,
+        "repair_success": 1.0,
+        "regression_failed_tests": 0,
+        "regression_rate": 0.0,
+        "regression_tests": 74,
+        "edit_size": {
+          "n": 6,
+          "mean": 3.6667,
+          "median": 3.5,
+          "q1": 2.25,
+          "q3": 4.0,
+          "min": 2.0,
+          "max": 7.0
+        },
+        "edit_ratio": {
+          "n": 6,
+          "mean": 0.8333,
+          "median": 1.0,
+          "q1": 0.7,
+          "q3": 1.0,
+          "min": 0.4,
+          "max": 1.0
+        },
+        "edit_files": {
+          "n": 6,
+          "mean": 1.3333,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.75,
+          "min": 1.0,
+          "max": 2.0
+        },
+        "over_edit_rate": 0.0,
+        "unrelated_file_rate": 0.0,
+        "test_tamper_rate": 0.0,
+        "budget_exhausted_rate": 0.0,
+        "timeout_rate": 0.0,
+        "any_edit_rate": null,
+        "no_edit_rate": null,
+        "no_edit_failure_rate": null,
+        "revert_rate": null,
+        "effective_tool_calls": {
+          "n": 6,
+          "mean": 9.6667,
+          "median": 9.5,
+          "q1": 9.0,
+          "q3": 10.0,
+          "min": 8.0,
+          "max": 12.0
+        },
+        "bash_attempts": {
+          "n": 6,
+          "mean": 1.5,
+          "median": 1.5,
+          "q1": 1.0,
+          "q3": 2.0,
+          "min": 1.0,
+          "max": 2.0
+        },
+        "tool_calls": {
+          "n": 6,
+          "mean": 10.1667,
+          "median": 10.0,
+          "q1": 9.25,
+          "q3": 10.75,
+          "min": 9.0,
+          "max": 12.0
+        },
+        "duration_s": {
+          "n": 6,
+          "mean": 65.1233,
+          "median": 61.14,
+          "q1": 56.9825,
+          "q3": 69.0625,
+          "min": 54.1,
+          "max": 87.06
+        }
+      },
+      {
+        "sample": "branch",
+        "model": "opencode/minimax-m3.1-flash-free",
+        "condition": "pure_continue",
+        "n": 14,
+        "passed": 12,
+        "pass_rate": 0.8571,
+        "repaired": 12,
+        "round1_failures": 14,
+        "repair_success": 0.8571,
+        "regression_failed_tests": 0,
+        "regression_rate": 0.0,
+        "regression_tests": 171,
+        "edit_size": {
+          "n": 14,
+          "mean": 4.9286,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 4.0,
+          "min": 0.0,
+          "max": 36.0
+        },
+        "edit_ratio": {
+          "n": 14,
+          "mean": 1.2929,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 7.2
+        },
+        "edit_files": {
+          "n": 14,
+          "mean": 1.0,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        "over_edit_rate": 0.0714,
+        "unrelated_file_rate": 0.0,
+        "test_tamper_rate": 0.0714,
+        "budget_exhausted_rate": 0.7143,
+        "timeout_rate": 0.0,
+        "any_edit_rate": null,
+        "no_edit_rate": null,
+        "no_edit_failure_rate": null,
+        "revert_rate": null,
+        "effective_tool_calls": {
+          "n": 14,
+          "mean": 12.2857,
+          "median": 13.0,
+          "q1": 12.25,
+          "q3": 13.0,
+          "min": 9.0,
+          "max": 13.0
+        },
+        "bash_attempts": {
+          "n": 14,
+          "mean": 2.4286,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 3.0,
+          "min": 2.0,
+          "max": 3.0
+        },
+        "tool_calls": {
+          "n": 14,
+          "mean": 14.0,
+          "median": 15.0,
+          "q1": 13.5,
+          "q3": 15.0,
+          "min": 10.0,
+          "max": 15.0
+        },
+        "duration_s": {
+          "n": 14,
+          "mean": 46.8721,
+          "median": 36.445,
+          "q1": 31.9625,
+          "q3": 51.4825,
+          "min": 24.26,
+          "max": 127.13
+        }
+      },
+      {
+        "sample": "branch",
+        "model": "opencode/minimax-m3.1-flash-free",
+        "condition": "neutral",
+        "n": 14,
+        "passed": 9,
+        "pass_rate": 0.6429,
+        "repaired": 9,
+        "round1_failures": 14,
+        "repair_success": 0.6429,
+        "regression_failed_tests": 0,
+        "regression_rate": 0.0,
+        "regression_tests": 171,
+        "edit_size": {
+          "n": 14,
+          "mean": 2.5714,
+          "median": 2.0,
+          "q1": 0.5,
+          "q3": 3.5,
+          "min": 0.0,
+          "max": 7.0
+        },
+        "edit_ratio": {
+          "n": 14,
+          "mean": 0.8357,
+          "median": 1.0,
+          "q1": 0.05,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 3.5
+        },
+        "edit_files": {
+          "n": 14,
+          "mean": 0.7857,
+          "median": 1.0,
+          "q1": 0.25,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        "over_edit_rate": 0.0714,
+        "unrelated_file_rate": 0.0,
+        "test_tamper_rate": 0.1429,
+        "budget_exhausted_rate": 0.7143,
+        "timeout_rate": 0.0,
+        "any_edit_rate": null,
+        "no_edit_rate": null,
+        "no_edit_failure_rate": null,
+        "revert_rate": null,
+        "effective_tool_calls": {
+          "n": 14,
+          "mean": 12.5,
+          "median": 13.0,
+          "q1": 12.25,
+          "q3": 13.0,
+          "min": 7.0,
+          "max": 14.0
+        },
+        "bash_attempts": {
+          "n": 14,
+          "mean": 2.2143,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 3.0,
+          "min": 1.0,
+          "max": 3.0
+        },
+        "tool_calls": {
+          "n": 14,
+          "mean": 14.0714,
+          "median": 15.0,
+          "q1": 14.25,
+          "q3": 15.0,
+          "min": 8.0,
+          "max": 15.0
+        },
+        "duration_s": {
+          "n": 14,
+          "mean": 42.8593,
+          "median": 41.295,
+          "q1": 34.7075,
+          "q3": 52.485,
+          "min": 24.63,
+          "max": 59.89
+        }
+      },
+      {
+        "sample": "branch",
+        "model": "opencode/minimax-m3.1-flash-free",
+        "condition": "method_guidance",
+        "n": 14,
+        "passed": 11,
+        "pass_rate": 0.7857,
+        "repaired": 11,
+        "round1_failures": 14,
+        "repair_success": 0.7857,
+        "regression_failed_tests": 0,
+        "regression_rate": 0.0,
+        "regression_tests": 171,
+        "edit_size": {
+          "n": 14,
+          "mean": 2.2857,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 2.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        "edit_ratio": {
+          "n": 14,
+          "mean": 0.7786,
+          "median": 1.0,
+          "q1": 0.55,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 1.5
+        },
+        "edit_files": {
+          "n": 14,
+          "mean": 0.9286,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        "over_edit_rate": 0.0,
+        "unrelated_file_rate": 0.0,
+        "test_tamper_rate": 0.0,
+        "budget_exhausted_rate": 0.6429,
+        "timeout_rate": 0.0,
+        "any_edit_rate": null,
+        "no_edit_rate": null,
+        "no_edit_failure_rate": null,
+        "revert_rate": null,
+        "effective_tool_calls": {
+          "n": 14,
+          "mean": 12.2143,
+          "median": 13.0,
+          "q1": 12.0,
+          "q3": 13.0,
+          "min": 8.0,
+          "max": 14.0
+        },
+        "bash_attempts": {
+          "n": 14,
+          "mean": 2.4286,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 3.0,
+          "min": 2.0,
+          "max": 4.0
+        },
+        "tool_calls": {
+          "n": 14,
+          "mean": 13.8571,
+          "median": 15.0,
+          "q1": 14.0,
+          "q3": 15.0,
+          "min": 9.0,
+          "max": 15.0
+        },
+        "duration_s": {
+          "n": 14,
+          "mean": 44.4436,
+          "median": 34.755,
+          "q1": 28.665,
+          "q3": 45.1175,
+          "min": 24.41,
+          "max": 132.11
+        }
+      },
+      {
+        "sample": "branch",
+        "model": "opencode/minimax-m3.1-flash-free",
+        "condition": "negative",
+        "n": 14,
+        "passed": 9,
+        "pass_rate": 0.6429,
+        "repaired": 9,
+        "round1_failures": 14,
+        "repair_success": 0.6429,
+        "regression_failed_tests": 0,
+        "regression_rate": 0.0,
+        "regression_tests": 171,
+        "edit_size": {
+          "n": 14,
+          "mean": 2.0714,
+          "median": 2.0,
+          "q1": 0.0,
+          "q3": 2.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        "edit_ratio": {
+          "n": 14,
+          "mean": 0.8214,
+          "median": 1.0,
+          "q1": 0.0,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 3.5
+        },
+        "edit_files": {
+          "n": 14,
+          "mean": 0.7143,
+          "median": 1.0,
+          "q1": 0.0,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        "over_edit_rate": 0.0714,
+        "unrelated_file_rate": 0.0,
+        "test_tamper_rate": 0.1429,
+        "budget_exhausted_rate": 0.9286,
+        "timeout_rate": 0.0,
+        "any_edit_rate": null,
+        "no_edit_rate": null,
+        "no_edit_failure_rate": null,
+        "revert_rate": null,
+        "effective_tool_calls": {
+          "n": 14,
+          "mean": 12.8571,
+          "median": 13.0,
+          "q1": 13.0,
+          "q3": 14.0,
+          "min": 7.0,
+          "max": 14.0
+        },
+        "bash_attempts": {
+          "n": 14,
+          "mean": 2.2857,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 3.0,
+          "min": 1.0,
+          "max": 4.0
+        },
+        "tool_calls": {
+          "n": 14,
+          "mean": 14.5714,
+          "median": 15.0,
+          "q1": 15.0,
+          "q3": 15.0,
+          "min": 9.0,
+          "max": 15.0
+        },
+        "duration_s": {
+          "n": 14,
+          "mean": 56.4321,
+          "median": 51.66,
+          "q1": 31.6575,
+          "q3": 60.0425,
+          "min": 26.03,
+          "max": 171.13
+        }
+      },
+      {
+        "sample": "branch",
+        "model": "opencode/minimax-m3.1-flash-free",
+        "condition": "negative_guidance",
+        "n": 14,
+        "passed": 13,
+        "pass_rate": 0.9286,
+        "repaired": 13,
+        "round1_failures": 14,
+        "repair_success": 0.9286,
+        "regression_failed_tests": 0,
+        "regression_rate": 0.0,
+        "regression_tests": 171,
+        "edit_size": {
+          "n": 14,
+          "mean": 3.0,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 4.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        "edit_ratio": {
+          "n": 14,
+          "mean": 0.8571,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "edit_files": {
+          "n": 14,
+          "mean": 1.0714,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        "over_edit_rate": 0.0,
+        "unrelated_file_rate": 0.0,
+        "test_tamper_rate": 0.0714,
+        "budget_exhausted_rate": 0.5714,
+        "timeout_rate": 0.0,
+        "any_edit_rate": null,
+        "no_edit_rate": null,
+        "no_edit_failure_rate": null,
+        "revert_rate": null,
+        "effective_tool_calls": {
+          "n": 14,
+          "mean": 12.4286,
+          "median": 13.0,
+          "q1": 13.0,
+          "q3": 13.0,
+          "min": 7.0,
+          "max": 14.0
+        },
+        "bash_attempts": {
+          "n": 14,
+          "mean": 2.2857,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 3.0,
+          "min": 1.0,
+          "max": 3.0
+        },
+        "tool_calls": {
+          "n": 14,
+          "mean": 14.0714,
+          "median": 15.0,
+          "q1": 14.0,
+          "q3": 15.0,
+          "min": 8.0,
+          "max": 15.0
+        },
+        "duration_s": {
+          "n": 14,
+          "mean": 52.1021,
+          "median": 44.005,
+          "q1": 36.785,
+          "q3": 65.665,
+          "min": 20.35,
+          "max": 111.85
+        }
+      }
+    ],
+    "full": [
+      {
+        "sample": "full",
+        "model": "opencode/mimo-v2.6-flash-free",
+        "condition": "pure_continue",
+        "n": 24,
+        "passed": 24,
+        "pass_rate": 1.0,
+        "repaired": 6,
+        "round1_failures": 6,
+        "repair_success": 1.0,
+        "regression_failed_tests": 0,
+        "regression_rate": 0.0,
+        "regression_tests": 297,
+        "edit_size": {
+          "n": 24,
+          "mean": 2.7083,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 2.5,
+          "min": 2.0,
+          "max": 7.0
+        },
+        "edit_ratio": {
+          "n": 24,
+          "mean": 0.9417,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 0.4,
+          "max": 1.0
+        },
+        "edit_files": {
+          "n": 24,
+          "mean": 1.0833,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 1.0,
+          "max": 2.0
+        },
+        "over_edit_rate": 0.0,
+        "unrelated_file_rate": 0.0,
+        "test_tamper_rate": 0.0417,
+        "budget_exhausted_rate": 0.25,
+        "timeout_rate": 0.0,
+        "any_edit_rate": null,
+        "no_edit_rate": null,
+        "no_edit_failure_rate": null,
+        "revert_rate": null,
+        "effective_tool_calls": {
+          "n": 24,
+          "mean": 7.8333,
+          "median": 7.5,
+          "q1": 6.75,
+          "q3": 9.0,
+          "min": 4.0,
+          "max": 14.0
+        },
+        "bash_attempts": {
+          "n": 24,
+          "mean": 1.8333,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 2.0,
+          "min": 1.0,
+          "max": 3.0
+        },
+        "tool_calls": {
+          "n": 24,
+          "mean": 8.75,
+          "median": 8.5,
+          "q1": 7.0,
+          "q3": 10.0,
+          "min": 4.0,
+          "max": 15.0
+        },
+        "duration_s": {
+          "n": 24,
+          "mean": 62.7254,
+          "median": 57.635,
+          "q1": 37.79,
+          "q3": 75.9375,
+          "min": 25.78,
+          "max": 171.31
+        }
+      },
+      {
+        "sample": "full",
+        "model": "opencode/mimo-v2.6-flash-free",
+        "condition": "neutral",
+        "n": 24,
+        "passed": 23,
+        "pass_rate": 0.9583,
+        "repaired": 5,
+        "round1_failures": 6,
+        "repair_success": 0.8333,
+        "regression_failed_tests": 0,
+        "regression_rate": 0.0,
+        "regression_tests": 297,
+        "edit_size": {
+          "n": 24,
+          "mean": 2.5833,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 2.25,
+          "min": 0.0,
+          "max": 7.0
+        },
+        "edit_ratio": {
+          "n": 24,
+          "mean": 0.8917,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "edit_files": {
+          "n": 24,
+          "mean": 1.0417,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        "over_edit_rate": 0.0,
+        "unrelated_file_rate": 0.0,
+        "test_tamper_rate": 0.0,
+        "budget_exhausted_rate": 0.2083,
+        "timeout_rate": 0.0,
+        "any_edit_rate": null,
+        "no_edit_rate": null,
+        "no_edit_failure_rate": null,
+        "revert_rate": null,
+        "effective_tool_calls": {
+          "n": 24,
+          "mean": 7.8333,
+          "median": 7.5,
+          "q1": 6.75,
+          "q3": 9.0,
+          "min": 4.0,
+          "max": 13.0
+        },
+        "bash_attempts": {
+          "n": 24,
+          "mean": 1.875,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 2.0,
+          "min": 1.0,
+          "max": 3.0
+        },
+        "tool_calls": {
+          "n": 24,
+          "mean": 8.8333,
+          "median": 8.5,
+          "q1": 7.0,
+          "q3": 10.0,
+          "min": 4.0,
+          "max": 14.0
+        },
+        "duration_s": {
+          "n": 24,
+          "mean": 65.0033,
+          "median": 61.8,
+          "q1": 37.79,
+          "q3": 79.4475,
+          "min": 25.78,
+          "max": 184.87
+        }
+      },
+      {
+        "sample": "full",
+        "model": "opencode/mimo-v2.6-flash-free",
+        "condition": "method_guidance",
+        "n": 24,
+        "passed": 24,
+        "pass_rate": 1.0,
+        "repaired": 6,
+        "round1_failures": 6,
+        "repair_success": 1.0,
+        "regression_failed_tests": 0,
+        "regression_rate": 0.0,
+        "regression_tests": 297,
+        "edit_size": {
+          "n": 24,
+          "mean": 2.75,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 2.5,
+          "min": 2.0,
+          "max": 7.0
+        },
+        "edit_ratio": {
+          "n": 24,
+          "mean": 0.95,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 0.4,
+          "max": 1.0
+        },
+        "edit_files": {
+          "n": 24,
+          "mean": 1.0833,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 1.0,
+          "max": 2.0
+        },
+        "over_edit_rate": 0.0,
+        "unrelated_file_rate": 0.0,
+        "test_tamper_rate": 0.0,
+        "budget_exhausted_rate": 0.2083,
+        "timeout_rate": 0.0,
+        "any_edit_rate": null,
+        "no_edit_rate": null,
+        "no_edit_failure_rate": null,
+        "revert_rate": null,
+        "effective_tool_calls": {
+          "n": 24,
+          "mean": 7.625,
+          "median": 7.0,
+          "q1": 6.75,
+          "q3": 9.0,
+          "min": 4.0,
+          "max": 12.0
+        },
+        "bash_attempts": {
+          "n": 24,
+          "mean": 1.75,
+          "median": 2.0,
+          "q1": 1.0,
+          "q3": 2.0,
+          "min": 1.0,
+          "max": 3.0
+        },
+        "tool_calls": {
+          "n": 24,
+          "mean": 8.4583,
+          "median": 8.0,
+          "q1": 7.0,
+          "q3": 10.0,
+          "min": 4.0,
+          "max": 13.0
+        },
+        "duration_s": {
+          "n": 24,
+          "mean": 58.2088,
+          "median": 48.71,
+          "q1": 37.79,
+          "q3": 75.9375,
+          "min": 25.78,
+          "max": 113.35
+        }
+      },
+      {
+        "sample": "full",
+        "model": "opencode/mimo-v2.6-flash-free",
+        "condition": "negative",
+        "n": 24,
+        "passed": 23,
+        "pass_rate": 0.9583,
+        "repaired": 5,
+        "round1_failures": 6,
+        "repair_success": 0.8333,
+        "regression_failed_tests": 0,
+        "regression_rate": 0.0,
+        "regression_tests": 297,
+        "edit_size": {
+          "n": 24,
+          "mean": 2.5417,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 2.0,
+          "min": 0.0,
+          "max": 7.0
+        },
+        "edit_ratio": {
+          "n": 24,
+          "mean": 0.9625,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 2.5
+        },
+        "edit_files": {
+          "n": 24,
+          "mean": 1.0,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        "over_edit_rate": 0.0417,
+        "unrelated_file_rate": 0.0,
+        "test_tamper_rate": 0.0,
+        "budget_exhausted_rate": 0.25,
+        "timeout_rate": 0.0,
+        "any_edit_rate": null,
+        "no_edit_rate": null,
+        "no_edit_failure_rate": null,
+        "revert_rate": null,
+        "effective_tool_calls": {
+          "n": 24,
+          "mean": 8.1667,
+          "median": 7.5,
+          "q1": 6.75,
+          "q3": 9.0,
+          "min": 4.0,
+          "max": 14.0
+        },
+        "bash_attempts": {
+          "n": 24,
+          "mean": 1.7917,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 2.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        "tool_calls": {
+          "n": 24,
+          "mean": 9.0833,
+          "median": 8.5,
+          "q1": 7.0,
+          "q3": 10.0,
+          "min": 4.0,
+          "max": 15.0
+        },
+        "duration_s": {
+          "n": 24,
+          "mean": 63.3725,
+          "median": 61.8,
+          "q1": 35.1475,
+          "q3": 75.9375,
+          "min": 25.78,
+          "max": 161.59
+        }
+      },
+      {
+        "sample": "full",
+        "model": "opencode/mimo-v2.6-flash-free",
+        "condition": "negative_guidance",
+        "n": 24,
+        "passed": 24,
+        "pass_rate": 1.0,
+        "repaired": 6,
+        "round1_failures": 6,
+        "repair_success": 1.0,
+        "regression_failed_tests": 0,
+        "regression_rate": 0.0,
+        "regression_tests": 297,
+        "edit_size": {
+          "n": 24,
+          "mean": 2.6667,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 2.25,
+          "min": 2.0,
+          "max": 7.0
+        },
+        "edit_ratio": {
+          "n": 24,
+          "mean": 0.9333,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 0.4,
+          "max": 1.0
+        },
+        "edit_files": {
+          "n": 24,
+          "mean": 1.0833,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 1.0,
+          "max": 2.0
+        },
+        "over_edit_rate": 0.0,
+        "unrelated_file_rate": 0.0,
+        "test_tamper_rate": 0.0,
+        "budget_exhausted_rate": 0.2083,
+        "timeout_rate": 0.0,
+        "any_edit_rate": null,
+        "no_edit_rate": null,
+        "no_edit_failure_rate": null,
+        "revert_rate": null,
+        "effective_tool_calls": {
+          "n": 24,
+          "mean": 7.6667,
+          "median": 7.5,
+          "q1": 6.75,
+          "q3": 9.0,
+          "min": 4.0,
+          "max": 12.0
+        },
+        "bash_attempts": {
+          "n": 24,
+          "mean": 1.75,
+          "median": 2.0,
+          "q1": 1.0,
+          "q3": 2.0,
+          "min": 1.0,
+          "max": 3.0
+        },
+        "tool_calls": {
+          "n": 24,
+          "mean": 8.5,
+          "median": 8.5,
+          "q1": 7.0,
+          "q3": 10.0,
+          "min": 4.0,
+          "max": 12.0
+        },
+        "duration_s": {
+          "n": 24,
+          "mean": 58.2625,
+          "median": 57.06,
+          "q1": 37.79,
+          "q3": 74.5825,
+          "min": 25.78,
+          "max": 113.35
+        }
+      },
+      {
+        "sample": "full",
+        "model": "opencode/minimax-m3.1-flash-free",
+        "condition": "pure_continue",
+        "n": 24,
+        "passed": 22,
+        "pass_rate": 0.9167,
+        "repaired": 12,
+        "round1_failures": 14,
+        "repair_success": 0.8571,
+        "regression_failed_tests": 0,
+        "regression_rate": 0.0,
+        "regression_tests": 297,
+        "edit_size": {
+          "n": 24,
+          "mean": 4.125,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 3.25,
+          "min": 0.0,
+          "max": 36.0
+        },
+        "edit_ratio": {
+          "n": 24,
+          "mean": 1.2292,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 7.2
+        },
+        "edit_files": {
+          "n": 24,
+          "mean": 1.0,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        "over_edit_rate": 0.0833,
+        "unrelated_file_rate": 0.0,
+        "test_tamper_rate": 0.0417,
+        "budget_exhausted_rate": 0.8333,
+        "timeout_rate": 0.0,
+        "any_edit_rate": null,
+        "no_edit_rate": null,
+        "no_edit_failure_rate": null,
+        "revert_rate": null,
+        "effective_tool_calls": {
+          "n": 24,
+          "mean": 10.9167,
+          "median": 10.5,
+          "q1": 9.0,
+          "q3": 13.0,
+          "min": 9.0,
+          "max": 13.0
+        },
+        "bash_attempts": {
+          "n": 24,
+          "mean": 2.1667,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 2.25,
+          "min": 1.0,
+          "max": 3.0
+        },
+        "tool_calls": {
+          "n": 24,
+          "mean": 12.3333,
+          "median": 11.5,
+          "q1": 10.0,
+          "q3": 15.0,
+          "min": 10.0,
+          "max": 15.0
+        },
+        "duration_s": {
+          "n": 24,
+          "mean": 40.3221,
+          "median": 34.635,
+          "q1": 25.98,
+          "q3": 42.88,
+          "min": 18.63,
+          "max": 127.13
+        }
+      },
+      {
+        "sample": "full",
+        "model": "opencode/minimax-m3.1-flash-free",
+        "condition": "neutral",
+        "n": 24,
+        "passed": 19,
+        "pass_rate": 0.7917,
+        "repaired": 9,
+        "round1_failures": 14,
+        "repair_success": 0.6429,
+        "regression_failed_tests": 0,
+        "regression_rate": 0.0,
+        "regression_tests": 297,
+        "edit_size": {
+          "n": 24,
+          "mean": 2.75,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 2.0,
+          "min": 0.0,
+          "max": 12.0
+        },
+        "edit_ratio": {
+          "n": 24,
+          "mean": 0.9625,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 3.5
+        },
+        "edit_files": {
+          "n": 24,
+          "mean": 0.875,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        "over_edit_rate": 0.0833,
+        "unrelated_file_rate": 0.0,
+        "test_tamper_rate": 0.0833,
+        "budget_exhausted_rate": 0.8333,
+        "timeout_rate": 0.0,
+        "any_edit_rate": null,
+        "no_edit_rate": null,
+        "no_edit_failure_rate": null,
+        "revert_rate": null,
+        "effective_tool_calls": {
+          "n": 24,
+          "mean": 11.0417,
+          "median": 11.5,
+          "q1": 9.0,
+          "q3": 13.0,
+          "min": 7.0,
+          "max": 14.0
+        },
+        "bash_attempts": {
+          "n": 24,
+          "mean": 2.0417,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 2.0,
+          "min": 1.0,
+          "max": 3.0
+        },
+        "tool_calls": {
+          "n": 24,
+          "mean": 12.375,
+          "median": 12.5,
+          "q1": 10.0,
+          "q3": 15.0,
+          "min": 8.0,
+          "max": 15.0
+        },
+        "duration_s": {
+          "n": 24,
+          "mean": 37.9812,
+          "median": 36.17,
+          "q1": 25.865,
+          "q3": 48.405,
+          "min": 18.63,
+          "max": 64.06
+        }
+      },
+      {
+        "sample": "full",
+        "model": "opencode/minimax-m3.1-flash-free",
+        "condition": "method_guidance",
+        "n": 24,
+        "passed": 21,
+        "pass_rate": 0.875,
+        "repaired": 11,
+        "round1_failures": 14,
+        "repair_success": 0.7857,
+        "regression_failed_tests": 0,
+        "regression_rate": 0.0,
+        "regression_tests": 297,
+        "edit_size": {
+          "n": 24,
+          "mean": 2.5833,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 2.0,
+          "min": 0.0,
+          "max": 12.0
+        },
+        "edit_ratio": {
+          "n": 24,
+          "mean": 0.9292,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 2.4
+        },
+        "edit_files": {
+          "n": 24,
+          "mean": 0.9583,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        "over_edit_rate": 0.0417,
+        "unrelated_file_rate": 0.0,
+        "test_tamper_rate": 0.0,
+        "budget_exhausted_rate": 0.7917,
+        "timeout_rate": 0.0,
+        "any_edit_rate": null,
+        "no_edit_rate": null,
+        "no_edit_failure_rate": null,
+        "revert_rate": null,
+        "effective_tool_calls": {
+          "n": 24,
+          "mean": 10.875,
+          "median": 10.0,
+          "q1": 9.0,
+          "q3": 13.0,
+          "min": 8.0,
+          "max": 14.0
+        },
+        "bash_attempts": {
+          "n": 24,
+          "mean": 2.1667,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 2.0,
+          "min": 1.0,
+          "max": 4.0
+        },
+        "tool_calls": {
+          "n": 24,
+          "mean": 12.25,
+          "median": 11.0,
+          "q1": 10.0,
+          "q3": 15.0,
+          "min": 9.0,
+          "max": 15.0
+        },
+        "duration_s": {
+          "n": 24,
+          "mean": 38.9054,
+          "median": 32.66,
+          "q1": 25.515,
+          "q3": 39.4075,
+          "min": 18.63,
+          "max": 132.11
+        }
+      },
+      {
+        "sample": "full",
+        "model": "opencode/minimax-m3.1-flash-free",
+        "condition": "negative",
+        "n": 24,
+        "passed": 19,
+        "pass_rate": 0.7917,
+        "repaired": 9,
+        "round1_failures": 14,
+        "repair_success": 0.6429,
+        "regression_failed_tests": 0,
+        "regression_rate": 0.0,
+        "regression_tests": 297,
+        "edit_size": {
+          "n": 24,
+          "mean": 2.4583,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 2.0,
+          "min": 0.0,
+          "max": 12.0
+        },
+        "edit_ratio": {
+          "n": 24,
+          "mean": 0.9542,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 3.5
+        },
+        "edit_files": {
+          "n": 24,
+          "mean": 0.8333,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        "over_edit_rate": 0.0833,
+        "unrelated_file_rate": 0.0,
+        "test_tamper_rate": 0.0833,
+        "budget_exhausted_rate": 0.9583,
+        "timeout_rate": 0.0,
+        "any_edit_rate": null,
+        "no_edit_rate": null,
+        "no_edit_failure_rate": null,
+        "revert_rate": null,
+        "effective_tool_calls": {
+          "n": 24,
+          "mean": 11.25,
+          "median": 12.5,
+          "q1": 9.0,
+          "q3": 13.0,
+          "min": 7.0,
+          "max": 14.0
+        },
+        "bash_attempts": {
+          "n": 24,
+          "mean": 2.0833,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 2.25,
+          "min": 1.0,
+          "max": 4.0
+        },
+        "tool_calls": {
+          "n": 24,
+          "mean": 12.6667,
+          "median": 15.0,
+          "q1": 10.0,
+          "q3": 15.0,
+          "min": 9.0,
+          "max": 15.0
+        },
+        "duration_s": {
+          "n": 24,
+          "mean": 45.8987,
+          "median": 34.5,
+          "q1": 26.1725,
+          "q3": 56.51,
+          "min": 18.63,
+          "max": 171.13
+        }
+      },
+      {
+        "sample": "full",
+        "model": "opencode/minimax-m3.1-flash-free",
+        "condition": "negative_guidance",
+        "n": 24,
+        "passed": 23,
+        "pass_rate": 0.9583,
+        "repaired": 13,
+        "round1_failures": 14,
+        "repair_success": 0.9286,
+        "regression_failed_tests": 0,
+        "regression_rate": 0.0,
+        "regression_tests": 297,
+        "edit_size": {
+          "n": 24,
+          "mean": 3.0,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 3.25,
+          "min": 0.0,
+          "max": 12.0
+        },
+        "edit_ratio": {
+          "n": 24,
+          "mean": 0.975,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 2.4
+        },
+        "edit_files": {
+          "n": 24,
+          "mean": 1.0417,
+          "median": 1.0,
+          "q1": 1.0,
+          "q3": 1.0,
+          "min": 0.0,
+          "max": 2.0
+        },
+        "over_edit_rate": 0.0417,
+        "unrelated_file_rate": 0.0,
+        "test_tamper_rate": 0.0417,
+        "budget_exhausted_rate": 0.75,
+        "timeout_rate": 0.0,
+        "any_edit_rate": null,
+        "no_edit_rate": null,
+        "no_edit_failure_rate": null,
+        "revert_rate": null,
+        "effective_tool_calls": {
+          "n": 24,
+          "mean": 11.0,
+          "median": 11.5,
+          "q1": 9.0,
+          "q3": 13.0,
+          "min": 7.0,
+          "max": 14.0
+        },
+        "bash_attempts": {
+          "n": 24,
+          "mean": 2.0833,
+          "median": 2.0,
+          "q1": 2.0,
+          "q3": 2.0,
+          "min": 1.0,
+          "max": 3.0
+        },
+        "tool_calls": {
+          "n": 24,
+          "mean": 12.375,
+          "median": 13.5,
+          "q1": 10.0,
+          "q3": 15.0,
+          "min": 8.0,
+          "max": 15.0
+        },
+        "duration_s": {
+          "n": 24,
+          "mean": 43.3729,
+          "median": 36.95,
+          "q1": 26.2875,
+          "q3": 53.3875,
+          "min": 18.63,
+          "max": 111.85
+        }
+      }
+    ]
+  },
+  "reliability": {
+    "n_episodes": 35,
+    "by_model": {
+      "opencode/mimo-v2.6-flash-free": {
+        "n": 10,
+        "binary_n": 10,
+        "agreement": 0.9,
+        "kappa": 0.0,
+        "icc_2_1_edit_lines": 0.1664,
+        "spearman_edit": 0.4011,
+        "spearman_p": 0.2506564951350806,
+        "mean_absolute_edit_difference": 1.7,
+        "by_condition": {
+          "method_guidance": {
+            "n": 2,
+            "agreement": 1.0,
+            "kappa": null
+          },
+          "negative": {
+            "n": 2,
+            "agreement": 0.5,
+            "kappa": 0.0
+          },
+          "negative_guidance": {
+            "n": 2,
+            "agreement": 1.0,
+            "kappa": null
+          },
+          "neutral": {
+            "n": 2,
+            "agreement": 1.0,
+            "kappa": null
+          },
+          "pure_continue": {
+            "n": 2,
+            "agreement": 1.0,
+            "kappa": null
+          }
+        }
+      },
+      "opencode/minimax-m3.1-flash-free": {
+        "n": 25,
+        "binary_n": 25,
+        "agreement": 0.68,
+        "kappa": 0.3243,
+        "icc_2_1_edit_lines": -0.1782,
+        "spearman_edit": 0.0109,
+        "spearman_p": 0.9588662665569101,
+        "mean_absolute_edit_difference": 3.92,
+        "by_condition": {
+          "method_guidance": {
+            "n": 5,
+            "agreement": 0.8,
+            "kappa": 0.5455
+          },
+          "negative": {
+            "n": 5,
+            "agreement": 0.6,
+            "kappa": 0.2857
+          },
+          "negative_guidance": {
+            "n": 5,
+            "agreement": 0.8,
+            "kappa": 0.5455
+          },
+          "neutral": {
+            "n": 5,
+            "agreement": 0.6,
+            "kappa": 0.2857
+          },
+          "pure_continue": {
+            "n": 5,
+            "agreement": 0.6,
+            "kappa": -0.25
+          }
+        }
+      }
+    }
+  },
+  "ablation": {
+    "n_episodes": 50,
+    "by_model": {
+      "opencode/mimo-v2.6-flash-free": {
+        "n": 10,
+        "pass_rate_main": 0.9,
+        "pass_rate_ablation": 1.0,
+        "pass_difference": -0.1,
+        "median_edit_main": 2.0,
+        "median_edit_ablation": 3.0,
+        "cliffs_delta_edit": -0.19,
+        "delta_ci_low": -0.51,
+        "delta_ci_high": 0.0
+      },
+      "opencode/minimax-m3.1-flash-free": {
+        "n": 40,
+        "pass_rate_main": 0.725,
+        "pass_rate_ablation": 0.825,
+        "pass_difference": -0.1,
+        "median_edit_main": 2.0,
+        "median_edit_ablation": 2.0,
+        "cliffs_delta_edit": -0.1781,
+        "delta_ci_low": -0.3887,
+        "delta_ci_high": 0.045
+      }
+    }
+  }
+}

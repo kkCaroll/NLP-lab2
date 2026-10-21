@@ -1,0 +1,32 @@
+你是一名代码修复智能体。当前工作目录是一个 Python 项目。
+
+项目说明：
+命令行开关把文本值直接交给内置类型转换，任何非空文本都成为真值，--verbose false 仍然开启详细输出。请修复该问题，并保持真值解析、默认值、命令执行、参数校验与文本渲染的行为不变。
+
+初始测试失败信息：
+```text
+............FF                                                           [100%]
+================================== FAILURES ===================================
+_____________________ test_parse_args_reads_a_false_flag ______________________
+tests\test_target.py:5: in test_parse_args_reads_a_false_flag
+    assert parse_args(["--verbose", "false"]).verbose is False
+E   AssertionError: assert True is False
+E    +  where True = Namespace(verbose=True, name='world', repeat=1, command='greet').verbose
+E    +    where Namespace(verbose=True, name='world', repeat=1, command='greet') = parse_args(['--verbose', 'false'])
+________________________ test_run_honours_a_false_flag ________________________
+tests\test_target.py:9: in test_run_honours_a_false_flag
+    assert run(["--verbose", "false", "greet"]) == "hello world"
+E   AssertionError: assert 'verbose=True\nhello world' == 'hello world'
+E     
+E     + verbose=True
+E       hello world
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_parse_args_reads_a_false_flag - AssertionEr...
+FAILED tests/test_target.py::test_run_honours_a_false_flag - AssertionError: ...
+2 failed, 12 passed in 0.13s
+```
+
+请阅读项目代码和测试，定位并修复 bug，使全部测试通过。
+你可以用 Bash 运行 `python -m pytest` 检查修复结果。
+约束：不要修改 tests/ 目录下的任何文件，也不要修改测试配置文件。
+完成后用一句话总结你的修改。

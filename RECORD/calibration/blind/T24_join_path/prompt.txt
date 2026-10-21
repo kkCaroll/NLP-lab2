@@ -1,0 +1,35 @@
+你是一名代码修复智能体。当前工作目录是一个 Python 项目。
+
+项目说明：
+拼接路径时，以斜杠开头的片段会丢弃前面的根目录。例如把 /reports/q1.csv 拼接到 data 下，期望得到 data/reports/q1.csv，实际得到 /reports/q1.csv；解析落到根目录之外的路径时同样会越过根目录。请修复该问题，并保持路径清理、相对片段拼接、扩展名、根目录判断与文本渲染的行为不变。
+
+初始测试失败信息：
+```text
+.........FF                                                              [100%]
+================================== FAILURES ===================================
+___________ test_join_path_keeps_the_base_for_a_leading_slash_part ____________
+tests\test_target.py:5: in test_join_path_keeps_the_base_for_a_leading_slash_part
+    assert join_path("data", "/reports/q1.csv") == "data/reports/q1.csv"
+E   AssertionError: assert '/reports/q1.csv' == 'data/reports/q1.csv'
+E     
+E     - data/reports/q1.csv
+E     ? ----
+E     + /reports/q1.csv
+_________ test_resolve_under_keeps_the_root_for_a_leading_slash_part __________
+tests\test_target.py:9: in test_resolve_under_keeps_the_root_for_a_leading_slash_part
+    assert resolve_under("data", "/etc/passwd") == "data/etc/passwd"
+E   AssertionError: assert '/etc/passwd' == 'data/etc/passwd'
+E     
+E     - data/etc/passwd
+E     ? ----
+E     + /etc/passwd
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_join_path_keeps_the_base_for_a_leading_slash_part
+FAILED tests/test_target.py::test_resolve_under_keeps_the_root_for_a_leading_slash_part
+2 failed, 9 passed in 0.14s
+```
+
+请阅读项目代码和测试，定位并修复 bug，使全部测试通过。
+你可以用 Bash 运行 `python -m pytest` 检查修复结果。
+约束：不要修改 tests/ 目录下的任何文件，也不要修改测试配置文件。
+完成后用一句话总结你的修改。

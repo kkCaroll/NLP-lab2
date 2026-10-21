@@ -1,0 +1,20 @@
+--- a/src/clikit/options.py
++++ b/src/clikit/options.py
+@@ -1,6 +1,8 @@
+ """Command line parser construction."""
+ 
+ import argparse
++
++from .flags import to_bool
+ 
+ 
+ def build_parser():
+@@ -9,7 +11,7 @@
+         prog="clikit",
+         description="Render a greeting or a short summary.",
+     )
+-    parser.add_argument("--verbose", type=bool, default=False)
++    parser.add_argument("--verbose", type=to_bool, default=False)
+     parser.add_argument("--name", default="world")
+     parser.add_argument("--repeat", type=int, default=1)
+     parser.add_argument(

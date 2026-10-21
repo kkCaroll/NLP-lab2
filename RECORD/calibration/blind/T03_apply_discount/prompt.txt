@@ -1,0 +1,31 @@
+你是一名代码修复智能体。当前工作目录是一个 Python 项目。
+
+项目说明：
+调用 apply_discount 或 discounted_total 计算百分比折扣时，折扣被重复除以 100。例如金额 100 元、折扣 20% 期望支付 80 元，实际支付 99.80 元。请修复该问题，并保持金额转换、四舍五入、购物车合计和百分比校验的行为不变。
+
+初始测试失败信息：
+```text
+................FF                                                       [100%]
+================================== FAILURES ===================================
+__________________ test_apply_discount_subtracts_percentage ___________________
+tests/test_target.py:7: in test_apply_discount_subtracts_percentage
+    assert apply_discount("100.00", 20) == Decimal("80.00")
+E   AssertionError: assert Decimal('99.80') == Decimal('80.00')
+E    +  where Decimal('99.80') = apply_discount('100.00', 20)
+E    +  and   Decimal('80.00') = Decimal('80.00')
+_________________ test_discounted_total_subtracts_percentage __________________
+tests/test_target.py:12: in test_discounted_total_subtracts_percentage
+    assert discounted_total(items, 20) == Decimal("80.00")
+E   AssertionError: assert Decimal('99.80') == Decimal('80.00')
+E    +  where Decimal('99.80') = discounted_total([{'price': '50.00', 'quantity': 2}], 20)
+E    +  and   Decimal('80.00') = Decimal('80.00')
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_apply_discount_subtracts_percentage - Asser...
+FAILED tests/test_target.py::test_discounted_total_subtracts_percentage - Ass...
+2 failed, 16 passed in 0.07s
+```
+
+请阅读项目代码和测试，定位并修复 bug，使全部测试通过。
+你可以用 Bash 运行 `python -m pytest` 检查修复结果。
+约束：不要修改 tests/ 目录下的任何文件，也不要修改测试配置文件。
+完成后用一句话总结你的修改。

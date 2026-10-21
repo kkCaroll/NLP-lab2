@@ -1,0 +1,34 @@
+你是一名代码修复智能体。当前工作目录是一个 Python 项目。
+
+项目说明：
+请求超出末页的页码时，分页函数返回空列表，而不是退回到最后一页；窗口切片函数在起点越界时也只返回最后一个元素，而不是完整的末尾窗口。例如七条记录每页三条时请求第五页，期望得到最后一条记录，实际得到空列表。请修复共享的区间限制逻辑，并保持页数计算、正常页码、分块、页码定位、进度条与分页文本渲染的行为不变。
+
+初始测试失败信息：
+```text
+.................FF                                                      [100%]
+================================== FAILURES ===================================
+__________ test_paginate_beyond_the_last_page_returns_the_last_page ___________
+tests\test_target.py:5: in test_paginate_beyond_the_last_page_returns_the_last_page
+    assert paginate([1, 2, 3, 4, 5, 6, 7], 5, 3) == [7]
+E   assert [] == [7]
+E     
+E     Right contains one more item: 7
+E     Use -v to get more diff
+___________ test_slice_window_beyond_the_end_keeps_the_final_window ___________
+tests\test_target.py:9: in test_slice_window_beyond_the_end_keeps_the_final_window
+    assert slice_window([1, 2, 3, 4, 5], 9, 2) == [4, 5]
+E   assert [5] == [4, 5]
+E     
+E     At index 0 diff: 5 != 4
+E     Right contains one more item: 5
+E     Use -v to get more diff
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_paginate_beyond_the_last_page_returns_the_last_page
+FAILED tests/test_target.py::test_slice_window_beyond_the_end_keeps_the_final_window
+2 failed, 17 passed in 0.16s
+```
+
+请阅读项目代码和测试，定位并修复 bug，使全部测试通过。
+你可以用 Bash 运行 `python -m pytest` 检查修复结果。
+约束：不要修改 tests/ 目录下的任何文件，也不要修改测试配置文件。
+完成后用一句话总结你的修改。

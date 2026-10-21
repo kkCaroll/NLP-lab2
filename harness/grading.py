@@ -38,25 +38,37 @@ def run_pytest(workspace: Path, junit_path: Path) -> tuple[int, str, dict[str, s
         junit_path.unlink()
     env = dict(os.environ)
     env["PYTHONDONTWRITEBYTECODE"] = "1"
-    result = subprocess.run(
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "--tb=short",
-            "-p",
-            "no:cacheprovider",
-            f"--junitxml={junit_path}",
-        ],
-        cwd=workspace,
-        capture_output=True,
-        text=True,
-        encoding="utf-8",
-        errors="replace",
-        env=env,
-        timeout=180,
-    )
+    try:
+        result = subprocess.run(
+            [
+                sys.executable,
+                "-m",
+                "pytest",
+                "-q",
+                "--tb=short",
+                "-p",
+                "no:cacheprovider",
+                f"--junitxml={junit_path}",
+            ],
+            cwd=workspace,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            env=env,
+            timeout=180,
+        )
+    except subprocess.TimeoutExpired as error:
+        # A hanging test must not remove the episode from the dataset. It is
+        # graded as a failure with an explicit timeout marker.
+        output = "pytest timed out after 180 seconds\n"
+        for stream in (error.stdout, error.stderr):
+            if stream:
+                if isinstance(stream, bytes):
+                    stream = stream.decode("utf-8", errors="replace")
+                output += stream
+        clean_caches(workspace)
+        return 124, output, {}
     output = result.stdout + result.stderr
     results = parse_junit(workspace, junit_path) if junit_path.exists() else {}
     clean_caches(workspace)

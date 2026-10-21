@@ -1,0 +1,802 @@
+[
+  {
+    "task": "T01_next_palindrome",
+    "pytest_code": 0,
+    "statements": 64,
+    "covered": 59,
+    "gold_statements": 20,
+    "gold_covered": 19,
+    "other_statements": 44,
+    "other_covered": 40,
+    "files": {
+      "src/digitkit/__init__.py": {
+        "statements": 4,
+        "covered": 4
+      },
+      "src/digitkit/digits.py": {
+        "statements": 30,
+        "covered": 27
+      },
+      "src/digitkit/palindrome.py": {
+        "statements": 20,
+        "covered": 19
+      },
+      "src/digitkit/report.py": {
+        "statements": 10,
+        "covered": 9
+      }
+    }
+  },
+  {
+    "task": "T02_parse_range",
+    "pytest_code": 0,
+    "statements": 72,
+    "covered": 71,
+    "gold_statements": 30,
+    "gold_covered": 29,
+    "other_statements": 42,
+    "other_covered": 42,
+    "files": {
+      "src/rangekit/__init__.py": {
+        "statements": 4,
+        "covered": 4
+      },
+      "src/rangekit/format.py": {
+        "statements": 8,
+        "covered": 8
+      },
+      "src/rangekit/merge.py": {
+        "statements": 30,
+        "covered": 30
+      },
+      "src/rangekit/parse.py": {
+        "statements": 30,
+        "covered": 29
+      }
+    }
+  },
+  {
+    "task": "T03_apply_discount",
+    "pytest_code": 0,
+    "statements": 59,
+    "covered": 58,
+    "gold_statements": 14,
+    "gold_covered": 13,
+    "other_statements": 45,
+    "other_covered": 45,
+    "files": {
+      "src/pricing/__init__.py": {
+        "statements": 4,
+        "covered": 4
+      },
+      "src/pricing/cart.py": {
+        "statements": 21,
+        "covered": 21
+      },
+      "src/pricing/discount.py": {
+        "statements": 14,
+        "covered": 13
+      },
+      "src/pricing/money.py": {
+        "statements": 20,
+        "covered": 20
+      }
+    }
+  },
+  {
+    "task": "T04_next_permutation",
+    "pytest_code": 0,
+    "statements": 60,
+    "covered": 51,
+    "gold_statements": 28,
+    "gold_covered": 21,
+    "other_statements": 32,
+    "other_covered": 30,
+    "files": {
+      "src/seqkit/__init__.py": {
+        "statements": 4,
+        "covered": 4
+      },
+      "src/seqkit/compare.py": {
+        "statements": 20,
+        "covered": 18
+      },
+      "src/seqkit/format.py": {
+        "statements": 8,
+        "covered": 8
+      },
+      "src/seqkit/permute.py": {
+        "statements": 28,
+        "covered": 21
+      }
+    }
+  },
+  {
+    "task": "T05_email_regex",
+    "pytest_code": 0,
+    "statements": 52,
+    "covered": 50,
+    "gold_statements": 16,
+    "gold_covered": 15,
+    "other_statements": 36,
+    "other_covered": 35,
+    "files": {
+      "src/mailscan/__init__.py": {
+        "statements": 4,
+        "covered": 4
+      },
+      "src/mailscan/normalize.py": {
+        "statements": 20,
+        "covered": 19
+      },
+      "src/mailscan/patterns.py": {
+        "statements": 16,
+        "covered": 15
+      },
+      "src/mailscan/report.py": {
+        "statements": 12,
+        "covered": 12
+      }
+    }
+  },
+  {
+    "task": "T06_version_scan",
+    "pytest_code": 0,
+    "statements": 67,
+    "covered": 59,
+    "gold_statements": 25,
+    "gold_covered": 21,
+    "other_statements": 42,
+    "other_covered": 38,
+    "files": {
+      "src/textscan/__init__.py": {
+        "statements": 4,
+        "covered": 4
+      },
+      "src/textscan/normalize.py": {
+        "statements": 17,
+        "covered": 13
+      },
+      "src/textscan/patterns.py": {
+        "statements": 25,
+        "covered": 21
+      },
+      "src/textscan/report.py": {
+        "statements": 21,
+        "covered": 21
+      }
+    }
+  },
+  {
+    "task": "T07_group_counts",
+    "pytest_code": 0,
+    "statements": 66,
+    "covered": 57,
+    "gold_statements": 21,
+    "gold_covered": 19,
+    "other_statements": 45,
+    "other_covered": 38,
+    "files": {
+      "src/recordkit/__init__.py": {
+        "statements": 4,
+        "covered": 4
+      },
+      "src/recordkit/aggregate.py": {
+        "statements": 21,
+        "covered": 19
+      },
+      "src/recordkit/csvio.py": {
+        "statements": 25,
+        "covered": 23
+      },
+      "src/recordkit/report.py": {
+        "statements": 16,
+        "covered": 11
+      }
+    }
+  },
+  {
+    "task": "T08_inventory_summary",
+    "pytest_code": 0,
+    "statements": 86,
+    "covered": 80,
+    "gold_statements": 32,
+    "gold_covered": 29,
+    "other_statements": 54,
+    "other_covered": 51,
+    "files": {
+      "src/inventory/__init__.py": {
+        "statements": 4,
+        "covered": 4
+      },
+      "src/inventory/format.py": {
+        "statements": 10,
+        "covered": 10
+      },
+      "src/inventory/stock.py": {
+        "statements": 40,
+        "covered": 37
+      },
+      "src/inventory/summary.py": {
+        "statements": 32,
+        "covered": 29
+      }
+    }
+  },
+  {
+    "task": "T09_safe_int",
+    "pytest_code": 0,
+    "statements": 81,
+    "covered": 73,
+    "gold_statements": 32,
+    "gold_covered": 26,
+    "other_statements": 49,
+    "other_covered": 47,
+    "files": {
+      "src/convertkit/__init__.py": {
+        "statements": 4,
+        "covered": 4
+      },
+      "src/convertkit/format.py": {
+        "statements": 14,
+        "covered": 13
+      },
+      "src/convertkit/parse.py": {
+        "statements": 32,
+        "covered": 26
+      },
+      "src/convertkit/validate.py": {
+        "statements": 31,
+        "covered": 30
+      }
+    }
+  },
+  {
+    "task": "T10_top_k",
+    "pytest_code": 0,
+    "statements": 58,
+    "covered": 54,
+    "gold_statements": 13,
+    "gold_covered": 12,
+    "other_statements": 45,
+    "other_covered": 42,
+    "files": {
+      "src/rankkit/__init__.py": {
+        "statements": 4,
+        "covered": 4
+      },
+      "src/rankkit/format.py": {
+        "statements": 20,
+        "covered": 17
+      },
+      "src/rankkit/stats.py": {
+        "statements": 21,
+        "covered": 21
+      },
+      "src/rankkit/topk.py": {
+        "statements": 13,
+        "covered": 12
+      }
+    }
+  },
+  {
+    "task": "T11_sort_items",
+    "pytest_code": 0,
+    "statements": 69,
+    "covered": 64,
+    "gold_statements": 23,
+    "gold_covered": 20,
+    "other_statements": 46,
+    "other_covered": 44,
+    "files": {
+      "src/listkit/__init__.py": {
+        "statements": 4,
+        "covered": 4
+      },
+      "src/listkit/format.py": {
+        "statements": 14,
+        "covered": 13
+      },
+      "src/listkit/ordering.py": {
+        "statements": 23,
+        "covered": 20
+      },
+      "src/listkit/transform.py": {
+        "statements": 28,
+        "covered": 27
+      }
+    }
+  },
+  {
+    "task": "T12_format_datetime",
+    "pytest_code": 0,
+    "statements": 85,
+    "covered": 77,
+    "gold_statements": 21,
+    "gold_covered": 15,
+    "other_statements": 64,
+    "other_covered": 62,
+    "files": {
+      "src/timekit/__init__.py": {
+        "statements": 4,
+        "covered": 4
+      },
+      "src/timekit/format.py": {
+        "statements": 21,
+        "covered": 15
+      },
+      "src/timekit/interval.py": {
+        "statements": 23,
+        "covered": 23
+      },
+      "src/timekit/parse.py": {
+        "statements": 37,
+        "covered": 35
+      }
+    }
+  },
+  {
+    "task": "T13_paginate",
+    "pytest_code": 0,
+    "statements": 147,
+    "covered": 136,
+    "gold_statements": 19,
+    "gold_covered": 18,
+    "other_statements": 128,
+    "other_covered": 118,
+    "files": {
+      "src/pagekit/__init__.py": {
+        "statements": 7,
+        "covered": 7
+      },
+      "src/pagekit/chunks.py": {
+        "statements": 17,
+        "covered": 15
+      },
+      "src/pagekit/limits.py": {
+        "statements": 19,
+        "covered": 18
+      },
+      "src/pagekit/paginate.py": {
+        "statements": 29,
+        "covered": 28
+      },
+      "src/pagekit/report.py": {
+        "statements": 24,
+        "covered": 21
+      },
+      "src/pagekit/slicing.py": {
+        "statements": 16,
+        "covered": 13
+      },
+      "src/pagekit/state.py": {
+        "statements": 35,
+        "covered": 34
+      }
+    }
+  },
+  {
+    "task": "T14_shipping_fee",
+    "pytest_code": 0,
+    "statements": 140,
+    "covered": 126,
+    "gold_statements": 67,
+    "gold_covered": 59,
+    "other_statements": 73,
+    "other_covered": 67,
+    "files": {
+      "src/logistics/__init__.py": {
+        "statements": 6,
+        "covered": 6
+      },
+      "src/logistics/batches.py": {
+        "statements": 24,
+        "covered": 23
+      },
+      "src/logistics/fees.py": {
+        "statements": 15,
+        "covered": 14
+      },
+      "src/logistics/parcels.py": {
+        "statements": 32,
+        "covered": 26
+      },
+      "src/logistics/rates.py": {
+        "statements": 28,
+        "covered": 24
+      },
+      "src/logistics/units.py": {
+        "statements": 35,
+        "covered": 33
+      }
+    }
+  },
+  {
+    "task": "T15_slugify",
+    "pytest_code": 0,
+    "statements": 153,
+    "covered": 128,
+    "gold_statements": 26,
+    "gold_covered": 24,
+    "other_statements": 127,
+    "other_covered": 104,
+    "files": {
+      "src/slugkit/__init__.py": {
+        "statements": 7,
+        "covered": 7
+      },
+      "src/slugkit/accents.py": {
+        "statements": 15,
+        "covered": 13
+      },
+      "src/slugkit/report.py": {
+        "statements": 31,
+        "covered": 21
+      },
+      "src/slugkit/segments.py": {
+        "statements": 27,
+        "covered": 20
+      },
+      "src/slugkit/slug.py": {
+        "statements": 26,
+        "covered": 24
+      },
+      "src/slugkit/title.py": {
+        "statements": 26,
+        "covered": 23
+      },
+      "src/slugkit/whitespace.py": {
+        "statements": 21,
+        "covered": 20
+      }
+    }
+  },
+  {
+    "task": "T16_sales_aggregation",
+    "pytest_code": 0,
+    "statements": 128,
+    "covered": 109,
+    "gold_statements": 19,
+    "gold_covered": 18,
+    "other_statements": 109,
+    "other_covered": 91,
+    "files": {
+      "src/saleskit/__init__.py": {
+        "statements": 8,
+        "covered": 8
+      },
+      "src/saleskit/aggregate.py": {
+        "statements": 19,
+        "covered": 18
+      },
+      "src/saleskit/filters.py": {
+        "statements": 12,
+        "covered": 11
+      },
+      "src/saleskit/metrics.py": {
+        "statements": 23,
+        "covered": 20
+      },
+      "src/saleskit/money.py": {
+        "statements": 30,
+        "covered": 23
+      },
+      "src/saleskit/records.py": {
+        "statements": 26,
+        "covered": 21
+      },
+      "src/saleskit/report.py": {
+        "statements": 10,
+        "covered": 8
+      }
+    }
+  },
+  {
+    "task": "T17_merge_records",
+    "pytest_code": 0,
+    "statements": 153,
+    "covered": 140,
+    "gold_statements": 44,
+    "gold_covered": 41,
+    "other_statements": 109,
+    "other_covered": 99,
+    "files": {
+      "src/mergekit/__init__.py": {
+        "statements": 6,
+        "covered": 6
+      },
+      "src/mergekit/conflicts.py": {
+        "statements": 24,
+        "covered": 21
+      },
+      "src/mergekit/fields.py": {
+        "statements": 32,
+        "covered": 30
+      },
+      "src/mergekit/order.py": {
+        "statements": 29,
+        "covered": 25
+      },
+      "src/mergekit/records.py": {
+        "statements": 44,
+        "covered": 41
+      },
+      "src/mergekit/report.py": {
+        "statements": 18,
+        "covered": 17
+      }
+    }
+  },
+  {
+    "task": "T18_parse_bool",
+    "pytest_code": 0,
+    "statements": 131,
+    "covered": 116,
+    "gold_statements": 12,
+    "gold_covered": 12,
+    "other_statements": 119,
+    "other_covered": 104,
+    "files": {
+      "src/confkit/__init__.py": {
+        "statements": 7,
+        "covered": 7
+      },
+      "src/confkit/booleans.py": {
+        "statements": 12,
+        "covered": 12
+      },
+      "src/confkit/cli.py": {
+        "statements": 13,
+        "covered": 13
+      },
+      "src/confkit/config.py": {
+        "statements": 35,
+        "covered": 31
+      },
+      "src/confkit/env.py": {
+        "statements": 16,
+        "covered": 15
+      },
+      "src/confkit/report.py": {
+        "statements": 22,
+        "covered": 19
+      },
+      "src/confkit/validate.py": {
+        "statements": 26,
+        "covered": 19
+      }
+    }
+  },
+  {
+    "task": "T19_to_decimal",
+    "pytest_code": 0,
+    "statements": 129,
+    "covered": 120,
+    "gold_statements": 22,
+    "gold_covered": 21,
+    "other_statements": 107,
+    "other_covered": 99,
+    "files": {
+      "src/moneykit/__init__.py": {
+        "statements": 7,
+        "covered": 7
+      },
+      "src/moneykit/amounts.py": {
+        "statements": 22,
+        "covered": 21
+      },
+      "src/moneykit/currency.py": {
+        "statements": 21,
+        "covered": 20
+      },
+      "src/moneykit/format.py": {
+        "statements": 21,
+        "covered": 19
+      },
+      "src/moneykit/percent.py": {
+        "statements": 15,
+        "covered": 14
+      },
+      "src/moneykit/rounding.py": {
+        "statements": 17,
+        "covered": 17
+      },
+      "src/moneykit/totals.py": {
+        "statements": 26,
+        "covered": 22
+      }
+    }
+  },
+  {
+    "task": "T20_multi_key_sort",
+    "pytest_code": 0,
+    "statements": 122,
+    "covered": 118,
+    "gold_statements": 27,
+    "gold_covered": 25,
+    "other_statements": 95,
+    "other_covered": 93,
+    "files": {
+      "src/recordkit/__init__.py": {
+        "statements": 6,
+        "covered": 6
+      },
+      "src/recordkit/grouping.py": {
+        "statements": 19,
+        "covered": 17
+      },
+      "src/recordkit/keys.py": {
+        "statements": 8,
+        "covered": 8
+      },
+      "src/recordkit/records.py": {
+        "statements": 43,
+        "covered": 41
+      },
+      "src/recordkit/report.py": {
+        "statements": 23,
+        "covered": 23
+      },
+      "src/recordkit/sorting.py": {
+        "statements": 23,
+        "covered": 23
+      }
+    }
+  },
+  {
+    "task": "T21_first_duplicate",
+    "pytest_code": 0,
+    "statements": 152,
+    "covered": 152,
+    "gold_statements": 37,
+    "gold_covered": 37,
+    "other_statements": 115,
+    "other_covered": 115,
+    "files": {
+      "src/seqkit/__init__.py": {
+        "statements": 7,
+        "covered": 7
+      },
+      "src/seqkit/analysis.py": {
+        "statements": 31,
+        "covered": 31
+      },
+      "src/seqkit/report.py": {
+        "statements": 5,
+        "covered": 5
+      },
+      "src/seqkit/runs.py": {
+        "statements": 39,
+        "covered": 39
+      },
+      "src/seqkit/search.py": {
+        "statements": 37,
+        "covered": 37
+      },
+      "src/seqkit/stats.py": {
+        "statements": 16,
+        "covered": 16
+      },
+      "src/seqkit/validate.py": {
+        "statements": 17,
+        "covered": 17
+      }
+    }
+  },
+  {
+    "task": "T22_json_dumps",
+    "pytest_code": 0,
+    "statements": 119,
+    "covered": 111,
+    "gold_statements": 22,
+    "gold_covered": 22,
+    "other_statements": 97,
+    "other_covered": 89,
+    "files": {
+      "src/payloadkit/__init__.py": {
+        "statements": 6,
+        "covered": 6
+      },
+      "src/payloadkit/envelope.py": {
+        "statements": 22,
+        "covered": 20
+      },
+      "src/payloadkit/normalise.py": {
+        "statements": 24,
+        "covered": 21
+      },
+      "src/payloadkit/report.py": {
+        "statements": 20,
+        "covered": 18
+      },
+      "src/payloadkit/serialise.py": {
+        "statements": 22,
+        "covered": 22
+      },
+      "src/payloadkit/unicode.py": {
+        "statements": 25,
+        "covered": 24
+      }
+    }
+  },
+  {
+    "task": "T23_parse_flags",
+    "pytest_code": 0,
+    "statements": 133,
+    "covered": 123,
+    "gold_statements": 12,
+    "gold_covered": 12,
+    "other_statements": 121,
+    "other_covered": 111,
+    "files": {
+      "src/clikit/__init__.py": {
+        "statements": 7,
+        "covered": 7
+      },
+      "src/clikit/args.py": {
+        "statements": 34,
+        "covered": 31
+      },
+      "src/clikit/commands.py": {
+        "statements": 24,
+        "covered": 23
+      },
+      "src/clikit/flags.py": {
+        "statements": 17,
+        "covered": 17
+      },
+      "src/clikit/options.py": {
+        "statements": 12,
+        "covered": 12
+      },
+      "src/clikit/report.py": {
+        "statements": 17,
+        "covered": 15
+      },
+      "src/clikit/validate.py": {
+        "statements": 22,
+        "covered": 18
+      }
+    }
+  },
+  {
+    "task": "T24_join_path",
+    "pytest_code": 0,
+    "statements": 140,
+    "covered": 126,
+    "gold_statements": 17,
+    "gold_covered": 16,
+    "other_statements": 123,
+    "other_covered": 110,
+    "files": {
+      "src/pathmont/__init__.py": {
+        "statements": 7,
+        "covered": 7
+      },
+      "src/pathmont/extensions.py": {
+        "statements": 23,
+        "covered": 20
+      },
+      "src/pathmont/join.py": {
+        "statements": 17,
+        "covered": 16
+      },
+      "src/pathmont/normalize.py": {
+        "statements": 18,
+        "covered": 17
+      },
+      "src/pathmont/report.py": {
+        "statements": 22,
+        "covered": 18
+      },
+      "src/pathmont/roots.py": {
+        "statements": 28,
+        "covered": 27
+      },
+      "src/pathmont/segments.py": {
+        "statements": 25,
+        "covered": 21
+      }
+    }
+  }
+]

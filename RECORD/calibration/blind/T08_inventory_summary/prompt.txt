@@ -1,0 +1,28 @@
+你是一名代码修复智能体。当前工作目录是一个 Python 项目。
+
+项目说明：
+统计库存总件数时，未填写数量的条目被当作零，导致总数偏小。例如只写名称的笔应计为一件，实际没有计入。请修复该问题，并保持条目校验、增删、分类统计、低库存判断与文本格式化的行为不变。
+
+初始测试失败信息：
+```text
+.............FF                                                          [100%]
+================================== FAILURES ===================================
+_____________ test_total_units_counts_an_omitted_quantity_as_one ______________
+tests\test_target.py:6: in test_total_units_counts_an_omitted_quantity_as_one
+    assert total_units(items) == 3
+E   AssertionError: assert 2 == 3
+E    +  where 2 = total_units([{'name': 'pen'}, {'name': 'book', 'quantity': 2}])
+___________________ test_summary_uses_the_default_quantity ____________________
+tests\test_target.py:11: in test_summary_uses_the_default_quantity
+    assert summarize_inventory(items)["units"] == 3
+E   assert 2 == 3
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_total_units_counts_an_omitted_quantity_as_one
+FAILED tests/test_target.py::test_summary_uses_the_default_quantity - assert ...
+2 failed, 13 passed in 0.11s
+```
+
+请阅读项目代码和测试，定位并修复 bug，使全部测试通过。
+你可以用 Bash 运行 `python -m pytest` 检查修复结果。
+约束：不要修改 tests/ 目录下的任何文件，也不要修改测试配置文件。
+完成后用一句话总结你的修改。

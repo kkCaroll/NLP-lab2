@@ -2,10 +2,10 @@
 ================================== FAILURES ===================================
 _____________________ test_json_dumps_keeps_unicode_text ______________________
 tests\test_target.py:5: in test_json_dumps_keeps_unicode_text
-    assert json_dumps({"name": "caf®¶"}) == '{"name":"caf®¶"}'
-E   assert '{"name": "caf\\u00e9"}' == '{"name":"caf®¶"}'
+    assert json_dumps({"name": "caf√©"}) == '{"name":"caf√©"}'
+E   assert '{"name": "caf\\u00e9"}' == '{"name":"caf√©"}'
 E     
-E     - {"name":"caf®¶"}
+E     - {"name":"caf√©"}
 E     ?             ^
 E     + {"name": "caf\u00e9"}
 E     ?         +    ^^^^^^
@@ -19,4 +19,4 @@ E     + {"ok": true,"data": {"b": 1,"a": 2}}
 =========================== short test summary info ===========================
 FAILED tests/test_target.py::test_json_dumps_keeps_unicode_text - assert '{"n...
 FAILED tests/test_target.py::test_build_envelope_sorts_keys - assert '{"ok": ...
-2 failed, 9 passed in 0.11s
+2 failed, 9 passed in 0.08s

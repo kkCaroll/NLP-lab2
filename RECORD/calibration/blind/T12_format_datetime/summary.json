@@ -1,0 +1,21 @@
+{
+  "task": "T12_format_datetime",
+  "model": "deepseek/deepseek-v4-pro",
+  "exit_code": 0,
+  "timed_out": false,
+  "budget_exhausted": false,
+  "tool_call_limit": 15,
+  "duration_s": 12.24,
+  "pytest_exit_code": 0,
+  "tests_failed": 0,
+  "tests_passed": 12,
+  "all_passed": true,
+  "test_tampered": false,
+  "tool_calls": 8,
+  "edits": 1,
+  "cost_usd": 0.006754,
+  "diff_lines": 2,
+  "files_changed": [
+    "src/timekit/format.py"
+  ]
+}

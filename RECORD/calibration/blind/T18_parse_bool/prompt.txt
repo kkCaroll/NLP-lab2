@@ -1,0 +1,28 @@
+你是一名代码修复智能体。当前工作目录是一个 Python 项目。
+
+项目说明：
+解析配置中的布尔值时，任意非空字符串都被当作真值，关闭开关的取值如 false 仍然生效为开启。例如 debug 配置为 false 时，加载结果仍为真。请修复该问题，并保持真值解析、默认值、配置合并、命令行解析、键校验与文本渲染的行为不变。
+
+初始测试失败信息：
+```text
+............FF                                                           [100%]
+================================== FAILURES ===================================
+______________________ test_parse_bool_reads_false_text _______________________
+tests\test_target.py:5: in test_parse_bool_reads_false_text
+    assert parse_bool("false") is False
+E   AssertionError: assert True is False
+E    +  where True = parse_bool('false')
+____________________ test_load_config_converts_false_text _____________________
+tests\test_target.py:9: in test_load_config_converts_false_text
+    assert load_config({"debug": "false"})["debug"] is False
+E   assert True is False
+=========================== short test summary info ===========================
+FAILED tests/test_target.py::test_parse_bool_reads_false_text - AssertionErro...
+FAILED tests/test_target.py::test_load_config_converts_false_text - assert Tr...
+2 failed, 12 passed in 0.11s
+```
+
+请阅读项目代码和测试，定位并修复 bug，使全部测试通过。
+你可以用 Bash 运行 `python -m pytest` 检查修复结果。
+约束：不要修改 tests/ 目录下的任何文件，也不要修改测试配置文件。
+完成后用一句话总结你的修改。

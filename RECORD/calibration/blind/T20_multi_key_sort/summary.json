@@ -1,0 +1,22 @@
+{
+  "task": "T20_multi_key_sort",
+  "model": "deepseek/deepseek-v4-pro",
+  "exit_code": 0,
+  "timed_out": false,
+  "budget_exhausted": false,
+  "tool_call_limit": 15,
+  "duration_s": 21.25,
+  "pytest_exit_code": 0,
+  "tests_failed": 0,
+  "tests_passed": 16,
+  "all_passed": true,
+  "test_tampered": false,
+  "tool_calls": 13,
+  "edits": 2,
+  "cost_usd": 0.010699,
+  "diff_lines": 4,
+  "files_changed": [
+    "src/recordkit/grouping.py",
+    "src/recordkit/keys.py"
+  ]
+}

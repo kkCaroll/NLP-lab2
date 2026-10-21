@@ -74,5 +74,427 @@
     "files_changed": [
       "src/seqkit/search.py"
     ]
+  },
+  {
+    "task": "T02_parse_range",
+    "model": "deepseek/deepseek-v4-pro",
+    "exit_code": 0,
+    "timed_out": false,
+    "budget_exhausted": false,
+    "tool_call_limit": 15,
+    "duration_s": 12.1,
+    "pytest_exit_code": 0,
+    "tests_failed": 0,
+    "tests_passed": 15,
+    "all_passed": true,
+    "test_tampered": false,
+    "tool_calls": 6,
+    "edits": 1,
+    "cost_usd": 0.005546,
+    "diff_lines": 2,
+    "files_changed": [
+      "src/rangekit/parse.py"
+    ]
+  },
+  {
+    "task": "T03_apply_discount",
+    "model": "deepseek/deepseek-v4-pro",
+    "exit_code": 0,
+    "timed_out": false,
+    "budget_exhausted": false,
+    "tool_call_limit": 15,
+    "duration_s": 16.24,
+    "pytest_exit_code": 0,
+    "tests_failed": 0,
+    "tests_passed": 18,
+    "all_passed": true,
+    "test_tampered": false,
+    "tool_calls": 10,
+    "edits": 1,
+    "cost_usd": 0.007796,
+    "diff_lines": 2,
+    "files_changed": [
+      "src/pricing/discount.py"
+    ]
+  },
+  {
+    "task": "T04_next_permutation",
+    "model": "deepseek/deepseek-v4-pro",
+    "exit_code": 0,
+    "timed_out": false,
+    "budget_exhausted": false,
+    "tool_call_limit": 15,
+    "duration_s": 19.38,
+    "pytest_exit_code": 0,
+    "tests_failed": 0,
+    "tests_passed": 14,
+    "all_passed": true,
+    "test_tampered": false,
+    "tool_calls": 10,
+    "edits": 1,
+    "cost_usd": 0.008304,
+    "diff_lines": 2,
+    "files_changed": [
+      "src/seqkit/permute.py"
+    ]
+  },
+  {
+    "task": "T06_version_scan",
+    "model": "deepseek/deepseek-v4-pro",
+    "exit_code": 0,
+    "timed_out": false,
+    "budget_exhausted": false,
+    "tool_call_limit": 15,
+    "duration_s": 39.49,
+    "pytest_exit_code": 0,
+    "tests_failed": 0,
+    "tests_passed": 15,
+    "all_passed": true,
+    "test_tampered": false,
+    "tool_calls": 10,
+    "edits": 1,
+    "cost_usd": 0.012523,
+    "diff_lines": 2,
+    "files_changed": [
+      "src/textscan/patterns.py"
+    ]
+  },
+  {
+    "task": "T07_group_counts",
+    "model": "deepseek/deepseek-v4-pro",
+    "exit_code": 0,
+    "timed_out": false,
+    "budget_exhausted": false,
+    "tool_call_limit": 15,
+    "duration_s": 18.74,
+    "pytest_exit_code": 0,
+    "tests_failed": 0,
+    "tests_passed": 14,
+    "all_passed": true,
+    "test_tampered": false,
+    "tool_calls": 10,
+    "edits": 1,
+    "cost_usd": 0.007828,
+    "diff_lines": 2,
+    "files_changed": [
+      "src/recordkit/aggregate.py"
+    ]
+  },
+  {
+    "task": "T08_inventory_summary",
+    "model": "deepseek/deepseek-v4-pro",
+    "exit_code": 0,
+    "timed_out": false,
+    "budget_exhausted": false,
+    "tool_call_limit": 15,
+    "duration_s": 15.3,
+    "pytest_exit_code": 0,
+    "tests_failed": 0,
+    "tests_passed": 15,
+    "all_passed": true,
+    "test_tampered": false,
+    "tool_calls": 12,
+    "edits": 1,
+    "cost_usd": 0.008684,
+    "diff_lines": 2,
+    "files_changed": [
+      "src/inventory/summary.py"
+    ]
+  },
+  {
+    "task": "T09_safe_int",
+    "model": "deepseek/deepseek-v4-pro",
+    "exit_code": 0,
+    "timed_out": false,
+    "budget_exhausted": false,
+    "tool_call_limit": 15,
+    "duration_s": 14.99,
+    "pytest_exit_code": 0,
+    "tests_failed": 0,
+    "tests_passed": 14,
+    "all_passed": true,
+    "test_tampered": false,
+    "tool_calls": 9,
+    "edits": 1,
+    "cost_usd": 0.007419,
+    "diff_lines": 2,
+    "files_changed": [
+      "src/convertkit/parse.py"
+    ]
+  },
+  {
+    "task": "T10_top_k",
+    "model": "deepseek/deepseek-v4-pro",
+    "exit_code": 0,
+    "timed_out": false,
+    "budget_exhausted": false,
+    "tool_call_limit": 15,
+    "duration_s": 12.88,
+    "pytest_exit_code": 0,
+    "tests_failed": 0,
+    "tests_passed": 14,
+    "all_passed": true,
+    "test_tampered": false,
+    "tool_calls": 10,
+    "edits": 1,
+    "cost_usd": 0.007215,
+    "diff_lines": 2,
+    "files_changed": [
+      "src/rankkit/topk.py"
+    ]
+  },
+  {
+    "task": "T11_sort_items",
+    "model": "deepseek/deepseek-v4-pro",
+    "exit_code": 0,
+    "timed_out": false,
+    "budget_exhausted": false,
+    "tool_call_limit": 15,
+    "duration_s": 12.85,
+    "pytest_exit_code": 0,
+    "tests_failed": 0,
+    "tests_passed": 13,
+    "all_passed": true,
+    "test_tampered": false,
+    "tool_calls": 10,
+    "edits": 1,
+    "cost_usd": 0.0072,
+    "diff_lines": 2,
+    "files_changed": [
+      "src/listkit/ordering.py"
+    ]
+  },
+  {
+    "task": "T12_format_datetime",
+    "model": "deepseek/deepseek-v4-pro",
+    "exit_code": 0,
+    "timed_out": false,
+    "budget_exhausted": false,
+    "tool_call_limit": 15,
+    "duration_s": 12.24,
+    "pytest_exit_code": 0,
+    "tests_failed": 0,
+    "tests_passed": 12,
+    "all_passed": true,
+    "test_tampered": false,
+    "tool_calls": 8,
+    "edits": 1,
+    "cost_usd": 0.006754,
+    "diff_lines": 2,
+    "files_changed": [
+      "src/timekit/format.py"
+    ]
+  },
+  {
+    "task": "T13_paginate",
+    "model": "deepseek/deepseek-v4-pro",
+    "exit_code": 0,
+    "timed_out": false,
+    "budget_exhausted": false,
+    "tool_call_limit": 15,
+    "duration_s": 18.68,
+    "pytest_exit_code": 0,
+    "tests_failed": 0,
+    "tests_passed": 19,
+    "all_passed": true,
+    "test_tampered": false,
+    "tool_calls": 13,
+    "edits": 1,
+    "cost_usd": 0.010351,
+    "diff_lines": 2,
+    "files_changed": [
+      "src/pagekit/limits.py"
+    ]
+  },
+  {
+    "task": "T14_shipping_fee",
+    "model": "deepseek/deepseek-v4-pro",
+    "exit_code": 0,
+    "timed_out": false,
+    "budget_exhausted": false,
+    "tool_call_limit": 15,
+    "duration_s": 17.16,
+    "pytest_exit_code": 0,
+    "tests_failed": 0,
+    "tests_passed": 17,
+    "all_passed": true,
+    "test_tampered": false,
+    "tool_calls": 13,
+    "edits": 2,
+    "cost_usd": 0.010451,
+    "diff_lines": 4,
+    "files_changed": [
+      "src/logistics/parcels.py",
+      "src/logistics/units.py"
+    ]
+  },
+  {
+    "task": "T15_slugify",
+    "model": "deepseek/deepseek-v4-pro",
+    "exit_code": 0,
+    "timed_out": false,
+    "budget_exhausted": false,
+    "tool_call_limit": 15,
+    "duration_s": 19.83,
+    "pytest_exit_code": 0,
+    "tests_failed": 0,
+    "tests_passed": 15,
+    "all_passed": true,
+    "test_tampered": false,
+    "tool_calls": 13,
+    "edits": 1,
+    "cost_usd": 0.010097,
+    "diff_lines": 2,
+    "files_changed": [
+      "src/slugkit/slug.py"
+    ]
+  },
+  {
+    "task": "T17_merge_records",
+    "model": "deepseek/deepseek-v4-pro",
+    "exit_code": 0,
+    "timed_out": false,
+    "budget_exhausted": false,
+    "tool_call_limit": 15,
+    "duration_s": 20.21,
+    "pytest_exit_code": 0,
+    "tests_failed": 0,
+    "tests_passed": 15,
+    "all_passed": true,
+    "test_tampered": false,
+    "tool_calls": 12,
+    "edits": 1,
+    "cost_usd": 0.01015,
+    "diff_lines": 2,
+    "files_changed": [
+      "src/mergekit/records.py"
+    ]
+  },
+  {
+    "task": "T18_parse_bool",
+    "model": "deepseek/deepseek-v4-pro",
+    "exit_code": 0,
+    "timed_out": false,
+    "budget_exhausted": false,
+    "tool_call_limit": 15,
+    "duration_s": 33.04,
+    "pytest_exit_code": 0,
+    "tests_failed": 0,
+    "tests_passed": 14,
+    "all_passed": true,
+    "test_tampered": false,
+    "tool_calls": 13,
+    "edits": 1,
+    "cost_usd": 0.012609,
+    "diff_lines": 7,
+    "files_changed": [
+      "src/confkit/booleans.py"
+    ]
+  },
+  {
+    "task": "T19_to_decimal",
+    "model": "deepseek/deepseek-v4-pro",
+    "exit_code": 0,
+    "timed_out": false,
+    "budget_exhausted": false,
+    "tool_call_limit": 15,
+    "duration_s": 22.48,
+    "pytest_exit_code": 0,
+    "tests_failed": 0,
+    "tests_passed": 10,
+    "all_passed": true,
+    "test_tampered": false,
+    "tool_calls": 13,
+    "edits": 1,
+    "cost_usd": 0.010391,
+    "diff_lines": 2,
+    "files_changed": [
+      "src/moneykit/amounts.py"
+    ]
+  },
+  {
+    "task": "T20_multi_key_sort",
+    "model": "deepseek/deepseek-v4-pro",
+    "exit_code": 0,
+    "timed_out": false,
+    "budget_exhausted": false,
+    "tool_call_limit": 15,
+    "duration_s": 21.25,
+    "pytest_exit_code": 0,
+    "tests_failed": 0,
+    "tests_passed": 16,
+    "all_passed": true,
+    "test_tampered": false,
+    "tool_calls": 13,
+    "edits": 2,
+    "cost_usd": 0.010699,
+    "diff_lines": 4,
+    "files_changed": [
+      "src/recordkit/grouping.py",
+      "src/recordkit/keys.py"
+    ]
+  },
+  {
+    "task": "T22_json_dumps",
+    "model": "deepseek/deepseek-v4-pro",
+    "exit_code": 0,
+    "timed_out": false,
+    "budget_exhausted": false,
+    "tool_call_limit": 15,
+    "duration_s": 16.26,
+    "pytest_exit_code": 0,
+    "tests_failed": 0,
+    "tests_passed": 11,
+    "all_passed": true,
+    "test_tampered": false,
+    "tool_calls": 12,
+    "edits": 1,
+    "cost_usd": 0.009326,
+    "diff_lines": 6,
+    "files_changed": [
+      "src/payloadkit/serialise.py"
+    ]
+  },
+  {
+    "task": "T23_parse_flags",
+    "model": "deepseek/deepseek-v4-pro",
+    "exit_code": 0,
+    "timed_out": false,
+    "budget_exhausted": false,
+    "tool_call_limit": 15,
+    "duration_s": 18.78,
+    "pytest_exit_code": 0,
+    "tests_failed": 0,
+    "tests_passed": 14,
+    "all_passed": true,
+    "test_tampered": false,
+    "tool_calls": 14,
+    "edits": 2,
+    "cost_usd": 0.009975,
+    "diff_lines": 4,
+    "files_changed": [
+      "src/clikit/options.py"
+    ]
+  },
+  {
+    "task": "T24_join_path",
+    "model": "deepseek/deepseek-v4-pro",
+    "exit_code": 0,
+    "timed_out": false,
+    "budget_exhausted": false,
+    "tool_call_limit": 15,
+    "duration_s": 32.27,
+    "pytest_exit_code": 0,
+    "tests_failed": 0,
+    "tests_passed": 11,
+    "all_passed": true,
+    "test_tampered": false,
+    "tool_calls": 13,
+    "edits": 1,
+    "cost_usd": 0.012534,
+    "diff_lines": 1,
+    "files_changed": [
+      "src/pathmont/join.py"
+    ]
   }
 ]

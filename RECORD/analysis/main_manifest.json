@@ -1,0 +1,32 @@
+{
+  "run_id": "2026-10-21_main",
+  "generated_at": "2026-10-21 21:23:49",
+  "tables": {
+    "RECORD/tables/episode_level.csv": {
+      "sha256": "7d5b91fd09795be4a1d90bb21eeba70c6b19a27e78b12556aaa54958b7cf44af",
+      "size": 46093
+    },
+    "RECORD/tables/README.md": {
+      "sha256": "4b03bc7f577926278147c94a7de1c8246551ee19ea9e87368ea74e960f2fa2ac",
+      "size": 482
+    },
+    "RECORD/tables/summary.json": {
+      "sha256": "7a9ef45678f73540eb37147ae34f8a013cbfccf6246ec68c338b73eb54460f08",
+      "size": 13822
+    },
+    "RECORD/tables/summary.md": {
+      "sha256": "224f4323ce26d271fb14f5c04990bc7cb85af94a78b08adc8a58436531be1927",
+      "size": 2894
+    },
+    "RECORD/tables/summary_branch.json": {
+      "sha256": "9a19d2eb403caaae399a4209af9cb71224af374dc11f83d8a42c6762e6bac004",
+      "size": 13792
+    }
+  },
+  "task_file_count": 344,
+  "task_set_sha256": "15165c60a291ef91b801c655485b32f603a081f367663e44988829e7623cbe63",
+  "review_sheets": {
+    "count": 24,
+    "signed": 24
+  }
+}
