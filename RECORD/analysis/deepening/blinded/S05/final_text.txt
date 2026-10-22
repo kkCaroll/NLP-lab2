@@ -1,0 +1,5 @@
+[text 4]
+I'll start by exploring the project structure and finding the relevant code.
+
+[text 22]
+Now I understand the issue. The pattern matches `1.2.3` inside `1.2.3.4` because nothing prevents a version from being followed by another numeric segment.

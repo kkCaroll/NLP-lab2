@@ -1,0 +1,5 @@
+[text 18]
+两处最小修改完成，17 个测试全部通过：
+
+1. `src/logistics/units.py:41` — `to_kilograms` 中克单位改为 `amount / KG_PER_GRAM`（原样返回导致 2000 克被当作 2000 千克）
+2. `src/logistics/parcels.py:57` — `total_weight` 去掉了 `/ len(weights)`（原为平均值而非总和）

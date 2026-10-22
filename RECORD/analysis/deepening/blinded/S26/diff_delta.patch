@@ -1,0 +1,23 @@
+diff --git a/src/logistics/parcels.py b/src/logistics/parcels.py
+index 5d95d57..f112baa 100644
+--- a/src/logistics/parcels.py
++++ b/src/logistics/parcels.py
+@@ -54,4 +54,4 @@ def total_weight(parcels):
+     weights = [parse_parcel(item)["weight_kg"] for item in parcels]
+     if not weights:
+         return Decimal("0")
+-    return sum(weights, start=Decimal("0")) / len(weights)
++    return sum(weights, start=Decimal("0"))
+diff --git a/src/logistics/units.py b/src/logistics/units.py
+index b8dadef..7273dc8 100644
+--- a/src/logistics/units.py
++++ b/src/logistics/units.py
+@@ -38,7 +38,7 @@ def to_kilograms(value, unit):
+     if normalized == "kg":
+         return amount
+     if normalized == "g":
+-        return amount
++        return amount / KG_PER_GRAM
+     return amount * KG_PER_POUND
+ 
+ 

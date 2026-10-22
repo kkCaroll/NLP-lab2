@@ -10,6 +10,10 @@
 | [03_candidate_pool.md](03_candidate_pool.md) | 53 题候选池说明 |
 | [03_candidate_pool.json](03_candidate_pool.json) | 候选池机器可读数据 |
 | [04_post_run_analysis.md](04_post_run_analysis.md) | 主实验核查后的补充运行与分析方案 |
+| [05_deepening.md](05_deepening.md) | 深入研究阶段的目标、路线、阶段安排与决策点 |
+| [05a_coding_manual.md](05a_coding_manual.md) | 质性编码手册与盲化流程 |
+| [06_four_day_schedule.md](06_four_day_schedule.md) | 距汇报四天的倒排执行计划与降级方案 |
+| [07_budget_rerun.md](07_budget_rerun.md) | 十六个预算截断案例的双倍预算补跑设计 |
 | [models/](models/) | 两个对比模型的接入信息与参数 |
 
 新增计划文件继续使用数字前缀。阶段性结果不写入本目录，统一放入 RECORD。

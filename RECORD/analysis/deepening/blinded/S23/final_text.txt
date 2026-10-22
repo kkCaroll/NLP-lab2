@@ -1,0 +1,2 @@
+[text 3]
+I'll start by exploring the repository structure to understand the project.

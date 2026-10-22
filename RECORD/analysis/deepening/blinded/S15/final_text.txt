@@ -1,0 +1,2 @@
+[text 25]
+修复完成：`src/pagekit/limits.py:18` 中 `clamp` 的上界多加了 1（`high + 1`），导致 `resolve_page` 得到不存在的页码（返回空列表）、`slice_window` 的起点落到末尾窗口之外（只返回末尾 1 个元素）。改为 `max(low, min(value, high))` 后 19 个测试全部通过。

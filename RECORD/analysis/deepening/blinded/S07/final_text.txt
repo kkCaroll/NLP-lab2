@@ -1,0 +1,5 @@
+[text 4]
+I'll start by exploring the project structure to understand the codebase.
+
+[text 7]
+Only `python -m pytest` is allowed for bash. Let me explore with the file tools.

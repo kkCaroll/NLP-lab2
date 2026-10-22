@@ -1,0 +1,16 @@
+[text 4]
+I'll look at the project structure and current implementation.
+
+[text 21]
+Only `python -m pytest*` is allowed for bash, so I'll work from the source directly.
+
+The bug is in `src/mailscan/patterns.py:7`: the local-part class `[A-Za-z0-9._%-]` omits `+`, even though the lookbehind on line 6 already treats `+` as a local-part character (`[A-Za-z0-9._%+-]`). So `alice+news@example.com` can never match, and `news@example.com` is blocked by the lookbehind.
+
+[text 28]
+All14 tests pass. Let me sanity-check edge cases with a scratch test file outside the repo:
+
+[text 32]
+The scratch dir write was blocked by policy; I'll run the extra checks as a temporary in-repo test that removes itself after running.
+
+[text 38]
+My scratch assertion was wrong (`alice@example.com` is valid). Fixing the scratch test:

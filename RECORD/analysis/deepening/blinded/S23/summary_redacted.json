@@ -1,0 +1,45 @@
+{
+  "all_passed": false,
+  "edit_lines": 0,
+  "edit_files": [],
+  "edit_file_count": 0,
+  "edit_ratio": 0.0,
+  "over_edit": false,
+  "unrelated_files": [],
+  "test_tampered": false,
+  "tool_calls": 15,
+  "edits": 0,
+  "steps": 4,
+  "tool_breakdown": {
+    "bash": 2,
+    "glob": 2,
+    "read": 11
+  },
+  "first_edit_after_read": null,
+  "budget_exhausted": true,
+  "budget_reasons": [
+    "tool_calls"
+  ],
+  "timed_out": false,
+  "exit_code": 1,
+  "duration_s": 38.84,
+  "results": {
+    "tests/test_regression.py::test_to_bool_words": "passed",
+    "tests/test_regression.py::test_to_bool_errors": "passed",
+    "tests/test_regression.py::test_flag_helpers": "passed",
+    "tests/test_regression.py::test_parse_args_values": "passed",
+    "tests/test_regression.py::test_parse_args_defaults": "passed",
+    "tests/test_regression.py::test_command_helpers": "passed",
+    "tests/test_regression.py::test_run_defaults": "passed",
+    "tests/test_regression.py::test_run_verbose_true": "passed",
+    "tests/test_regression.py::test_run_many": "passed",
+    "tests/test_regression.py::test_validation_helpers": "passed",
+    "tests/test_regression.py::test_report_helpers": "passed",
+    "tests/test_regression.py::test_argv_helpers": "passed",
+    "tests/test_target.py::test_parse_args_reads_a_false_flag": "failure",
+    "tests/test_target.py::test_run_honours_a_false_flag": "failure"
+  },
+  "allowed_files": [
+    "src/clikit/options.py"
+  ]
+}

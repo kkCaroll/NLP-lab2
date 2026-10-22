@@ -1,0 +1,30 @@
+[text 21]
+I've reviewed the code. Here's my analysis and plan:
+
+## Root Cause
+
+`src/moneykit/amounts.py:10-11` — floats take a dedicated branch that uses `Decimal(value)` directly:
+
+```python
+if isinstance(value, float):
+    return Decimal(value)
+```
+
+`Decimal(2.675)` yields the exact binary value `2.67499999999999982236...`, which is *below* the half-cent boundary, so `ROUND_HALF_UP` in `round_money` (`src/moneykit/rounding.py:13`) rounds down to `2.67`. Text input already works (`round_money("2.675") == 2.68`) because it goes through `Decimal(str(...))` and gets the exact `2.675`.
+
+## Plan
+
+Single change in `src/moneykit/amounts.py` — route floats through the same short-string conversion that text already uses:
+
+```python
+if isinstance(value, float):
+    return Decimal(str(value))
+```
+
+`str(2.675)` gives `"2.675"` (Python 3 repr is shortest round-trip), so `Decimal("2.675").quantize(0.01, ROUND_HALF_UP)` → `2.68`. This also fixes `format_money(1.005)` → `"1.01"` since it delegates to `round_money`.
+
+Everything else stays unchanged:
+- Text/integer/Decimal paths in `to_decimal` are untouched
+- Floor/ceil/units rounding, totals, percentages, currency checks, and formatting all go through this one helper or already use `Decimal(str(...))` — no other edits needed
+
+Verification: run `python -m pytest` (allowed by your permission rules) — both target tests plus the 8 regression tests should pass.

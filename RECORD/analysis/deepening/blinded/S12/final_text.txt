@@ -1,0 +1,2 @@
+[text 4]
+I'll explore the repository structure first to understand the codebase.

@@ -1,0 +1,19 @@
+diff --git a/src/mailscan/patterns.py b/src/mailscan/patterns.py
+index c608b46..3e31a7f 100644
+--- a/src/mailscan/patterns.py
++++ b/src/mailscan/patterns.py
+@@ -2,10 +2,11 @@
+ 
+ import re
+ 
++LOCAL_PART = r"[A-Za-z0-9._%+-]+"
++DOMAIN = r"[A-Za-z0-9.-]+\.[A-Za-z]{2,}"
++
+ EMAIL_PATTERN = re.compile(
+-    r"(?<![A-Za-z0-9._%+-])"
+-    r"[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"
+-    r"(?![A-Za-z0-9.-])"
++    rf"(?<![A-Za-z0-9._%+-]){LOCAL_PART}@{DOMAIN}(?![A-Za-z0-9.-])"
+ )
+ 
+ 

@@ -1,0 +1,5 @@
+[text 17]
+`clamp` includes `high + 1` instead of `high`, so out-of-range values slip one past the limit.
+
+[text 24]
+Fixed `clamp` in `src/pagekit/limits.py:18` — it used `high + 1`, letting values slip one past the upper bound. Now it correctly limits to `[low, high]`, so `paginate` falls back to the last page and `slice_window` keeps the full final window. All 19 tests pass.

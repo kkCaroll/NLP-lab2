@@ -1,0 +1,8 @@
+[text 3]
+I'll examine the project structure and the failing code.
+
+[text 23]
+Now I understand the bug: `VERSION_PATTERN` has a lookbehind for the start but no guard against a trailing `.digit`, so `1.2.3` matches inside `1.2.3.4`.
+
+[text 30]
+All 15 tests pass. Let me verify edge cases with a temporary check file.

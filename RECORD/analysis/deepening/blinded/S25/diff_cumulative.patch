@@ -1,0 +1,13 @@
+diff --git a/src/pagekit/limits.py b/src/pagekit/limits.py
+index 9f44b60..ff752b9 100644
+--- a/src/pagekit/limits.py
++++ b/src/pagekit/limits.py
+@@ -15,7 +15,7 @@ def clamp(value, low, high):
+     """Limit value to the closed interval from low to high."""
+     if low > high:
+         raise ValueError("low must not exceed high")
+-    return max(low, min(value, high + 1))
++    return max(low, min(value, high))
+ 
+ 
+ def valid_page_size(size):

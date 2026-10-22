@@ -1,0 +1,52 @@
+{
+  "all_passed": false,
+  "edit_lines": 2,
+  "edit_files": [
+    "src/logistics/units.py"
+  ],
+  "edit_file_count": 1,
+  "edit_ratio": 0.2,
+  "over_edit": false,
+  "unrelated_files": [],
+  "test_tampered": false,
+  "tool_calls": 15,
+  "edits": 1,
+  "steps": 5,
+  "tool_breakdown": {
+    "bash": 2,
+    "glob": 2,
+    "read": 10,
+    "edit": 1
+  },
+  "first_edit_after_read": true,
+  "budget_exhausted": true,
+  "budget_reasons": [
+    "tool_calls"
+  ],
+  "timed_out": false,
+  "exit_code": 1,
+  "duration_s": 34.18,
+  "results": {
+    "tests/test_regression.py::test_to_kilograms_kilograms": "passed",
+    "tests/test_regression.py::test_to_kilograms_pounds": "passed",
+    "tests/test_regression.py::test_to_grams": "passed",
+    "tests/test_regression.py::test_format_weight": "passed",
+    "tests/test_regression.py::test_parse_parcel_kilograms": "passed",
+    "tests/test_regression.py::test_parse_parcel_zero_grams": "passed",
+    "tests/test_regression.py::test_describe_parcel": "passed",
+    "tests/test_regression.py::test_base_rate_and_surcharge": "passed",
+    "tests/test_regression.py::test_express_multiplier": "passed",
+    "tests/test_regression.py::test_shipping_fee_kilograms_express": "passed",
+    "tests/test_regression.py::test_quote_summary_kilograms": "passed",
+    "tests/test_regression.py::test_batch_helpers": "passed",
+    "tests/test_regression.py::test_invalid_units_and_weights": "passed",
+    "tests/test_regression.py::test_invalid_parcel_shapes": "passed",
+    "tests/test_target.py::test_parse_parcel_converts_grams_to_kilograms": "passed",
+    "tests/test_target.py::test_shipping_fee_uses_kilograms_for_gram_input": "passed",
+    "tests/test_target.py::test_total_weight_sums_mixed_units": "failure"
+  },
+  "allowed_files": [
+    "src/logistics/units.py",
+    "src/logistics/parcels.py"
+  ]
+}

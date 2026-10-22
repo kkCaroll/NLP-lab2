@@ -16,6 +16,7 @@
 | `ablation/` | 八题两模型无测试消融的聚合与说明 |
 | `tool_attempts_*.csv` | 主实验、复跑与消融逐 episode 的工具尝试计数 |
 | `qualitative/` | 质性抽样名单与编码表 |
+| `deepening/` | 深入研究阶段的盲化材料、编码表与过程指标 |
 | `main_results.csv` | 主实验描述统计长表，含分支子集与全样本 |
 | `main_results.md` | 描述统计、配对检验与解释约束 |
 | `statistics.json` | 配对检验、效应量、复跑一致性与消融结果 |

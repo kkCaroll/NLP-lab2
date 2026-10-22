@@ -1,0 +1,12 @@
+[text 17]
+已定位两处根因：
+
+1. `src/logistics/units.py:40-41` — `to_kilograms` 的 `g` 分支直接返回原值，未除以 1000（导致 2000 克按 2000 千克计费）。
+2. `src/logistics/parcels.py:57` — `total_weight` 末尾 `sum(weights) / len(weights)` 求的是平均值而非总和。
+
+修复计划（仅两行改动，不影响其他行为）：
+
+- `units.py`：`if normalized == "g": return amount / KG_PER_GRAM`（`to_grams` 复用该函数，克→克仍为恒等换算；磅换算不变）。
+- `parcels.py`：`return sum(weights, start=Decimal("0"))`（空列表仍返回 `Decimal("0")`）。
+
+区域附加费、加急倍率、批量统计、非法输入校验逻辑均不改动。确认后我就执行修改并跑 `pytest` 验证。

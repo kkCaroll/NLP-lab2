@@ -1,0 +1,48 @@
+{
+  "all_passed": true,
+  "edit_lines": 2,
+  "edit_files": [
+    "src/mailscan/patterns.py"
+  ],
+  "edit_file_count": 1,
+  "edit_ratio": 1.0,
+  "over_edit": false,
+  "unrelated_files": [],
+  "test_tampered": false,
+  "tool_calls": 15,
+  "edits": 1,
+  "steps": 5,
+  "tool_breakdown": {
+    "bash": 2,
+    "glob": 3,
+    "read": 9,
+    "edit": 1
+  },
+  "first_edit_after_read": true,
+  "budget_exhausted": true,
+  "budget_reasons": [
+    "tool_calls"
+  ],
+  "timed_out": false,
+  "exit_code": 1,
+  "duration_s": 51.34,
+  "results": {
+    "tests/test_regression.py::test_extract_plain_addresses": "passed",
+    "tests/test_regression.py::test_is_email_accepts_regular_addresses": "passed",
+    "tests/test_regression.py::test_is_email_rejects_incomplete_addresses": "passed",
+    "tests/test_regression.py::test_replace_emails_leaves_other_text": "passed",
+    "tests/test_regression.py::test_domain_counts_regular": "passed",
+    "tests/test_regression.py::test_email_domains_lowercase": "passed",
+    "tests/test_regression.py::test_mask_emails_regular": "passed",
+    "tests/test_regression.py::test_email_summary_regular": "passed",
+    "tests/test_regression.py::test_normalize_address": "passed",
+    "tests/test_regression.py::test_unique_addresses": "passed",
+    "tests/test_regression.py::test_normalize_address_rejects_invalid_value": "passed",
+    "tests/test_regression.py::test_non_string_inputs": "passed",
+    "tests/test_target.py::test_extract_emails_with_plus_tag": "passed",
+    "tests/test_target.py::test_report_helpers_include_plus_tag": "passed"
+  },
+  "allowed_files": [
+    "src/mailscan/patterns.py"
+  ]
+}

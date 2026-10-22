@@ -1,0 +1,14 @@
+diff --git a/src/mailscan/patterns.py b/src/mailscan/patterns.py
+index c608b46..8876fdd 100644
+--- a/src/mailscan/patterns.py
++++ b/src/mailscan/patterns.py
+@@ -4,7 +4,8 @@ import re
+ 
+ EMAIL_PATTERN = re.compile(
+     r"(?<![A-Za-z0-9._%+-])"
+-    r"[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"
++    r"[A-Za-z0-9._%-]+(?:\+[A-Za-z0-9._%-]+)*"
++    r"@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"
+     r"(?![A-Za-z0-9.-])"
+ )
+ 

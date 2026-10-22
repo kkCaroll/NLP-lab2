@@ -1,0 +1,4 @@
+[text 27]
+Fixed in `src/confkit/booleans.py:13` — `parse_bool` now maps text via `TRUE_WORDS`/`FALSE_WORDS` (case/whitespace-insensitive) and raises `ValueError` for other text, instead of `bool(value)`.
+
+All 14 tests pass.

@@ -1,0 +1,12 @@
+[text 25]
+修复完成，19 个测试全部通过。
+
+问题出在共享的区间限制函数 `clamp`（src/pagekit/limits.py:18），原实现 `min(value, high + 1)` 把上界放宽了一位：
+
+```python
+return max(low, min(value, high))
+```
+
+- `paginate([1..7], 5, 3)`：`resolve_page` 现在正确钳到第 3 页 → `[7]`
+- `slice_window([1..5], 9, 2)`：起点钳到末窗起点 3 → `[4, 5]`
+- 页数计算、正常页码、分块、页码定位、进度条（`filled ≤ width` 时结果不变）与文本渲染均不受影响。

@@ -1,0 +1,8 @@
+[text 29]
+修复完成：19 个测试全部通过。
+
+问题根源在共享的 `clamp`（src/pagekit/limits.py:18），它把上界写成了 `high + 1`，导致：
+- `resolve_page` 会返回 `count + 1`，`paginate` 从越界起点切片得到 `[]`
+- `slice_window` 的起点会越过末尾窗口起点，只留下最后一个元素
+
+改为 `max(low, min(value, high))` 后，页数计算、正常页码、分块、页码定位、进度条与文本渲染行为均未改动。

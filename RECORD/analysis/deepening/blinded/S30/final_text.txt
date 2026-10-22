@@ -1,0 +1,10 @@
+[text 18]
+Two bugs found: `to_kilograms` returns grams unchanged, and `total_weight` divides by count (average). Making the minimal fixes.
+
+[text 25]
+Fixed. Two minimal changes:
+
+- `src/logistics/units.py:41` — grams now convert via `amount / KG_PER_GRAM` instead of returning raw grams.
+- `src/logistics/parcels.py:57` — `total_weight` returns the sum instead of dividing by parcel count.
+
+All 17 tests pass; kg/lb conversion, surcharges, express multiplier, batch stats, and validation are unchanged.

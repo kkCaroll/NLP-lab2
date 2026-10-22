@@ -1,0 +1,5 @@
+[text 4]
+I'll start by exploring the project structure to understand the codebase.
+
+[text 18]
+Now I understand the issue. The regex `(?<![\w.-])v?(\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?)` matches `1.2.3` inside `1.2.3.4` because there's no guard on a following numeric segment.

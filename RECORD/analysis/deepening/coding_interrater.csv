@@ -1,0 +1,11 @@
+﻿code,n,agree,po,pe,kappa,disagreements
+no_edit,10,10,1.0,0.58,1.0,
+reads_log_first,10,10,1.0,0.58,1.0,
+locates_callers,10,10,1.0,1.0,,
+only_target_lines,10,10,1.0,0.58,1.0,
+rewrites_function,10,9,0.9,0.51,0.7959,S01
+unrelated_file,10,10,1.0,0.58,1.0,
+defensive_branch,10,10,1.0,0.58,1.0,
+reverted_previous,10,10,1.0,0.58,1.0,
+claims_done_unverified,10,10,1.0,1.0,,
+pooled,90,89,0.9889,0.4193,0.9809,

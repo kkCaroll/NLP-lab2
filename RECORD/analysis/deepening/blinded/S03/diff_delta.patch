@@ -1,0 +1,18 @@
+diff --git a/src/confkit/booleans.py b/src/confkit/booleans.py
+index 77d7ca1..269c7dd 100644
+--- a/src/confkit/booleans.py
++++ b/src/confkit/booleans.py
+@@ -12,6 +12,13 @@ def parse_bool(value):
+     """
+     if isinstance(value, bool):
+         return value
++    if isinstance(value, str):
++        text = value.strip().lower()
++        if text in TRUE_WORDS:
++            return True
++        if text in FALSE_WORDS:
++            return False
++        raise ValueError(f"cannot interpret {value!r} as a boolean")
+     return bool(value)
+ 
+ 

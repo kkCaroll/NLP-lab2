@@ -1,5 +1,7 @@
 # 质性编码材料
 
+本目录保留 v0 的抽样名单与空白编码表。深入研究阶段改用 `PLAN/05a_coding_manual.md` 的编码手册与 `RECORD/analysis/deepening/` 的盲化材料，编码值增加不适用与证据列。
+
 ## 抽样
 
 `qualitative_samples.csv` 按模型与条件分层，每个组合最多抽取两个成功与两个失败的分支 episode，不足时全取。抽样规则为任务名排序后取前两条，可复现。共三十一条。

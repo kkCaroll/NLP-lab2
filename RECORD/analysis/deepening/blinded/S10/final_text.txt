@@ -1,0 +1,6 @@
+[text 23]
+All 17 tests pass.
+
+Fixes:
+- `src/logistics/units.py:41` — grams now divide by 1000 (`amount / KG_PER_GRAM`) instead of returning raw grams.
+- `src/logistics/parcels.py:57` — `total_weight` returns the sum instead of dividing by count.

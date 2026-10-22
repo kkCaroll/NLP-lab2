@@ -1,0 +1,13 @@
+diff --git a/src/textscan/patterns.py b/src/textscan/patterns.py
+index 601e58e..339c0f9 100644
+--- a/src/textscan/patterns.py
++++ b/src/textscan/patterns.py
+@@ -3,7 +3,7 @@
+ import re
+ 
+ VERSION_PATTERN = re.compile(
+-    r"(?<![\w.-])v?(\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?)"
++    r"(?<![\w.-])v?(\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?)(?!\.\d)"
+ )
+ VERSION_EXACT = re.compile(r"^v?\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$")
+ 

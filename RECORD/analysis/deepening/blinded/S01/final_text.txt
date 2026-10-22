@@ -1,0 +1,5 @@
+[text 4]
+I'll investigate the current state of the project.
+
+[text 26]
+The bug is in `src/mailscan/patterns.py:7` — the local-part character class `[A-Za-z0-9._%-]` omits `+`, so `alice+news@example.com` can't match. Note the lookbehind set already treats `+` as a local-part character.

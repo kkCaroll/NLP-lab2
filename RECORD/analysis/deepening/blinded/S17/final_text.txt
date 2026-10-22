@@ -1,0 +1,10 @@
+[text 3]
+I'll start by exploring the project structure to understand the codebase.
+
+[text 18]
+The bug is in `patterns.py:7` — the local-part character class omits `+` even though the lookbehind already accounts for it.
+
+[text 24]
+All 14 tests pass.
+
+The fix was a single character in `src/mailscan/patterns.py:7`: added `+` to the local-part class (`[A-Za-z0-9._%+-]+`). The lookbehind already included `+`, so `alice+news@example.com` was previously truncated to `alice` and failed to match; now the full tagged address matches. Domain stats and replacement behave unchanged since they all derive from the same pattern.

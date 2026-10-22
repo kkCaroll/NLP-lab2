@@ -1,0 +1,45 @@
+{
+  "all_passed": false,
+  "edit_lines": 0,
+  "edit_files": [],
+  "edit_file_count": 0,
+  "edit_ratio": 0.0,
+  "over_edit": false,
+  "unrelated_files": [],
+  "test_tampered": false,
+  "tool_calls": 15,
+  "edits": 0,
+  "steps": 5,
+  "tool_breakdown": {
+    "bash": 2,
+    "glob": 2,
+    "read": 11
+  },
+  "first_edit_after_read": null,
+  "budget_exhausted": true,
+  "budget_reasons": [
+    "tool_calls"
+  ],
+  "timed_out": false,
+  "exit_code": 1,
+  "duration_s": 79.91,
+  "results": {
+    "tests/test_regression.py::test_parse_bool_python_values": "passed",
+    "tests/test_regression.py::test_parse_bool_true_words": "passed",
+    "tests/test_regression.py::test_format_bool": "passed",
+    "tests/test_regression.py::test_is_true_and_toggle": "passed",
+    "tests/test_regression.py::test_load_config_defaults": "passed",
+    "tests/test_regression.py::test_load_config_converts_values": "passed",
+    "tests/test_regression.py::test_resolve_config_precedence": "passed",
+    "tests/test_regression.py::test_override_and_public_config": "passed",
+    "tests/test_regression.py::test_cli_parsing": "passed",
+    "tests/test_regression.py::test_validation_helpers": "passed",
+    "tests/test_regression.py::test_report_helpers": "passed",
+    "tests/test_regression.py::test_env_helpers": "passed",
+    "tests/test_target.py::test_parse_bool_reads_false_text": "failure",
+    "tests/test_target.py::test_load_config_converts_false_text": "failure"
+  },
+  "allowed_files": [
+    "src/confkit/booleans.py"
+  ]
+}

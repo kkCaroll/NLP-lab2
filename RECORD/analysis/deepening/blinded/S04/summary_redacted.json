@@ -1,0 +1,41 @@
+{
+  "all_passed": false,
+  "edit_lines": 0,
+  "edit_files": [],
+  "edit_file_count": 0,
+  "edit_ratio": 0.0,
+  "over_edit": false,
+  "unrelated_files": [],
+  "test_tampered": false,
+  "tool_calls": 15,
+  "edits": 0,
+  "steps": 4,
+  "tool_breakdown": {
+    "bash": 2,
+    "glob": 2,
+    "read": 11
+  },
+  "first_edit_after_read": null,
+  "budget_exhausted": true,
+  "budget_reasons": [
+    "tool_calls"
+  ],
+  "timed_out": false,
+  "exit_code": 1,
+  "duration_s": 43.37,
+  "results": {
+    "tests/test_regression.py::test_to_decimal_from_text_and_integers": "passed",
+    "tests/test_regression.py::test_to_decimal_errors": "passed",
+    "tests/test_regression.py::test_round_money_with_text_inputs": "passed",
+    "tests/test_regression.py::test_floor_ceil_and_units": "passed",
+    "tests/test_regression.py::test_totals": "passed",
+    "tests/test_regression.py::test_rates_and_percentages": "passed",
+    "tests/test_regression.py::test_currency_helpers": "passed",
+    "tests/test_regression.py::test_format_helpers": "passed",
+    "tests/test_target.py::test_round_money_rounds_a_float_half_cent_upwards": "failure",
+    "tests/test_target.py::test_format_money_rounds_a_float_half_cent_upwards": "failure"
+  },
+  "allowed_files": [
+    "src/moneykit/amounts.py"
+  ]
+}

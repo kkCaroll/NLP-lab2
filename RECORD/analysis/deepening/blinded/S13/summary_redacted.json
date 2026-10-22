@@ -1,0 +1,46 @@
+{
+  "all_passed": false,
+  "edit_lines": 0,
+  "edit_files": [],
+  "edit_file_count": 0,
+  "edit_ratio": 0.0,
+  "over_edit": false,
+  "unrelated_files": [],
+  "test_tampered": false,
+  "tool_calls": 15,
+  "edits": 0,
+  "steps": 4,
+  "tool_breakdown": {
+    "bash": 2,
+    "glob": 2,
+    "read": 11
+  },
+  "first_edit_after_read": null,
+  "budget_exhausted": true,
+  "budget_reasons": [
+    "tool_calls"
+  ],
+  "timed_out": false,
+  "exit_code": 1,
+  "duration_s": 24.26,
+  "results": {
+    "tests/test_regression.py::test_normalize_whitespace": "passed",
+    "tests/test_regression.py::test_collapse_blank_lines_and_indent": "passed",
+    "tests/test_regression.py::test_title_case_and_normalize_title": "passed",
+    "tests/test_regression.py::test_shorten_title": "passed",
+    "tests/test_regression.py::test_strip_accents_and_helpers": "passed",
+    "tests/test_regression.py::test_slugify_simple_text": "passed",
+    "tests/test_regression.py::test_slug_parts_and_is_slug": "passed",
+    "tests/test_regression.py::test_unique_slug": "passed",
+    "tests/test_regression.py::test_format_path": "passed",
+    "tests/test_regression.py::test_format_unique": "passed",
+    "tests/test_regression.py::test_format_heading": "passed",
+    "tests/test_regression.py::test_split_words_and_counts": "passed",
+    "tests/test_regression.py::test_unique_words": "passed",
+    "tests/test_target.py::test_slugify_collapses_punctuation_runs": "failure",
+    "tests/test_target.py::test_format_index_collapses_separators": "failure"
+  },
+  "allowed_files": [
+    "src/slugkit/slug.py"
+  ]
+}
