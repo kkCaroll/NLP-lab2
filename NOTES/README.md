@@ -8,3 +8,4 @@
 |---|---|
 | `regression_testing.md` | 回归测试、语句覆盖与变异测试的基本概念 |
 | `no_test_ablation.md` | 无测试消融、未编辑失败、天花板效应与预算截断 |
+| `experiment_walkthrough.md` | 实验全流程说明，从任务构造到统计与效度，附术语对照表 |

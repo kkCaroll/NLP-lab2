@@ -44,6 +44,7 @@
 - 完成无测试消融 `2026-10-21_ablation`，八题两模型共 50 个分支 episode，审计通过，无成功 Bash 执行，结果见 `RECORD/analysis/ablation/README.md`
 - 消融中 MiniMax 的 negative 仍为五条件最低，通过 4/8，negative_guidance 为 6/8，pure_continue 为 8/8
 - 完成主实验统计分析与报告用图，结果见 `RECORD/analysis/main_results.md` 与 `RECORD/analysis/figures/`
-- 完成最终报告与演示文稿 v0，见 `RECORD/report/report.md`、`RECORD/report/slides_v0.md` 与 `RECORD/report/slides_v0.pptx`
-- 质性抽样已完成，三十一条样本位于 `RECORD/analysis/qualitative/`，系统编码尚未完成，报告中仅使用三个可追溯案例作探索性观察
-- 下一步复核报告数字与表述，完成质性编码，并按需调整演示文稿
+- 完成最终报告与演示文稿 v0，见 `RECORD/report/report_v0/report_v0.md` 与 `RECORD/report/slides_v0/`
+- 完成三十一条样本的系统编码、二次编码与编码一致性分析，结果见 `RECORD/analysis/deepening/coding_summary.md` 与 `RECORD/analysis/deepening/coding_reliability.md`
+- 完成预算核算、十六例双倍预算补跑、过程指标、功效分析与敏感性分析，结果见 `RECORD/analysis/deepening/README.md`
+- 完成报告 v1 与演示 v1，演示含十五页与十分钟提示稿，见 `RECORD/report/report_v1/report_v1.md` 与 `RECORD/report/slides_v1/`

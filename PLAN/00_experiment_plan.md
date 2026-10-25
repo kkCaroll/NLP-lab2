@@ -458,7 +458,7 @@ nlp_proj_2/
 2. 可复现的 harness 与配置文件。
 3. `RECORD/runs/` 原始 artifacts：events、prompt、diff、pytest 输出、终态 workspace。
 4. `RECORD/analysis/results.csv`、逐题明细、图表。
-5. `RECORD/report/report.md`：实验设计、表 3、五条件对比、模型对比、消融、案例、效度威胁与结论。
+5. `RECORD/report/report_v1/report_v1.md`：实验设计、表 3、五条件对比、模型对比、消融、案例、效度威胁与结论。
 6. 一页“真实使用建议”：怎样的反馈最有利于修正错误。
 
 ## 14. 运行后核查与方案修订

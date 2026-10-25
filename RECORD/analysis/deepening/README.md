@@ -17,14 +17,24 @@
 | `coding_consistency_check.md` | 同日十条一致性检查，不作为信度证据 |
 | `coding_machine_check.csv` | 三项可机械化编码的逐项判定，93 行 |
 | `coding_machine_check.md` | 机械化判定核查，性质为一致性核查 |
-| `coding_reliability.md` | 间隔二十四小时后的正式重编码，后续生成 |
+| `coding_recoding.csv` | 重编码原始结果，十行，未改动 |
+| `coding_recoding_notes.md` | 重编码过程说明，原文 |
+| `coding_reliability.csv` | 编码者内逐项一致率与分歧条目 |
+| `coding_reliability.md` | 间隔二十五小时的正式重编码与一致率 |
+| `coding_summary.csv` | 编码按总体、模型、条件与结果的长表汇总 |
+| `coding_summary.md` | 编码汇总与配额抽样的解释边界 |
 | `coding_second_coder.csv` | 第二编码者原始编码表，十行，未改动 |
 | `coding_second_coder_notes.md` | 第二编码者过程说明，原文 |
 | `coding_interrater.csv` | 编码者间逐项一致率与分歧条目 |
 | `coding_interrater.md` | 编码者间一致率结果与解释边界 |
 | `budget_rerun.csv` | 十六个案例两臂结果的配对汇总 |
 | `budget_rerun.md` | 双倍预算补跑结果与解释边界 |
-| `power_analysis.md` | 功效分析，后续生成 |
+| `power_analysis.md` | 功效分析与最小可检测效应 |
+| `power_analysis.csv` | 二十个配对单位十项比较的不一致结构与精确 p |
+| `power_analysis_grid.csv` | 单位数与不一致比例对应的最小可检测风险差 |
+| `power_analysis_required.csv` | 达到给定风险差所需的配对单位数 |
+| `sensitivity.md` | 测试篡改、预算耗尽与难度分层三项敏感性分析 |
+| `sensitivity.csv` | 五个场景按模型与条件的通过数 |
 
 ## 盲化规则
 
@@ -49,6 +59,17 @@ python harness/prepare_qualitative.py
 
 1. `coding_machine_check.md`，三项可机械化编码与源数据的一致性核查，不提供信度信息。
 2. `coding_interrater.md`，第二编码者对十例的独立判断，编码者间一致率 0.989，kappa 0.981。第二编码者为语言模型，且与首轮编码者同源。
-3. `coding_reliability.md`，编码者内在间隔二十四小时后的重编码，2026-10-23 生成。
+3. `coding_reliability.md`，编码者内重编码，间隔二十五小时二十七分，原始一致率 1.000，kappa 1.000。
 
-编码表需经用户复核后才能进入报告。S01 的 `rewrites_function` 存在一项分歧，见 `coding_interrater.md` 第 5 节，待用户决定取值。
+另有 `coding_consistency_check.md`，为间隔不足时的过程记录，报告中不引用。
+
+编码表需经用户复核后才能进入报告。S01 的 `rewrites_function` 存在一项分歧，三票中两票为否。经用户决定维持首轮取值否，报告按 89 比 90 引用编码者间一致率。
+
+## 深入分析
+
+| 文件 | 结论 |
+|---|---|
+| `budget_accounting.md` | 名义预算十与十五，有效预算九与十三，一百零一个 episode 开局即被拒 |
+| `budget_rerun.md` | 十六例双倍预算补跑，通过数由十升至十六，精确 McNemar p 为 0.031 |
+| `power_analysis.md` | 配对单位二十个，十四单位子集在结构上不可能显著，最小可检测风险差约 0.28 至 0.38 |
+| `sensitivity.md` | 标准题全部通过，条件差异全部由困难题承载，未被预算截断的失败仅两个 |

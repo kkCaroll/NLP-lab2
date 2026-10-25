@@ -53,9 +53,9 @@
 
 MiniMax 的负面与中性并列最低，负面加指导最高。MiMo 的纯继续、方法指引与负面加指导均为满分，中性与负面各低一题。两模型的修改行数中位数均为二至四行，EditRatio 中位数多为一，OverEditRate 在 MiniMax 为 0.042 至 0.083，在 MiMo 为零至 0.042。回归测试失败数为零。
 
-![分支修复成功率](../analysis/figures/repair_success.png)
+![分支修复成功率](../../analysis/figures/repair_success.png)
 
-![分支 EditSize 分布](../analysis/figures/edit_size.png)
+![分支 EditSize 分布](../../analysis/figures/edit_size.png)
 
 预算截断需要单独说明。MiniMax 七十个分支 episode 中百分之七十一点四耗尽十五次工具调用，负面条件为百分之九十二点九。MiMo 三十个分支中百分之六点七耗尽预算。MiniMax 的失败中有相当部分不是形成错误补丁，而是在读取与搜索后未编辑即结束。因此 EditSize 较低不能直接解释为修改更谨慎。
 

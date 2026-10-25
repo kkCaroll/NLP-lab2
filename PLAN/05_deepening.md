@@ -145,8 +145,8 @@ v0 已说明负面反馈与较低修复成功率相关，失败以未编辑和�
 - `RECORD/analysis/deepening/process_metrics.md`
 - `RECORD/analysis/deepening/replication/`
 - `RECORD/analysis/deepening/power_analysis.md`
-- `RECORD/report/report_v1.md`
-- `RECORD/report/slides_v1.md` 与渲染文件，报告定稿后生成
+- `RECORD/report/report_v1/report_v1.md`
+- `RECORD/report/slides_v1/slides_v1.md` 与渲染文件，报告定稿后生成
 - `LOG/2026-10-22_deepening.md`
 
 ## 9. 立即下一步
